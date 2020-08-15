@@ -1,0 +1,18 @@
+﻿<h1 mat-dialog-title>Warning!</h1>
+<mat-dialog-content class="mat-typography">
+    <p>{{data.message}} </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button
+            type="button"
+            class="btn btn-primary"
+            (click)="onNoClick()">
+        No
+    </button>
+    <button mat-raised-button type="button"
+            class="btn btn-danger"
+            [mat-dialog-close]="data.name"
+            cdkFocusInitial>
+        Yes
+    </button>
+</mat-dialog-actions>
