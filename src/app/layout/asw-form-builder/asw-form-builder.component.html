@@ -33,11 +33,13 @@
                                             <input matInput [type]="control.type"
                                                             [name]="control.name"
                                                             [placeholder]="control.placeholder"
-                                                            [title]="control.title">
+                                                            [title]="control.tooltip"
+                                                            [maxlength]="control.maxlength"
+                                                            [required]="control.required">
                                                             
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button>Edit</button>
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
                                         </div>
                                     </div>
@@ -46,38 +48,40 @@
                                             <mat-label>{{control.placeholder}}</mat-label>
                                             <textarea matInput [name]="control.name"
                                                                 [placeholder]="control.placeholder"
-                                                                [title]="control.title"></textarea>
+                                                                [title]="control.tooltip"
+                                                                [maxlength]="control.maxlength"
+                                                                [required]="control.required"></textarea>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button>Edit</button>
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'dropdown'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
-                                            <mat-select [placeholder]="control.placeholder">
+                                            <mat-select [placeholder]="control.placeholder" [required]="control.required">
                                             <mat-option *ngFor="let option of control.options" [value]="option.value">
                                                 {{ option.viewValue }}
                                             </mat-option>
                                             </mat-select>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button>Edit</button>
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'multi-select'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
-                                            <mat-select [placeholder]="control.placeholder" multiple>
+                                            <mat-select [placeholder]="control.placeholder" multiple [required]="control.required">
                                             <mat-option *ngFor="let option of control.options" [value]="option.value">
                                                 {{ option.viewValue }}
                                             </mat-option>
                                             </mat-select>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button>Edit</button>
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
                                         </div>
                                     </div>
@@ -89,51 +93,20 @@
                                             </mat-radio-button>
                                         </mat-radio-group>
                                         <div class="row">
-                                            <button mat-button>Edit</button>
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'datepicker'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
-                                            <input matInput [matDatepicker]="picker" [placeholder]="control.placeholder">
+                                            <input matInput [matDatepicker]="picker" [placeholder]="control.placeholder" [required]="control.required">
                                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                             <mat-datepicker #picker></mat-datepicker>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button>Edit</button>
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                        </div>
-                                    </div>
-                                    <div droppable (onDropSuccess)="addToFormGrid($event)" [dropZones]="['grid']">
-                                        <div *ngSwitchCase="'grid'">
-                                            <mat-grid-list cols="4" rowHeight="100px">
-                                                <mat-grid-tile
-                                                        *ngFor="let option of control.options"
-                                                        [colspan]="option.cols"
-                                                        [rowspan]="option.rows"
-                                                        [style.background]="option.color">
-                                                        <div [ngSwitch]="control.controlType">
-                                                            <div *ngSwitchCase="'textbox'">
-                                                                <mat-form-field class="asw-full-width">
-                                                                    <input matInput [type]="control.type"
-                                                                                    [name]="control.name"
-                                                                                    [placeholder]="control.placeholder"
-                                                                                    [title]="control.title">
-                                                                                    
-                                                                </mat-form-field>
-                                                                <div fxLayout="row">
-                                                                    <button mat-button>Edit</button>
-                                                                    <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                </mat-grid-tile>
-                                            </mat-grid-list>
-                                            <div class="row">
-                                                <button mat-button>Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
