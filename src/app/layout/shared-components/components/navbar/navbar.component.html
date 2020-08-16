@@ -1,17 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-primary navbar-transparent navbar-absolute" 
-     color-on-scroll="500">
-    <div class="container">
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+    <div class="container-fluid">
         <div class="navbar-wrapper">
-            <a class="navbar-brand d-none d-sm-none d-md-block" href="#/">ASW</a>
-            <a class="navbar-brand d-block d-sm-block d-md-none" href="#/">ASW</a>
+          <a class="navbar-brand" href="javascript:void(0)">ASW</a>
         </div>
-        <button class="navbar-toggler mat-button" mat-button="" type="button">
-            <span class="mat-button-wrapper">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-            </span>
+        <button mat-raised-button class="navbar-toggler" type="button" (click)="sidebarToggle()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form class="navbar-form">
