@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AswFormBuilderComponent } from './asw-form-builder.component';
+import { TextBoxPropertyComponent } from './text-box-property.component';
 
-describe('AswFormBuilderComponent', () => {
-  let component: AswFormBuilderComponent;
-  let fixture: ComponentFixture<AswFormBuilderComponent>;
+describe('TextBoxPropertyComponent', () => {
+  let component: TextBoxPropertyComponent;
+  let fixture: ComponentFixture<TextBoxPropertyComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AswFormBuilderComponent ]
+      declarations: [ TextBoxPropertyComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AswFormBuilderComponent);
+    fixture = TestBed.createComponent(TextBoxPropertyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AswFormBuilderComponent } from './layout/asw-form-builder/asw-form-builder.component';
+import { FormBuilderComponent } from './layout/form-builder/form-builder.component';
 import { ComponentsModule } from './layout/shared-components/components/components.module';
 import { MaterialModule } from './material.module';
 import { ConfirmDialogComponent } from './layout/shared-components/confirm-dialog/confirm-dialog.component';
-import { AswEditPropertyComponent } from './layout/asw-edit-property/asw-edit-property.component';
+import { TextBoxPropertyComponent } from './layout/edit-property/text-box-property/text-box-property.component';
+import { MultiSelectPropertyComponent } from './layout/edit-property/multi-select-property/multi-select-property.component';
+import { ButtonPropertyComponent } from './layout/edit-property/button-property/button-property.component';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
 import { ContactUsComponent } from './layout/contact-us/contact-us.component';
 import { ASWSettingsService } from './layout/shared-service/asw-settings.service';
@@ -18,9 +20,11 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
 @NgModule({
   declarations: [
     AppComponent,
-    AswFormBuilderComponent,
+    FormBuilderComponent,
     ConfirmDialogComponent,
-    AswEditPropertyComponent,
+    TextBoxPropertyComponent,
+    MultiSelectPropertyComponent,
+    ButtonPropertyComponent,
     AboutUsComponent,
     ContactUsComponent
   ],

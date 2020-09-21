@@ -1,0 +1,60 @@
+<!-- <h1 mat-dialog-title>Edit Property</h1> -->
+<h4 mat-dialog-title>Edit Property</h4>
+<mat-divider></mat-divider>
+<form [formGroup]="aswEditPropertyForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <div class="asw-full-width">
+            <mat-form-field appearance="outline">
+                <mat-label>Tooltip</mat-label>
+                <input matInput type="text"
+                                name="tooltip"
+                                placeholder="Enter tooltip"
+                                title="Enter tooltip"
+                                formControlName="tooltip">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Placeholder</mat-label>
+                <input matInput type="text"
+                                name="placeholder"
+                                placeholder="Enter placeholder"
+                                title="Enter placeholder"
+                                formControlName="placeholder">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text"
+                                name="name"
+                                placeholder="Enter name"
+                                title="Enter name"
+                                formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="button">Button</mat-option>
+                    <mat-option value="submit">Submit</mat-option>
+                    <mat-option value="reset">Reset</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-slide-toggle color="primary"
+                          #isActive
+                          formControlName="isRequired"
+                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}</mat-slide-toggle>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button
+                type="button"
+                class="btn btn-primary"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button mat-raised-button type="submit"
+                class="btn btn-danger"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>
+
