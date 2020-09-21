@@ -10,9 +10,9 @@ import { FormBuilderComponent } from './layout/form-builder/form-builder.compone
 import { ComponentsModule } from './layout/shared-components/components/components.module';
 import { MaterialModule } from './material.module';
 import { ConfirmDialogComponent } from './layout/shared-components/confirm-dialog/confirm-dialog.component';
-import { EditTextBoxComponent } from './layout/edit-controls/text-box/edit-text-box.component';
-import { EditMultiSelectComponent } from './layout/edit-controls/multi-select/edit-multi-select.component';
-import { EditButtonComponent } from './layout/edit-controls/button/edit-button.component';
+import { EditTextBoxComponent } from './layout/edit-controls/edit-text-box/edit-text-box.component';
+import { EditMultiSelectComponent } from './layout/edit-controls/edit-multi-select/edit-multi-select.component';
+import { EditButtonComponent } from './layout/edit-controls/edit-button/edit-button.component';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
 import { ContactUsComponent } from './layout/contact-us/contact-us.component';
 import { ASWSettingsService } from './layout/shared-service/asw-settings.service';
