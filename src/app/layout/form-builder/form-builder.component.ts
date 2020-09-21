@@ -74,7 +74,6 @@ export class FormBuilderComponent implements OnInit {
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			debugger;
 			if(result != undefined) {
 				var item = this.formContainer.find(x=>x.name == result);
 				console.log('The dialog was closed');
@@ -91,7 +90,6 @@ export class FormBuilderComponent implements OnInit {
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			debugger;
 			if(result != undefined) {
 				var item = this.formContainer.find(x=>x.name == result);
 				console.log('The dialog was closed');
@@ -108,7 +106,6 @@ export class FormBuilderComponent implements OnInit {
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			debugger;
 			if(result != undefined) {
 				var item = this.formContainer.find(x=>x.name == result);
 				console.log('The dialog was closed');

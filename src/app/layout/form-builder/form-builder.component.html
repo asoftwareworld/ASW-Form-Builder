@@ -40,8 +40,10 @@
                                                             
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            <div class="col-md-12">
+                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'textarea'">
@@ -55,8 +57,10 @@
                                                                 [required]="control.required"></textarea>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            <div class="col-md-12">
+                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'dropdown'">
@@ -69,8 +73,10 @@
                                             </mat-select>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            <div class="col-md-12">
+                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'multi-select'">
@@ -83,8 +89,10 @@
                                             </mat-select>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            <div class="col-md-12">
+                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'radio'">
@@ -96,8 +104,10 @@
                                             </mat-radio-button>
                                         </mat-radio-group>
                                         <div class="row">
-                                            <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            <div class="col-md-12">
+                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'datepicker'">
@@ -108,8 +118,10 @@
                                             <mat-datepicker #picker></mat-datepicker>
                                         </mat-form-field>
                                         <div class="row">
-                                            <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            <div class="col-md-12">
+                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                            </div>                                            
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'button'">
@@ -123,8 +135,10 @@
                                                         [title]="control.tooltip"
                                                         >{{control.label}}</button>
                                                 <div class="row">
-                                                    <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                    <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    <div class="col-md-12">
+                                                        <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                        <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    </div>                                                    
                                                 </div>
                                             </div>
                                             <div *ngSwitchCase="'mat-raised-button'">
@@ -136,8 +150,10 @@
                                                         [title]="control.tooltip"
                                                         >{{control.label}}</button>
                                                 <div class="row">
-                                                    <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                    <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    <div class="col-md-12">
+                                                        <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                        <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div *ngSwitchCase="'mat-stroked-button'">
@@ -149,8 +165,10 @@
                                                         [title]="control.tooltip"
                                                         >{{control.label}}</button>
                                                 <div class="row">
-                                                    <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                    <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    <div class="col-md-12">
+                                                        <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                        <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div *ngSwitchCase="'mat-flat-button'">
@@ -162,8 +180,10 @@
                                                         [title]="control.tooltip"
                                                         >{{control.label}}</button>
                                                 <div class="row">
-                                                    <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                    <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    <div class="col-md-12">
+                                                        <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
+                                                        <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>                                        
