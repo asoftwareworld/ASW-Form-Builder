@@ -89,6 +89,7 @@
         "placeholder": "Button",
         "type": "button",
         "color":"primary",
+        "buttonStyle":"mat-button",
         "isRequired": false
       }
 ]
