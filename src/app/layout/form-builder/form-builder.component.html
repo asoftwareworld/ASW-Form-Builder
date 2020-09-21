@@ -113,7 +113,7 @@
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'button'">
-                                        <div [ngSwitch]="control.buttonStyle" class="asw-full-width">
+                                        <div [ngSwitch]="control.buttonStyle">
                                             <div *ngSwitchCase="'mat-button'">
                                                 <button mat-button 
                                                         [color]="control.color"
@@ -121,7 +121,7 @@
                                                         [title]="control.tooltip"
                                                         [name]="control.name"
                                                         [title]="control.tooltip"
-                                                        >{{control.placeholder}}</button>
+                                                        >{{control.label}}</button>
                                                 <div class="row">
                                                     <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
                                                     <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
@@ -134,7 +134,7 @@
                                                         [title]="control.tooltip"
                                                         [name]="control.name"
                                                         [title]="control.tooltip"
-                                                        >{{control.placeholder}}</button>
+                                                        >{{control.label}}</button>
                                                 <div class="row">
                                                     <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
                                                     <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
@@ -147,7 +147,7 @@
                                                         [title]="control.tooltip"
                                                         [name]="control.name"
                                                         [title]="control.tooltip"
-                                                        >{{control.placeholder}}</button>
+                                                        >{{control.label}}</button>
                                                 <div class="row">
                                                     <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
                                                     <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
@@ -160,7 +160,7 @@
                                                         [title]="control.tooltip"
                                                         [name]="control.name"
                                                         [title]="control.tooltip"
-                                                        >{{control.placeholder}}</button>
+                                                        >{{control.label}}</button>
                                                 <div class="row">
                                                     <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
                                                     <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>

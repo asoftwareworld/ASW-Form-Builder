@@ -86,7 +86,7 @@
         "controlType": "button",
         "name": "button",
         "tooltip": "Click button",
-        "placeholder": "Button",
+        "label": "Button",
         "type": "button",
         "color":"primary",
         "buttonStyle":"mat-button",

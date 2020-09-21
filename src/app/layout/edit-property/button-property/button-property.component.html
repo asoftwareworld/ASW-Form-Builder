@@ -2,24 +2,30 @@
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
 <form [formGroup]="aswEditPropertyForm" (ngSubmit)="onSubmit()">
-    <mat-dialog-content class="mat-typography">
-        <div class="asw-full-width">
-            <mat-form-field appearance="outline">
-                <mat-label>Tooltip</mat-label>
-                <input matInput type="text"
-                                name="tooltip"
-                                placeholder="Enter tooltip"
-                                title="Enter tooltip"
-                                formControlName="tooltip">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Placeholder</mat-label>
-                <input matInput type="text"
-                                name="placeholder"
-                                placeholder="Enter placeholder"
-                                title="Enter placeholder"
-                                formControlName="placeholder">
-            </mat-form-field>
+    <mat-dialog-content class="mat-typography">        
+        <div class="asw-full-width"><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        placeholder="Enter label"
+                                        title="Enter label"
+                                        formControlName="label">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tooltip</mat-label>
+                        <input matInput type="text"
+                                        name="tooltip"
+                                        placeholder="Enter tooltip"
+                                        title="Enter tooltip"
+                                        formControlName="tooltip">
+                    </mat-form-field>
+                </div>
+            </div>
             <mat-form-field appearance="outline">
                 <mat-label>Name</mat-label>
                 <input matInput type="text"
@@ -36,24 +42,30 @@
                     <mat-option value="reset">Reset</mat-option>
                 </mat-select>
             </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Color</mat-label>
-                <mat-select formControlName="color">
-                    <mat-option value="">Basic</mat-option>
-                    <mat-option value="primary">Primary</mat-option>
-                    <mat-option value="accent">Accent</mat-option>
-                    <mat-option value="warn">Warn</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>Button Style</mat-label>
-                <mat-select formControlName="buttonStyle">
-                    <mat-option value="mat-button">Basic</mat-option>
-                    <mat-option value="mat-raised-button">Raised</mat-option>
-                    <mat-option value="mat-stroked-button">Stroked</mat-option>
-                    <mat-option value="mat-flat-button">Flat</mat-option>
-                </mat-select>
-            </mat-form-field>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Button Style</mat-label>
+                        <mat-select formControlName="buttonStyle">
+                            <mat-option value="mat-button">Basic</mat-option>
+                            <mat-option value="mat-raised-button">Raised</mat-option>
+                            <mat-option value="mat-stroked-button">Stroked</mat-option>
+                            <mat-option value="mat-flat-button">Flat</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Color</mat-label>
+                        <mat-select formControlName="color">
+                            <mat-option value="">Basic</mat-option>
+                            <mat-option value="primary">Primary</mat-option>
+                            <mat-option value="accent">Accent</mat-option>
+                            <mat-option value="warn">Warn</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
             <mat-slide-toggle color="primary"
                           #isActive
                           formControlName="isRequired"
