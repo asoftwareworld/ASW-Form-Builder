@@ -26,6 +26,8 @@ export class ButtonPropertyComponent implements OnInit {
             placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
+            color: [],
+            buttonStyle: ['', [Validators.required]],
             isRequired:[false]
         });
     }
@@ -36,6 +38,8 @@ export class ButtonPropertyComponent implements OnInit {
             placeholder: control.placeholder,
             name: control.name,
             type: control.type,
+            color: control.color,
+            buttonStyle: control.buttonStyle,
             isRequired: control.isRequired
         });
     }

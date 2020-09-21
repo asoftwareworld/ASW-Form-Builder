@@ -36,7 +36,24 @@
                     <mat-option value="reset">Reset</mat-option>
                 </mat-select>
             </mat-form-field>
-            
+            <mat-form-field appearance="outline">
+                <mat-label>Color</mat-label>
+                <mat-select formControlName="color">
+                    <mat-option value="">Basic</mat-option>
+                    <mat-option value="primary">Primary</mat-option>
+                    <mat-option value="accent">Accent</mat-option>
+                    <mat-option value="warn">Warn</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Button Style</mat-label>
+                <mat-select formControlName="buttonStyle">
+                    <mat-option value="mat-button">Basic</mat-option>
+                    <mat-option value="mat-raised-button">Raised</mat-option>
+                    <mat-option value="mat-stroked-button">Stroked</mat-option>
+                    <mat-option value="mat-flat-button">Flat</mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-slide-toggle color="primary"
                           #isActive
                           formControlName="isRequired"
