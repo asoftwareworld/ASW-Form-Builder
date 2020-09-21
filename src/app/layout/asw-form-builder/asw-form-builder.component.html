@@ -33,6 +33,7 @@
                                             <input matInput [type]="control.type"
                                                             [name]="control.name"
                                                             [placeholder]="control.placeholder"
+                                                            ngModel
                                                             [title]="control.tooltip"
                                                             [maxlength]="control.maxlength"
                                                             [required]="control.required">
@@ -49,6 +50,7 @@
                                             <textarea matInput [name]="control.name"
                                                                 [placeholder]="control.placeholder"
                                                                 [title]="control.tooltip"
+                                                                ngModel
                                                                 [maxlength]="control.maxlength"
                                                                 [required]="control.required"></textarea>
                                         </mat-form-field>
@@ -60,7 +62,7 @@
                                     <div *ngSwitchCase="'dropdown'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
-                                            <mat-select [placeholder]="control.placeholder" [required]="control.required">
+                                            <mat-select [placeholder]="control.placeholder" ngModel [required]="control.required">
                                             <mat-option *ngFor="let option of control.options" [value]="option.value">
                                                 {{ option.viewValue }}
                                             </mat-option>
@@ -74,7 +76,7 @@
                                     <div *ngSwitchCase="'multi-select'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
-                                            <mat-select [placeholder]="control.placeholder" multiple [required]="control.required">
+                                            <mat-select [placeholder]="control.placeholder" ngModel multiple [required]="control.required">
                                             <mat-option *ngFor="let option of control.options" [value]="option.value">
                                                 {{ option.viewValue }}
                                             </mat-option>
@@ -100,10 +102,23 @@
                                     <div *ngSwitchCase="'datepicker'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
-                                            <input matInput [matDatepicker]="picker" [placeholder]="control.placeholder" [required]="control.required">
+                                            <input matInput [matDatepicker]="picker" ngModel [placeholder]="control.placeholder" [required]="control.required">
                                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                             <mat-datepicker #picker></mat-datepicker>
                                         </mat-form-field>
+                                        <div class="row">
+                                            <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
+                                            <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
+                                        </div>
+                                    </div>
+                                    <div *ngSwitchCase="'button'">
+                                        <button mat-raised-button 
+                                                [color]="control.color"
+                                                [type]="control.type"
+                                                [title]="control.tooltip"
+                                                [name]="control.name"
+                                                [title]="control.tooltip"
+                                                >{{control.placeholder}}</button>
                                         <div class="row">
                                             <button mat-button (click)="aswEditPropertyDialog(control, i)">Edit</button>
                                             <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
