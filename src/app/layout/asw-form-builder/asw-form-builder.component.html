@@ -88,7 +88,8 @@
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'radio'">
-                                        <mat-radio-group class="example-radio-group">
+                                        <label id="example-radio-group-label">{{control.placeholder}}</label>
+                                        <mat-radio-group class="asw-radio-group">
                                             <mat-radio-button color="primary" *ngFor="let option of control.options" 
                                                             [value]="option.value">
                                                         {{ option.viewValue }}
