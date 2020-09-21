@@ -3,16 +3,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'asw-button-property',
-  templateUrl: './button-property.component.html',
-  styleUrls: ['./button-property.component.scss']
+  selector: 'asw-edit-text-box',
+  templateUrl: './edit-text-box.component.html',
+  styleUrls: ['./edit-text-box.component.scss']
 })
-export class ButtonPropertyComponent implements OnInit {
+export class EditTextBoxComponent implements OnInit {
 
     aswEditPropertyForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<ButtonPropertyComponent>,
+        public dialogRef: MatDialogRef<EditTextBoxComponent>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(){
@@ -23,11 +23,10 @@ export class ButtonPropertyComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditPropertyForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+            placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
-            color: [],
-            buttonStyle: ['', [Validators.required]],
+            maxlength: ['', [Validators.required]],
             isRequired:[false]
         });
     }
@@ -35,11 +34,10 @@ export class ButtonPropertyComponent implements OnInit {
     editProperty(control: any): void {
         this.aswEditPropertyForm.setValue({
             tooltip: control.tooltip,
-            label: control.label,
+            placeholder: control.placeholder,
             name: control.name,
             type: control.type,
-            color: control.color,
-            buttonStyle: control.buttonStyle,
+            maxlength: control.maxlength,
             isRequired: control.isRequired
         });
     }

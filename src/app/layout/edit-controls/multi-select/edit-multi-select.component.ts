@@ -3,16 +3,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'asw-text-box-property',
-  templateUrl: './text-box-property.component.html',
-  styleUrls: ['./text-box-property.component.scss']
+  selector: 'asw-edit-multi-select',
+  templateUrl: './edit-multi-select.component.html',
+  styleUrls: ['./edit-multi-select.component.scss']
 })
-export class TextBoxPropertyComponent implements OnInit {
+export class EditMultiSelectComponent implements OnInit {
 
     aswEditPropertyForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<TextBoxPropertyComponent>,
+        public dialogRef: MatDialogRef<EditMultiSelectComponent>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(){

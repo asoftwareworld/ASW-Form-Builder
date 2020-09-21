@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextBoxPropertyComponent } from './text-box-property.component';
+import { EditMultiSelectComponent } from './edit-multi-select.component';
 
-describe('TextBoxPropertyComponent', () => {
-  let component: TextBoxPropertyComponent;
-  let fixture: ComponentFixture<TextBoxPropertyComponent>;
+describe('MultiSelectPropertyComponent', () => {
+  let component: EditMultiSelectComponent;
+  let fixture: ComponentFixture<EditMultiSelectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextBoxPropertyComponent ]
+      declarations: [EditMultiSelectComponent]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextBoxPropertyComponent);
+    fixture = TestBed.createComponent(EditMultiSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

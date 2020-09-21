@@ -3,16 +3,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'asw-multi-select-property',
-  templateUrl: './multi-select-property.component.html',
-  styleUrls: ['./multi-select-property.component.scss']
+  selector: 'asw-edit-button',
+  templateUrl: './edit-button.component.html',
+  styleUrls: ['./edit-button.component.scss']
 })
-export class MultiSelectPropertyComponent implements OnInit {
+export class EditButtonComponent implements OnInit {
 
     aswEditPropertyForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<MultiSelectPropertyComponent>,
+        public dialogRef: MatDialogRef<EditButtonComponent>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(){
@@ -23,10 +23,11 @@ export class MultiSelectPropertyComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditPropertyForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
-            maxlength: ['', [Validators.required]],
+            color: [],
+            buttonStyle: ['', [Validators.required]],
             isRequired:[false]
         });
     }
@@ -34,10 +35,11 @@ export class MultiSelectPropertyComponent implements OnInit {
     editProperty(control: any): void {
         this.aswEditPropertyForm.setValue({
             tooltip: control.tooltip,
-            placeholder: control.placeholder,
+            label: control.label,
             name: control.name,
             type: control.type,
-            maxlength: control.maxlength,
+            color: control.color,
+            buttonStyle: control.buttonStyle,
             isRequired: control.isRequired
         });
     }

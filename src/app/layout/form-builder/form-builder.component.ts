@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
-import { Control } from './control';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../common/constants';
 import { ConfirmDialogComponent } from '../shared-components/confirm-dialog/confirm-dialog.component';
-import { TextBoxPropertyComponent } from '../edit-property/text-box-property/text-box-property.component';
 import { ASWSettingsService } from '../shared-service/asw-settings.service';
-import { MultiSelectPropertyComponent } from '../edit-property/multi-select-property/multi-select-property.component';
-import { ButtonPropertyComponent } from '../edit-property/button-property/button-property.component';
+import { EditTextBoxComponent } from '../edit-controls/text-box/edit-text-box.component';
+import { EditMultiSelectComponent } from '../edit-controls/multi-select/edit-multi-select.component';
+import { EditButtonComponent } from '../edit-controls/button/edit-button.component';
 
 @Component({
   selector: 'asw-form-builder',
@@ -68,7 +67,7 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	editTextBoxProperty(control: any, i: any):void {
-		let dialogRef = this.dialog.open(TextBoxPropertyComponent, {
+		let dialogRef = this.dialog.open(EditTextBoxComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
@@ -84,7 +83,7 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	editMultiSelectProperty(control: any, i: any):void {
-		let dialogRef = this.dialog.open(MultiSelectPropertyComponent, {
+		let dialogRef = this.dialog.open(EditMultiSelectComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
@@ -100,7 +99,7 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	editButtonProperty(control: any, i: any): void {
-		let dialogRef = this.dialog.open(ButtonPropertyComponent, {
+		let dialogRef = this.dialog.open(EditButtonComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
