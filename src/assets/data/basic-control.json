@@ -34,9 +34,9 @@
         "isRequired": false,
         "maxlength": 50,
         "options": [
-            {"value": "teak-0", "viewValue": "Steak"},
-			{"value": "pizza-1", "viewValue": "Pizza"},
-            {"value": "tacos-2", "viewValue": "Tacos"}
+            {"value": "option-1", "viewValue": "Option 1"},
+			{"value": "option-2", "viewValue": "Option 2"},
+            {"value": "option-3", "viewValue": "Option 3"}
         ]
     },
     {
@@ -61,9 +61,9 @@
         "isRequired": false,
         "maxlength": 50,
         "options": [
-            {"value": "teak-0", "viewValue": "Steak"},
-			{"value": "pizza-1", "viewValue": "Pizza"},
-            {"value": "tacos-2", "viewValue": "Tacos"}
+            {"value": "option-1", "viewValue": "Option 1"},
+			{"value": "option-2", "viewValue": "Option 2"},
+            {"value": "option-3", "viewValue": "Option 3"}
         ]
     },
     {
@@ -77,9 +77,9 @@
         "isRequired": false,
         "maxlength": 50,
         "options": [
-            {"value": "teak-0", "viewValue": "Steak"},
-			{"value": "pizza-1", "viewValue": "Pizza"},
-            {"value": "tacos-2", "viewValue": "Tacos"}
+            {"value": "option-1", "viewValue": "Option 1"},
+			{"value": "option-2", "viewValue": "Option 2"},
+            {"value": "option-3", "viewValue": "Option 3"}
         ]
     },
     {
