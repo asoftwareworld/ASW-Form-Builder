@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../common/constants';
@@ -7,6 +7,8 @@ import { ASWSettingsService } from '../shared-service/asw-settings.service';
 import { EditTextBoxComponent } from '../edit-controls/edit-text-box/edit-text-box.component';
 import { EditMultiSelectComponent } from '../edit-controls/edit-multi-select/edit-multi-select.component';
 import { EditButtonComponent } from '../edit-controls/edit-button/edit-button.component';
+import { ButtonComponent } from './controls/button/button.component';
+import { debugOutputAstAsTypeScript } from '@angular/compiler';
 
 @Component({
   selector: 'asw-form-builder',
@@ -14,6 +16,7 @@ import { EditButtonComponent } from '../edit-controls/edit-button/edit-button.co
   styleUrls: ['./form-builder.component.scss']
 })
 export class FormBuilderComponent implements OnInit {
+	@ViewChild(ButtonComponent) button;
 	constants: any = Constants;
 	availableControls: any[] = [];
 	formContainer: any[] = [];
@@ -52,6 +55,14 @@ export class FormBuilderComponent implements OnInit {
 		});
 	}
 
+	updatedControl(data: any) {
+		this.formContainer.splice(data.index, 1, data.control);
+	}
+
+	deleteControl(index: any) {
+		this.formContainer.splice(index, 1);
+	}
+
 	editPropertyDialog(control: any, i: any): void {
 		switch(control.controlType) {
 			case 'multi-select':
@@ -74,6 +85,7 @@ export class FormBuilderComponent implements OnInit {
 		});
 		dialogRef.afterClosed().subscribe(result => {
 			if(result != undefined) {
+				debugger;
 				var item = this.formContainer.find(x=>x.name == result);
 				console.log('The dialog was closed');
 				this.formContainer.splice(i, 1, result);

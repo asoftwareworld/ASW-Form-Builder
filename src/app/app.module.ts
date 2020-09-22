@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormBuilderComponent } from './layout/form-builder/form-builder.component';
+import { ButtonComponent } from './layout/form-builder/controls/button/button.component';
 import { ComponentsModule } from './layout/shared-components/components/components.module';
 import { MaterialModule } from './material.module';
 import { ConfirmDialogComponent } from './layout/shared-components/confirm-dialog/confirm-dialog.component';
@@ -21,6 +22,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
   declarations: [
     AppComponent,
     FormBuilderComponent,
+    ButtonComponent,
     ConfirmDialogComponent,
     EditTextBoxComponent,
     EditMultiSelectComponent,
