@@ -19,6 +19,7 @@
         "tooltip": "Enter Text",
         "type": "text",
         "placeholder": "TextArea",
+        "style":"outline",
         "isRequired": false,
         "maxlength": 50
     },

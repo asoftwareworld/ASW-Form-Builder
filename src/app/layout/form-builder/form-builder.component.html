@@ -35,21 +35,11 @@
                                         </asw-text-box>
                                     </div>
                                     <div *ngSwitchCase="'textarea'">
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>{{control.placeholder}}</mat-label>
-                                            <textarea matInput [name]="control.name"
-                                                                [placeholder]="control.placeholder"
-                                                                [title]="control.tooltip"
-                                                                ngModel
-                                                                [maxlength]="control.maxlength"
-                                                                [required]="control.required"></textarea>
-                                        </mat-form-field>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>                                            
-                                        </div>
+                                        <asw-text-area [control]="control"
+                                                        [controlIndex]="i"
+                                                        (textAreaUpdateEvent)="updatedControl($event)"
+                                                        (textAreaDeleteEvent)="deleteControl($event)">
+                                        </asw-text-area>
                                     </div>
                                     <div *ngSwitchCase="'dropdown'">
                                         <mat-form-field appearance="outline">

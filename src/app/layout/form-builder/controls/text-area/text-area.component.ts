@@ -2,28 +2,28 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../../../common/constants';
 import { ConfirmDialogComponent } from '../../../shared-components/confirm-dialog/confirm-dialog.component';
-import { EditTextboxComponent } from '../../../edit-controls/edit-text-box/edit-text-box.component';
+import { EditTextAreaComponent } from '../../../edit-controls/edit-text-area/edit-text-area.component';
 
 @Component({
-    selector: 'asw-text-box',
-    templateUrl: './text-box.component.html',
-    styleUrls: ['./text-box.component.scss']
+    selector: 'asw-text-area',
+    templateUrl: './text-area.component.html',
+    styleUrls: ['./text-area.component.scss']
 })
-export class TextboxComponent {
+export class TextAreaComponent {
 
     constants: any = Constants;
     /**
-     * Textbox control
+     * TextArea control
      */
     @Input() control: any;
 
     /**
-     * Textbox control index to help update or delete button from drop area
+     * TextArea control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
 
-    @Output() textboxUpdateEvent = new EventEmitter<{control: any, index: number}>();
-    @Output() textboxDeleteEvent = new EventEmitter<number>();
+    @Output() textAreaUpdateEvent = new EventEmitter<{control: any, index: number}>();
+    @Output() textAreaDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
     
@@ -32,27 +32,27 @@ export class TextboxComponent {
      * @param control 
      * @param controlIndex 
      */
-  	deleteTextboxDialog(control: any, controlIndex: number): void {
+  	deleteTextAreaDialog(control: any, controlIndex: number): void {
 		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
 			data: { name: control.name, message: this.constants.messages.waringMessage }
 		});
 		dialogRef.afterClosed().subscribe(result => {            
 			if(result != undefined) {
-                this.textboxDeleteEvent.emit(controlIndex);
+                this.textAreaDeleteEvent.emit(controlIndex);
 			}
 		});
 	}
 
-	editTextboxDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditTextboxComponent, {
+	editTextAreaDialog(control: any, controlIndex: number): void {
+		let dialogRef = this.dialog.open(EditTextAreaComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
 			if(result != undefined) {
-				this.textboxUpdateEvent.emit({control: result, index: controlIndex});
+				this.textAreaUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});
 	}
