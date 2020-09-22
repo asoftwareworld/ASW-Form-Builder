@@ -7,12 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './edit-text-box.component.html',
   styleUrls: ['./edit-text-box.component.scss']
 })
-export class EditTextBoxComponent implements OnInit {
+export class EditTextboxComponent implements OnInit {
 
     aswEditPropertyForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditTextBoxComponent>,
+        public dialogRef: MatDialogRef<EditTextboxComponent>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(){
@@ -26,6 +26,7 @@ export class EditTextBoxComponent implements OnInit {
             placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
+            style: ['', [Validators.required]],
             maxlength: ['', [Validators.required]],
             isRequired:[false]
         });
@@ -38,6 +39,7 @@ export class EditTextBoxComponent implements OnInit {
             name: control.name,
             type: control.type,
             maxlength: control.maxlength,
+            style: control.style,
             isRequired: control.isRequired
         });
     }

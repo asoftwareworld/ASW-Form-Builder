@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../common/constants';
 import { ConfirmDialogComponent } from '../shared-components/confirm-dialog/confirm-dialog.component';
 import { ASWSettingsService } from '../shared-service/asw-settings.service';
-import { EditTextBoxComponent } from '../edit-controls/edit-text-box/edit-text-box.component';
+import { EditTextboxComponent } from '../edit-controls/edit-text-box/edit-text-box.component';
 import { EditMultiSelectComponent } from '../edit-controls/edit-multi-select/edit-multi-select.component';
 import { EditButtonComponent } from '../edit-controls/edit-button/edit-button.component';
 import { ButtonComponent } from './controls/button/button.component';
@@ -78,7 +78,7 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	editTextBoxProperty(control: any, i: any):void {
-		let dialogRef = this.dialog.open(EditTextBoxComponent, {
+		let dialogRef = this.dialog.open(EditTextboxComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control

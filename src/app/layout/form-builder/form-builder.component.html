@@ -28,23 +28,11 @@
                             <div *ngFor="let control of formContainer; let i = index" class="asw-box" cdkDrag>
                                 <div [ngSwitch]="control.controlType" class="asw-full-width">
                                     <div *ngSwitchCase="'textbox'">
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>{{control.placeholder}}</mat-label>
-                                            <input matInput [type]="control.type"
-                                                            [name]="control.name"
-                                                            [placeholder]="control.placeholder"
-                                                            ngModel
-                                                            [title]="control.tooltip"
-                                                            [maxlength]="control.maxlength"
-                                                            [required]="control.required">
-                                                            
-                                        </mat-form-field>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>                                            
-                                        </div>
+                                        <asw-text-box [control]="control"
+                                                    [controlIndex]="i"
+                                                    (textboxUpdateEvent)="updatedControl($event)"
+                                                    (textboxDeleteEvent)="deleteControl($event)">
+                                        </asw-text-box>
                                     </div>
                                     <div *ngSwitchCase="'textarea'">
                                         <mat-form-field appearance="outline">

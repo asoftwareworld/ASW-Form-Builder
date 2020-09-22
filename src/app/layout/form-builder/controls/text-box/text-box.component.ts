@@ -2,28 +2,28 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from './../../../common/constants';
 import { ConfirmDialogComponent } from './../../../shared-components/confirm-dialog/confirm-dialog.component';
-import { EditButtonComponent } from './../../../edit-controls/edit-button/edit-button.component';
+import { EditTextboxComponent } from './../../../edit-controls/edit-text-box/edit-text-box.component';
 
 @Component({
-    selector: 'asw-button',
-    templateUrl: './button.component.html',
-    styleUrls: ['./button.component.scss']
+    selector: 'asw-text-box',
+    templateUrl: './text-box.component.html',
+    styleUrls: ['./text-box.component.scss']
 })
-export class ButtonComponent {
+export class TextboxComponent {
 
     constants: any = Constants;
     /**
-     * Button control
+     * Textbox control
      */
     @Input() control: any;
 
     /**
-     * Button control index to help update or delete button from drop area
+     * Textbox control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
 
-    @Output() buttonUpdateEvent = new EventEmitter<{control: any, index: number}>();
-    @Output() buttonDeleteEvent = new EventEmitter<number>();
+    @Output() textboxUpdateEvent = new EventEmitter<{control: any, index: number}>();
+    @Output() textboxDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
     
@@ -32,27 +32,27 @@ export class ButtonComponent {
      * @param control 
      * @param controlIndex 
      */
-  	deleteButtonDialog(control: any, controlIndex: number): void {
+  	deleteTextboxDialog(control: any, controlIndex: number): void {
 		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
 			data: { name: control.name, message: this.constants.messages.waringMessage }
 		});
 		dialogRef.afterClosed().subscribe(result => {            
 			if(result != undefined) {
-                this.buttonDeleteEvent.emit(controlIndex);
+                this.textboxDeleteEvent.emit(controlIndex);
 			}
 		});
 	}
 
-	editButtonDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditButtonComponent, {
+	editTextboxDialog(control: any, controlIndex: number): void {
+		let dialogRef = this.dialog.open(EditTextboxComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
 			if(result != undefined) {
-				this.buttonUpdateEvent.emit({control: result, index: controlIndex});
+				this.textboxUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});
 	}

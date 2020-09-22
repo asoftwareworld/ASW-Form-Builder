@@ -27,7 +27,7 @@ export class EditButtonComponent implements OnInit {
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
             color: [],
-            buttonStyle: ['', [Validators.required]],
+            style: ['', [Validators.required]],
             isRequired:[false]
         });
     }
@@ -39,7 +39,7 @@ export class EditButtonComponent implements OnInit {
             name: control.name,
             type: control.type,
             color: control.color,
-            buttonStyle: control.buttonStyle,
+            style: control.style,
             isRequired: control.isRequired
         });
     }

@@ -1,0 +1,18 @@
+<mat-form-field hintLabel="Max {{control.maxlength}} characters" appearance="{{control.style}}">
+    <mat-label>{{control.placeholder}}</mat-label>
+    <input matInput [type]="control.type"
+                    [name]="control.name"
+                    [placeholder]="control.placeholder"
+                    ngModel
+                    #input
+                    [title]="control.tooltip"
+                    [maxlength]="control.maxlength"
+                    [required]="control.isRequired">
+    <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>                
+</mat-form-field>
+<div class="row">
+    <div class="col-md-12">
+        <button mat-button (click)="editTextboxDialog(control, controlIndex)">Edit</button>
+        <button mat-button color="warn" (click)="deleteTextboxDialog(control, controlIndex)">Remove</button>
+    </div>                                            
+</div>

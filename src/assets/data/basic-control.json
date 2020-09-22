@@ -7,6 +7,7 @@
       "tooltip": "Enter Text",
       "type": "text",
       "placeholder": "TextBox",
+      "style":"outline",
       "isRequired": false,
       "maxlength": 50
     },
@@ -89,7 +90,7 @@
         "label": "Button",
         "type": "button",
         "color":"primary",
-        "buttonStyle":"mat-button",
+        "style":"mat-button",
         "isRequired": false
       }
 ]
