@@ -11,7 +11,7 @@
                         <input matInput type="text"
                                         name="placeholder"
                                         placeholder="Enter placeholder"
-                                        title="Enter placeholder"
+                                        matTooltip="Enter placeholder"
                                         formControlName="placeholder">
                     </mat-form-field>
                 </div>
@@ -21,7 +21,7 @@
                         <input matInput type="text"
                                         name="tooltip"
                                         placeholder="Enter tooltip"
-                                        title="Enter tooltip"
+                                        matTooltip="Enter tooltip"
                                         formControlName="tooltip">
                     </mat-form-field>
                 </div>
@@ -33,7 +33,7 @@
                         <input matInput type="text"
                                         name="name"
                                         placeholder="Enter name"
-                                        title="Enter name"
+                                        matTooltip="Enter name"
                                         formControlName="name">
                     </mat-form-field>
                 </div>
@@ -57,6 +57,7 @@
                                         [name]="option.key"
                                         [placeholder]="option.key"
                                         [formControlName]="option.key"
+                                        [matTooltip]=""
                                         maxlength="50"
                                         required>
                     </mat-form-field>
@@ -68,6 +69,7 @@
                                         [name]="option.key"
                                         [placeholder]="option.value"
                                         [formControlName]="option.value"
+                                        [matTooltip]=""
                                         maxlength="50"
                                         required>
                     </mat-form-field>

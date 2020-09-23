@@ -41,10 +41,6 @@ export class EditSelectComponent implements OnInit {
             placeholder: control.placeholder,
             name: control.name,
             style: control.style,
-            options: control.options.array.forEach(element => {
-                let key = element.key;
-                let value = element.value
-            }),
             isRequired: control.isRequired
         });
     }
