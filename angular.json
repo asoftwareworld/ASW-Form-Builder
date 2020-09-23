@@ -29,7 +29,6 @@
             ],
             "styles": [
               "src/assets/scss/material-dashboard.scss",
-              "src/assets/css/demo.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -99,7 +98,6 @@
             ],
             "styles": [
               "src/assets/scss/material-dashboard.scss",
-              "src/assets/css/demo.css",
               "src/styles.scss"
             ],
             "scripts": [
