@@ -12,6 +12,7 @@ import { TextboxComponent } from './layout/form-builder/controls/text-box/text-b
 import { TextAreaComponent } from './layout/form-builder/controls/text-area/text-area.component';
 import { SelectComponent } from './layout/form-builder/controls/select/select.component';
 import { MultiSelectComponent } from './layout/form-builder/controls/multi-select/multi-select.component';
+import { RadioButtonComponent } from './layout/form-builder/controls/radio-button/radio-button.component';
 import { DatepickerComponent } from './layout/form-builder/controls/datepicker/datepicker.component';
 import { ComponentsModule } from './layout/shared-components/components/components.module';
 import { MaterialModule } from './material.module';
@@ -34,6 +35,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
     TextAreaComponent,
     SelectComponent,
     MultiSelectComponent,
+    RadioButtonComponent,
     DatepickerComponent,
     ButtonComponent,
     ConfirmDialogComponent,

@@ -56,19 +56,11 @@
                                         </asw-multi-select>
                                     </div>
                                     <div *ngSwitchCase="'radio'">
-                                        <label id="example-radio-group-label">{{control.placeholder}}</label>
-                                        <mat-radio-group class="asw-radio-group">
-                                            <mat-radio-button color="primary" *ngFor="let option of control.options" 
-                                                            [value]="option.key">
-                                                        {{ option.value }}
-                                            </mat-radio-button>
-                                        </mat-radio-group>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>                                            
-                                        </div>
+                                        <asw-radio-button [control]="control"
+                                                            [controlIndex]="i"
+                                                            (radioButtonUpdateEvent)="updatedControl($event)"
+                                                            (radioButtonDeleteEvent)="deleteControl($event)">
+                                        </asw-radio-button>
                                     </div>
                                     <div *ngSwitchCase="'datepicker'">
                                         <asw-datepicker [control]="control"

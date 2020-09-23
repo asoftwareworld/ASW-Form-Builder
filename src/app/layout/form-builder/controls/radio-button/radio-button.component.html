@@ -1,0 +1,13 @@
+<label id="example-radio-group-label">{{control.placeholder}}</label>
+<mat-radio-group class="asw-radio-group">
+    <mat-radio-button color="primary" *ngFor="let option of control.options" 
+                    [value]="option.key">
+                {{ option.value }}
+    </mat-radio-button>
+</mat-radio-group>
+<div class="row">
+    <div class="col-md-12">
+        <button mat-button (click)="editRadioButtonDialog(control, controlIndex)">Edit</button>
+        <button mat-button color="warn" (click)="deleteRadioButtonDialog(control, controlIndex)">Remove</button>
+    </div>                                            
+</div>
