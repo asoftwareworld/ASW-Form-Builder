@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Constants } from './layout/common/constants';
 
 @Component({
-  selector: 'app-root',
+  selector: 'asw-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'ASW-Form-Bulder';
+export class AppComponent implements OnInit {
+    constants: any = Constants;
+    pageTitle: string;
+    constructor(private titleService: Title,){}
 
-  constructor() {}
-
+    ngOnInit(): void {
+        this.pageTitle = this.constants.titleMessages.homeTitle;
+        this.titleService.setTitle(this.pageTitle);
+    }
   
 }

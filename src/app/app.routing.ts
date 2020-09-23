@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule }  from '@angular/core';
+import { NgModule }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormBuilderComponent } from './layout/form-builder/form-builder.component';
 import { AboutUsComponent } from './layout/about-us/about-us.component';

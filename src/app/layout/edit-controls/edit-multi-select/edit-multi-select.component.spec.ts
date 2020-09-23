@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EditMultiSelectComponent } from './edit-multi-select.component';
 
 describe('MultiSelectPropertyComponent', () => {
