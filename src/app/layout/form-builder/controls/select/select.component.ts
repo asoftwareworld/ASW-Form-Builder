@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from '../../../common/constants';
-import { ConfirmDialogComponent } from '../../../shared-components/confirm-dialog/confirm-dialog.component';
-import { EditSelectComponent } from '../../../edit-controls/edit-select/edit-select.component';
+import { Constants } from 'src/app/layout/common/constants';
+import { EditSelectComponent } from 'src/app/layout/edit-controls/edit-select/edit-select.component';
+import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'asw-select',
@@ -13,12 +13,12 @@ export class SelectComponent {
 
     constants: any = Constants;
     /**
-     * Textbox control
+     * Select control
      */
     @Input() control: any;
 
     /**
-     * Textbox control index to help update or delete button from drop area
+     * Select control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
 

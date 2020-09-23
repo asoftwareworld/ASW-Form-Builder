@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from './../../../common/constants';
-import { ConfirmDialogComponent } from './../../../shared-components/confirm-dialog/confirm-dialog.component';
-import { EditButtonComponent } from './../../../edit-controls/edit-button/edit-button.component';
+import { Constants } from 'src/app/layout/common/constants';
+import { EditButtonComponent } from 'src/app/layout/edit-controls/edit-button/edit-button.component';
+import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'asw-button',

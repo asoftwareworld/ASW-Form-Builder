@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EditTextAreaComponent } from './edit-text-area.component';
 
 describe('EditTextAreaComponent', () => {

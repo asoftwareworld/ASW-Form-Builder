@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from '../../../common/constants';
-import { ConfirmDialogComponent } from '../../../shared-components/confirm-dialog/confirm-dialog.component';
-import { EditTextAreaComponent } from '../../../edit-controls/edit-text-area/edit-text-area.component';
+import { Constants } from 'src/app/layout/common/constants';
+import { EditTextAreaComponent } from 'src/app/layout/edit-controls/edit-text-area/edit-text-area.component';
+import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'asw-text-area',
