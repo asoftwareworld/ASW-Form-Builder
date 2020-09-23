@@ -5,7 +5,7 @@
                     [placeholder]="control.placeholder"
                     ngModel
                     #input
-                    [title]="control.tooltip"
+                    [matTooltip]="control.tooltip"
                     [maxlength]="control.maxlength"
                     [required]="control.isRequired">
     <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>                

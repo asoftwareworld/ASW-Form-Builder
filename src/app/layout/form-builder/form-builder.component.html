@@ -42,27 +42,18 @@
                                         </asw-text-area>
                                     </div>
                                     <div *ngSwitchCase="'dropdown'">
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>{{control.placeholder}}</mat-label>
-                                            <mat-select [placeholder]="control.placeholder" ngModel [required]="control.required">
-                                            <mat-option *ngFor="let option of control.options" [value]="option.value">
-                                                {{ option.viewValue }}
-                                            </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>                                            
-                                        </div>
+                                        <asw-select [control]="control"
+                                                    [controlIndex]="i"
+                                                    (selectUpdateEvent)="updatedControl($event)"
+                                                    (selectDeleteEvent)="deleteControl($event)">
+                                        </asw-select>
                                     </div>
                                     <div *ngSwitchCase="'multi-select'">
                                         <mat-form-field appearance="outline">
                                             <mat-label>{{control.placeholder}}</mat-label>
                                             <mat-select [placeholder]="control.placeholder" ngModel multiple [required]="control.required">
-                                            <mat-option *ngFor="let option of control.options" [value]="option.value">
-                                                {{ option.viewValue }}
+                                            <mat-option *ngFor="let option of control.options" [value]="option.key">
+                                                {{ option.value }}
                                             </mat-option>
                                             </mat-select>
                                         </mat-form-field>
@@ -77,8 +68,8 @@
                                         <label id="example-radio-group-label">{{control.placeholder}}</label>
                                         <mat-radio-group class="asw-radio-group">
                                             <mat-radio-button color="primary" *ngFor="let option of control.options" 
-                                                            [value]="option.value">
-                                                        {{ option.viewValue }}
+                                                            [value]="option.key">
+                                                        {{ option.value }}
                                             </mat-radio-button>
                                         </mat-radio-group>
                                         <div class="row">

@@ -1,0 +1,14 @@
+<mat-form-field appearance="{{control.style}}">
+    <mat-label>{{control.placeholder}}</mat-label>
+    <mat-select [placeholder]="control.placeholder" ngModel [required]="control.isRequired">
+        <mat-option *ngFor="let option of control.options" [value]="option.key">
+            {{ option.value }}
+        </mat-option>
+    </mat-select>               
+</mat-form-field>
+<div class="row">
+    <div class="col-md-12">
+        <button mat-button (click)="editSelectDialog(control, controlIndex)">Edit</button>
+        <button mat-button color="warn" (click)="deleteSelectDialog(control, controlIndex)">Remove</button>
+    </div>                                            
+</div>

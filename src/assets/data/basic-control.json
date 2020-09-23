@@ -29,14 +29,13 @@
         "controlType": "dropdown",
         "name": "dropdown",
         "tooltip": "Select option",
-        "type": "text",
         "placeholder": "Drop-Down",
+        "style":"outline",
         "isRequired": false,
-        "maxlength": 50,
         "options": [
-            {"value": "option-1", "viewValue": "Option 1"},
-			{"value": "option-2", "viewValue": "Option 2"},
-            {"value": "option-3", "viewValue": "Option 3"}
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
         ]
     },
     {
@@ -56,14 +55,12 @@
         "controlType": "radio",
         "name": "radio",
         "tooltip": "radio",
-        "type": "text",
         "placeholder": "Radio",
         "isRequired": false,
-        "maxlength": 50,
         "options": [
-            {"value": "option-1", "viewValue": "Option 1"},
-			{"value": "option-2", "viewValue": "Option 2"},
-            {"value": "option-3", "viewValue": "Option 3"}
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
         ]
     },
     {
@@ -72,14 +69,12 @@
         "controlType": "multi-select",
         "name": "multi-select",
         "tooltip": "Select options",
-        "type": "text",
         "placeholder": "MultiSelect",
         "isRequired": false,
-        "maxlength": 50,
         "options": [
-            {"value": "option-1", "viewValue": "Option 1"},
-			{"value": "option-2", "viewValue": "Option 2"},
-            {"value": "option-3", "viewValue": "Option 3"}
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
         ]
     },
     {
