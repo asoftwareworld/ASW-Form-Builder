@@ -49,20 +49,11 @@
                                         </asw-select>
                                     </div>
                                     <div *ngSwitchCase="'multi-select'">
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>{{control.placeholder}}</mat-label>
-                                            <mat-select [placeholder]="control.placeholder" ngModel multiple [required]="control.required">
-                                            <mat-option *ngFor="let option of control.options" [value]="option.key">
-                                                {{ option.value }}
-                                            </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>                                            
-                                        </div>
+                                        <asw-multi-select [control]="control"
+                                                            [controlIndex]="i"
+                                                            (multiSelectUpdateEvent)="updatedControl($event)"
+                                                            (multiSelectDeleteEvent)="deleteControl($event)">
+                                        </asw-multi-select>
                                     </div>
                                     <div *ngSwitchCase="'radio'">
                                         <label id="example-radio-group-label">{{control.placeholder}}</label>

@@ -11,6 +11,7 @@ import { ButtonComponent } from './layout/form-builder/controls/button/button.co
 import { TextboxComponent } from './layout/form-builder/controls/text-box/text-box.component';
 import { TextAreaComponent } from './layout/form-builder/controls/text-area/text-area.component';
 import { SelectComponent } from './layout/form-builder/controls/select/select.component';
+import { MultiSelectComponent } from './layout/form-builder/controls/multi-select/multi-select.component';
 import { DatepickerComponent } from './layout/form-builder/controls/datepicker/datepicker.component';
 import { ComponentsModule } from './layout/shared-components/components/components.module';
 import { MaterialModule } from './material.module';
@@ -32,6 +33,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
     TextboxComponent,
     TextAreaComponent,
     SelectComponent,
+    MultiSelectComponent,
     DatepickerComponent,
     ButtonComponent,
     ConfirmDialogComponent,

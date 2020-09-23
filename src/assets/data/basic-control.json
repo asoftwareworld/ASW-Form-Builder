@@ -55,6 +55,7 @@
         "name": "radio",
         "tooltip": "radio",
         "placeholder": "Radio",
+        "style":"outline",
         "isRequired": false,
         "options": [
             {"key": "option-1", "value": "Option 1"},
@@ -69,6 +70,7 @@
         "name": "multi-select",
         "tooltip": "Select options",
         "placeholder": "MultiSelect",
+        "style":"outline",
         "isRequired": false,
         "options": [
             {"key": "option-1", "value": "Option 1"},
