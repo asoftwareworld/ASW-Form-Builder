@@ -80,18 +80,11 @@
                                         </div>
                                     </div>
                                     <div *ngSwitchCase="'datepicker'">
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>{{control.placeholder}}</mat-label>
-                                            <input matInput [matDatepicker]="picker" ngModel [placeholder]="control.placeholder" [required]="control.required">
-                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                            <mat-datepicker #picker></mat-datepicker>
-                                        </mat-form-field>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button mat-button (click)="editPropertyDialog(control, i)">Edit</button>
-                                                <button mat-button color="warn" (click)="openDialog(control, i)">Remove</button>
-                                            </div>                                            
-                                        </div>
+                                        <asw-datepicker [control]="control"
+                                                        [controlIndex]="i"
+                                                        (datepickerUpdateEvent)="updatedControl($event)"
+                                                        (datepickerDeleteEvent)="deleteControl($event)">
+                                        </asw-datepicker>
                                     </div>
                                     <div *ngSwitchCase="'button'">
                                         <asw-button [control]="control"

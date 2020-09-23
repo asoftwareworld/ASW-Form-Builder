@@ -1,0 +1,16 @@
+<mat-form-field appearance="{{control.style}}">
+    <mat-label>{{control.placeholder}}</mat-label>
+    <input matInput [matDatepicker]="picker" 
+                    ngModel 
+                    [matTooltip]="control.tooltip"
+                    [placeholder]="control.placeholder" 
+                    [required]="control.isRequired">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div class="row">
+    <div class="col-md-12">
+        <button mat-button (click)="editDatepickerDialog(control, controlIndex)">Edit</button>
+        <button mat-button color="warn" (click)="deleteDatepickerDialog(control, controlIndex)">Remove</button>
+    </div>                                            
+</div>

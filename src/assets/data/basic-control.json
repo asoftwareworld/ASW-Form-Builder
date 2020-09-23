@@ -44,10 +44,9 @@
         "controlType": "datepicker",
         "name": "datepicker",
         "tooltip": "Choose a date",
-        "type": "text",
         "placeholder": "Date Picker",
-        "isRequired": false,
-        "maxlength": 50
+        "style":"outline",
+        "isRequired": false
     },
     {
         "icon": "radio_button_checked",
