@@ -7,6 +7,7 @@
       "tooltip": "Enter Text",
       "type": "text",
       "placeholder": "TextBox",
+      "style":"outline",
       "isRequired": false,
       "maxlength": 50
     },
@@ -18,6 +19,7 @@
         "tooltip": "Enter Text",
         "type": "text",
         "placeholder": "TextArea",
+        "style":"outline",
         "isRequired": false,
         "maxlength": 50
     },
@@ -27,14 +29,13 @@
         "controlType": "dropdown",
         "name": "dropdown",
         "tooltip": "Select option",
-        "type": "text",
         "placeholder": "Drop-Down",
+        "style":"outline",
         "isRequired": false,
-        "maxlength": 50,
         "options": [
-            {"value": "teak-0", "viewValue": "Steak"},
-			{"value": "pizza-1", "viewValue": "Pizza"},
-            {"value": "tacos-2", "viewValue": "Tacos"}
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
         ]
     },
     {
@@ -43,10 +44,9 @@
         "controlType": "datepicker",
         "name": "datepicker",
         "tooltip": "Choose a date",
-        "type": "text",
         "placeholder": "Date Picker",
-        "isRequired": false,
-        "maxlength": 50
+        "style":"outline",
+        "isRequired": false
     },
     {
         "icon": "radio_button_checked",
@@ -54,14 +54,13 @@
         "controlType": "radio",
         "name": "radio",
         "tooltip": "radio",
-        "type": "text",
         "placeholder": "Radio",
+        "style":"outline",
         "isRequired": false,
-        "maxlength": 50,
         "options": [
-            {"value": "teak-0", "viewValue": "Steak"},
-			{"value": "pizza-1", "viewValue": "Pizza"},
-            {"value": "tacos-2", "viewValue": "Tacos"}
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
         ]
     },
     {
@@ -70,14 +69,13 @@
         "controlType": "multi-select",
         "name": "multi-select",
         "tooltip": "Select options",
-        "type": "text",
         "placeholder": "MultiSelect",
+        "style":"outline",
         "isRequired": false,
-        "maxlength": 50,
         "options": [
-            {"value": "teak-0", "viewValue": "Steak"},
-			{"value": "pizza-1", "viewValue": "Pizza"},
-            {"value": "tacos-2", "viewValue": "Tacos"}
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
         ]
     },
     {
@@ -86,10 +84,10 @@
         "controlType": "button",
         "name": "button",
         "tooltip": "Click button",
-        "placeholder": "Button",
+        "label": "Button",
         "type": "button",
         "color":"primary",
-        "buttonStyle":"mat-button",
+        "style":"mat-button",
         "isRequired": false
       }
 ]
