@@ -27,6 +27,13 @@
                             (cdkDropListDropped)="drop($event)">
                             <div *ngFor="let control of formContainer; let i = index" class="asw-box" cdkDrag>
                                 <div [ngSwitch]="control.controlType" class="asw-full-width">
+                                    <div *ngSwitchCase="'autocomplete'">
+                                        <asw-autocomplete [control]="control"
+                                                          [controlIndex]="i"
+                                                          (autocompleteUpdateEvent)="updatedControl($event)"
+                                                          (autocompleteDeleteEvent)="deleteControl($event)">
+                                        </asw-autocomplete>
+                                    </div>
                                     <div *ngSwitchCase="'textbox'">
                                         <asw-text-box [control]="control"
                                                       [controlIndex]="i"

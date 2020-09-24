@@ -1,5 +1,20 @@
 [
     {
+        "icon": "arrow_drop_down_circle",
+        "displayName": "Autocomplete",
+        "controlType": "autocomplete",
+        "name": "autocomplete",
+        "tooltip": "Select one",
+        "placeholder": "Autocomplete",
+        "style":"outline",
+        "isRequired": false,
+        "options": [
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
+        ]
+    },
+    {
       "icon": "text_fields",
       "displayName": "Textbox",
       "controlType": "textbox",

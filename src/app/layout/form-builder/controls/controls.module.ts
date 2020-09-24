@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './../../../material.module';
 
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { TextboxComponent } from './text-box/text-box.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { SelectComponent } from './select/select.component';
@@ -30,6 +31,7 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     DatepickerComponent,
     ButtonComponent,
     ConfirmDialogComponent,
+    AutocompleteComponent
   ],
   exports: [
     TextboxComponent,
@@ -40,6 +42,7 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     DatepickerComponent,
     ButtonComponent,
     ConfirmDialogComponent,
+    AutocompleteComponent,
   ]
 })
 export class ControlsModule { }
