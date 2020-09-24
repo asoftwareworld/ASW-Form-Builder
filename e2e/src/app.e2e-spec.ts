@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('ASW-Form-Bulder app is running!');
+    expect(page.getTitleText()).toEqual('ASW-Form-Builder app is running!');
   });
 
   afterEach(async () => {
