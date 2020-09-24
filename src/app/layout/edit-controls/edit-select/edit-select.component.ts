@@ -26,7 +26,6 @@ export class EditSelectComponent implements OnInit {
     }
 
     addNewOption(): void {
-        debugger;
         this.control.options.push(this.option);
     }
     removeOption(index: number): void {
