@@ -29,16 +29,16 @@
                                 <div [ngSwitch]="control.controlType" class="asw-full-width">
                                     <div *ngSwitchCase="'textbox'">
                                         <asw-text-box [control]="control"
-                                                    [controlIndex]="i"
-                                                    (textboxUpdateEvent)="updatedControl($event)"
-                                                    (textboxDeleteEvent)="deleteControl($event)">
+                                                      [controlIndex]="i"
+                                                      (textboxUpdateEvent)="updatedControl($event)"
+                                                      (textboxDeleteEvent)="deleteControl($event)">
                                         </asw-text-box>
                                     </div>
                                     <div *ngSwitchCase="'textarea'">
                                         <asw-text-area [control]="control"
-                                                        [controlIndex]="i"
-                                                        (textAreaUpdateEvent)="updatedControl($event)"
-                                                        (textAreaDeleteEvent)="deleteControl($event)">
+                                                       [controlIndex]="i"
+                                                       (textAreaUpdateEvent)="updatedControl($event)"
+                                                       (textAreaDeleteEvent)="deleteControl($event)">
                                         </asw-text-area>
                                     </div>
                                     <div *ngSwitchCase="'dropdown'">
@@ -50,16 +50,16 @@
                                     </div>
                                     <div *ngSwitchCase="'multi-select'">
                                         <asw-multi-select [control]="control"
-                                                            [controlIndex]="i"
-                                                            (multiSelectUpdateEvent)="updatedControl($event)"
-                                                            (multiSelectDeleteEvent)="deleteControl($event)">
+                                                          [controlIndex]="i"
+                                                          (multiSelectUpdateEvent)="updatedControl($event)"
+                                                          (multiSelectDeleteEvent)="deleteControl($event)">
                                         </asw-multi-select>
                                     </div>
                                     <div *ngSwitchCase="'radio'">
                                         <asw-radio-button [control]="control"
-                                                            [controlIndex]="i"
-                                                            (radioButtonUpdateEvent)="updatedControl($event)"
-                                                            (radioButtonDeleteEvent)="deleteControl($event)">
+                                                          [controlIndex]="i"
+                                                          (radioButtonUpdateEvent)="updatedControl($event)"
+                                                          (radioButtonDeleteEvent)="deleteControl($event)">
                                         </asw-radio-button>
                                     </div>
                                     <div *ngSwitchCase="'datepicker'">

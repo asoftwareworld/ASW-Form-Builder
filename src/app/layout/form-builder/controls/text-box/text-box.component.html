@@ -12,7 +12,21 @@
 </mat-form-field>
 <div class="row">
     <div class="col-md-12">
-        <button mat-button (click)="editTextboxDialog(control, controlIndex)">Edit</button>
-        <button mat-button color="warn" (click)="deleteTextboxDialog(control, controlIndex)">Remove</button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit textbox control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editTextboxDialog(control, controlIndex)"
+                class="btn btn-primary btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove textbox control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteTextboxDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
     </div>                                            
 </div>

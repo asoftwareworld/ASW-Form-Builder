@@ -10,7 +10,21 @@
 </mat-form-field>
 <div class="row">
     <div class="col-md-12">
-        <button mat-button (click)="editDatepickerDialog(control, controlIndex)">Edit</button>
-        <button mat-button color="warn" (click)="deleteDatepickerDialog(control, controlIndex)">Remove</button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit datepicker control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editDatepickerDialog(control, controlIndex)"
+                class="btn btn-primary btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove datepicker control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteDatepickerDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
     </div>                                            
 </div>

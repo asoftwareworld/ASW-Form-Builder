@@ -8,7 +8,21 @@
 </mat-form-field>
 <div class="row">
     <div class="col-md-12">
-        <button mat-button (click)="editMultiSelectDialog(control, controlIndex)">Edit</button>
-        <button mat-button color="warn" (click)="deleteMultiSelectDialog(control, controlIndex)">Remove</button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit multi select control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editMultiSelectDialog(control, controlIndex)"
+                class="btn btn-primary btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove multi select control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteMultiSelectDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
     </div>                                            
 </div>

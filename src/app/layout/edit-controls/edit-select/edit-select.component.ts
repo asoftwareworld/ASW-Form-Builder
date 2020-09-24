@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'asw-edit-select',
@@ -9,50 +8,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditSelectComponent implements OnInit {
 
-    aswEditPropertyForm: FormGroup;
     status: boolean;
-    options = [];
+    option: any = {
+        "key": "",
+        "value": ""
+    }
 
-    constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditSelectComponent>,
+    constructor(public dialogRef: MatDialogRef<EditSelectComponent>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
-        this.validateFormBuilder();
-        this.editProperty(this.control);
-    }
+    ngOnInit() {
 
-    validateFormBuilder(): void {
-        this.aswEditPropertyForm = this.formBuilder.group({
-            tooltip: ['', [Validators.required]],
-            placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
-            name: ['', [Validators.required]],
-            style: ['', [Validators.required]],
-            options: this.formBuilder.array(this.control.options),
-            isRequired: [false]
-        });
-        this.options = this.control.options;
-    }
-
-    editProperty(control: any): void {
-        debugger;
-        this.aswEditPropertyForm.setValue({
-            tooltip: control.tooltip,
-            placeholder: control.placeholder,
-            name: control.name,
-            style: control.style,
-            isRequired: control.isRequired
-        });
-    }
+     }
 
     onNoClick(): void {
         this.dialogRef.close();
     }
 
+    addNewOption(): void {
+        debugger;
+        this.control.options.push(this.option);
+    }
+    removeOption(index: number): void {
+        this.control.options.splice(index, 1);
+    }
+
     onSubmit() {
-        this.aswEditPropertyForm.value['displayName'] = this.control.displayName;
-        this.aswEditPropertyForm.value['controlType'] = this.control.controlType;
-        this.dialogRef.close(this.aswEditPropertyForm.value);
+        this.dialogRef.close(this.control);
     }
 
     onChange(event: any) {

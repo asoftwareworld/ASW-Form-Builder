@@ -1,7 +1,7 @@
 <!-- <h1 mat-dialog-title>Edit Property</h1> -->
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditPropertyForm" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width">
             <div class="row">
@@ -12,7 +12,7 @@
                                         name="placeholder"
                                         placeholder="Enter placeholder"
                                         matTooltip="Enter placeholder"
-                                        formControlName="placeholder">
+                                        [(ngModel)]="control.placeholder">
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
@@ -22,7 +22,7 @@
                                         name="tooltip"
                                         placeholder="Enter tooltip"
                                         matTooltip="Enter tooltip"
-                                        formControlName="tooltip">
+                                        [(ngModel)]="control.tooltip">
                     </mat-form-field>
                 </div>
             </div>
@@ -34,13 +34,13 @@
                                         name="name"
                                         placeholder="Enter name"
                                         matTooltip="Enter name"
-                                        formControlName="name">
+                                        [(ngModel)]="control.name">
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
                         <mat-label>Textbox Style</mat-label>
-                        <mat-select formControlName="style">
+                        <mat-select [(ngModel)]="control.style" name="style">
                             <mat-option value="legacy">Legacy</mat-option>
                             <mat-option value="standard">Standard</mat-option>
                             <mat-option value="fill">Fill</mat-option>
@@ -49,15 +49,15 @@
                     </mat-form-field>
                 </div>
             </div>            
-            <div class="row" *ngFor="let option of options; let i = index">
+            <div class="row" *ngFor="let option of control.options; let i = index">
                 <div class="col-md-5">
                     <mat-form-field appearance="outline">
                         <mat-label>{{option.key}}</mat-label>
                         <input matInput type="text"
-                                        [name]="option.key"
+                                        [name]="option.key + i"
                                         [placeholder]="option.key"
-                                        [formControlName]="option.key"
-                                        [matTooltip]=""
+                                        [(ngModel)]="option.key"
+                                        [matTooltip]="option.key"
                                         maxlength="50"
                                         required>
                     </mat-form-field>
@@ -66,33 +66,39 @@
                     <mat-form-field appearance="outline">
                         <mat-label>{{option.value}}</mat-label>
                         <input matInput type="text"
-                                        [name]="option.key"
+                                        [name]="option.value + i"
                                         [placeholder]="option.value"
-                                        [formControlName]="option.value"
-                                        [matTooltip]=""
+                                        [(ngModel)]="option.value"
+                                        [matTooltip]="option.value"
                                         maxlength="50"
                                         required>
                     </mat-form-field>
                 </div>
                 <div class="col-md-2">
-                    <!-- <button class="btn btn-social btn-just-icon btn-round btn-twitter">
-                        <i class="fa fa-twitter"></i>
-                    </button> -->
-                    <button mat-mini-fab color="primary" aria-label="Example icon button with a vertical three dot icon">
-                        <mat-icon>add_circle</mat-icon>
+                    <button mat-raised-button *ngIf="this.control.options.length - 1 == i"
+                            type="button" 
+                            matTooltip="Add option" 
+                            [matTooltipPosition]="'above'" 
+                            (click)="addNewOption()"
+                            class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">add</i>
+                    </button>
+                    <button mat-raised-button *ngIf="i != 0 && i != 1"
+                            type="button" 
+                            matTooltip="Remove option" 
+                            [matTooltipPosition]="'above'" 
+                            (click)="removeOption(i)"
+                            class="btn btn-danger btn-link btn-sm btn-just-icon">
+                        <i class="material-icons">close</i>
                     </button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    
-                </div>
-            </div>   
-            <div class="row">
-                <div class="col-md-12">
                     <mat-slide-toggle color="primary"
                           #isActive
-                          formControlName="isRequired"
+                          name="isRequired"
+                          [(ngModel)]="control.isRequired"
                           (change)="onChange($event)">{{status? 'Required':'Not Required'}}
                     </mat-slide-toggle>
                 </div>

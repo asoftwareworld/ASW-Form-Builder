@@ -8,7 +8,21 @@
 </mat-form-field>
 <div class="row">
     <div class="col-md-12">
-        <button mat-button (click)="editSelectDialog(control, controlIndex)">Edit</button>
-        <button mat-button color="warn" (click)="deleteSelectDialog(control, controlIndex)">Remove</button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit select control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editSelectDialog(control, controlIndex)"
+                class="btn btn-primary btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove select control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteSelectDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
     </div>                                            
 </div>
