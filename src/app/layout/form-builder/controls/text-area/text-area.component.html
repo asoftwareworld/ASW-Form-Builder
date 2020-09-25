@@ -1,7 +1,7 @@
 <mat-form-field hintLabel="Max {{control.maxlength}} characters" appearance="{{control.style}}">
-    <mat-label>{{control.placeholder}}</mat-label>
+    <mat-label>{{control.label}}</mat-label>
     <textarea matInput [name]="control.name"
-                    [placeholder]="control.placeholder"
+                    [placeholder]="control.label"
                     ngModel
                     #input
                     [title]="control.tooltip"

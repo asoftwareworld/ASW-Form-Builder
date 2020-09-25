@@ -5,7 +5,7 @@
         "controlType": "autocomplete",
         "name": "autocomplete",
         "tooltip": "Select one",
-        "placeholder": "Autocomplete",
+        "label": "Autocomplete",
         "style":"outline",
         "isRequired": false,
         "options": [
@@ -21,7 +21,7 @@
       "name": "textBox",
       "tooltip": "Enter Text",
       "type": "text",
-      "placeholder": "TextBox",
+      "label": "TextBox",
       "style":"outline",
       "isRequired": false,
       "maxlength": 50
@@ -33,18 +33,18 @@
         "name": "textarea",
         "tooltip": "Enter Text",
         "type": "text",
-        "placeholder": "TextArea",
+        "label": "TextArea",
         "style":"outline",
         "isRequired": false,
         "maxlength": 50
     },
     {
         "icon": "arrow_drop_down_circle",
-        "displayName": "Dropdown",
-        "controlType": "dropdown",
-        "name": "dropdown",
+        "displayName": "Select",
+        "controlType": "select",
+        "name": "select",
         "tooltip": "Select option",
-        "placeholder": "Drop-Down",
+        "label": "Select",
         "style":"outline",
         "isRequired": false,
         "options": [
@@ -59,7 +59,7 @@
         "controlType": "datepicker",
         "name": "datepicker",
         "tooltip": "Choose a date",
-        "placeholder": "Date Picker",
+        "label": "Date Picker",
         "style":"outline",
         "isRequired": false
     },
@@ -69,7 +69,7 @@
         "controlType": "radio",
         "name": "radio",
         "tooltip": "radio",
-        "placeholder": "Radio",
+        "label": "Radio",
         "style":"outline",
         "isRequired": false,
         "options": [
@@ -84,7 +84,7 @@
         "controlType": "multi-select",
         "name": "multi-select",
         "tooltip": "Select options",
-        "placeholder": "MultiSelect",
+        "label": "MultiSelect",
         "style":"outline",
         "isRequired": false,
         "options": [

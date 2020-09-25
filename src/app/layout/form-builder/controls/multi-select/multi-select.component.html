@@ -1,6 +1,6 @@
 <mat-form-field appearance="{{control.style}}">
-    <mat-label>{{control.placeholder}}</mat-label>
-    <mat-select [placeholder]="control.placeholder" ngModel multiple [required]="control.isRequired">
+    <mat-label>{{control.label}}</mat-label>
+    <mat-select [placeholder]="control.label" ngModel multiple [required]="control.isRequired">
         <mat-option *ngFor="let option of control.options" [value]="option.key">
             {{ option.value }}
         </mat-option>

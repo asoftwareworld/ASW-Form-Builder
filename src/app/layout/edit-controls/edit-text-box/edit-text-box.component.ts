@@ -23,7 +23,7 @@ export class EditTextboxComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditPropertyForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
             style: ['', [Validators.required]],
@@ -35,7 +35,7 @@ export class EditTextboxComponent implements OnInit {
     editProperty(control: any): void {
         this.aswEditPropertyForm.setValue({
             tooltip: control.tooltip,
-            placeholder: control.placeholder,
+            label: control.label,
             name: control.name,
             type: control.type,
             maxlength: control.maxlength,

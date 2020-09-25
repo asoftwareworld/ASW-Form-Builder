@@ -1,8 +1,8 @@
 <mat-form-field appearance="{{control.style}}">
-    <mat-label>{{control.placeholder}}</mat-label>
+    <mat-label>{{control.label}}</mat-label>
     <input [type]="control.type"
            [name]="control.name"
-           [placeholder]="control.placeholder"
+           [placeholder]="control.label"
            [matAutocomplete]="auto"
            matInput
            [formControl]="autocomplete"
@@ -18,7 +18,7 @@
     <div class="col-md-12">
         <button mat-raised-button 
                 type="button" 
-                matTooltip="Edit select control" 
+                matTooltip="Edit autocomplete control" 
                 [matTooltipPosition]="'above'" 
                 (click)="editAutocompleteDialog(control, controlIndex)"
                 class="btn btn-primary btn-link btn-sm btn-just-icon">
@@ -26,7 +26,7 @@
         </button>
         <button mat-raised-button 
                 type="button" 
-                matTooltip="Remove select control" 
+                matTooltip="Remove autocomplete control" 
                 [matTooltipPosition]="'above'" 
                 (click)="deleteAutocompleteDialog(control, controlIndex)"
                 class="btn btn-danger btn-link btn-sm btn-just-icon">

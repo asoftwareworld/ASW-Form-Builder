@@ -23,7 +23,7 @@ export class EditTextAreaComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditPropertyForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            placeholder: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             style: ['', [Validators.required]],
             maxlength: ['', [Validators.required]],
@@ -34,7 +34,7 @@ export class EditTextAreaComponent implements OnInit {
     editProperty(control: any): void {
         this.aswEditPropertyForm.setValue({
             tooltip: control.tooltip,
-            placeholder: control.placeholder,
+            label: control.label,
             name: control.name,
             maxlength: control.maxlength,
             style: control.style,
