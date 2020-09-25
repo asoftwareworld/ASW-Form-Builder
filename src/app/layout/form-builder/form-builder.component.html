@@ -69,6 +69,13 @@
                                                           (radioButtonDeleteEvent)="deleteControl($event)">
                                         </asw-radio-button>
                                     </div>
+                                    <div *ngSwitchCase="'checkbox'">
+                                        <asw-checkbox [control]="control"
+                                                      [controlIndex]="i"
+                                                      (checkboxUpdateEvent)="updatedControl($event)"
+                                                      (checkboxDeleteEvent)="deleteControl($event)">
+                                        </asw-checkbox>
+                                    </div>
                                     <div *ngSwitchCase="'datepicker'">
                                         <asw-datepicker [control]="control"
                                                         [controlIndex]="i"

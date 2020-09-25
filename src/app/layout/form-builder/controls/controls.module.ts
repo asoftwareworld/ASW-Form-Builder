@@ -9,6 +9,7 @@ import { TextboxComponent } from './text-box/text-box.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { SelectComponent } from './select/select.component';
 import { RadioButtonComponent } from './radio-button/radio-button.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonComponent } from './button/button.component';
@@ -31,7 +32,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     DatepickerComponent,
     ButtonComponent,
     ConfirmDialogComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    CheckboxComponent
   ],
   exports: [
     TextboxComponent,
@@ -43,6 +45,7 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     ButtonComponent,
     ConfirmDialogComponent,
     AutocompleteComponent,
+    CheckboxComponent
   ]
 })
 export class ControlsModule { }

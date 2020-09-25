@@ -80,6 +80,21 @@
     },
     {
         "icon": "check_box",
+        "displayName": "Checkbox",
+        "controlType": "checkbox",
+        "name": "checkbox",
+        "tooltip": "checkbox",
+        "label": "Checkbox",
+        "style":"outline",
+        "isRequired": false,
+        "options": [
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
+        ]
+    },
+    {
+        "icon": "check_box",
         "displayName": "Multi Select",
         "controlType": "multi-select",
         "name": "multi-select",
