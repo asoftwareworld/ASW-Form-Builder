@@ -1,5 +1,12 @@
 [
     {
+        "icon": "title",
+        "displayName": "Header",
+        "controlType": "header",
+        "subtype": "h1",
+        "label": "Header"
+    },
+    {
         "icon": "corporate_fare",
         "displayName": "Autocomplete",
         "controlType": "autocomplete",
@@ -119,5 +126,19 @@
         "color":"primary",
         "style":"mat-button",
         "isRequired": false
-      }
+    },
+    {
+        "icon": "format_textdirection_l_to_r",
+        "displayName": "Paragraph",
+        "controlType": "paragraph",
+        "label": "Paragraph"
+    },
+    {
+        "icon": "toggle_on",
+        "displayName": "Slide Toggle",
+        "controlType": "slide-toggle",
+        "label": "Slide me!",
+        "color":"primary",
+        "isRequired": false
+    }
 ]

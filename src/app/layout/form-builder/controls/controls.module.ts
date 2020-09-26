@@ -13,6 +13,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonComponent } from './button/button.component';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     ButtonComponent,
     ConfirmDialogComponent,
     AutocompleteComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    SlideToggleComponent
   ],
   exports: [
     TextboxComponent,
@@ -45,7 +47,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     ButtonComponent,
     ConfirmDialogComponent,
     AutocompleteComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    SlideToggleComponent
   ]
 })
 export class ControlsModule { }

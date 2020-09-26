@@ -15,7 +15,7 @@ import { ConfirmDialogComponent } from './layout/shared-components/confirm-dialo
 import { EditTextboxComponent } from './layout/edit-controls/edit-text-box/edit-text-box.component';
 import { EditTextAreaComponent } from './layout/edit-controls/edit-text-area/edit-text-area.component';
 import { EditDatepickerComponent } from './layout/edit-controls/edit-datepicker/edit-datepicker.component';
-import { EditMultiSelectComponent } from './layout/edit-controls/edit-multi-select/edit-multi-select.component';
+import { EditSlideToggleComponent } from './layout/edit-controls/edit-slide-toggle/edit-slide-toggle.component';
 import { EditSelectComponent } from './layout/edit-controls/edit-select/edit-select.component';
 import { EditButtonComponent } from './layout/edit-controls/edit-button/edit-button.component';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
@@ -31,7 +31,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
     EditTextAreaComponent,
     EditDatepickerComponent,
     EditSelectComponent,
-    EditMultiSelectComponent,
+    EditSlideToggleComponent,
     EditButtonComponent,
     AboutUsComponent,
     ContactUsComponent

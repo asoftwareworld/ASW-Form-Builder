@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { EditMultiSelectComponent } from './edit-multi-select.component';
+import { EditSlideToggleComponent } from './edit-slide-toggle.component';
 
-describe('MultiSelectPropertyComponent', () => {
-  let component: EditMultiSelectComponent;
-  let fixture: ComponentFixture<EditMultiSelectComponent>;
+describe('EditSlideToggleComponent', () => {
+  let component: EditSlideToggleComponent;
+  let fixture: ComponentFixture<EditSlideToggleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EditMultiSelectComponent]
+      declarations: [EditSlideToggleComponent]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditMultiSelectComponent);
+    fixture = TestBed.createComponent(EditSlideToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

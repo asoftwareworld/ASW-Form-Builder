@@ -90,6 +90,13 @@
                                                     (buttonDeleteEvent)="deleteControl($event)">
                                         </asw-button>                                       
                                     </div>
+                                    <div *ngSwitchCase="'slide-toggle'">
+                                        <asw-slide-toggle [control]="control"
+                                                          [controlIndex]="i"
+                                                          (slidetoggleUpdateEvent)="updatedControl($event)"
+                                                          (slidetoggleDeleteEvent)="deleteControl($event)">
+                                        </asw-slide-toggle>                                       
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +107,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">JSON Schema</h4>
-                        <pre>{{formContainer | json}}</pre>
+                        <div class="asw-list">
+                            <div class="asw-box">                                
+                                <pre>{{formContainer | json}}</pre>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
