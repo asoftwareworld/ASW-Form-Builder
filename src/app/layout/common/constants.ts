@@ -30,7 +30,16 @@ function getConstatnts() {
              { type: 'required', message: 'Message is required' },
              { type: 'minlength', message: 'Message must be at least 6 characters long' },
              { type: 'maxlength', message: 'Message cannot be more than 255 characters long' },
-        ]
+        ],
+        'label': [
+            { type: 'required', message: 'Label is required' },
+            { type: 'minlength', message: 'Label must be at least 5 characters long' },
+            { type: 'maxlength', message: 'Label cannot be more than 25 characters long' }
+        ],
+        'maxlength': [
+            { type: 'required', message: 'Maxlength is required' },
+            { type: 'pattern', message: 'Maxlength must contain only numbers' },
+        ],
     }
 
     const dataTypes = {
@@ -47,7 +56,8 @@ function getConstatnts() {
     const matchPattern = {
         emailPattern: '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$',
         passwordPattern: '((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})',
-        phonePattern:'[6-9]\\d{9}'
+        phonePattern:'[6-9]\\d{9}',
+        numberPattern:'^[0-9]*$'
     }
 
     const notificationMessage = {

@@ -1,7 +1,7 @@
 <!-- <h1 mat-dialog-title>Edit Property</h1> -->
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditPropertyForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditTextboxForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width">
             <div class="row">
@@ -12,7 +12,10 @@
                                         name="label"
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
-                                        formControlName="label">
+                                        formControlName="label" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error *ngIf="aswEditTextboxForm.get('label').hasError(validation.type) && (aswEditTextboxForm.get('label').dirty || aswEditTextboxForm.get('label').touched)">{{validation.message}}</mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
@@ -34,7 +37,10 @@
                                         name="name"
                                         placeholder="Enter name"
                                         matTooltip="Enter name"
-                                        formControlName="name">
+                                        formControlName="name" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
+                            <mat-error *ngIf="aswEditTextboxForm.get('name').hasError(validation.type) && (aswEditTextboxForm.get('name').dirty || aswEditTextboxForm.get('name').touched)">{{validation.message}}</mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -70,7 +76,11 @@
                                         name="maxlength"
                                         placeholder="Enter maxlength"
                                         matTooltip="Enter maxlength"
-                                        formControlName="maxlength">
+                                        pattern="^[0-9]*$"
+                                        formControlName="maxlength" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.maxlength">
+                            <mat-error *ngIf="aswEditTextboxForm.get('maxlength').hasError(validation.type)">{{validation.message}}</mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
             </div>   

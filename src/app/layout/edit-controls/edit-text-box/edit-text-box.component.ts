@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-text-box',
@@ -8,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-text-box.component.scss']
 })
 export class EditTextboxComponent implements OnInit {
-
-    aswEditPropertyForm: FormGroup;
+    constants: any = Constants;
+    aswEditTextboxForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<EditTextboxComponent>,
@@ -21,19 +22,19 @@ export class EditTextboxComponent implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswEditPropertyForm = this.formBuilder.group({
-            tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-            name: ['', [Validators.required]],
+        this.aswEditTextboxForm = this.formBuilder.group({
+            tooltip: ['', []],
+            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
             type: ['', [Validators.required]],
             style: ['', [Validators.required]],
-            maxlength: ['', [Validators.required]],
+            maxlength: ['', [Validators.required, Validators.pattern(this.constants.matchPattern.numberPattern)]],
             isRequired:[false]
         });
     }
 
     editProperty(control: any): void {
-        this.aswEditPropertyForm.setValue({
+        this.aswEditTextboxForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
@@ -49,9 +50,12 @@ export class EditTextboxComponent implements OnInit {
     }
 
     onSubmit() {
-        this.aswEditPropertyForm.value['displayName'] = this.control.displayName;
-        this.aswEditPropertyForm.value['controlType'] = this.control.controlType;
-        this.dialogRef.close(this.aswEditPropertyForm.value);
+        if(this.aswEditTextboxForm.invalid) {
+            return;
+        }
+        this.aswEditTextboxForm.value['displayName'] = this.control.displayName;
+        this.aswEditTextboxForm.value['controlType'] = this.control.controlType;
+        this.dialogRef.close(this.aswEditTextboxForm.value);
     }
 
     onChange(event: any) {
