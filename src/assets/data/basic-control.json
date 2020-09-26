@@ -1,6 +1,6 @@
 [
     {
-        "icon": "arrow_drop_down_circle",
+        "icon": "corporate_fare",
         "displayName": "Autocomplete",
         "controlType": "autocomplete",
         "name": "autocomplete",
@@ -94,7 +94,7 @@
         ]
     },
     {
-        "icon": "check_box",
+        "icon": "storage",
         "displayName": "Multi Select",
         "controlType": "multi-select",
         "name": "multi-select",
@@ -109,7 +109,7 @@
         ]
     },
     {
-        "icon": "check",
+        "icon": "touch_app",
         "displayName": "Button",
         "controlType": "button",
         "name": "button",
