@@ -76,6 +76,8 @@
                                         name="maxlength"
                                         placeholder="Enter maxlength"
                                         matTooltip="Enter maxlength"
+                                        maxlength="3"
+                                        minlength="1"
                                         pattern="^[0-9]*$"
                                         formControlName="maxlength" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.maxlength">

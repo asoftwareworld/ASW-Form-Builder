@@ -4,7 +4,7 @@
                     [placeholder]="control.label"
                     ngModel
                     #input
-                    [title]="control.tooltip"
+                    [matTooltip]="control.tooltip"
                     [maxlength]="control.maxlength"
                     [required]="control.isRequired"></textarea>
     <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>                

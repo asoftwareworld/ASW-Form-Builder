@@ -28,7 +28,7 @@ export class EditTextboxComponent implements OnInit {
             name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
             type: ['', [Validators.required]],
             style: ['', [Validators.required]],
-            maxlength: ['', [Validators.required, Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            maxlength: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.constants.matchPattern.numberPattern)]],
             isRequired:[false]
         });
     }

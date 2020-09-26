@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Constants } from '../../common/constants';
 
 @Component({
   selector: 'asw-edit-text-area',
@@ -8,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-text-area.component.scss']
 })
 export class EditTextAreaComponent implements OnInit {
-
-    aswEditPropertyForm: FormGroup;
+    constants: any = Constants;
+    aswEditTextAreaForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<EditTextAreaComponent>,
@@ -21,18 +22,18 @@ export class EditTextAreaComponent implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswEditPropertyForm = this.formBuilder.group({
-            tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-            name: ['', [Validators.required]],
+        this.aswEditTextAreaForm = this.formBuilder.group({
+            tooltip: ['', []],
+            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
             style: ['', [Validators.required]],
-            maxlength: ['', [Validators.required]],
-            isRequired:[false]
+            maxlength: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            isRequired:[false]            
         });
     }
 
     editProperty(control: any): void {
-        this.aswEditPropertyForm.setValue({
+        this.aswEditTextAreaForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
@@ -47,9 +48,9 @@ export class EditTextAreaComponent implements OnInit {
     }
 
     onSubmit() {
-        this.aswEditPropertyForm.value['displayName'] = this.control.displayName;
-        this.aswEditPropertyForm.value['controlType'] = this.control.controlType;
-        this.dialogRef.close(this.aswEditPropertyForm.value);
+        this.aswEditTextAreaForm.value['displayName'] = this.control.displayName;
+        this.aswEditTextAreaForm.value['controlType'] = this.control.controlType;
+        this.dialogRef.close(this.aswEditTextAreaForm.value);
     }
 
     onChange(event: any) {
