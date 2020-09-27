@@ -34,6 +34,13 @@
                                                           (autocompleteDeleteEvent)="deleteControl($event)">
                                         </asw-autocomplete>
                                     </div>
+                                    <div *ngSwitchCase="'header'">
+                                        <asw-header [control]="control"
+                                                    [controlIndex]="i"
+                                                    (headerUpdateEvent)="updatedControl($event)"
+                                                    (headerDeleteEvent)="deleteControl($event)">
+                                        </asw-header>
+                                    </div>
                                     <div *ngSwitchCase="'textbox'">
                                         <asw-text-box [control]="control"
                                                       [controlIndex]="i"

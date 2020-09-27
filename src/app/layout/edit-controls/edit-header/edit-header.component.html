@@ -1,0 +1,63 @@
+<!-- <h1 mat-dialog-title>Edit Property</h1> -->
+<h4 mat-dialog-title>Edit Property</h4>
+
+<form [formGroup]="aswHeaderForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <div class="asw-full-width">
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        placeholder="Enter label"
+                                        matTooltip="Enter label"
+                                        formControlName="label" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error *ngIf="aswHeaderForm.get('label').hasError(validation.type) && (aswHeaderForm.get('label').dirty || aswHeaderForm.get('label').touched)">{{validation.message}}</mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Type</mat-label>
+                        <mat-select formControlName="subtype">
+                            <mat-option value="h1">H1</mat-option>
+                            <mat-option value="h2">H2</mat-option>
+                            <mat-option value="h3">H3</mat-option>
+                            <mat-option value="h4">H4</mat-option>
+                            <mat-option value="h5">H5</mat-option>
+                            <mat-option value="h6">H6</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Style</mat-label>
+                        <mat-select formControlName="style">
+                            <mat-option value="text-left">Left</mat-option>
+                            <mat-option value="text-center">Center</mat-option>
+                            <mat-option value="text-right">Right</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button
+                type="button"
+                class="btn btn-primary"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button mat-raised-button type="submit"
+                class="btn btn-danger"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>
+

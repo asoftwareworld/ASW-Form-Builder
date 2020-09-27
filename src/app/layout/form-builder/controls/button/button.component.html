@@ -6,26 +6,6 @@
                 [matTooltip]="control.tooltip"
                 [name]="control.name"
                 >{{control.label}}</button>
-        <div class="row">
-            <div class="col-md-12">
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Edit button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="editButtonDialog(control, controlIndex)"
-                        class="btn btn-primary btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">edit</i>
-                </button>
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Remove button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="deleteButtonDialog(control, controlIndex)"
-                        class="btn btn-danger btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">close</i>
-                </button>
-            </div>                                                    
-        </div>
     </div>
     <div *ngSwitchCase="'mat-raised-button'">
         <button mat-raised-button 
@@ -34,26 +14,6 @@
                 [matTooltip]="control.tooltip"
                 [name]="control.name"
                 >{{control.label}}</button>
-        <div class="row">
-            <div class="col-md-12">
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Edit button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="editButtonDialog(control, controlIndex)"
-                        class="btn btn-primary btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">edit</i>
-                </button>
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Remove button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="deleteButtonDialog(control, controlIndex)"
-                        class="btn btn-danger btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">close</i>
-                </button>
-            </div>
-        </div>
     </div>
     <div *ngSwitchCase="'mat-stroked-button'">
         <button mat-stroked-button 
@@ -62,26 +22,6 @@
                 [matTooltip]="control.tooltip"
                 [name]="control.name"
                 >{{control.label}}</button>
-        <div class="row">
-            <div class="col-md-12">
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Edit button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="editButtonDialog(control, controlIndex)"
-                        class="btn btn-primary btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">edit</i>
-                </button>
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Remove button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="deleteButtonDialog(control, controlIndex)"
-                        class="btn btn-danger btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">close</i>
-                </button>
-            </div>
-        </div>
     </div>
     <div *ngSwitchCase="'mat-flat-button'">
         <button mat-flat-button 
@@ -91,25 +31,25 @@
                 [name]="control.name"
                 [title]="control.tooltip"
                 >{{control.label}}</button>
-        <div class="row">
-            <div class="col-md-12">
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Edit button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="editButtonDialog(control, controlIndex)"
-                        class="btn btn-primary btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">edit</i>
-                </button>
-                <button mat-raised-button 
-                        type="button" 
-                        matTooltip="Remove button" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="deleteButtonDialog(control, controlIndex)"
-                        class="btn btn-danger btn-link btn-sm btn-just-icon">
-                    <i class="material-icons">close</i>
-                </button>
-            </div>
-        </div>
     </div>
 </div> 
+<div class="row">
+    <div class="col-md-12">
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit button" 
+                [matTooltipPosition]="'above'" 
+                (click)="editButtonDialog(control, controlIndex)"
+                class="btn btn-primary btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove button" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteButtonDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
+    </div>
+</div>

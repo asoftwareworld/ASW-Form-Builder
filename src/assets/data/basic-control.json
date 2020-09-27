@@ -4,6 +4,7 @@
         "displayName": "Header",
         "controlType": "header",
         "subtype": "h1",
+        "style":"text-left",
         "label": "Header"
     },
     {
