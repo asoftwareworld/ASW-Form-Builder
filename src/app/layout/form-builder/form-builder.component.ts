@@ -39,7 +39,6 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	deleteControl(index: any) {
-		debugger;
 		this.formContainer.splice(index, 1);
 	}	
 }
