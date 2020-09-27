@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from 'src/app/layout/common/constants';
-import { EditSlideToggleComponent } from 'src/app/layout/edit-controls/edit-slide-toggle/edit-slide-toggle.component';
+import { EditParagraphComponent } from 'src/app/layout/edit-controls/edit-paragraph/edit-paragraph.component';
 import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm-dialog/confirm-dialog.component';
 
 @Component({
@@ -35,7 +35,7 @@ export class ParagraphComponent {
   	deleteParagraphDialog(control: any, controlIndex: number): void {
 		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
-			data: { name: control.name, message: this.constants.messages.waringMessage }
+			data: { name: control.label, message: this.constants.messages.waringMessage }
 		});
 		dialogRef.afterClosed().subscribe(result => {            
 			if(result != undefined) {
@@ -45,7 +45,7 @@ export class ParagraphComponent {
 	}
 
 	editParagraphDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditSlideToggleComponent, {
+		let dialogRef = this.dialog.open(EditParagraphComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control

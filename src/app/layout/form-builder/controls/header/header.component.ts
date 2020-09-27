@@ -32,12 +32,12 @@ export class HeaderComponent {
      * @param control 
      * @param controlIndex 
      */
-  	deleteHeaderDialog(control: any, controlIndex: number): void {
+	deleteHeaderDialog(control: any, controlIndex: number): void {
 		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
-			data: { name: control.name, message: this.constants.messages.waringMessage }
+			data: { name: control.label, message: this.constants.messages.waringMessage }
 		});
-		dialogRef.afterClosed().subscribe(result => {            
+		dialogRef.afterClosed().subscribe(result => {  
 			if(result != undefined) {
                 this.headerDeleteEvent.emit(controlIndex);
 			}

@@ -132,7 +132,9 @@
         "icon": "format_textdirection_l_to_r",
         "displayName": "Paragraph",
         "controlType": "paragraph",
-        "label": "Paragraph"
+        "label": "Paragraph",
+        "subtype": "p",
+        "style":"text-left"
     },
     {
         "icon": "toggle_on",

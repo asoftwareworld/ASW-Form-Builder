@@ -19,6 +19,7 @@ import { EditSlideToggleComponent } from './layout/edit-controls/edit-slide-togg
 import { EditSelectComponent } from './layout/edit-controls/edit-select/edit-select.component';
 import { EditHeaderComponent } from './layout/edit-controls/edit-header/edit-header.component';
 import { EditButtonComponent } from './layout/edit-controls/edit-button/edit-button.component';
+import { EditParagraphComponent } from './layout/edit-controls/edit-paragraph/edit-paragraph.component';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
 import { ContactUsComponent } from './layout/contact-us/contact-us.component';
 import { ASWSettingsService } from './layout/shared-service/asw-settings.service';
@@ -35,6 +36,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
     EditSlideToggleComponent,
     EditButtonComponent,
     EditHeaderComponent,
+    EditParagraphComponent,
     AboutUsComponent,
     ContactUsComponent
   ],

@@ -15,6 +15,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonComponent } from './button/button.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { HeaderComponent } from './header/header.component';
+import { ParagraphComponent } from './paragraph/paragraph.component';
 import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     AutocompleteComponent,
     CheckboxComponent,
     SlideToggleComponent,
-    HeaderComponent
+    HeaderComponent,
+    ParagraphComponent
   ],
   exports: [
     TextboxComponent,
@@ -51,7 +53,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     AutocompleteComponent,
     CheckboxComponent,
     SlideToggleComponent,
-    HeaderComponent
+    HeaderComponent,
+    ParagraphComponent
   ]
 })
 export class ControlsModule { }

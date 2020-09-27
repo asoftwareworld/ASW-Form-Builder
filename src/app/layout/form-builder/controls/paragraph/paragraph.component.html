@@ -1,4 +1,30 @@
-<mat-slide-toggle [color]="control.color" [required]="control.isRequired">{{control.label}}</mat-slide-toggle>
+<div [ngSwitch]="control.subtype">
+    <div *ngSwitchCase="'p'">
+        <p [class]="control.style">
+            {{control.label}}
+        </p>
+    </div>
+    <div *ngSwitchCase="'address'">
+        <address [class]="control.style">
+            {{control.label}}
+        </address>
+    </div>
+    <div *ngSwitchCase="'blockquote'">
+        <blockquote [class]="control.style">
+            {{control.label}}
+        </blockquote>
+    </div>
+    <div *ngSwitchCase="'canvas'">
+        <canvas [class]="control.style">
+            {{control.label}}
+        </canvas>
+    </div>
+    <div *ngSwitchCase="'output'">
+        <output [class]="control.style">
+            {{control.label}}
+        </output>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <button mat-raised-button 
