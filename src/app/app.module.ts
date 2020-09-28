@@ -15,11 +15,13 @@ import { MaterialModule } from './material.module';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
 import { ContactUsComponent } from './layout/contact-us/contact-us.component';
 import { ASWSettingsService } from './layout/shared-service/asw-settings.service';
+import { JsonPreviewDialogComponent } from './layout/shared-components/json-preview-dialog/json-preview-dialog.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     FormBuilderComponent,
+    JsonPreviewDialogComponent,
     PreviewTemplateComponent,
     AboutUsComponent,
     ContactUsComponent
@@ -37,7 +39,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
     EditControlsModule,
     AppRoutingModule,
   ],
-  entryComponents: [],
+  entryComponents: [JsonPreviewDialogComponent],
   providers: [ASWSettingsService],
   bootstrap: [AppComponent]
 })

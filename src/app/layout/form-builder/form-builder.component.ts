@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../common/constants';
 import { ASWSettingsService } from '../shared-service/asw-settings.service';
 import { Router } from '@angular/router';
+import { JsonPreviewDialogComponent } from '../shared-components/json-preview-dialog/json-preview-dialog.component';
 
 @Component({
   selector: 'asw-form-builder',
@@ -15,6 +16,7 @@ export class FormBuilderComponent implements OnInit {
 	constants: any = Constants;
 	availableControls: any[] = [];
 	formContainer: any[] = [];
+
 	constructor(public dialog: MatDialog,
 		private aswSettingsService: ASWSettingsService,
 		private router: Router) { }
@@ -35,7 +37,7 @@ export class FormBuilderComponent implements OnInit {
 							event.previousIndex,
 							event.currentIndex);
 		}
-  	}  	
+	}
 
 	updatedControl(data: any) {
 		this.formContainer.splice(data.index, 1, data.control);
@@ -48,5 +50,14 @@ export class FormBuilderComponent implements OnInit {
 	previewTemplate() {
 		this.aswSettingsService.previewData = this.formContainer;
 		this.router.navigate(['preview-template']);
+	}
+
+	previewJsonData() {
+		let dialogRef = this.dialog.open(JsonPreviewDialogComponent, {
+			disableClose: true,
+			width: '744px',
+			data: this.formContainer
+		});
+		dialogRef.afterClosed();
 	}
 }

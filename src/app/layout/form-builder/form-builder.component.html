@@ -1,5 +1,18 @@
 <div class="main-content">
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button mat-raised-button 
+                        type="button"
+                        class="btn btn-default btn-sm" 
+                        (click)="previewTemplate()">Preview</button>
+                <button mat-raised-button 
+                        type="button" 
+                        class="btn btn-info btn-sm"
+                        (click)="previewJsonData()">Json Data</button>
+                <button mat-raised-button class="btn btn-primary btn-sm" disabled>Publish</button>
+            </div>
+        </div>
         <div class="row" cdkDropListGroup>
             <div class="col-md-3">
                 <div class="card">
@@ -13,16 +26,10 @@
                                 {{item.displayName}}
                             </div>
                         </div>
-                        <button mat-raised-button
-                                type="button"
-                                class="btn btn-primary"
-                                (click)="previewTemplate()">
-                            Preview Template
-                        </button> 
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Drop Area</h4>
@@ -116,22 +123,10 @@
                                                           (slidetoggleUpdateEvent)="updatedControl($event)"
                                                           (slidetoggleDeleteEvent)="deleteControl($event)">
                                         </asw-slide-toggle>                                       
-                                    </div>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">JSON Schema</h4>
-                        <div class="asw-list">
-                            <div class="asw-box">                                
-                                <pre>{{formContainer | json}}</pre>
-                            </div>
-                        </div>                        
                     </div>
                 </div>
             </div>

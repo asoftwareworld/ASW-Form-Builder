@@ -1,0 +1,20 @@
+<!-- <h1 mat-dialog-title>Warning!</h1> -->
+<mat-dialog-content class="mat-typography">
+    <pre>{{data | json}}</pre>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button
+            type="button"
+            class="btn btn-primary"
+            (click)="onNoClick()">
+        Close
+    </button>
+    <button mat-raised-button 
+            type="button"
+            class="btn btn-info"
+            [cdkCopyToClipboard]="data | json"
+            cdkFocusInitial>
+            <i class="material-icons">content_copy</i>
+        Copy Data
+    </button>
+</mat-dialog-actions>
