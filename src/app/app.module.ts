@@ -7,9 +7,9 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormBuilderComponent } from './layout/form-builder/form-builder.component';
-
-import { ControlsModule } from './layout/form-builder/controls/controls.module';
-import { EditControlsModule } from './layout/edit-controls/edit-controls.module';
+import { PreviewTemplateComponent } from './layout/preview-template/preview-template.component';
+import { ControlsModule } from './layout/basic-controls/controls/controls.module';
+import { EditControlsModule } from './layout/basic-controls/edit-controls/edit-controls.module';
 import { ComponentsModule } from './layout/shared-components/components/components.module';
 import { MaterialModule } from './material.module';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
@@ -20,6 +20,7 @@ import { ASWSettingsService } from './layout/shared-service/asw-settings.service
   declarations: [
     AppComponent,
     FormBuilderComponent,
+    PreviewTemplateComponent,
     AboutUsComponent,
     ContactUsComponent
   ],

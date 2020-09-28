@@ -1,0 +1,30 @@
+<mat-form-field appearance="{{control.style}}">
+    <mat-label>{{control.label}}</mat-label>
+    <input matInput [matDatepicker]="picker" 
+                    ngModel 
+                    [matTooltip]="control.tooltip"
+                    [placeholder]="control.label" 
+                    [required]="control.isRequired">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div class="row" *ngIf="isPreviewTemplate">
+    <div class="col-md-12">
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit datepicker control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editDatepickerDialog(control, controlIndex)"
+                class="btn btn-primary btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove datepicker control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteDatepickerDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
+    </div>                                            
+</div>

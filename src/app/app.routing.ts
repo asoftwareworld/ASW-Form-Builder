@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormBuilderComponent } from './layout/form-builder/form-builder.component';
 import { AboutUsComponent } from './layout/about-us/about-us.component';
 import { ContactUsComponent } from './layout/contact-us/contact-us.component';
+import { PreviewTemplateComponent } from './layout/preview-template/preview-template.component';
 
 // Route Configuration
 export const routes: Routes = [
   { path: '', component: FormBuilderComponent },
   { path: 'home', component: FormBuilderComponent },
+  { path: 'preview-template', component: PreviewTemplateComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact-us', component: ContactUsComponent },
 ];

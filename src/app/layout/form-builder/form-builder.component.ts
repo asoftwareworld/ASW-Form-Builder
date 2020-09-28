@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-d
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../common/constants';
 import { ASWSettingsService } from '../shared-service/asw-settings.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'asw-form-builder',
@@ -15,9 +16,11 @@ export class FormBuilderComponent implements OnInit {
 	availableControls: any[] = [];
 	formContainer: any[] = [];
 	constructor(public dialog: MatDialog,
-		private aswSettingsService: ASWSettingsService) { }
+		private aswSettingsService: ASWSettingsService,
+		private router: Router) { }
 
   	ngOnInit(): void {
+		this.formContainer = this.aswSettingsService.previewData;
 		this.aswSettingsService.getJSON().subscribe(data => {
 			this.availableControls = data;
         });		
@@ -40,5 +43,10 @@ export class FormBuilderComponent implements OnInit {
 
 	deleteControl(index: any) {
 		this.formContainer.splice(index, 1);
-	}	
+	}
+	
+	previewTemplate() {
+		this.aswSettingsService.previewData = this.formContainer;
+		this.router.navigate(['preview-template']);
+	}
 }

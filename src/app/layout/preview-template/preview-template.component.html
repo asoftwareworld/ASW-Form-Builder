@@ -1,0 +1,91 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">            
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Preview Template</h4>
+                        <div>
+                            <div *ngFor="let control of formContainer; let i = index">
+                                <div [ngSwitch]="control.controlType" class="asw-full-width">
+                                    <div *ngSwitchCase="'autocomplete'">
+                                        <asw-autocomplete [control]="control"
+                                                          [controlIndex]="i"
+                                                          [isPreviewTemplate]="false">
+                                        </asw-autocomplete>
+                                    </div>
+                                    <div *ngSwitchCase="'header'">
+                                        <asw-header [control]="control"
+                                                    [controlIndex]="i"
+                                                    [isPreviewTemplate]="false">
+                                        </asw-header>
+                                    </div>
+                                    <div *ngSwitchCase="'textbox'">
+                                        <asw-text-box [control]="control"
+                                                      [controlIndex]="i"
+                                                      [isPreviewTemplate]="false">
+                                        </asw-text-box>
+                                    </div>
+                                    <div *ngSwitchCase="'textarea'">
+                                        <asw-text-area [control]="control"
+                                                       [controlIndex]="i"
+                                                       [isPreviewTemplate]="false">
+                                        </asw-text-area>
+                                    </div>
+                                    <div *ngSwitchCase="'select'">
+                                        <asw-select [control]="control"
+                                                    [controlIndex]="i"
+                                                    [isPreviewTemplate]="false">
+                                        </asw-select>
+                                    </div>
+                                    <div *ngSwitchCase="'multi-select'">
+                                        <asw-multi-select [control]="control"
+                                                          [controlIndex]="i"
+                                                          [isPreviewTemplate]="false">
+                                        </asw-multi-select>
+                                    </div>
+                                    <div *ngSwitchCase="'radio'">
+                                        <asw-radio-button [control]="control"
+                                                          [controlIndex]="i"
+                                                          [isPreviewTemplate]="false">
+                                        </asw-radio-button>
+                                    </div>
+                                    <div *ngSwitchCase="'checkbox'">
+                                        <asw-checkbox [control]="control"
+                                                      [controlIndex]="i"
+                                                      [isPreviewTemplate]="false">
+                                        </asw-checkbox>
+                                    </div>
+                                    <div *ngSwitchCase="'datepicker'">
+                                        <asw-datepicker [control]="control"
+                                                        [controlIndex]="i"
+                                                        [isPreviewTemplate]="false">
+                                        </asw-datepicker>
+                                    </div>
+                                    <div *ngSwitchCase="'button'">
+                                        <asw-button [control]="control"
+                                                    [controlIndex]="i"
+                                                    [isPreviewTemplate]="false">
+                                        </asw-button>                                       
+                                    </div>
+                                    <div *ngSwitchCase="'paragraph'">
+                                        <asw-paragraph [control]="control"
+                                                       [controlIndex]="i"
+                                                       [isPreviewTemplate]="false">
+                                        </asw-paragraph>
+                                    </div>
+                                    <div *ngSwitchCase="'slide-toggle'">
+                                        <asw-slide-toggle [control]="control"
+                                                          [controlIndex]="i"
+                                                          [isPreviewTemplate]="false">
+                                        </asw-slide-toggle>                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
