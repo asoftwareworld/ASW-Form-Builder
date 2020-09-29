@@ -23,7 +23,7 @@ export class EditHeaderComponent implements OnInit {
 
     validateFormBuilder(): void {
         this.aswHeaderForm = this.formBuilder.group({
-            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(5)]],
             subtype: [],
             style: []
         });
@@ -42,6 +42,9 @@ export class EditHeaderComponent implements OnInit {
     }
 
     onSubmit() {
+        if(this.aswHeaderForm.invalid){
+            return;
+        }
         this.aswHeaderForm.value['displayName'] = this.control.displayName;
         this.aswHeaderForm.value['controlType'] = this.control.controlType;
         this.dialogRef.close(this.aswHeaderForm.value);
