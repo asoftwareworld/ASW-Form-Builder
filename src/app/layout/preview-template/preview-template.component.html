@@ -124,6 +124,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div *ngSwitchCase="'divider'">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <asw-divider [control]="control"
+                                                        [controlIndex]="i"
+                                                        [isPreviewTemplate]="false">
+                                            </asw-divider>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div *ngSwitchCase="'slide-toggle'">
                                     <div class="row">
                                         <div class="col-md-12">

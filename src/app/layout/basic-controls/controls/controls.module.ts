@@ -16,6 +16,7 @@ import { ButtonComponent } from './button/button.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { HeaderComponent } from './header/header.component';
 import { ParagraphComponent } from './paragraph/paragraph.component';
+import { DividerComponent } from './divider/divider.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { ParagraphComponent } from './paragraph/paragraph.component';
     CheckboxComponent,
     SlideToggleComponent,
     HeaderComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    DividerComponent
   ],
   exports: [
     TextboxComponent,
@@ -51,7 +53,8 @@ import { ParagraphComponent } from './paragraph/paragraph.component';
     CheckboxComponent,
     SlideToggleComponent,
     HeaderComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    DividerComponent
   ]
 })
 export class ControlsModule { }

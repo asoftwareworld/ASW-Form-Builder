@@ -137,6 +137,11 @@
         "style":"text-left"
     },
     {
+        "icon": "horizontal_rule",
+        "displayName": "Divider",
+        "controlType": "divider"
+    },
+    {
         "icon": "toggle_on",
         "displayName": "Slide Toggle",
         "controlType": "slide-toggle",

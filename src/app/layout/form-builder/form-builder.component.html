@@ -117,6 +117,12 @@
                                                     (paragraphDeleteEvent)="deleteControl($event)">
                                         </asw-paragraph>
                                     </div>
+                                    <div *ngSwitchCase="'divider'">
+                                        <asw-divider [control]="control"
+                                                     [controlIndex]="i"
+                                                     (dividerDeleteEvent)="deleteControl($event)">
+                                        </asw-divider>
+                                    </div>
                                     <div *ngSwitchCase="'slide-toggle'">
                                         <asw-slide-toggle [control]="control"
                                                           [controlIndex]="i"
