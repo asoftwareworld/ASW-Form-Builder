@@ -11,7 +11,7 @@
                                         name="label"
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
-                                        [(ngModel)]="label">
+                                        [(ngModel)]="label" required>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
@@ -30,16 +30,17 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Name</mat-label>
                         <input matInput type="text"
-                                        name="name"
-                                        placeholder="Enter name"
-                                        matTooltip="Enter name"
-                                        [(ngModel)]="name">
+                                name="name"
+                                placeholder="Enter name"
+                                matTooltip="Enter name"
+                                minlength="4"
+                                [(ngModel)]="name" required>                        
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
-                        <mat-label>Textbox Style</mat-label>
-                        <mat-select [(ngModel)]="style" name="style">
+                        <mat-label>Select Style</mat-label>
+                        <mat-select [(ngModel)]="style" name="style" matTooltip="Select style">
                             <mat-option value="legacy">Legacy</mat-option>
                             <mat-option value="standard">Standard</mat-option>
                             <mat-option value="fill">Fill</mat-option>
@@ -79,7 +80,7 @@
                             matTooltip="Add option" 
                             [matTooltipPosition]="'above'" 
                             (click)="addNewOption()"
-                            class="btn btn-primary btn-link btn-sm btn-just-icon">
+                            class="btn btn-success btn-link btn-sm btn-just-icon">
                         <i class="material-icons">add</i>
                     </button>
                     <button mat-raised-button *ngIf="i != 0 && i != 1"

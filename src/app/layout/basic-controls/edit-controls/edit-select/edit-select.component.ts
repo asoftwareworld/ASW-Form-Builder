@@ -41,6 +41,10 @@ export class EditSelectComponent implements OnInit {
     }
 
     onSubmit(aswEditPropertyForm: NgForm) {
+        debugger;
+        if(aswEditPropertyForm.invalid) {
+            return;
+        }
         this.model.displayName = this.control.displayName;
         this.model.controlType = this.control.controlType;
         this.model.name = this.name;
