@@ -42,6 +42,9 @@ export class EditSlideToggleComponent implements OnInit {
     }
 
     onSubmit() {
+        if(this.aswEditSlideToggleForm.invalid){
+            return;
+        }
         this.aswEditSlideToggleForm.value['displayName'] = this.control.displayName;
         this.aswEditSlideToggleForm.value['controlType'] = this.control.controlType;
         this.dialogRef.close(this.aswEditSlideToggleForm.value);

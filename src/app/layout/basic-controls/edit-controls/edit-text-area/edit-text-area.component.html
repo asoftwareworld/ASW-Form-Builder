@@ -1,9 +1,8 @@
-<!-- <h1 mat-dialog-title>Edit Property</h1> -->
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
 <form [formGroup]="aswEditTextAreaForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
-        <div class="asw-full-width">
+        <div class="asw-full-width"><br>
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
@@ -65,6 +64,7 @@
                                         matTooltip="Enter maxlength"
                                         minlength="1"
                                         maxlength="3"
+                                        pattern="^[0-9]*$"
                                         formControlName="maxlength" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.maxlength">
                             <mat-error *ngIf="aswEditTextAreaForm.get('maxlength').hasError(validation.type)">{{validation.message}}</mat-error>

@@ -48,6 +48,9 @@ export class EditTextAreaComponent implements OnInit {
     }
 
     onSubmit() {
+        if(this.aswEditTextAreaForm.invalid){
+            return;
+        }
         this.aswEditTextAreaForm.value['displayName'] = this.control.displayName;
         this.aswEditTextAreaForm.value['controlType'] = this.control.controlType;
         this.dialogRef.close(this.aswEditTextAreaForm.value);
