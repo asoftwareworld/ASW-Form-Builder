@@ -47,6 +47,16 @@
         "maxlength": 50
     },
     {
+        "icon": "event",
+        "displayName": "Datepicker",
+        "controlType": "datepicker",
+        "name": "datepicker",
+        "tooltip": "Choose a date",
+        "label": "Date Picker",
+        "style":"outline",
+        "isRequired": false
+    },
+    {
         "icon": "arrow_drop_down_circle",
         "displayName": "Select",
         "controlType": "select",
@@ -62,14 +72,19 @@
         ]
     },
     {
-        "icon": "event",
-        "displayName": "Datepicker",
-        "controlType": "datepicker",
-        "name": "datepicker",
-        "tooltip": "Choose a date",
-        "label": "Date Picker",
+        "icon": "storage",
+        "displayName": "Multi Select",
+        "controlType": "multi-select",
+        "name": "multi-select",
+        "tooltip": "Select options",
+        "label": "MultiSelect",
         "style":"outline",
-        "isRequired": false
+        "isRequired": false,
+        "options": [
+            {"key": "option-1", "value": "Option 1"},
+			{"key": "option-2", "value": "Option 2"},
+            {"key": "option-3", "value": "Option 3"}
+        ]
     },
     {
         "icon": "radio_button_checked",
@@ -93,21 +108,6 @@
         "name": "checkbox",
         "tooltip": "checkbox",
         "label": "Checkbox",
-        "style":"outline",
-        "isRequired": false,
-        "options": [
-            {"key": "option-1", "value": "Option 1"},
-			{"key": "option-2", "value": "Option 2"},
-            {"key": "option-3", "value": "Option 3"}
-        ]
-    },
-    {
-        "icon": "storage",
-        "displayName": "Multi Select",
-        "controlType": "multi-select",
-        "name": "multi-select",
-        "tooltip": "Select options",
-        "label": "MultiSelect",
         "style":"outline",
         "isRequired": false,
         "options": [

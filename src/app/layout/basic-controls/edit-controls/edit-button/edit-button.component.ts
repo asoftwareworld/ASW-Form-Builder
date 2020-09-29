@@ -23,7 +23,7 @@ export class EditButtonComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditPropertyForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
+            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(25)]],
             name: ['', [Validators.required]],
             type: ['', [Validators.required]],
             color: [],
