@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-button',
@@ -8,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-button.component.scss']
 })
 export class EditButtonComponent implements OnInit {
-
-    aswEditPropertyForm: FormGroup;
+    constants: any = Constants;
+    aswEditButtonForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<EditButtonComponent>,
@@ -21,10 +22,10 @@ export class EditButtonComponent implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswEditPropertyForm = this.formBuilder.group({
+        this.aswEditButtonForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(25)]],
-            name: ['', [Validators.required]],
+            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
             type: ['', [Validators.required]],
             color: [],
             style: ['', [Validators.required]],
@@ -33,7 +34,7 @@ export class EditButtonComponent implements OnInit {
     }
 
     editProperty(control: any): void {
-        this.aswEditPropertyForm.setValue({
+        this.aswEditButtonForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
@@ -49,9 +50,12 @@ export class EditButtonComponent implements OnInit {
     }
 
     onSubmit() {
-        this.aswEditPropertyForm.value['displayName'] = this.control.displayName;
-        this.aswEditPropertyForm.value['controlType'] = this.control.controlType;
-        this.dialogRef.close(this.aswEditPropertyForm.value);
+        if(this.aswEditButtonForm.invalid) {
+            return;
+        }
+        this.aswEditButtonForm.value['displayName'] = this.control.displayName;
+        this.aswEditButtonForm.value['controlType'] = this.control.controlType;
+        this.dialogRef.close(this.aswEditButtonForm.value);
     }
 
     onChange(event: any) {

@@ -1,7 +1,6 @@
-<!-- <h1 mat-dialog-title>Edit Property</h1> -->
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditPropertyForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditButtonForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">        
         <div class="asw-full-width"><br>
             <div class="row">
@@ -12,7 +11,10 @@
                                         name="label"
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
-                                        formControlName="label">
+                                        formControlName="label" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error *ngIf="aswEditButtonForm.get('label').hasError(validation.type) && (aswEditButtonForm.get('label').dirty || aswEditButtonForm.get('label').touched)">{{validation.message}}</mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
@@ -32,11 +34,14 @@
                                 name="name"
                                 placeholder="Enter name"
                                 matTooltip="Enter name"
-                                formControlName="name">
+                                formControlName="name" required>
+                <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
+                    <mat-error *ngIf="aswEditButtonForm.get('name').hasError(validation.type) && (aswEditButtonForm.get('name').dirty || aswEditButtonForm.get('name').touched)">{{validation.message}}</mat-error>
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Type</mat-label>
-                <mat-select formControlName="type">
+                <mat-select formControlName="type" matTooltip="Select button type">
                     <mat-option value="button">Button</mat-option>
                     <mat-option value="submit">Submit</mat-option>
                     <mat-option value="reset">Reset</mat-option>
@@ -46,7 +51,7 @@
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
                         <mat-label>Button Style</mat-label>
-                        <mat-select formControlName="style">
+                        <mat-select formControlName="style" matTooltip="Select button style">
                             <mat-option value="mat-button">Basic</mat-option>
                             <mat-option value="mat-raised-button">Raised</mat-option>
                             <mat-option value="mat-stroked-button">Stroked</mat-option>
@@ -57,7 +62,7 @@
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
                         <mat-label>Color</mat-label>
-                        <mat-select formControlName="color">
+                        <mat-select formControlName="color" matTooltip="Select button color">
                             <mat-option value="">Basic</mat-option>
                             <mat-option value="primary">Primary</mat-option>
                             <mat-option value="accent">Rose</mat-option>
@@ -66,10 +71,15 @@
                     </mat-form-field>
                 </div>
             </div>
-            <mat-slide-toggle color="primary"
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-slide-toggle color="primary"
                           #isActive
                           formControlName="isRequired"
-                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}</mat-slide-toggle>
+                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">

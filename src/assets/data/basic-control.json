@@ -125,7 +125,7 @@
         "label": "Button",
         "type": "button",
         "color":"primary",
-        "style":"mat-button",
+        "style":"mat-raised-button",
         "isRequired": false
     },
     {
