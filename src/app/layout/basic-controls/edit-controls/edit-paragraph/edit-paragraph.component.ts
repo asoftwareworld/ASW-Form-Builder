@@ -42,6 +42,9 @@ export class EditParagraphComponent implements OnInit {
     }
 
     onSubmit() {
+        if(this.aswParagraphForm.invalid){
+            return;
+        }
         this.aswParagraphForm.value['displayName'] = this.control.displayName;
         this.aswParagraphForm.value['controlType'] = this.control.controlType;
         this.dialogRef.close(this.aswParagraphForm.value);
