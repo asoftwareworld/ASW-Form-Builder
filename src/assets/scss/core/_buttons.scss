@@ -48,9 +48,7 @@
   // btn-raised
   &.btn-raised,
   .btn-group-raised & {
-    // baseline shadow
-    // @include box-shadow($bmd-shadow-2dp);
-
+    
     // reverse any of the above for links
     &.btn-link {
       box-shadow: none;
@@ -195,15 +193,7 @@
   margin: 10px 1px;
 
   // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
-  //&.open {
-  //  .dropdown-toggle {
-  //  }
-  //
-  //  > .dropdown-toggle.btn {
-  //    @include bmd-raised-button-color-bg();
-  //  }
-  //}
-
+  
   .dropdown-menu {
     border-radius: 0 0 $border-radius $border-radius;
   }
