@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment';
 function getConstatnts() {
 	
 	const titleMessages = {
-        homeTitle: 'ASW | Form Bulder',
+        homeTitle: 'ASW | Form Builder',
 		aboutUsTitle: 'ASW | About Us',
         contactUsTitle: 'ASW | Contact Us',
     }
