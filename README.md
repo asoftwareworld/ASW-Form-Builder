@@ -33,7 +33,7 @@ Angular Material [more information](https://material.angular.io/components/categ
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Latest ✔                                                                                 | Latest ✔                                                                                    | Latest ✔                                                                                 | Latest ✔                                                                              | Latest ✔                                                                           | 11 ✔                                                                                                                         |
 
-## [Reporting Issues](https://github.com/asoftwareworld/ASW-Form-Builder/issues)
+## [Report a bug](https://github.com/asoftwareworld/ASW-Form-Builder/issues)
 We use GitHub Issues as the official bug tracker for the ASW Form Builder. Here are some advices for our users that want to report an issue:
 
 1. Make sure that you are using the latest version of the ASW Form Builder.
@@ -46,6 +46,6 @@ If you have questions or need help please email me `asoftwareworld@gmail.com`
 ## License
 [MIT](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE)
 
-## donate
+## Donate
 <a href="https://paypal.me/asoftwareworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
-If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:
+If you found value in `ASW Form Builder` or a contributor helped you out of a jam, consider becoming a contributor yourself.
