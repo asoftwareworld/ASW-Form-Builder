@@ -93,7 +93,6 @@
         "name": "radio",
         "tooltip": "radio",
         "label": "Radio",
-        "style":"outline",
         "isRequired": false,
         "options": [
             {"key": "option-1", "value": "Option 1"},
@@ -108,7 +107,6 @@
         "name": "checkbox",
         "tooltip": "checkbox",
         "label": "Checkbox",
-        "style":"outline",
         "isRequired": false,
         "options": [
             {"key": "option-1", "value": "Option 1"},
