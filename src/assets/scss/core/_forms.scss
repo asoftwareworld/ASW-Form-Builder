@@ -227,45 +227,6 @@ select {
   }
 }
 
-// Input files - hide actual input - requires specific markup in the sample.
-//.bmd-form-group input[type=file] {
-//  opacity: 0;
-//  position: absolute;
-//  top: 0;
-//  right: 0;
-//  bottom: 0;
-//  left: 0;
-//  width: 100%;
-//  height: 100%;
-//  z-index: 100;
-//}
-
-//
-//
-//.form-horizontal {
-//
-//  // Consistent vertical alignment of radios and checkboxes
-//  .radio,
-//  .checkbox,
-//  .radio-inline,
-//  .checkbox-inline {
-//    padding-top: 0;
-//  }
-//
-//  .radio {
-//    margin-bottom: 10px;
-//  }
-//
-//  label {
-//    text-align: right;
-//  }
-//
-//  label {
-//    margin: 0;
-//  }
-//}
-
-
 .form-inline {
   @include media-breakpoint-up(sm) {
     .input-group {
@@ -411,15 +372,9 @@ fieldset[disabled] .form-group .form-control{
 form .ng-valid{
   &.mat-focused .mat-form-field-label,
   .mat-focused .mat-form-field-label,
-  .mat-form-field-label{
-    // color: #4caf50;
-  }
+  
     .mat-input-underline{
-      // background-color: #4caf50;
       height: 2px;
-      .mat-input-ripple{
-        // background-color: #4caf50;
-      }
     }
 
 }

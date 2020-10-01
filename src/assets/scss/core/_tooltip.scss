@@ -9,9 +9,6 @@
     @include shadow-8dp();
 }
 
-.tooltip, .tooltip.in {
-  //opacity: 1;
-}
 .tooltip.in{
     opacity: 1;
     @include transform-translate-y(0px);
