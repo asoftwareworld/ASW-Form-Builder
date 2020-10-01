@@ -13,7 +13,10 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditTextboxForm.get('label').hasError(validation.type) && (aswEditTextboxForm.get('label').dirty || aswEditTextboxForm.get('label').touched)">{{validation.message}}</mat-error>
+                            <mat-error *ngIf="aswEditTextboxForm.get('label').hasError(validation.type) && (aswEditTextboxForm.get('label').dirty || aswEditTextboxForm.get('label').touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon> 
+                                {{validation.message}}
+                            </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -38,7 +41,10 @@
                                         matTooltip="Enter name"
                                         formControlName="name" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error *ngIf="aswEditTextboxForm.get('name').hasError(validation.type) && (aswEditTextboxForm.get('name').dirty || aswEditTextboxForm.get('name').touched)">{{validation.message}}</mat-error>
+                            <mat-error *ngIf="aswEditTextboxForm.get('name').hasError(validation.type) && (aswEditTextboxForm.get('name').dirty || aswEditTextboxForm.get('name').touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon>
+                                 {{validation.message}}
+                                </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -80,7 +86,10 @@
                                         pattern="^[0-9]*$"
                                         formControlName="maxlength" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.maxlength">
-                            <mat-error *ngIf="aswEditTextboxForm.get('maxlength').hasError(validation.type)">{{validation.message}}</mat-error>
+                            <mat-error *ngIf="aswEditTextboxForm.get('maxlength').hasError(validation.type)">
+                                <mat-icon aria-hidden="false">error</mat-icon>
+                                 {{validation.message}}
+                                </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>

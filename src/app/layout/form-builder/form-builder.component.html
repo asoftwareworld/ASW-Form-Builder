@@ -22,7 +22,7 @@
                             [cdkDropListData]="availableControls"
                             class="asw-list">
                             <div class="asw-box" *ngFor="let item of availableControls" cdkDrag>
-                                <i class="material-icons">{{item.icon}}</i>
+                                <mat-icon aria-hidden="false">{{item.icon}}</mat-icon>
                                 {{item.displayName}}
                             </div>
                         </div>

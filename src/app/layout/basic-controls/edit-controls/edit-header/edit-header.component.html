@@ -13,7 +13,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswHeaderForm.get('label').hasError(validation.type) && (aswHeaderForm.get('label').dirty || aswHeaderForm.get('label').touched)">{{validation.message}}</mat-error>
+                            <mat-error *ngIf="aswHeaderForm.get('label').hasError(validation.type) && (aswHeaderForm.get('label').dirty || aswHeaderForm.get('label').touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                            </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>

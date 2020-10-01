@@ -13,7 +13,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditButtonForm.get('label').hasError(validation.type) && (aswEditButtonForm.get('label').dirty || aswEditButtonForm.get('label').touched)">{{validation.message}}</mat-error>
+                            <mat-error *ngIf="aswEditButtonForm.get('label').hasError(validation.type) && (aswEditButtonForm.get('label').dirty || aswEditButtonForm.get('label').touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                            </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -36,7 +38,9 @@
                                 matTooltip="Enter name"
                                 formControlName="name" required>
                 <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                    <mat-error *ngIf="aswEditButtonForm.get('name').hasError(validation.type) && (aswEditButtonForm.get('name').dirty || aswEditButtonForm.get('name').touched)">{{validation.message}}</mat-error>
+                    <mat-error *ngIf="aswEditButtonForm.get('name').hasError(validation.type) && (aswEditButtonForm.get('name').dirty || aswEditButtonForm.get('name').touched)">
+                        <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                    </mat-error>
                 </mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">

@@ -12,7 +12,9 @@
                                         matTooltip="Enter Content"
                                         formControlName="label" required></textarea>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswParagraphForm.get('label').hasError(validation.type) && (aswParagraphForm.get('label').dirty || aswParagraphForm.get('label').touched)">{{validation.message}}</mat-error>
+                            <mat-error *ngIf="aswParagraphForm.get('label').hasError(validation.type) && (aswParagraphForm.get('label').dirty || aswParagraphForm.get('label').touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                            </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>

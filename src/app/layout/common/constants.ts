@@ -8,8 +8,7 @@ function getConstatnts() {
         contactUsTitle: 'ASW | Contact Us',
     }
 
-    const accountValidationMessages = {
-        
+    const accountValidationMessages = {        
        'name': [
              { type: 'required', message: 'Name is required' },
              { type: 'minlength', message: 'Name must be at least 5 characters long' },
@@ -68,6 +67,7 @@ function getConstatnts() {
 
     const messages = {
         waringMessage: 'Are you sure you want to remove this field?',
+        optionKeyValidationMessage: 'That option key is already exist. Try another.'
     }
 
     const applicationConstants = {
