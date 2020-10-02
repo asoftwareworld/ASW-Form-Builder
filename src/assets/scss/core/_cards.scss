@@ -518,44 +518,6 @@
       }
 
       position: relative;
-
-      .ct-chart{
-        .card-title{
-            color: $white-color;
-        }
-        .card-category{
-            margin-bottom: 0;
-            color: rgba($white-color, .62);
-        }
-
-        .ct-label{
-            color: rgba($white-color, .7);
-        }
-        .ct-grid{
-            stroke: rgba(255, 255, 255, 0.2);
-        }
-        .ct-series-a .ct-point,
-        .ct-series-a .ct-line,
-        .ct-series-a .ct-bar,
-        .ct-series-a .ct-slice-donut{
-            stroke: rgba(255,255,255,.8);
-        }
-        .ct-series-a .ct-slice-pie,
-        .ct-series-a .ct-area{
-            fill: rgba(255,255,255,.4);
-        }
-        .ct-series-a .ct-bar{
-          stroke-width: 10px;
-        }
-        .ct-point{
-          stroke-width: 10px;
-          stroke-linecap: round;
-        }
-        .ct-line{
-          fill: none;
-          stroke-width: 4px;
-        }
-      }
   }
 
   [data-header-animation="true"] {

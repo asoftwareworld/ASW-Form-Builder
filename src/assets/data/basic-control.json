@@ -26,7 +26,7 @@
       "icon": "text_fields",
       "displayName": "Textbox",
       "controlType": "textbox",
-      "name": "textBox",
+      "name": "Textbox",
       "tooltip": "Enter Text",
       "type": "text",
       "label": "TextBox",
