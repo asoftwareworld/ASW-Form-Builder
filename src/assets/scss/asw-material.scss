@@ -7,22 +7,16 @@
 
  // Core Components
  @import "core/buttons";
- @import "core/checkboxes";
  @import "core/radios";
  @import "core/forms";
- @import "core/input-group";
  @import "core/images";
  @import "core/navbar";
- @import "core/alerts";
  @import "core/type";
- @import "core/tabs";
  @import "core/tooltip";
  @import "core/popover";
- @import "core/dropdown";
- @import "core/togglebutton";
  @import "core/ripples";
  @import "core/footers";
- @import "core/sidebar-and-main-panel";
+ @import "core/main-panel";
  @import "core/fixed-plugin";
  @import "core/tables";
  @import "core/misc";
@@ -33,10 +27,6 @@
 @import "core/cards/card-plain";
 
  //plugin scss
- @import "core/plugins/animate";
- @import "core/plugins/chartist";
- @import "core/plugins/perfect-scrollbar";
 
  @import "core/responsive";
 
-@import "core/angular-modal.scss";
