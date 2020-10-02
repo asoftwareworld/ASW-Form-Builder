@@ -5,8 +5,7 @@ import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-paragraph',
-  templateUrl: './edit-paragraph.component.html',
-  styleUrls: ['./edit-paragraph.component.scss']
+  templateUrl: './edit-paragraph.component.html'
 })
 export class EditParagraphComponent implements OnInit {
     constants: any = Constants;

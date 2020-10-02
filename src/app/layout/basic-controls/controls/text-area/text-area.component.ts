@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-text-area',
-    templateUrl: './text-area.component.html',
-    styleUrls: ['./text-area.component.scss']
+    templateUrl: './text-area.component.html'
 })
 export class TextAreaComponent {
 

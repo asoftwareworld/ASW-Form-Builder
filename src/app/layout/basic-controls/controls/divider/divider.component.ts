@@ -5,8 +5,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-divider',
-    templateUrl: './divider.component.html',
-    styleUrls: ['./divider.component.scss']
+    templateUrl: './divider.component.html'
 })
 export class DividerComponent {
 

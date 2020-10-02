@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-slide-toggle',
-    templateUrl: './slide-toggle.component.html',
-    styleUrls: ['./slide-toggle.component.scss']
+    templateUrl: './slide-toggle.component.html'
 })
 export class SlideToggleComponent {
 

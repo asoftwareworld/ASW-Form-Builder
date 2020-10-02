@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-radio-button',
-    templateUrl: './radio-button.component.html',
-    styleUrls: ['./radio-button.component.scss']
+    templateUrl: './radio-button.component.html'
 })
 export class RadioButtonComponent {
 

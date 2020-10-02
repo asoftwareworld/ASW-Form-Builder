@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-paragraph',
-    templateUrl: './paragraph.component.html',
-    styleUrls: ['./paragraph.component.scss']
+    templateUrl: './paragraph.component.html'
 })
 export class ParagraphComponent {
 

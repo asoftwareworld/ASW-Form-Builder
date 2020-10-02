@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-multi-select',
-    templateUrl: './multi-select.component.html',
-    styleUrls: ['./multi-select.component.scss']
+    templateUrl: './multi-select.component.html'
 })
 export class MultiSelectComponent {
 

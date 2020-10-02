@@ -9,8 +9,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-autocomplete',
-    templateUrl: './autocomplete.component.html',
-    styleUrls: ['./autocomplete.component.scss']
+    templateUrl: './autocomplete.component.html'
 })
 export class AutocompleteComponent implements OnInit {
 

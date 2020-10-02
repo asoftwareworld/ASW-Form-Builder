@@ -4,8 +4,7 @@ import { Constants } from '../common/constants';
 
 @Component({
     selector: 'asw-about-us',
-    templateUrl: './about-us.component.html',
-    styleUrls: ['./about-us.component.scss']
+    templateUrl: './about-us.component.html'
 })
 export class AboutUsComponent implements OnInit {
     constants: any = Constants;

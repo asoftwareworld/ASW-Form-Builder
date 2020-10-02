@@ -5,8 +5,7 @@ import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-text-box',
-  templateUrl: './edit-text-box.component.html',
-  styleUrls: ['./edit-text-box.component.scss']
+  templateUrl: './edit-text-box.component.html'
 })
 export class EditTextboxComponent implements OnInit {
     constants: any = Constants;

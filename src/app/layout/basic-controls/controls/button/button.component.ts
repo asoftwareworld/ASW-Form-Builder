@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-button',
-    templateUrl: './button.component.html',
-    styleUrls: ['./button.component.scss']
+    templateUrl: './button.component.html'
 })
 export class ButtonComponent {
 

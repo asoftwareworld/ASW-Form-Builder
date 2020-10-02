@@ -4,8 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'asw-edit-datepicker',
-  templateUrl: './edit-datepicker.component.html',
-  styleUrls: ['./edit-datepicker.component.scss']
+  templateUrl: './edit-datepicker.component.html'
 })
 export class EditDatepickerComponent implements OnInit {
 

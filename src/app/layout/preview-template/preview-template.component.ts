@@ -6,8 +6,7 @@ import { ASWSettingsService } from '../shared-service/asw-settings.service';
 
 @Component({
   selector: 'asw-preview-template',
-  templateUrl: './preview-template.component.html',
-  styleUrls: ['./preview-template.component.scss']
+  templateUrl: './preview-template.component.html'
 })
 export class PreviewTemplateComponent implements OnInit {
 	

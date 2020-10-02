@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-text-box',
-    templateUrl: './text-box.component.html',
-    styleUrls: ['./text-box.component.scss']
+    templateUrl: './text-box.component.html'
 })
 export class TextboxComponent {
 

@@ -5,8 +5,7 @@ import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-header',
-  templateUrl: './edit-header.component.html',
-  styleUrls: ['./edit-header.component.scss']
+  templateUrl: './edit-header.component.html'
 })
 export class EditHeaderComponent implements OnInit {
     constants: any = Constants;

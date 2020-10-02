@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-datepicker',
-    templateUrl: './datepicker.component.html',
-    styleUrls: ['./datepicker.component.scss']
+    templateUrl: './datepicker.component.html'
 })
 export class DatepickerComponent {
 

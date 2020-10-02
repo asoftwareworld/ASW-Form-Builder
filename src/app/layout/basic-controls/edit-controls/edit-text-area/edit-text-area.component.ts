@@ -5,8 +5,7 @@ import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-text-area',
-  templateUrl: './edit-text-area.component.html',
-  styleUrls: ['./edit-text-area.component.scss']
+  templateUrl: './edit-text-area.component.html'
 })
 export class EditTextAreaComponent implements OnInit {
     constants: any = Constants;

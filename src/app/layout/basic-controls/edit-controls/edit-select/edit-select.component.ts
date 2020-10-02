@@ -5,8 +5,7 @@ import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-select',
-  templateUrl: './edit-select.component.html',
-  styleUrls: ['./edit-select.component.scss']
+  templateUrl: './edit-select.component.html'
 })
 export class EditSelectComponent implements OnInit {
     constants: any = Constants;

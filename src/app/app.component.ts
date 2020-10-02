@@ -4,8 +4,7 @@ import { Constants } from './layout/common/constants';
 
 @Component({
   selector: 'asw-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
     constants: any = Constants;

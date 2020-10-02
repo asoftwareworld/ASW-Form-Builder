@@ -6,8 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/layout/shared-components/confirm
 
 @Component({
     selector: 'asw-checkbox',
-    templateUrl: './checkbox.component.html',
-    styleUrls: ['./checkbox.component.scss']
+    templateUrl: './checkbox.component.html'
 })
 export class CheckboxComponent {
 

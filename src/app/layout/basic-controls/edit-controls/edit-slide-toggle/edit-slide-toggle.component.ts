@@ -5,8 +5,7 @@ import { Constants } from 'src/app/layout/common/constants';
 
 @Component({
   selector: 'asw-edit-slide-toggle',
-  templateUrl: './edit-slide-toggle.component.html',
-  styleUrls: ['./edit-slide-toggle.component.scss']
+  templateUrl: './edit-slide-toggle.component.html'
 })
 export class EditSlideToggleComponent implements OnInit {
     constants: any = Constants;

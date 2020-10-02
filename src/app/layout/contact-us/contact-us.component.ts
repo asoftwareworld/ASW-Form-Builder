@@ -6,8 +6,7 @@ import { Constants } from '../common/constants';
 
 @Component({
     selector: 'app-contact-us',
-    templateUrl: './contact-us.component.html',
-    styleUrls: ['./contact-us.component.scss'],
+    templateUrl: './contact-us.component.html'
     //providers: [NotificationService]
 })
 export class ContactUsComponent implements OnInit {
