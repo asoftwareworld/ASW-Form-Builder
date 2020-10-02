@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/scss/material-dashboard.scss",
+              "src/assets/scss/asw-material.scss",
               "src/styles.scss"
             ],
             "scripts": [
@@ -97,7 +97,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/scss/material-dashboard.scss",
+              "src/assets/scss/asw-material.scss",
               "src/styles.scss"
             ],
             "scripts": [
