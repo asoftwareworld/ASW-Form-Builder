@@ -6,12 +6,17 @@ import { AboutUsComponent } from './about-us.component';
 
 let fixture: ComponentFixture<AboutUsComponent>;
 
+class MockTitle {
+    isLoggedIn = true;
+    user = { name: 'Test User'};
+}
+
 describe('AboutUsComponent', () => {
     let titleService: Title;
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
       declarations: [ AboutUsComponent ],
-      providers:[{provide: Title, useClass: Title}],
+      providers:[{provide: Title, useClass: MockTitle}],
       schemas:  [ NO_ERRORS_SCHEMA ]
     })
     .createComponent(AboutUsComponent);

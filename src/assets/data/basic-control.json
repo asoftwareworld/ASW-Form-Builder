@@ -146,5 +146,16 @@
         "label": "Slide me!",
         "color":"primary",
         "isRequired": false
+    },
+    {
+        "icon": "grid",
+        "displayName": "Grid",
+        "controlType": "grid",
+        "columns": [{
+            "components":[]
+        },
+        {
+            "components":[]
+        }]
     }
 ]

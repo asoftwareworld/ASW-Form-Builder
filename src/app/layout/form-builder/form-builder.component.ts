@@ -39,6 +39,18 @@ export class FormBuilderComponent implements OnInit {
 		}
 	}
 
+	gridDrop(event: CdkDragDrop<string[]>) {
+		debugger;
+		if (event.previousContainer === event.container) {
+			moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+		} else {
+		copyArrayItem(event.previousContainer.data,
+							event.container.data,
+							event.previousIndex,
+							event.currentIndex);
+		}
+	}
+
 	updatedControl(data: any) {
 		this.formContainer.splice(data.index, 1, data.control);
 	}
