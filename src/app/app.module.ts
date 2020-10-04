@@ -16,6 +16,7 @@ import { AboutUsComponent } from './layout/about-us/about-us.component';
 import { ContactUsComponent } from './layout/contact-us/contact-us.component';
 import { ASWSettingsService } from './layout/shared-service/asw-settings.service';
 import { JsonPreviewDialogComponent } from './layout/shared-components/json-preview-dialog/json-preview-dialog.component'
+import { GoogleAdsenseModule } from '@asoftwareworld/google-adsense';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,10 @@ import { JsonPreviewDialogComponent } from './layout/shared-components/json-prev
     ControlsModule,
     EditControlsModule,
     AppRoutingModule,
+    GoogleAdsenseModule.forRoot({
+      adClient: 'ca-pub-9010581920864857',
+      adSlot: 1795662914,
+    }),
   ],
   entryComponents: [JsonPreviewDialogComponent],
   providers: [ASWSettingsService],

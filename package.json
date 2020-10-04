@@ -21,14 +21,15 @@
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
+    "@asoftwareworld/google-adsense": "^1.0.2",
     "bootstrap": "4.5.2",
     "bootstrap-material-design": "4.1.3",
     "classlist.js": "^1.1.20150312",
     "jquery": "3.4.1",
     "popper.js": "1.16.1",
-    "web-animations-js": "2.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "web-animations-js": "2.3.2",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
