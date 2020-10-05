@@ -8,7 +8,7 @@ export class ASWSettingsService {
     constructor(private http: HttpClient) {}
 
     public getJSON(): Observable<any> {
-        return this.http.get('assets/data/basic-control.json');
+        return this.http.get('projects/from-builder/src/assets/data/basic-control.json');
     }
 
 
