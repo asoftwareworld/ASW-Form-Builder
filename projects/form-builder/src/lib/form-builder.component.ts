@@ -22,10 +22,10 @@ export class FormBuilderComponent implements OnInit {
 
   	ngOnInit(): void {
 		this.formContainer = this.aswSettingsService.previewData;
-		//this.availableControls = this.components;
-		this.aswSettingsService.getJSON().subscribe(data => {
-			this.availableControls = data;
-        });		
+		this.availableControls = CONTROLS;
+		// this.aswSettingsService.getJSON().subscribe(data => {
+		// 	this.availableControls = data;
+        // });		
 	}
 
 	drop(event: CdkDragDrop<string[]>) {
@@ -40,7 +40,6 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	gridDrop(event: CdkDragDrop<string[]>) {
-		debugger;
 		if (event.previousContainer === event.container) {
 			moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
 		} else {
@@ -74,3 +73,166 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 }
+
+
+const CONTROLS: any[] = [
+	{ 
+		'icon': 'title', 
+		'displayName': 'Header', 
+		'controlType': 'header', 
+		'subtype': 'h1',
+		'style':'text-left',
+		'label': 'Header'
+	},
+	{
+		'icon': 'corporate_fare',
+		'displayName': 'Autocomplete',
+		'controlType': 'autocomplete',
+		'name': 'autocomplete',
+		'tooltip': 'Select one',
+		'label': 'Autocomplete',
+		'style':'outline',
+		'isRequired': false,
+		'options': [
+			{'key': 'option-1', 'value': 'Option 1'},
+			{'key': 'option-2', 'value': 'Option 2'},
+			{'key': 'option-3', 'value': 'Option 3'}
+		]
+	},
+	{
+	  'icon': 'text_fields',
+	  'displayName': 'Textbox',
+	  'controlType': 'textbox',
+	  'name': 'Textbox',
+	  'tooltip': 'Enter Text',
+	  'type': 'text',
+	  'label': 'TextBox',
+	  'style':'outline',
+	  'isRequired': false,
+	  'maxlength': 50
+	},
+	{
+		'icon': 'notes',
+		'displayName': 'Text Area',
+		'controlType': 'textarea',
+		'name': 'textarea',
+		'tooltip': 'Enter Text',
+		'type': 'text',
+		'label': 'TextArea',
+		'style':'outline',
+		'isRequired': false,
+		'maxlength': 50
+	},
+	{
+		'icon': 'event',
+		'displayName': 'Datepicker',
+		'controlType': 'datepicker',
+		'name': 'datepicker',
+		'tooltip': 'Choose a date',
+		'label': 'Date Picker',
+		'style':'outline',
+		'isRequired': false
+	},
+	{
+		'icon': 'arrow_drop_down_circle',
+		'displayName': 'Select',
+		'controlType': 'select',
+		'name': 'select',
+		'tooltip': 'Select option',
+		'label': 'Select',
+		'style':'outline',
+		'isRequired': false,
+		'options': [
+			{'key': 'option-1', 'value': 'Option 1'},
+			{'key': 'option-2', 'value': 'Option 2'},
+			{'key': 'option-3', 'value': 'Option 3'}
+		]
+	},
+	{
+		'icon': 'storage',
+		'displayName': 'Multi Select',
+		'controlType': 'multi-select',
+		'name': 'multi-select',
+		'tooltip': 'Select options',
+		'label': 'MultiSelect',
+		'style':'outline',
+		'isRequired': false,
+		'options': [
+			{'key': 'option-1', 'value': 'Option 1'},
+			{'key': 'option-2', 'value': 'Option 2'},
+			{'key': 'option-3', 'value': 'Option 3'}
+		]
+	},
+	{
+		'icon': 'radio_button_checked',
+		'displayName': 'Radio Button',
+		'controlType': 'radio',
+		'name': 'radio',
+		'tooltip': 'radio',
+		'label': 'Radio',
+		'isRequired': false,
+		'options': [
+			{'key': 'option-1', 'value': 'Option 1'},
+			{'key': 'option-2', 'value': 'Option 2'},
+			{'key': 'option-3', 'value': 'Option 3'}
+		]
+	},
+	{
+		'icon': 'check_box',
+		'displayName': 'Checkbox',
+		'controlType': 'checkbox',
+		'name': 'checkbox',
+		'tooltip': 'checkbox',
+		'label': 'Checkbox',
+		'isRequired': false,
+		'options': [
+			{'key': 'option-1', 'value': 'Option 1'},
+			{'key': 'option-2', 'value': 'Option 2'},
+			{'key': 'option-3', 'value': 'Option 3'}
+		]
+	},
+	{
+		'icon': 'touch_app',
+		'displayName': 'Button',
+		'controlType': 'button',
+		'name': 'button',
+		'tooltip': 'Click button',
+		'label': 'Button',
+		'type': 'button',
+		'color':'primary',
+		'style':'mat-raised-button',
+		'isRequired': false
+	},
+	{
+		'icon': 'format_textdirection_l_to_r',
+		'displayName': 'Paragraph',
+		'controlType': 'paragraph',
+		'label': 'Paragraph',
+		'subtype': 'p',
+		'style':'text-left'
+	},
+	{
+		'icon': 'horizontal_rule',
+		'displayName': 'Divider',
+		'controlType': 'divider'
+	},
+	{
+		'icon': 'toggle_on',
+		'displayName': 'Slide Toggle',
+		'controlType': 'slide-toggle',
+		'label': 'Slide me!',
+		'color':'primary',
+		'isRequired': false
+	},
+	{
+		'icon': 'grid',
+		'displayName': 'Grid',
+		'controlType': 'grid',
+		'columns': [{
+			'components':[]
+		},
+		{
+			'components':[]
+		}]
+	}
+];

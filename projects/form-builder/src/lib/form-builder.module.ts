@@ -9,8 +9,6 @@ import { FormBuilderComponent } from './form-builder.component';
 import { MaterialModule } from './material.module';
 import { JsonPreviewDialogComponent } from './shared-components/json-preview-dialog/json-preview-dialog.component';
 
-
-
 @NgModule({
   declarations: [FormBuilderComponent,
     JsonPreviewDialogComponent],
