@@ -7,7 +7,7 @@ This form builder is designed with latest version of `Angular` and `Angular Mate
 ## Installation
 
 ```html
-npm install @asoftwareworld/asw-form-builder
+npm install @asoftwareworld/form-builder
 ```
 
 ## Theme
