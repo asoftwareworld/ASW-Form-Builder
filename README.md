@@ -10,6 +10,24 @@ This form builder is designed with latest version of `Angular` and `Angular Mate
 npm install @asoftwareworld/form-builder
 ```
 
+#### Import NgModule
+
+And then include it in your module (see [app.module.ts](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/projects/form-builder-demo/src/app/app.module.ts) ):
+```
+import { FormBuilderModule } from '@asoftwareworld/form-builder';
+// ...
+
+@NgModule({
+  imports: [
+    // shown passing global defaults (optional)
+    FormBuilderModule,
+    ...
+  ]
+  // ...
+})
+export class AppModule {}
+```
+
 ## Theme
 Angular Material [more information](https://material.angular.io/components/categories)
 
