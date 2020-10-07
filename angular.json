@@ -69,7 +69,7 @@
             ],
             "styles": [
               "projects/form-builder-demo/src/styles.scss",
-              "projects/form-builder/src/assets/scss/asw-form-builder.scss"
+              "projects/form-builder/src/theming/scss/asw-form-builder.scss"
             ],
             "scripts": []
           },

@@ -1,6 +1,6 @@
 {
   "name": "@asoftwareworld/form-builder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Anish Sharma",
   "license": "MIT",
   "sass": "src/assets/scss/asw-form-builder.scss",
