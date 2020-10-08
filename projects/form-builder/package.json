@@ -1,9 +1,8 @@
 {
   "name": "@asoftwareworld/form-builder",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "Anish Sharma",
   "license": "MIT",
-  "sass": "src/assets/scss/asw-form-builder.scss",
   "peerDependencies": {
     "@angular/common": "^10.1.4",
     "@angular/core": "^10.1.4",
