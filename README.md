@@ -5,7 +5,20 @@ This form builder is designed with latest version of `Angular` and `Angular Mate
 ## [API Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
 
 ## Installation
+Below are two
+#### Install Angular Material
+First, install `Angular Material` to set up your project by running the following command:
 
+```html
+ng add @angular/material
+```
+#### Install Bootstrap
+Second, Install `Bootstrap` source Sass files to set up your project by running the following command:
+```html
+npm install bootstrap
+```
+#### Install ASW Form Builder
+Finally, install `Form Builder` to set up your project by running the following command:
 ```html
 npm install @asoftwareworld/form-builder
 ```
@@ -28,6 +41,24 @@ import { FormBuilderModule } from '@asoftwareworld/form-builder';
 export class AppModule {}
 ```
 
+In your template, use the component directive:
+```
+<asw-form-builder (onPublishedClick)="saveJsonData($event)"></asw-form-builder>
+```
+
+Define in your component to get published event :
+
+```
+export class AppComponent {
+  title = 'ASW Form Builder Demo';
+
+  saveJsonData(data: any){
+    //.... 
+    console.log(data);
+    // do something
+  }
+}
+```
 ## Theme
 Angular Material [more information](https://material.angular.io/components/categories)
 
