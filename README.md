@@ -61,7 +61,7 @@ or
 `angular.json`:
 ```html
 "styles": [
-  "./node_modules/@asoftwareworld/form-builder/theming/asw-form-builder.scss"
+  "./node_modules/@asoftwareworld/form-builder/theming/theming-bundle.scss"
 ],
 ```
 
