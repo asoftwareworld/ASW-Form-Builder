@@ -86,7 +86,8 @@ export class AppComponent {
 }
 ```
 ## Theme
-Angular Material [more information](https://material.angular.io/components/categories)
+Angular Material [more information](https://material.angular.io/components/categories) 
+and Bootstrap [more information](https://getbootstrap.com/docs/4.0/getting-started/theming/)
 
 ## List of Controls available
 | controls        | description                                                                                                     |
