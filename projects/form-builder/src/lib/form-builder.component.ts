@@ -166,7 +166,7 @@ export class FormBuilderComponent implements OnInit {
 	availableControls: any[] = [];
 	formContainer: any[] = [];
 
-	@Output() onPublishedClick = new EventEmitter<any[]>();
+	@Output() publishClick = new EventEmitter<any[]>();
 
 	constructor(public dialog: MatDialog) { }
 
@@ -219,6 +219,6 @@ export class FormBuilderComponent implements OnInit {
 	}
 
 	publishTemplate(): void {
-		this.onPublishedClick.emit(this.formContainer);
+		this.publishClick.emit(this.formContainer);
 	}
 }

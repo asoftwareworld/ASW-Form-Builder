@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'asw-root',
   template: `
-  <asw-form-builder (onPublishedClick)="saveJsonData($event)"></asw-form-builder>
+  <asw-form-builder (publishClick)="saveJsonData($event)"></asw-form-builder>
   `,
   styleUrls: ['./app.component.scss']
 })
