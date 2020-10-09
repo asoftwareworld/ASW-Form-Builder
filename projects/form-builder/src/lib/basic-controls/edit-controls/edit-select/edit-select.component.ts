@@ -51,7 +51,7 @@ export class EditSelectComponent implements OnInit {
         this.model.name = this.name;
         this.model.label = this.label;
         this.model.tooltip = this.tooltip;
-        if(this.control.controlType === 'select' || this.control.controlType === 'multi-select') {
+        if(this.control.controlType != 'radio' || this.control.controlType != 'checkbox') {
             this.model.style = this.style;
         }          
         this.model.isRequired = this.isRequired;
@@ -84,7 +84,6 @@ export class EditSelectComponent implements OnInit {
     }  
 
     onKey(event: any, index: number) {
-        debugger;
         this.options.forEach((element, elementIndex)=> {
             if(element.key == event.target.value && index != elementIndex) {
                 this.optionKeyMessage = this.constants.messages.optionKeyValidationMessage;

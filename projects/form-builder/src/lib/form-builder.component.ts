@@ -3,7 +3,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from './common/constants';
 import { JsonPreviewDialogComponent } from './shared-components/json-preview-dialog/json-preview-dialog.component';
-import { ASWSettingsService } from './shared-service/asw-settings.service';
 
 const CONTROLS: any[] = [
 	{ 
@@ -159,8 +158,7 @@ const CONTROLS: any[] = [
 @Component({
   selector: 'asw-form-builder',
   templateUrl: './form-builder.component.html',
-  styleUrls: ['./form-builder.component.scss'],
-  providers:[ASWSettingsService]
+  styleUrls: ['./form-builder.component.scss']
 })
 export class FormBuilderComponent implements OnInit {
 	
@@ -170,15 +168,10 @@ export class FormBuilderComponent implements OnInit {
 
 	@Output() onPublishedClick = new EventEmitter<any[]>();
 
-	constructor(public dialog: MatDialog,
-		private aswSettingsService: ASWSettingsService) { }
+	constructor(public dialog: MatDialog) { }
 
   	ngOnInit(): void {
-		this.formContainer = this.aswSettingsService.previewData;
 		this.availableControls = CONTROLS;
-		// this.aswSettingsService.getJSON().subscribe(data => {
-		// 	this.availableControls = data;
-        // });		
 	}
 
 	drop(event: CdkDragDrop<string[]>) {
@@ -228,5 +221,4 @@ export class FormBuilderComponent implements OnInit {
 	publishTemplate(): void {
 		this.onPublishedClick.emit(this.formContainer);
 	}
-
 }

@@ -11,7 +11,6 @@ export class AppComponent {
   title = 'form-builder-demo';
 
   saveJsonData(data: any){
-    debugger;
     console.log(data);
   }
 }

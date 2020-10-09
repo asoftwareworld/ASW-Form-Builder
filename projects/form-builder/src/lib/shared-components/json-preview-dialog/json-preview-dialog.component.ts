@@ -13,5 +13,4 @@ export class JsonPreviewDialogComponent {
     onNoClick(): void {
         this.dialogRef.close();
     }
-
 }
