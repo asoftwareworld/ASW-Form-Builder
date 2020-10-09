@@ -1,30 +1,35 @@
 # ASW Form Builder
-The **ASW Form Builder** is allow you to create forms, resume and about us page to build as a JSON Schema which renders as a **Form, pages, and templates** in your application.
-This form builder is designed with latest version of `Angular` and `Angular Material`.
+`ASW Form Builder` helps you with rapid development and designed web forms which includes several controls and the key feature of `Form Builder` is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.
+<br>
+`Form Builder` is compatible with the latest version of Angular and Angular Material. Only a few clicks can create an attractive web form and provide a JSON Schema to render all controls.
 
 ## [API Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
 
 ## Installation
-Below are two
-#### Install Angular Material
-First, install `Angular Material` to set up your project by running the following command:
+Below are some prerequisites before install `Form Builder`.
+
+### Step 1: Install Angular Material
+Install `Angular Material` to set up your project by running the following command:
 
 ```html
 ng add @angular/material
 ```
-#### Install Bootstrap
-Second, Install `Bootstrap` source Sass files to set up your project by running the following command:
+
+### Step 2: Install Bootstrap
+Install `Bootstrap` source Sass files to set up your project by running the following command:
 ```html
 npm install bootstrap
 ```
-#### Install ASW Form Builder
-Finally, install `Form Builder` to set up your project by running the following command:
+
+### Step 3: Install ASW Form Builder
+Install `Form Builder` to set up your project by running the following command:
 ```html
 npm install @asoftwareworld/form-builder
 ```
 
-#### Import NgModule
-
+### Step 4: Import the component modules
+Import the NgModule for each component you want to use:
+<br>
 And then include it in your module (see [app.module.ts](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/projects/form-builder-demo/src/app/app.module.ts) ):
 ```
 import { FormBuilderModule } from '@asoftwareworld/form-builder';
@@ -40,10 +45,31 @@ import { FormBuilderModule } from '@asoftwareworld/form-builder';
 })
 export class AppModule {}
 ```
+### Step 5: Include a theme
+
+Including a theme is required to apply the form builder controls.
+
+If you're using the Angular CLI, and you want to use themes globally in your application. Then you can add this to your `styles.css` or `angular.json`:
+
+`styles.css or styles.scss`:
+
+```html
+@import '~@asoftwareworld/form-builder/theming/theming-bundle.scss';
+```
+or 
+
+`angular.json`:
+```html
+"styles": [
+  "./node_modules/@asoftwareworld/form-builder/theming/asw-form-builder.scss"
+],
+```
+
+If you are not using the Angular CLI, you can include a theme via a `<link>` element in your `index.html`.
 
 In your template, use the component directive:
 ```
-<asw-form-builder (onPublishedClick)="saveJsonData($event)"></asw-form-builder>
+<asw-form-builder (publishClick)="saveJsonData($event)"></asw-form-builder>
 ```
 
 Define in your component to get published event :
