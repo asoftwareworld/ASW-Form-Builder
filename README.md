@@ -73,7 +73,7 @@ or
 If you are not using the Angular CLI, you can include a theme via a `<link>` element in your `index.html`.
 
 ## Add a selector to HTML
-In your template, use the component directive:
+In your template, use the component selector:
 ```
 <asw-form-builder (publishClick)="saveJsonData($event)"></asw-form-builder>
 ```
