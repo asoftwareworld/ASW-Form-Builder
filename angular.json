@@ -68,8 +68,7 @@
               "projects/form-builder-demo/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "./node_modules/bootstrap/scss/bootstrap.scss",
+              "dist/form-builder/theming/theming-bundle.scss",
               "projects/form-builder-demo/src/styles.scss"
             ],
             "scripts": []
