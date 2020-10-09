@@ -1,0 +1,130 @@
+@import "~@angular/material/theming";
+
+@import "../theming/core/variables/colors";
+@import "../theming/core/variables/shadow";
+
+@import "../theming/core/variables/bootstrap-material-design-base";
+
+// Customized BS variables
+@import "../theming/core/variables/spacing";
+@import "../theming/core/variables/body";
+@import "../theming/core/variables/brand";
+@import "../theming/core/variables/buttons";
+@import "../theming/core/variables/forms";
+@import "../theming/core/variables/type";
+@import "../theming/core/variables/modals";
+
+// import their vars after customization for use below
+$enable-flex: true; // fully adopt flexbox layouts
+$enable-shadows: true; // enable shadows, set to false to turn off shadows
+
+@import "../theming/core/variables/bootstrap-material-design";
+
+@import "../theming/core/mixins/utilities";
+@import "../theming/core/mixins/animations";
+@import "../theming/core/mixins/type";
+@import "../theming/core/mixins/forms";
+@import "../theming/core/mixins/buttons";
+@import "../theming/core/mixins/hover";
+@import "../theming/core/mixins/colored-shadows";
+@import "../theming/core/mixins/variables";
+@import "../theming/core/mixins/vendor-prefixes";
+
+@import "~bootstrap/scss/bootstrap";
+@import "../theming/core/buttons";
+@import "../theming/core/forms";
+@import "../theming/core/images";
+@import "../theming/core/icon";
+@import "../theming/core/radios";
+@import "../theming/core/type"; 
+@import "../theming/core/tooltip";
+@import "../theming/core/ripples";
+@import "../theming/core/main-panel";
+@import "../theming/core/misc";
+
+@import "../theming/core/cards";
+@import "../theming/core/cards/card-stats";
+@import "../theming/core/cards/card-profile";
+@import "../theming/core/cards/card-plain";
+  .asw-list {
+    border: solid 1px #ccc;
+    min-height: 534px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .asw-box {
+    padding: 10px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .asw-box:last-child {
+    border: none;
+  }
+  
+  .asw-list.cdk-drop-list-dragging .asw-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .asw-horizontal-list {
+    width: 1000px;
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .asw-horizontal-box {
+    padding: 20px 10px;
+    border-right: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+.asw-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+  
+.asw-radio-button {
+    margin: 5px;
+}
+.mat-form-field{
+  display: block !important;
+}

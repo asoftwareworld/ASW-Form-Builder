@@ -1,5 +1,4 @@
 # ASW Form Builder
-
 `ASW Form Builder` helps you with rapid development and designed web forms which includes several controls. The key feature of `Form Builder` is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.
 <br>
 `Form Builder` is compatible with the latest version of Angular and Angular Material. Only a few clicks can create an attractive web form and provide a JSON Schema to render all controls.
@@ -138,4 +137,3 @@ If you have questions or need help please email me `asoftwareworld@gmail.com`
 ## Donate
 <a href="https://paypal.me/asoftwareworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
 If you found value in `ASW Form Builder` or a contributor helped you out of a jam, consider becoming a contributor yourself.
-

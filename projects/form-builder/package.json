@@ -1,0 +1,38 @@
+{
+  "name": "@asoftwareworld/form-builder",
+  "version": "2.0.0",
+  "author": "Anish Sharma",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^10.1.4",
+    "@angular/core": "^10.1.4",
+    "@angular/cdk": "^10.2.3",
+    "@angular/material": "^10.2.3",
+    "bootstrap": "^4.5.2"
+  },
+  "dependencies": {    
+    "tslib": "^2.0.0"
+  },
+  "description": "The **ASW Form Builder** is allow you to create forms, resume and about us page to build as a JSON Schema which renders as a **Form, pages, and templates** in your application. This form builder is designed with latest version of `Angular` and `Angular Material`.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asoftwareworld/ASW-Form-Builder.git"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "typescript",
+    "form",
+    "resume",
+    "builder",
+    "drag",
+    "drop"
+  ],
+  "bugs": {
+    "url": "https://github.com/asoftwareworld/ASW-Form-Builder/issues"
+  },
+  "homepage": "https://github.com/asoftwareworld/ASW-Form-Builder#readme"
+}
