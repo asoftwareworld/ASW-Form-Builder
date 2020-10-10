@@ -135,6 +135,12 @@ If you have questions or need help please email `asoftwareworld@gmail.com`
 ## License
 [MIT](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE)
 
+##### Social Media
+
+Twitter: <https://twitter.com/asoftwareworld>
+
+Facebook: <https://www.facebook.com/asoftwaresworld>
+
 ## Donate
 <a href="https://paypal.me/asoftwareworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
 If you found value in `ASW Form Builder` or a contributor helped you out of a jam, consider becoming a contributor yourself.
