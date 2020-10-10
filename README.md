@@ -1,7 +1,7 @@
 # ASW Form Builder
 
 `ASW Form Builder` helps you with rapid development and designed web forms which includes several controls. The key feature of `Form Builder` is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.
-<br>
+
 `Form Builder` is compatible with the latest version of Angular and Angular Material. Only a few clicks can create an attractive web form and provide a JSON Schema to render all controls.
 
 ## [API Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
@@ -48,7 +48,7 @@ export class AppModule {}
 ### Step 5: Include a theme
 
 Including a theme is required to apply the form builder and controls design.
-<br>
+
 You can include this theme in component `SCSS or CSS` files to not use this globally in your application.
 
 ```html
@@ -135,9 +135,11 @@ If you have questions or need help please email `asoftwareworld@gmail.com`
 ## License
 [MIT](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE)
 
-##### Social Media
+## Social Media
 
 Twitter: <https://twitter.com/asoftwareworld>
+
+LinkedIn: <https://in.linkedin.com/company/asoftwareworld>
 
 Facebook: <https://www.facebook.com/asoftwaresworld>
 
