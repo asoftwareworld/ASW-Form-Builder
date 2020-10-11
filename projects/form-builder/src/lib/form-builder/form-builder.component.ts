@@ -1,8 +1,8 @@
 import { CdkDragDrop, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from './common/constants';
-import { JsonPreviewDialogComponent } from './shared-components/json-preview-dialog/json-preview-dialog.component';
+import { Constants } from './../common/constants';
+import { JsonPreviewDialogComponent } from './../shared-components/json-preview-dialog/json-preview-dialog.component';
 
 const CONTROLS: any[] = [
 	{ 
@@ -166,6 +166,7 @@ export class FormBuilderComponent implements OnInit {
 	availableControls: any[] = [];
 	formContainer: any[] = [];
 
+	@Output() previewClick = new EventEmitter<any[]>();
 	@Output() publishClick = new EventEmitter<any[]>();
 
 	constructor(public dialog: MatDialog) { }
@@ -204,10 +205,9 @@ export class FormBuilderComponent implements OnInit {
 		this.formContainer.splice(index, 1);
 	}
 	
-	// previewTemplate() {
-	// 	this.aswSettingsService.previewData = this.formContainer;
-	// 	this.router.navigate(['preview-template']);
-	// }
+	previewTemplate(): void {
+		this.previewClick.emit(this.formContainer)
+	}
 	
 	previewJsonData() {
 		let dialogRef = this.dialog.open(JsonPreviewDialogComponent, {

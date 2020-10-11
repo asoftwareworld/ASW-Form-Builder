@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormBuilderModule } from 'form-builder';
-
+import { FormBuilderModule, PreviewTemplateModule } from 'form-builder';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +12,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormBuilderModule
+    FormBuilderModule,
+    PreviewTemplateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

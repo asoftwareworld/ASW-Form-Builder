@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Constants } from '../form-builder/common/constants';
+import { Component, Input, OnInit } from '@angular/core';
+import { Constants } from '../common/constants';
 
 @Component({
   selector: 'asw-preview-template',
@@ -8,8 +8,7 @@ import { Constants } from '../form-builder/common/constants';
 export class PreviewTemplateComponent implements OnInit {
 	
 	constants: any = Constants;
-	availableControls: any[] = [];
-	formContainer: any[] = [];
+	@Input() formContainer: any[];
 	constructor() { }
 
   	ngOnInit(): void {
