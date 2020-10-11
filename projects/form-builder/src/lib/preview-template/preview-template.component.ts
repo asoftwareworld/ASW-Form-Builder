@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../form-builder/common/constants';
 
 @Component({
@@ -11,7 +10,7 @@ export class PreviewTemplateComponent implements OnInit {
 	constants: any = Constants;
 	availableControls: any[] = [];
 	formContainer: any[] = [];
-	constructor(public dialog: MatDialog) { }
+	constructor() { }
 
   	ngOnInit(): void {
 		//this.formContainer = this.aswSettingsService.previewData;
