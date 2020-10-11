@@ -1,51 +1,51 @@
 @import "~@angular/material/theming";
 
-@import "../theming/core/variables/colors";
-@import "../theming/core/variables/shadow";
+@import "../../theming/core/variables/colors";
+@import "../../theming/core/variables/shadow";
 
-@import "../theming/core/variables/bootstrap-material-design-base";
+@import "../../theming/core/variables/bootstrap-material-design-base";
 
 // Customized BS variables
-@import "../theming/core/variables/spacing";
-@import "../theming/core/variables/body";
-@import "../theming/core/variables/brand";
-@import "../theming/core/variables/buttons";
-@import "../theming/core/variables/forms";
-@import "../theming/core/variables/type";
-@import "../theming/core/variables/modals";
+@import "../../theming/core/variables/spacing";
+@import "../../theming/core/variables/body";
+@import "../../theming/core/variables/brand";
+@import "../../theming/core/variables/buttons";
+@import "../../theming/core/variables/forms";
+@import "../../theming/core/variables/type";
+@import "../../theming/core/variables/modals";
 
 // import their vars after customization for use below
 $enable-flex: true; // fully adopt flexbox layouts
 $enable-shadows: true; // enable shadows, set to false to turn off shadows
 
-@import "../theming/core/variables/bootstrap-material-design";
+@import "../../theming/core/variables/bootstrap-material-design";
 
-@import "../theming/core/mixins/utilities";
-@import "../theming/core/mixins/animations";
-@import "../theming/core/mixins/type";
-@import "../theming/core/mixins/forms";
-@import "../theming/core/mixins/buttons";
-@import "../theming/core/mixins/hover";
-@import "../theming/core/mixins/colored-shadows";
-@import "../theming/core/mixins/variables";
-@import "../theming/core/mixins/vendor-prefixes";
+@import "../../theming/core/mixins/utilities";
+@import "../../theming/core/mixins/animations";
+@import "../../theming/core/mixins/type";
+@import "../../theming/core/mixins/forms";
+@import "../../theming/core/mixins/buttons";
+@import "../../theming/core/mixins/hover";
+@import "../../theming/core/mixins/colored-shadows";
+@import "../../theming/core/mixins/variables";
+@import "../../theming/core/mixins/vendor-prefixes";
 
 @import "~bootstrap/scss/bootstrap";
-@import "../theming/core/buttons";
-@import "../theming/core/forms";
-@import "../theming/core/images";
-@import "../theming/core/icon";
-@import "../theming/core/radios";
-@import "../theming/core/type"; 
-@import "../theming/core/tooltip";
-@import "../theming/core/ripples";
-@import "../theming/core/main-panel";
-@import "../theming/core/misc";
+@import "../../theming/core/buttons";
+@import "../../theming/core/forms";
+@import "../../theming/core/images";
+@import "../../theming/core/icon";
+@import "../../theming/core/radios";
+@import "../../theming/core/type"; 
+@import "../../theming/core/tooltip";
+@import "../../theming/core/ripples";
+@import "../../theming/core/main-panel";
+@import "../../theming/core/misc";
 
-@import "../theming/core/cards";
-@import "../theming/core/cards/card-stats";
-@import "../theming/core/cards/card-profile";
-@import "../theming/core/cards/card-plain";
+@import "../../theming/core/cards";
+@import "../../theming/core/cards/card-stats";
+@import "../../theming/core/cards/card-profile";
+@import "../../theming/core/cards/card-plain";
   .asw-list {
     border: solid 1px #ccc;
     min-height: 534px;
