@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialog } from '@angular/material/dialog';
 import { PreviewTemplateComponent } from './preview-template.component';
 
 describe('PreviewTemplateComponent', () => {
