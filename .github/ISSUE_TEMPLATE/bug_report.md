@@ -1,9 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+title: 'Bug title'
+labels: 'needs triage'
 
 ---
 
@@ -12,26 +11,22 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. Use https://asoftwareworld.github.io/ASW-Form-Builder/#/ to reproduce your issue.
+2. See error
+3. Steps to reproduce: 1. 2.
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
+What behavior were you expecting to see?
+
+**Actual behavior**
+What behavior did you actually see?
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
+ - OS: [e.g. iOS, Windows]
+ - Browser [e.g. chrome, firefox, safari, Edge, IE]
  - Version [e.g. 22]
 
 **Additional context**
