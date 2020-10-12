@@ -155,11 +155,9 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 
 
-[material-group]: https://groups.google.com/forum/#!forum/angular-material2
 [coc]: https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/CODE_OF_CONDUCT.md
-[commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/preview
 [corporate-cla]: http://code.google.com/legal/corporate-cla-v1.0.html
-[dev-doc]: https://github.com/angular/components/blob/master/DEV_ENVIRONMENT.md
+[dev-doc]: https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/DEV_ENVIRONMENT.md
 [github]: https://github.com/asoftwareworld/ASW-Form-Builder
 [gitter]: https://gitter.im/angular/components
 [individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
