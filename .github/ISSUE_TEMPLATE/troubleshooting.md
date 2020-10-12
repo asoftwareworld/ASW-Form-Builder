@@ -1,8 +1,8 @@
 ---
 name: Troubleshooting
 about: Request for help on an issue you are facing with Form Builder.
-title: help(COMPONENT): TITLE
-labels: troubleshooting, needs triage
+title: 'help(COMPONENT): TITLE'
+labels: 'troubleshooting, needs triage'
 
 ---
 
@@ -20,5 +20,5 @@ Use https://asoftwareworld.github.io/ASW-Form-Builder/#/ to reproduce your issue
 Steps to reproduce: 1. 2.
 
 **Environment**
--Browser(s):
--Operating System (e.g. Windows, iOS, Ubuntu):
+- Browser(s):
+- Operating System (e.g. Windows, iOS, Ubuntu):
