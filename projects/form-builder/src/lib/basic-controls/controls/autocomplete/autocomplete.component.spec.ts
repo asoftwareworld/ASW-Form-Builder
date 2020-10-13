@@ -46,3 +46,32 @@ describe('AutocompleteComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+
+////// Test Autocomplete Component //////
+import { Component } from '@angular/core';
+
+@Component({
+  template: `
+    <dashboard-hero
+      [hero]="hero" (selected)="onSelected($event)">
+    </dashboard-hero>`
+})
+class TestAutocompleteComponent {
+  control: any = {
+    'icon': 'corporate_fare',
+    'displayName': 'Autocomplete',
+    'controlType': 'autocomplete',
+    'name': 'autocomplete',
+    'tooltip': 'Select one',
+    'label': 'Autocomplete',
+    'style':'outline',
+    'isRequired': false,
+    'options': [
+      {'key': 'option-1', 'value': 'Option 1'},
+      {'key': 'option-2', 'value': 'Option 2'},
+      {'key': 'option-3', 'value': 'Option 3'}
+    ]
+  };
+}

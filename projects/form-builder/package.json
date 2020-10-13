@@ -13,7 +13,7 @@
   "dependencies": {    
     "tslib": "^2.0.0"
   },
-  "description": "The **ASW Form Builder** is allow you to create forms, resume and about us page to build as a JSON Schema which renders as a **Form, pages, and templates** in your application. This form builder is designed with latest version of `Angular` and `Angular Material`.",
+  "description": "ASW Form Builder helps you with rapid development and designed web forms which includes several controls. The key feature of Form Builder is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
