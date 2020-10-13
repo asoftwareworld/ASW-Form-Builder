@@ -129,7 +129,28 @@
                                                           (slidetoggleUpdateEvent)="updatedControl($event)"
                                                           (slidetoggleDeleteEvent)="deleteControl($event)">
                                         </asw-slide-toggle>                                       
-                                    </div>                                    
+                                    </div>
+                                    <div *ngSwitchCase="'grid'">
+                                        <div
+                                            cdkDropList
+                                            [cdkDropListData]="grid.columns"
+                                            class="asw-list"
+                                            (cdkDropListDropped)="drop($event)">
+                                            <div *ngFor="let column of grid.columns; let i = index" class="asw-box" cdkDrag>
+                                                <div *ngFor="let control of grid.columns; let i = index" class="asw-box" cdkDrag>
+                                                    <div [ngSwitch]="control.controlType" class="asw-full-width">
+                                                        <div *ngSwitchCase="'autocomplete'">
+                                                            <asw-autocomplete [control]="control"
+                                                                            [controlIndex]="i"
+                                                                            (autocompleteUpdateEvent)="updatedControl($event)"
+                                                                            (autocompleteDeleteEvent)="deleteControl($event)">
+                                                            </asw-autocomplete>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                                     
+                                    </div>                                         
                                 </div>
                             </div>
                         </div>
