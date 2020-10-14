@@ -8,7 +8,7 @@
 
 `Form Builder` is compatible with the latest version of Angular and Angular Material. Only a few clicks can create an attractive web form and provide a JSON Schema to render all controls.
 
-## [API Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
+## [Live Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
 
 ## Installation
 Below are some prerequisites before install `Form Builder`.
@@ -80,7 +80,12 @@ If you are not using the Angular CLI, you can include a theme via a `<link>` ele
 ## Add a selector to HTML
 In your template, use the component selector:
 ```
-<asw-form-builder (publishClick)="saveJsonData($event)"></asw-form-builder>
+<asw-form-builder (publishClick)="saveJsonData($event)"
+                  (previewClick)="previewTemplate($event)"></asw-form-builder>
+```
+Preview Template, use the component selector in your HTML page:
+```
+<asw-preview-template [formContainer]="jsonData"></asw-preview-template>
 ```
 
 Define in your component to get published event :
@@ -88,11 +93,18 @@ Define in your component to get published event :
 ```
 export class AppComponent {
   title = 'ASW Form Builder Demo';
-
+  jsonData:any[]=[];
+  
+  // Publish Template
   saveJsonData(data: any){
     //.... 
     console.log(data);
     // do something
+  }
+  
+  //Preview Template
+  previewTemplate(data: any){
+    this.jsonData = data;
   }
 }
 ```
