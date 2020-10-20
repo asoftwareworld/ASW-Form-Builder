@@ -5,6 +5,12 @@
     @include shadow-big-image();
 }
 
-.rounded{
-    border-radius: $border-radius-large !important;
+// .rounded{
+//     border-radius: $border-radius-large !important;
+// }
+
+asw-image-crop {
+    max-height: 50vh !important;
+
+    max-width: 50vh !important;
 }

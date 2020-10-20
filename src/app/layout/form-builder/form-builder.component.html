@@ -39,7 +39,7 @@
                             class="asw-list"
                             (cdkDropListDropped)="drop($event)">
                             <div *ngFor="let control of formContainer; let i = index" class="asw-box" cdkDrag>
-                                <div [ngSwitch]="control.controlType" class="asw-full-width">
+                                <div [ngSwitch]="control.controlType">
                                     <div *ngSwitchCase="'autocomplete'">
                                         <asw-autocomplete [control]="control"
                                                           [controlIndex]="i"
@@ -53,6 +53,14 @@
                                                     (headerUpdateEvent)="updatedControl($event)"
                                                     (headerDeleteEvent)="deleteControl($event)">
                                         </asw-header>
+                                        <asw-image></asw-image>
+                                    </div>
+                                    <div *ngSwitchCase="'image'">
+                                        <asw-image [control]="control"
+                                                    [controlIndex]="i"
+                                                    (imageUpdateEvent)="updatedControl($event)"
+                                                    (imageDeleteEvent)="deleteControl($event)">
+                                        </asw-image>
                                     </div>
                                     <div *ngSwitchCase="'textbox'">
                                         <asw-text-box [control]="control"
@@ -133,12 +141,12 @@
                                     <div *ngSwitchCase="'grid'">
                                         <div
                                             cdkDropList
-                                            [cdkDropListData]="grid.columns"
+                                            [cdkDropListData]="grid"
                                             class="asw-list"
-                                            (cdkDropListDropped)="drop($event)">
-                                            <div *ngFor="let column of grid.columns; let i = index" class="asw-box" cdkDrag>
-                                                <div *ngFor="let control of grid.columns; let i = index" class="asw-box" cdkDrag>
-                                                    <div [ngSwitch]="control.controlType" class="asw-full-width">
+                                            (cdkDropListDropped)="gridDrop($event)">
+                                            <div *ngFor="let column of grid; let i = index" cdkDrag>
+                                                <div *ngFor="let control of column; let i = index" cdkDrag>
+                                                    <div [ngSwitch]="control.controlType">
                                                         <div *ngSwitchCase="'autocomplete'">
                                                             <asw-autocomplete [control]="control"
                                                                             [controlIndex]="i"
