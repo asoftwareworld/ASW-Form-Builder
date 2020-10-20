@@ -56,6 +56,13 @@
                                                     (headerDeleteEvent)="deleteControl($event)">
                                         </asw-header>
                                     </div>
+                                    <div *ngSwitchCase="'image'">
+                                        <asw-image [control]="control"
+                                                    [controlIndex]="i"
+                                                    (imageUpdateEvent)="updatedControl($event)"
+                                                    (imageDeleteEvent)="deleteControl($event)">
+                                        </asw-image>
+                                    </div>
                                     <div *ngSwitchCase="'textbox'">
                                         <asw-text-box [control]="control"
                                                       [controlIndex]="i"

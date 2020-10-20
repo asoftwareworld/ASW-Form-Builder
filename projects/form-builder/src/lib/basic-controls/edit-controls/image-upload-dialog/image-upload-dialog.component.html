@@ -1,0 +1,69 @@
+<h4 mat-dialog-title>Edit Property</h4>
+<mat-divider></mat-divider>
+<form>
+    <mat-dialog-content class="mat-typography" style="padding:3% 5%; text-align: center; ">
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="file" (change)="fileChangeEvent($event)" />
+                <br />
+                <br />
+                <div class="icon-image">
+                    <mat-icon (click)="rotateLeft()">rotate_left</mat-icon>
+                    <mat-icon (click)="rotateRight()">rotate_right</mat-icon>
+                    <!-- <mat-icon (click)="activateCrop()">crop</mat-icon>
+                    <mat-icon (click)="clearImage()">clear</mat-icon>
+                    <mat-icon (click)="validate()">check</mat-icon> -->
+                    <mat-icon>note_add</mat-icon>
+                </div>
+                <button (click)="rotateLeft()">Rotate left</button>
+                <button (click)="rotateRight()">Rotate right</button>
+                <button (click)="flipHorizontal()">Flip horizontal</button>
+                <button (click)="flipVertical()">Flip vertical</button>
+                <br />
+                <br />
+                <button (click)="toggleContainWithinAspectRatio()">{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}</button>
+                <button (click)="resetImage()">Reset image</button>
+                <br />
+                <br />
+                <button (click)="zoomOut()">Zoom -</button> <button (click)="zoomIn()">Zoom +</button>
+
+                <div>
+                    <asw-image-crop
+                        [imageChangedEvent]="imageChangedEvent"
+                        [maintainAspectRatio]="true"
+                        [containWithinAspectRatio]="containWithinAspectRatio"
+                        [aspectRatio]="4 / 3"
+                        [resizeToWidth]="256"
+                        [cropperMinWidth]="128"
+                        [roundCropper]="true"
+                        [canvasRotation]="canvasRotation"
+                        [transform]="transform"
+                        [alignImage]="'left'"
+                        [style.display]="showCropper ? null : 'none'"
+                        format="png"
+                        (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()"
+                        (cropperReady)="cropperReady($event)"
+                        (loadImageFailed)="loadImageFailed()"
+                    ></asw-image-crop>
+                </div>
+                <img [src]="croppedImage" [style.border]="croppedImage ? '1px solid black' : 'none'" />
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button
+                type="button"
+                class="btn btn-danger"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button mat-raised-button type="submit"
+                class="btn btn-primary"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>
+

@@ -12,6 +12,8 @@ import { EditButtonComponent } from './edit-button/edit-button.component';
 import { EditSlideToggleComponent } from './edit-slide-toggle/edit-slide-toggle.component';
 import { EditHeaderComponent } from './edit-header/edit-header.component';
 import { EditParagraphComponent } from './edit-paragraph/edit-paragraph.component';
+import { ImageUploadDialogComponent } from './image-upload-dialog/image-upload-dialog.component';
+import { ImageCropModule } from './../../image-crop/image-crop.module';
 import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
@@ -20,7 +22,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     CommonModule,   
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    ImageCropModule
   ],
   declarations: [
     EditTextboxComponent,
@@ -31,7 +34,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     ConfirmDialogComponent,
     EditSlideToggleComponent,
     EditHeaderComponent,
-    EditParagraphComponent
+    EditParagraphComponent,
+    ImageUploadDialogComponent
   ],
   exports: [
     EditTextboxComponent,
@@ -42,7 +46,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     ConfirmDialogComponent,
     EditSlideToggleComponent,
     EditHeaderComponent,
-    EditParagraphComponent
+    EditParagraphComponent,
+    ImageUploadDialogComponent
   ]
 })
 export class EditControlsModule { }
