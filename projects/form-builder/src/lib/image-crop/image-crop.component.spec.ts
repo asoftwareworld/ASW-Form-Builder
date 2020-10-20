@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PreviewTemplateComponent } from './preview-template.component';
+import { ImageCropComponent } from './image-crop.component';
 
-describe('PreviewTemplateComponent', () => {
-  let component: PreviewTemplateComponent;
-  let fixture: ComponentFixture<PreviewTemplateComponent>;
+describe('ImageCropComponent', () => {
+  let component: ImageCropComponent;
+  let fixture: ComponentFixture<ImageCropComponent>;
 
   beforeEach((() => {
     TestBed.configureTestingModule({
-      declarations: [ PreviewTemplateComponent ]
+      declarations: [ ImageCropComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PreviewTemplateComponent);
+    fixture = TestBed.createComponent(ImageCropComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
