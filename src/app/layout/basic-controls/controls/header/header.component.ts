@@ -37,8 +37,8 @@ export class HeaderComponent {
 			width: '350px',
 			data: { name: control.label, message: this.constants.messages.waringMessage }
 		});
-		dialogRef.afterClosed().subscribe(result => {  
-			if(result != undefined) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result !== undefined) {
                 this.headerDeleteEvent.emit(controlIndex);
 			}
 		});
@@ -51,7 +51,7 @@ export class HeaderComponent {
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			if(result != undefined) {
+			if (result !== undefined) {
 				this.headerUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Constants } from 'src/app/layout/common/constants';
@@ -8,7 +8,10 @@ import { Dimensions, ImageCroppedEvent, ImageTransform } from 'src/app/layout/im
   selector: 'asw-image-upload-dialog',
   templateUrl: './image-upload-dialog.component.html'
 })
-export class ImageUploadDialogComponent {
+export class ImageUploadDialogComponent implements OnInit {
+
+    constants: any = Constants;
+    aswImageCropForm: FormGroup;
     imageChangedEvent: any = '';
     croppedImage: any = '';
     canvasRotation = 0;
@@ -17,6 +20,7 @@ export class ImageUploadDialogComponent {
     showCropper = false;
     containWithinAspectRatio = false;
     transform: ImageTransform = {};
+
     constructor(private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<ImageUploadDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
@@ -113,5 +117,36 @@ export class ImageUploadDialogComponent {
 
     onNoClick(): void {
         this.dialogRef.close();
+    }
+
+    validateFormBuilder(): void {
+        this.aswImageCropForm = this.formBuilder.group({
+            file: [null]
+        });
+    }
+
+    ngOnInit(){        
+        this.validateFormBuilder();
+        this.editProperty(this.control);
+        this.croppedImage = this.control.imageUrl;
+        this.imageChangedEvent = this.control.event;
+    }
+
+    editProperty(control: any): void {
+        this.aswImageCropForm.setValue({
+            file: control.imageUrl
+        });
+    }
+
+    onSubmit() {
+        if(this.aswImageCropForm.invalid){
+            return;
+        }
+        this.aswImageCropForm.value['displayName'] = this.control.displayName;
+        this.aswImageCropForm.value['controlType'] = this.control.controlType;
+        this.aswImageCropForm.value['label'] = this.control.label;
+        this.aswImageCropForm.value['imageUrl'] = this.croppedImage;
+        this.aswImageCropForm.value['event'] = this.imageChangedEvent;
+        this.dialogRef.close(this.aswImageCropForm.value);
     }
 }
