@@ -19,5 +19,10 @@ export class PreviewTemplateComponent implements OnInit {
 
   	ngOnInit(): void {
 		this.formContainer = this.aswSettingsService.previewData;
-	}	
+	}
+
+	downloadPdf(){
+		var win = window.open();
+		win.print();
+	}
 }
