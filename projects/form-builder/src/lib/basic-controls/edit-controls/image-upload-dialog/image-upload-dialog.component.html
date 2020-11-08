@@ -1,54 +1,80 @@
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form>
-    <mat-dialog-content class="mat-typography" style="padding:3% 5%; text-align: center; ">
-        <br>
+<form [formGroup]="aswImageCropForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
         <div class="row">
             <div class="col-md-12">
-                <input type="file" (change)="fileChangeEvent($event)" />
-                <br />
-                <br />
-                <div class="icon-image">
-                    <mat-icon (click)="rotateLeft()">rotate_left</mat-icon>
-                    <mat-icon (click)="rotateRight()">rotate_right</mat-icon>
-                    <!-- <mat-icon (click)="activateCrop()">crop</mat-icon>
-                    <mat-icon (click)="clearImage()">clear</mat-icon>
-                    <mat-icon (click)="validate()">check</mat-icon> -->
-                    <mat-icon>note_add</mat-icon>
+                <input type="file" 
+                        id="imageUpload" 
+                        accept=".png, .jpg, .jpeg" 
+                        (change)="fileChangeEvent($event)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="toolbar"> 
+                    <button type="button" class="toolbar__button" (click)="rotateLeft()">
+                        <span class="material-icons">
+                            rotate_left
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="rotateRight()">
+                        <span class="material-icons">
+                            rotate_right
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="flipHorizontal()">
+                        <span class="material-icons">
+                            swap_horiz
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="flipVertical()">
+                        <span class="material-icons">
+                            swap_vert
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="toggleContainWithinAspectRatio()">
+                        <span class="material-icons">
+                            {{containWithinAspectRatio?'crop_free':'crop_din'}}
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="resetImage()">
+                        <span class="material-icons">
+                            refresh
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="zoomOut()">
+                        <span class="material-icons">
+                            zoom_out
+                        </span>
+                    </button>
+                    <button type="button" class="toolbar__button" (click)="zoomIn()">
+                        <span class="material-icons">
+                            zoom_in
+                        </span>
+                    </button>
                 </div>
-                <button (click)="rotateLeft()">Rotate left</button>
-                <button (click)="rotateRight()">Rotate right</button>
-                <button (click)="flipHorizontal()">Flip horizontal</button>
-                <button (click)="flipVertical()">Flip vertical</button>
-                <br />
-                <br />
-                <button (click)="toggleContainWithinAspectRatio()">{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}</button>
-                <button (click)="resetImage()">Reset image</button>
-                <br />
-                <br />
-                <button (click)="zoomOut()">Zoom -</button> <button (click)="zoomIn()">Zoom +</button>
-
-                <div>
-                    <asw-image-crop
-                        [imageChangedEvent]="imageChangedEvent"
-                        [maintainAspectRatio]="true"
-                        [containWithinAspectRatio]="containWithinAspectRatio"
-                        [aspectRatio]="4 / 3"
-                        [resizeToWidth]="256"
-                        [cropperMinWidth]="128"
-                        [roundCropper]="true"
-                        [canvasRotation]="canvasRotation"
-                        [transform]="transform"
-                        [alignImage]="'left'"
-                        [style.display]="showCropper ? null : 'none'"
-                        format="png"
-                        (imageCropped)="imageCropped($event)"
-                        (imageLoaded)="imageLoaded()"
-                        (cropperReady)="cropperReady($event)"
-                        (loadImageFailed)="loadImageFailed()"
-                    ></asw-image-crop>
-                </div>
-                <img [src]="croppedImage" [style.border]="croppedImage ? '1px solid black' : 'none'" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <asw-image-crop
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [containWithinAspectRatio]="containWithinAspectRatio"
+                [aspectRatio]="1"
+                [resizeToWidth]="256" 
+                [roundCropper]="true"
+                [canvasRotation]="canvasRotation"
+                [transform]="transform"
+                [alignImage]="'center'"
+                [style.display]="showCropper ? null : 'none'"
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady($event)"
+                (loadImageFailed)="loadImageFailed()"
+                ></asw-image-crop>
             </div>
         </div>
     </mat-dialog-content>
@@ -66,4 +92,3 @@
         </button>
     </mat-dialog-actions>
 </form>
-
