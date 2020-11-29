@@ -66,6 +66,7 @@ const CONTROLS: any[] = [
 		displayName: 'Datepicker',
 		controlType: 'datepicker',
 		name: 'datepicker',
+		value: '',
 		tooltip: 'Choose a date',
 		label: 'Date Picker',
 		style: 'outline',
