@@ -28,9 +28,9 @@ export class ButtonComponent {
     constructor(public dialog: MatDialog) { }
 
     /**
-     *
-     * @param control
-     * @param controlIndex
+     * Delete button control based on control index
+     * @param control button control items
+     * @param controlIndex button control index
      */
   	deleteButtonDialog(control: any, controlIndex: number): void {
 		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -44,6 +44,11 @@ export class ButtonComponent {
 		});
 	}
 
+	/**
+	 * Edit button control property and modify as per needed.
+	 * @param control button control items
+	 * @param controlIndex button control index
+	 */
 	editButtonDialog(control: any, controlIndex: number): void {
 		const dialogRef = this.dialog.open(EditButtonComponent, {
 			disableClose: true,

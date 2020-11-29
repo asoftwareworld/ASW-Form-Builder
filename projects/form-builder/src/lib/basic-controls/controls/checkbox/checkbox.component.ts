@@ -20,38 +20,38 @@ export class CheckboxComponent {
      * Checkbox control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate: boolean = true;
-	
+	@Input() isPreviewTemplate = true;
+
     @Output() checkboxUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() checkboxDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
-    
+
     /**
-     * 
-     * @param control 
-     * @param controlIndex 
+     *
+     * @param control
+     * @param controlIndex
      */
   	deleteCheckboxDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
 			data: { name: control.name, message: this.constants.messages.waringMessage }
 		});
-		dialogRef.afterClosed().subscribe(result => {            
-			if(result != undefined) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result !== undefined) {
                 this.checkboxDeleteEvent.emit(controlIndex);
 			}
 		});
 	}
 
 	editCheckboxDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditSelectComponent, {
+		const dialogRef = this.dialog.open(EditSelectComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			if(result != undefined) {
+			if (result !== undefined) {
 				this.checkboxUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});

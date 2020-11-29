@@ -17,12 +17,12 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { HeaderComponent } from './header/header.component';
 import { ParagraphComponent } from './paragraph/paragraph.component';
 import { DividerComponent } from './divider/divider.component';
-import { ImageComponent } from'./image/image.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   imports: [
     BrowserModule,
-    CommonModule,   
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule

@@ -20,38 +20,43 @@ export class DatepickerComponent {
      * Datepicker control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate: boolean = true;
-	
+	@Input() isPreviewTemplate = true;
+
     @Output() datepickerUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() datepickerDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
-    
+
     /**
-     * 
-     * @param control 
-     * @param controlIndex 
+     * Delete datepicker control based on control index
+     * @param control datepicker control items
+     * @param controlIndex datepicker control index
      */
   	deleteDatepickerDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
 			data: { name: control.name, message: this.constants.messages.waringMessage }
 		});
-		dialogRef.afterClosed().subscribe(result => {            
-			if(result != undefined) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result !== undefined) {
                 this.datepickerDeleteEvent.emit(controlIndex);
 			}
 		});
 	}
 
+	/**
+	 * Edit datepicker control property and modify as per needed.
+	 * @param control datepicker control items
+	 * @param controlIndex datepicker control index
+	 */
 	editDatepickerDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditDatepickerComponent, {
+		const dialogRef = this.dialog.open(EditDatepickerComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			if(result != undefined) {
+			if (result !== undefined) {
 				this.datepickerUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});
