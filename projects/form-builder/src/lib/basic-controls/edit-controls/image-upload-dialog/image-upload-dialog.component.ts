@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Constants } from '../../../common/constants';
 import { Dimensions, ImageCroppedEvent, ImageTransform } from '../../../image-crop/interfaces';
 
@@ -22,41 +22,41 @@ export class ImageUploadDialogComponent implements OnInit {
     transform: ImageTransform = {};
 
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<ImageUploadDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<ImageUploadDialogComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     fileChangeEvent(event: any): void {
         this.imageChangedEvent = event;
     }
 
-    imageCropped(event: ImageCroppedEvent) {
+    imageCropped(event: ImageCroppedEvent): void {
         this.croppedImage = event.base64;
     }
 
-    imageLoaded() {
+    imageLoaded(): void {
         this.showCropper = true;
         console.log('Image loaded');
     }
 
-    cropperReady(sourceImageDimensions: Dimensions) {
+    cropperReady(sourceImageDimensions: Dimensions): void {
         console.log('Cropper ready', sourceImageDimensions);
     }
 
-    loadImageFailed() {
+    loadImageFailed(): void {
         console.log('Load failed');
     }
 
-    rotateLeft() {
+    rotateLeft(): void {
         this.canvasRotation--;
         this.flipAfterRotate();
     }
 
-    rotateRight() {
+    rotateRight(): void {
         this.canvasRotation++;
         this.flipAfterRotate();
     }
 
-    private flipAfterRotate() {
+    private flipAfterRotate(): void {
         const flippedH = this.transform.flipH;
         const flippedV = this.transform.flipV;
         this.transform = {
@@ -67,28 +67,28 @@ export class ImageUploadDialogComponent implements OnInit {
     }
 
 
-    flipHorizontal() {
+    flipHorizontal(): void {
         this.transform = {
             ...this.transform,
             flipH: !this.transform.flipH
         };
     }
 
-    flipVertical() {
+    flipVertical(): void {
         this.transform = {
             ...this.transform,
             flipV: !this.transform.flipV
         };
     }
 
-    resetImage() {
+    resetImage(): void {
         this.scale = 1;
         this.rotation = 0;
         this.canvasRotation = 0;
         this.transform = {};
     }
 
-    zoomOut() {
+    zoomOut(): void {
         this.scale -= .1;
         this.transform = {
             ...this.transform,
@@ -96,7 +96,7 @@ export class ImageUploadDialogComponent implements OnInit {
         };
     }
 
-    zoomIn() {
+    zoomIn(): void {
         this.scale += .1;
         this.transform = {
             ...this.transform,
@@ -104,11 +104,11 @@ export class ImageUploadDialogComponent implements OnInit {
         };
     }
 
-    toggleContainWithinAspectRatio() {
+    toggleContainWithinAspectRatio(): void {
         this.containWithinAspectRatio = !this.containWithinAspectRatio;
     }
 
-    updateRotation() {
+    updateRotation(): void {
         this.transform = {
             ...this.transform,
             rotate: this.rotation
@@ -125,7 +125,7 @@ export class ImageUploadDialogComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
         this.croppedImage = this.control.imageUrl;
@@ -138,15 +138,15 @@ export class ImageUploadDialogComponent implements OnInit {
         });
     }
 
-    onSubmit() {
+    onSubmit(): void {
         if (this.aswImageCropForm.invalid){
             return;
         }
-        this.aswImageCropForm.value['displayName'] = this.control.displayName;
-        this.aswImageCropForm.value['controlType'] = this.control.controlType;
-        this.aswImageCropForm.value['label'] = this.control.label;
-        this.aswImageCropForm.value['imageUrl'] = this.croppedImage;
-        this.aswImageCropForm.value['event'] = this.imageChangedEvent;
+        this.aswImageCropForm.value.displayName = this.control.displayName;
+        this.aswImageCropForm.value.controlType = this.control.controlType;
+        this.aswImageCropForm.value.label = this.control.label;
+        this.aswImageCropForm.value.imageUrl = this.croppedImage;
+        this.aswImageCropForm.value.event = this.imageChangedEvent;
         this.dialogRef.close(this.aswImageCropForm.value);
     }
 }

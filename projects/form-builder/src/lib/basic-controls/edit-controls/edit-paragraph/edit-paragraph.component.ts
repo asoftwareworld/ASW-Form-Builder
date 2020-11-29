@@ -12,10 +12,10 @@ export class EditParagraphComponent implements OnInit {
     aswParagraphForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditParagraphComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditParagraphComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -40,20 +40,20 @@ export class EditParagraphComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        if(this.aswParagraphForm.invalid){
+    onSubmit(): void {
+        if (this.aswParagraphForm.invalid){
             return;
         }
-        this.aswParagraphForm.value['displayName'] = this.control.displayName;
-        this.aswParagraphForm.value['controlType'] = this.control.controlType;
+        this.aswParagraphForm.value.displayName = this.control.displayName;
+        this.aswParagraphForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswParagraphForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }

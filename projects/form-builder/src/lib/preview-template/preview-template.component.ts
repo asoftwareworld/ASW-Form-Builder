@@ -6,12 +6,11 @@ import { Constants } from '../common/constants';
   templateUrl: './preview-template.component.html'
 })
 export class PreviewTemplateComponent implements OnInit {
-	
 	constants: any = Constants;
 	@Input() formContainer: any[];
 	constructor() { }
 
-  	ngOnInit(): void {
-		//this.formContainer = this.aswSettingsService.previewData;
-	}	
+	ngOnInit(): void {
+		// this.formContainer = this.aswSettingsService.previewData;
+	}
 }

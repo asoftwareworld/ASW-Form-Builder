@@ -11,10 +11,10 @@ export class EditDatepickerComponent implements OnInit {
     aswEditPropertyForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditDatepickerComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditDatepickerComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -25,7 +25,7 @@ export class EditDatepickerComponent implements OnInit {
             placeholder: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
             name: ['', [Validators.required]],
             style: ['', [Validators.required]],
-            isRequired:[false]
+            isRequired: [false]
         });
     }
 
@@ -43,17 +43,17 @@ export class EditDatepickerComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        this.aswEditPropertyForm.value['displayName'] = this.control.displayName;
-        this.aswEditPropertyForm.value['controlType'] = this.control.controlType;
+    onSubmit(): void {
+        this.aswEditPropertyForm.value.displayName = this.control.displayName;
+        this.aswEditPropertyForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditPropertyForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }

@@ -12,7 +12,6 @@ import { EditSelectComponent } from '../../edit-controls/edit-select/edit-select
     templateUrl: './autocomplete.component.html'
 })
 export class AutocompleteComponent implements OnInit {
-
 	constants: any = Constants;
 	autocomplete = new FormControl();
     /**
@@ -24,16 +23,16 @@ export class AutocompleteComponent implements OnInit {
      * Autocomplete control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate: boolean = true;
-	
+	@Input() isPreviewTemplate = true;
+
     @Output() autocompleteUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() autocompleteDeleteEvent = new EventEmitter<number>();
 
 	constructor(public dialog: MatDialog) { }
-	
+
 	filteredOptions: Observable<string[]>;
 
-	ngOnInit() {
+	ngOnInit(): void {
 		this.filteredOptions = this.autocomplete.valueChanges.pipe(
 			startWith(''),
 			map(value => this._filter(value))
@@ -46,30 +45,30 @@ export class AutocompleteComponent implements OnInit {
 	}
     
     /**
-     * 
-     * @param control 
-     * @param controlIndex 
+     *
+     * @param control
+     * @param controlIndex
      */
   	deleteAutocompleteDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
 			data: { name: control.name, message: this.constants.messages.waringMessage }
 		});
-		dialogRef.afterClosed().subscribe(result => {            
-			if(result != undefined) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result !== undefined) {
                 this.autocompleteDeleteEvent.emit(controlIndex);
 			}
 		});
 	}
 
 	editAutocompleteDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditSelectComponent, {
+		const dialogRef = this.dialog.open(EditSelectComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			if(result != undefined) {
+			if (result !== undefined) {
 				this.autocompleteUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});

@@ -12,10 +12,10 @@ export class EditSlideToggleComponent implements OnInit {
     aswEditSlideToggleForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditSlideToggleComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditSlideToggleComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -24,7 +24,7 @@ export class EditSlideToggleComponent implements OnInit {
         this.aswEditSlideToggleForm = this.formBuilder.group({
             label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(25)]],
             color: [],
-            isRequired:[false]
+            isRequired: [false]
         });
     }
 
@@ -40,20 +40,20 @@ export class EditSlideToggleComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        if(this.aswEditSlideToggleForm.invalid){
+    onSubmit(): void {
+        if (this.aswEditSlideToggleForm.invalid){
             return;
         }
-        this.aswEditSlideToggleForm.value['displayName'] = this.control.displayName;
-        this.aswEditSlideToggleForm.value['controlType'] = this.control.controlType;
+        this.aswEditSlideToggleForm.value.displayName = this.control.displayName;
+        this.aswEditSlideToggleForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditSlideToggleForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }
