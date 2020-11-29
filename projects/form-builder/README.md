@@ -1,9 +1,14 @@
 # ASW Form Builder
+
+[![npm version](https://badge.fury.io/js/%40asoftwareworld%2Fform-builder.svg)](https://www.npmjs.com/package/@asoftwareworld/form-builder)
+[![Build status](https://circleci.com/gh/asoftwareworld/ASW-Form-Builder.svg?style=svg)](https://circleci.com/gh/asoftwareworld/ASW-Form-Builder)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE)
+
 `ASW Form Builder` helps you with rapid development and designed web forms which includes several controls. The key feature of `Form Builder` is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.
-<br>
+
 `Form Builder` is compatible with the latest version of Angular and Angular Material. Only a few clicks can create an attractive web form and provide a JSON Schema to render all controls.
 
-## [API Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
+## [Live Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
 
 ## Installation
 Below are some prerequisites before install `Form Builder`.
@@ -47,7 +52,7 @@ export class AppModule {}
 ### Step 5: Include a theme
 
 Including a theme is required to apply the form builder and controls design.
-<br>
+
 You can include this theme in component `SCSS or CSS` files to not use this globally in your application.
 
 ```html
@@ -75,7 +80,12 @@ If you are not using the Angular CLI, you can include a theme via a `<link>` ele
 ## Add a selector to HTML
 In your template, use the component selector:
 ```
-<asw-form-builder (publishClick)="saveJsonData($event)"></asw-form-builder>
+<asw-form-builder (publishClick)="saveJsonData($event)"
+                  (previewClick)="previewTemplate($event)"></asw-form-builder>
+```
+Preview Template, use the component selector in your HTML page:
+```
+<asw-preview-template [formContainer]="jsonData"></asw-preview-template>
 ```
 
 Define in your component to get published event :
@@ -83,11 +93,18 @@ Define in your component to get published event :
 ```
 export class AppComponent {
   title = 'ASW Form Builder Demo';
-
+  jsonData:any[]=[];
+  
+  // Publish Template
   saveJsonData(data: any){
     //.... 
     console.log(data);
     // do something
+  }
+  
+  //Preview Template
+  previewTemplate(data: any){
+    this.jsonData = data;
   }
 }
 ```
@@ -129,10 +146,18 @@ We use GitHub Issues as the official bug tracker for the ASW Form Builder. Here 
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
 ## Technical Support or Questions
-If you have questions or need help please email me `asoftwareworld@gmail.com`
+If you have questions or need help please email `asoftwareworld@gmail.com`
 
 ## License
 [MIT](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE)
+
+## Social Media
+
+Twitter: <https://twitter.com/asoftwareworld>
+
+LinkedIn: <https://in.linkedin.com/company/asoftwareworld>
+
+Facebook: <https://www.facebook.com/asoftwaresworld>
 
 ## Donate
 <a href="https://paypal.me/asoftwareworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
