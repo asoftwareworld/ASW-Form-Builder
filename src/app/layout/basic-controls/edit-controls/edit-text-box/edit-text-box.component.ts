@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Constants } from 'src/app/layout/common/constants';
+import { Constants } from '../../../common/constants';
 
 @Component({
   selector: 'asw-edit-text-box',
@@ -12,10 +12,10 @@ export class EditTextboxComponent implements OnInit {
     aswEditTextboxForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditTextboxComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditTextboxComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -25,10 +25,13 @@ export class EditTextboxComponent implements OnInit {
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            value: ['', []],
             type: ['', [Validators.required]],
             style: ['', [Validators.required]],
-            maxlength: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.constants.matchPattern.numberPattern)]],
-            isRequired:[false]
+            maxlength: ['', [Validators.required,
+                Validators.minLength(1), Validators.maxLength(3),
+                Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            isRequired: [false]
         });
     }
 
@@ -37,6 +40,7 @@ export class EditTextboxComponent implements OnInit {
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
+            value: control.value,
             type: control.type,
             maxlength: control.maxlength,
             style: control.style,
@@ -48,20 +52,20 @@ export class EditTextboxComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        if(this.aswEditTextboxForm.invalid) {
+    onSubmit(): void {
+        if (this.aswEditTextboxForm.invalid) {
             return;
         }
-        this.aswEditTextboxForm.value['displayName'] = this.control.displayName;
-        this.aswEditTextboxForm.value['controlType'] = this.control.controlType;
+        this.aswEditTextboxForm.value.displayName = this.control.displayName;
+        this.aswEditTextboxForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditTextboxForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }

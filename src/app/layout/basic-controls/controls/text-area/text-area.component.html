@@ -2,6 +2,7 @@
     <mat-label>{{control.label}}</mat-label>
     <textarea matInput [name]="control.name"
                     [placeholder]="control.label"
+                    [(ngModel)]="control.value"
                     ngModel
                     #input
                     [matTooltip]="control.tooltip"
