@@ -12,10 +12,10 @@ export class EditHeaderComponent implements OnInit {
     aswHeaderForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditHeaderComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditHeaderComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -40,20 +40,20 @@ export class EditHeaderComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        if(this.aswHeaderForm.invalid){
+    onSubmit(): void {
+        if (this.aswHeaderForm.invalid){
             return;
         }
-        this.aswHeaderForm.value['displayName'] = this.control.displayName;
-        this.aswHeaderForm.value['controlType'] = this.control.controlType;
+        this.aswHeaderForm.value.displayName = this.control.displayName;
+        this.aswHeaderForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswHeaderForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }

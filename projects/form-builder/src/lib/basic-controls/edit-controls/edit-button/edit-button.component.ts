@@ -12,10 +12,10 @@ export class EditButtonComponent implements OnInit {
     aswEditButtonForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditButtonComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditButtonComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -28,7 +28,7 @@ export class EditButtonComponent implements OnInit {
             type: ['', [Validators.required]],
             color: [],
             style: ['', [Validators.required]],
-            isRequired:[false]
+            isRequired: [false]
         });
     }
 
@@ -48,20 +48,20 @@ export class EditButtonComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        if(this.aswEditButtonForm.invalid) {
+    onSubmit(): void {
+        if (this.aswEditButtonForm.invalid) {
             return;
         }
-        this.aswEditButtonForm.value['displayName'] = this.control.displayName;
-        this.aswEditButtonForm.value['controlType'] = this.control.controlType;
+        this.aswEditButtonForm.value.displayName = this.control.displayName;
+        this.aswEditButtonForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditButtonForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }

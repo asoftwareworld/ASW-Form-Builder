@@ -9,7 +9,7 @@ import { MaterialModule } from '../material.module';
 
 @NgModule({
   declarations: [PreviewTemplateComponent],
-  imports: 
+  imports:
   [
     BrowserModule,
     BrowserAnimationsModule,

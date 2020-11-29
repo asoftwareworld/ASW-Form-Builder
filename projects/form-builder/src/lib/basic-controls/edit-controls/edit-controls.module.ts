@@ -19,7 +19,7 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
 @NgModule({
   imports: [
     BrowserModule,
-    CommonModule,   
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,

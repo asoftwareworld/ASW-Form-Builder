@@ -12,7 +12,7 @@ import { JsonPreviewDialogComponent } from './../shared-components/json-preview-
 @NgModule({
   declarations: [FormBuilderComponent,
     JsonPreviewDialogComponent],
-  imports: 
+  imports:
   [
     BrowserModule,
     BrowserAnimationsModule,

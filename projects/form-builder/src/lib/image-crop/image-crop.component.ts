@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, isDevMode, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy,
+    ChangeDetectorRef, Component,
+    ElementRef, EventEmitter,
+    HostBinding,
+    HostListener,
+    Input, isDevMode, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { CropperPosition, Dimensions, ImageCroppedEvent, ImageTransform, MoveStart } from './interfaces';
 import { getTransformationsFromExifData, supportsAutomaticRotation } from './utils/exif.utils';
 import { resizeCanvas } from './utils/resize.utils';
@@ -118,7 +123,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         }
     }
 
-    private onChangesInputImage(changes: SimpleChanges) {
+    private onChangesInputImage(changes: SimpleChanges): void {
         if (changes.imageChangedEvent || changes.imageURL || changes.imageBase64 || changes.imageFile) {
             this.initCropper();
         }
@@ -143,7 +148,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
             && this.imageChangedEvent.target.files.length > 0;
     }
 
-    private setCssTransform() {
+    private setCssTransform(): void {
         this.safeTransformStyle = this.sanitizer.bypassSecurityTrustStyle(
             'scaleX(' + (this.transform.scale || 1) * (this.transform.flipH ? -1 : 1) + ')' +
             'scaleY(' + (this.transform.scale || 1) * (this.transform.flipV ? -1 : 1) + ')' +
@@ -191,7 +196,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         this.cropper.y2 = 10000;
     }
 
-    private loadImage(imageBase64: string, imageType: string) {
+    private loadImage(imageBase64: string, imageType: string): void {
         if (this.isValidImageType(imageType)) {
             this.loadBase64Image(imageBase64);
         } else {
@@ -368,7 +373,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         this.setCropperScaledMinSize();
     }
 
-    private activatePinchGesture() {
+    private activatePinchGesture(): void {
         if (this.Hammer) {
             const hammer = new this.Hammer(this.wrapper.nativeElement);
             hammer.get('pinch').set({enable: true});
@@ -423,7 +428,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         this.imageVisible = true;
     }
 
-    keyboardAccess(event: any) {
+    keyboardAccess(event: any): void {
         this.changeKeyboardStepSize(event);
         this.keyboardMoveCropper(event);
     }
@@ -435,7 +440,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         }
     }
 
-    private keyboardMoveCropper(event) {
+    private keyboardMoveCropper(event): void {
         const keyboardWhiteList: string[] = ['ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft'];
         if (!(keyboardWhiteList.includes(event.key))) {
             return;
@@ -509,7 +514,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         };
     }
 
-    startPinch(event: any) {
+    startPinch(event: any): void {
         if (!this.safeImgDataUrl) {
             return;
         }
@@ -549,7 +554,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         }
     }
 
-    onPinch(event: any) {
+    onPinch(event: any): void {
         if (this.moveStart.active) {
             if (event.stopPropagation) {
                 event.stopPropagation();
@@ -635,7 +640,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         }
     }
 
-    private move(event: any) {
+    private move(event: any): void {
         const diffX = this.getClientX(event) - this.moveStart.clientX;
         const diffY = this.getClientY(event) - this.moveStart.clientY;
 

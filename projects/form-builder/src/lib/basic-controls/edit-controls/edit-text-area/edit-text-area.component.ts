@@ -12,10 +12,10 @@ export class EditTextAreaComponent implements OnInit {
     aswEditTextAreaForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<EditTextAreaComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
+                public dialogRef: MatDialogRef<EditTextAreaComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.validateFormBuilder();
         this.editProperty(this.control);
     }
@@ -25,9 +25,13 @@ export class EditTextAreaComponent implements OnInit {
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            value: ['', []],
             style: ['', [Validators.required]],
-            maxlength: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.constants.matchPattern.numberPattern)]],
-            isRequired:[false]            
+            maxlength: ['', [Validators.required,
+                Validators.minLength(1),
+                Validators.maxLength(3),
+                Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            isRequired: [false]
         });
     }
 
@@ -36,6 +40,7 @@ export class EditTextAreaComponent implements OnInit {
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
+            value: control.value,
             maxlength: control.maxlength,
             style: control.style,
             isRequired: control.isRequired
@@ -46,20 +51,20 @@ export class EditTextAreaComponent implements OnInit {
         this.dialogRef.close();
     }
 
-    onSubmit() {
-        if(this.aswEditTextAreaForm.invalid){
+    onSubmit(): void {
+        if (this.aswEditTextAreaForm.invalid){
             return;
         }
-        this.aswEditTextAreaForm.value['displayName'] = this.control.displayName;
-        this.aswEditTextAreaForm.value['controlType'] = this.control.controlType;
+        this.aswEditTextAreaForm.value.displayName = this.control.displayName;
+        this.aswEditTextAreaForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditTextAreaForm.value);
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 }

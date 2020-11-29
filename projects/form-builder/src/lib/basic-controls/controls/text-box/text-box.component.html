@@ -3,6 +3,7 @@
     <input matInput [type]="control.type"
                     [name]="control.name"
                     [placeholder]="control.label"
+                    [(ngModel)]="control.value"
                     ngModel
                     #input
                     [matTooltip]="control.tooltip"

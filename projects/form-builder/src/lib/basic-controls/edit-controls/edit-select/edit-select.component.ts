@@ -17,13 +17,13 @@ export class EditSelectComponent implements OnInit {
     isRequired: boolean;
     options: any[] = [];
     model: any = {};
-    isShowStyle: boolean = false;
+    isShowStyle = false;
     optionKeyMessage: string;
-    
-    constructor(public dialogRef: MatDialogRef<EditSelectComponent>,
-        @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngOnInit() {
+    constructor(public dialogRef: MatDialogRef<EditSelectComponent>,
+                @Inject(MAT_DIALOG_DATA) public control: any) { }
+
+    ngOnInit(): void {
         this.setValue(this.control);
      }
 
@@ -32,18 +32,18 @@ export class EditSelectComponent implements OnInit {
     }
 
     addNewOption(): void {
-        var number = Math.floor((Math.random() * 100000) + 1);
-        let key = 'option-' + number;
-        let value = 'Option ' + number;
+        const uniqueNumber = Math.floor((Math.random() * 100000) + 1);
+        const key = 'option-' + uniqueNumber;
+        const value = 'Option ' + uniqueNumber;
         this.options.push({key, value});
     }
-    
+
     removeOption(index: number): void {
         this.options.splice(index, 1);
     }
 
-    onSubmit(aswEditPropertyForm: NgForm) {
-        if(aswEditPropertyForm.invalid) {
+    onSubmit(aswEditPropertyForm: NgForm): void {
+        if (aswEditPropertyForm.invalid) {
             return;
         }
         this.model.displayName = this.control.displayName;
@@ -51,41 +51,41 @@ export class EditSelectComponent implements OnInit {
         this.model.name = this.name;
         this.model.label = this.label;
         this.model.tooltip = this.tooltip;
-        if(this.control.controlType != 'radio' || this.control.controlType != 'checkbox') {
+        if (this.control.controlType !== 'radio' || this.control.controlType !== 'checkbox') {
             this.model.style = this.style;
-        }          
+        }
         this.model.isRequired = this.isRequired;
         this.model.options = this.options;
         this.dialogRef.close(this.model);
     }
 
-    setValue(control: any) {
+    setValue(control: any): void {
         this.name = control.name;
         this.label = control.label;
         this.tooltip = control.tooltip;
-        if(control.controlType != 'radio' || control.controlType != 'checkbox') {
+        if (control.controlType !== 'radio' || control.controlType !== 'checkbox') {
             this.isShowStyle = true;
             this.style = control.style;
-        }        
+        }
         this.isRequired = control.isRequired;
         control.options.forEach(element => {
-            let key = element.key;
-            let value = element.value;
+            const key = element.key;
+            const value = element.value;
             this.options.push({key, value});
         });
     }
 
-    onChange(event: any) {
+    onChange(event: any): void {
         if (event.checked) {
             this.status = true;
         } else {
             this.status = false;
         }
-    }  
+    }
 
-    onKey(event: any, index: number) {
-        this.options.forEach((element, elementIndex)=> {
-            if(element.key == event.target.value && index != elementIndex) {
+    onKey(event: any, index: number): void {
+        this.options.forEach((element, elementIndex) => {
+            if (element.key === event.target.value && index !== elementIndex) {
                 this.optionKeyMessage = this.constants.messages.optionKeyValidationMessage;
             }
         });
