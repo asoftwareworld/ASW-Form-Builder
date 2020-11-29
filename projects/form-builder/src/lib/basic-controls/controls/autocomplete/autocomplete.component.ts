@@ -43,11 +43,11 @@ export class AutocompleteComponent implements OnInit {
 		const filterValue = value.toLowerCase();
 		return this.control.options.filter(option => option.value.toLowerCase().indexOf(filterValue) === 0);
 	}
-    
+
     /**
-     *
-     * @param control
-     * @param controlIndex
+     * Delete autocomplete control based on control index
+     * @param control autocomplete control items
+     * @param controlIndex autocomplete control index
      */
   	deleteAutocompleteDialog(control: any, controlIndex: number): void {
 		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -61,6 +61,11 @@ export class AutocompleteComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * Edit autocomplete control property and modify as per needed.
+	 * @param control autocomplete control items
+	 * @param controlIndex autocomplete control index
+	 */
 	editAutocompleteDialog(control: any, controlIndex: number): void {
 		const dialogRef = this.dialog.open(EditSelectComponent, {
 			disableClose: true,

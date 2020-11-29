@@ -21,38 +21,38 @@ export class TextboxComponent {
      */
 	@Input() controlIndex: number;
 	
-	@Input() isPreviewTemplate: boolean = true;
+	@Input() isPreviewTemplate = true;
 
     @Output() textboxUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() textboxDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
-    
+
     /**
-     * 
-     * @param control 
-     * @param controlIndex 
+     *
+     * @param control
+     * @param controlIndex
      */
   	deleteTextboxDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '350px',
 			data: { name: control.name, message: this.constants.messages.waringMessage }
 		});
-		dialogRef.afterClosed().subscribe(result => {            
-			if(result != undefined) {
+		dialogRef.afterClosed().subscribe(result => {
+			if (result !== undefined) {
                 this.textboxDeleteEvent.emit(controlIndex);
 			}
 		});
 	}
 
 	editTextboxDialog(control: any, controlIndex: number): void {
-		let dialogRef = this.dialog.open(EditTextboxComponent, {
+		const dialogRef = this.dialog.open(EditTextboxComponent, {
 			disableClose: true,
 			width: '744px',
 			data: control
 		});
 		dialogRef.afterClosed().subscribe(result => {
-			if(result != undefined) {
+			if (result !== undefined) {
 				this.textboxUpdateEvent.emit({control: result, index: controlIndex});
 			}
 		});
