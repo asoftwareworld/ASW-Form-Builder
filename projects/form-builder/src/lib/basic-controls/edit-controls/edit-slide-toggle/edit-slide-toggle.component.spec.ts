@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { EditSlideToggleComponent } from './edit-slide-toggle.component';
 
 describe('EditSlideToggleComponent', () => {
   let component: EditSlideToggleComponent;
   let fixture: ComponentFixture<EditSlideToggleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EditSlideToggleComponent]
     })
