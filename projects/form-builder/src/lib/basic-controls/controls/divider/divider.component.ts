@@ -19,7 +19,7 @@ export class DividerComponent {
      * Divider control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate = true;
+    @Input() isPreviewTemplate = true;
 
     @Output() dividerDeleteEvent = new EventEmitter<number>();
 
@@ -30,15 +30,15 @@ export class DividerComponent {
      * @param control divider control items
      * @param controlIndex divider control index
      */
-	deleteHeaderDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-			width: '350px',
-			data: { name: control.controlType, message: this.constants.messages.waringMessage }
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
+    deleteHeaderDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            data: { name: control.controlType, message: this.constants.messages.waringMessage }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
                 this.dividerDeleteEvent.emit(controlIndex);
-			}
-		});
-	}
+            }
+        });
+    }
 }

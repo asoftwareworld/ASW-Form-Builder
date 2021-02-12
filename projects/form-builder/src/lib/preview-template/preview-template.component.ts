@@ -6,6 +6,6 @@ import { Constants } from '../common/constants';
   templateUrl: './preview-template.component.html'
 })
 export class PreviewTemplateComponent {
-	constants: any = Constants;
-	@Input() formContainer: any[];
+  constants: any = Constants;
+  @Input() formContainer: any[];
 }

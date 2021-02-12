@@ -5,12 +5,12 @@ describe('PreviewTemplateComponent', () => {
   let component: PreviewTemplateComponent;
   let fixture: ComponentFixture<PreviewTemplateComponent>;
 
-  beforeEach((() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ PreviewTemplateComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PreviewTemplateComponent);
