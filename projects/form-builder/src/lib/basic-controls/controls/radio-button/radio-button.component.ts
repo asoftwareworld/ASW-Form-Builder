@@ -20,40 +20,35 @@ export class RadioButtonComponent {
      * RadioButton control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate = true;
+    @Input() isPreviewTemplate = true;
 
     @Output() radioButtonUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() radioButtonDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    /**
-     *
-     * @param control
-     * @param controlIndex
-     */
-  	deleteRadioButtonDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-			width: '350px',
-			data: { name: control.name, message: this.constants.messages.waringMessage }
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
+    deleteRadioButtonDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            data: { name: control.name, message: this.constants.messages.waringMessage }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
                 this.radioButtonDeleteEvent.emit(controlIndex);
-			}
-		});
-	}
+            }
+        });
+    }
 
-	editRadioButtonDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(EditSelectComponent, {
-			disableClose: true,
-			width: '744px',
-			data: control
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
-				this.radioButtonUpdateEvent.emit({control: result, index: controlIndex});
-			}
-		});
-	}
+    editRadioButtonDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(EditSelectComponent, {
+            disableClose: true,
+            width: '744px',
+            data: control
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
+                this.radioButtonUpdateEvent.emit({control: result, index: controlIndex});
+            }
+        });
+    }
 }

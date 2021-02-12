@@ -5,12 +5,12 @@ describe('ImageUploadDialogComponent', () => {
   let component: ImageUploadDialogComponent;
   let fixture: ComponentFixture<ImageUploadDialogComponent>;
 
-  beforeEach((() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [ ImageUploadDialogComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ImageUploadDialogComponent);

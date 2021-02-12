@@ -20,40 +20,35 @@ export class MultiSelectComponent {
      * MultiSelect control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate = true;
+    @Input() isPreviewTemplate = true;
 
     @Output() multiSelectUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() multiSelectDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    /**
-     *
-     * @param control
-     * @param controlIndex
-     */
-  	deleteMultiSelectDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-			width: '350px',
-			data: { name: control.name, message: this.constants.messages.waringMessage }
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
+    deleteMultiSelectDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            data: { name: control.name, message: this.constants.messages.waringMessage }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
                 this.multiSelectDeleteEvent.emit(controlIndex);
-			}
-		});
-	}
+            }
+        });
+    }
 
-	editMultiSelectDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(EditSelectComponent, {
-			disableClose: true,
-			width: '744px',
-			data: control
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
-				this.multiSelectUpdateEvent.emit({control: result, index: controlIndex});
-			}
-		});
-	}
+    editMultiSelectDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(EditSelectComponent, {
+            disableClose: true,
+            width: '744px',
+            data: control
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
+                this.multiSelectUpdateEvent.emit({control: result, index: controlIndex});
+            }
+        });
+    }
 }

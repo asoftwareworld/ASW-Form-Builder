@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AutocompleteComponent } from './autocomplete.component';
 
 describe('AutocompleteComponent', () => {
@@ -9,12 +9,12 @@ describe('AutocompleteComponent', () => {
   // let controlDe: DebugElement;
   // let controlEl: HTMLElement;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ AutocompleteComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AutocompleteComponent);

@@ -1,4 +1,4 @@
-function getConstatnts() {
+function getConstatnts(): any {
  const titleMessages = {
         homeTitle: 'ASW | Form Builder',
         aboutUsTitle: 'ASW | About Us',

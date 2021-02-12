@@ -20,7 +20,7 @@ export class ButtonComponent {
      * Button control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate = true;
+    @Input() isPreviewTemplate = true;
 
     @Output() buttonUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() buttonDeleteEvent = new EventEmitter<number>();
@@ -32,33 +32,28 @@ export class ButtonComponent {
      * @param control button control items
      * @param controlIndex button control index
      */
-  	deleteButtonDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-			width: '350px',
-			data: { name: control.name, message: this.constants.messages.waringMessage }
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
+      deleteButtonDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            data: { name: control.name, message: this.constants.messages.waringMessage }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
                 this.buttonDeleteEvent.emit(controlIndex);
-			}
-		});
-	}
+            }
+        });
+    }
 
-	/**
-	 * Edit button control property and modify as per needed.
-	 * @param control button control items
-	 * @param controlIndex button control index
-	 */
-	editButtonDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(EditButtonComponent, {
-			disableClose: true,
-			width: '744px',
-			data: control
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
-				this.buttonUpdateEvent.emit({control: result, index: controlIndex});
-			}
-		});
-	}
+    editButtonDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(EditButtonComponent, {
+            disableClose: true,
+            width: '744px',
+            data: control
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
+                this.buttonUpdateEvent.emit({control: result, index: controlIndex});
+            }
+        });
+    }
 }

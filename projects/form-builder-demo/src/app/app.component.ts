@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'form-builder-demo';
-  jsonData:any[]=[];
+  jsonData: any[] = [];
 
-  saveJsonData(data: any){
+  saveJsonData(data: any): void {
     console.log(data);
   }
 
-  previewTemplate(data: any){
+  previewTemplate(data: any): void {
     this.jsonData = data;
   }
 }

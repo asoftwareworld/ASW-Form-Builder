@@ -20,40 +20,35 @@ export class ParagraphComponent {
      * Paragraph control index to help update or delete button from drop area
      */
     @Input() controlIndex: number;
-	@Input() isPreviewTemplate = true;
+    @Input() isPreviewTemplate = true;
 
     @Output() paragraphUpdateEvent = new EventEmitter<{control: any, index: number}>();
     @Output() paragraphDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    /**
-     *
-     * @param control
-     * @param controlIndex
-     */
-  	deleteParagraphDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-			width: '350px',
-			data: { name: control.label, message: this.constants.messages.waringMessage }
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
+    deleteParagraphDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            data: { name: control.label, message: this.constants.messages.waringMessage }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
                 this.paragraphDeleteEvent.emit(controlIndex);
-			}
-		});
-	}
+            }
+        });
+    }
 
-	editParagraphDialog(control: any, controlIndex: number): void {
-		const dialogRef = this.dialog.open(EditParagraphComponent, {
-			disableClose: true,
-			width: '744px',
-			data: control
-		});
-		dialogRef.afterClosed().subscribe(result => {
-			if (result !== undefined) {
-				this.paragraphUpdateEvent.emit({control: result, index: controlIndex});
-			}
-		});
-	}
+    editParagraphDialog(control: any, controlIndex: number): void {
+        const dialogRef = this.dialog.open(EditParagraphComponent, {
+            disableClose: true,
+            width: '744px',
+            data: control
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result !== undefined) {
+                this.paragraphUpdateEvent.emit({control: result, index: controlIndex});
+            }
+        });
+    }
 }

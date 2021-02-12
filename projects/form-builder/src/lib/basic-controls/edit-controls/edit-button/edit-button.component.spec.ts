@@ -5,12 +5,12 @@ describe('EditButtonComponent', () => {
   let component: EditButtonComponent;
   let fixture: ComponentFixture<EditButtonComponent>;
 
-  beforeEach((() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ EditButtonComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(EditButtonComponent);
