@@ -36,13 +36,14 @@ npm install @asoftwareworld/form-builder
 Import the NgModule for each component you want to use:
 
 ```
-import { FormBuilderModule } from '@asoftwareworld/form-builder';
+import { FormBuilderModule, PreviewTemplateModule } from '@asoftwareworld/form-builder';
 // ...
 
 @NgModule({
   imports: [
     // shown passing global defaults (optional)
     FormBuilderModule,
+    PreviewTemplateModule
     ...
   ]
   // ...

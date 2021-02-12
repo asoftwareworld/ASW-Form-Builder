@@ -4,10 +4,10 @@
   "author": "Anish Sharma",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^10.1.4",
-    "@angular/core": "^10.1.4",
-    "@angular/cdk": "^10.2.3",
-    "@angular/material": "^10.2.3",
+    "@angular/common": "~11.0.4",
+    "@angular/core": "~11.0.4",
+    "@angular/cdk": "^11.0.2",
+    "@angular/material": "^11.0.2",
     "bootstrap": "^4.5.2"
   },
   "dependencies": {    
