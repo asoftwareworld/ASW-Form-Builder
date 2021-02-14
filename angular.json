@@ -24,6 +24,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "projects/form-builder/src/test.ts",
             "tsConfig": "projects/form-builder/tsconfig.spec.json",
             "karmaConfig": "projects/form-builder/karma.conf.js"
@@ -123,6 +124,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "codeCoverage": true,
             "main": "projects/form-builder-demo/src/test.ts",
             "polyfills": "projects/form-builder-demo/src/polyfills.ts",
             "tsConfig": "projects/form-builder-demo/tsconfig.spec.json",
