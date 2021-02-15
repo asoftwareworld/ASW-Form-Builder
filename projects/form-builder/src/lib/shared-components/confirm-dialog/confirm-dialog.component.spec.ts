@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -49,11 +57,11 @@ describe('ConfirmationDialogComponent', () => {
         expect(component.onNoClick).toHaveBeenCalled();
     });
 
-    it('Yes calls onYesClick()', () => {
-        const button = fixture.debugElement.nativeElement.querySelector('#yes');
-        console.log(button.data);
-        expect(button.textContent).toContain('Yes');
-    });
+    // it('should close the component if yes is clicked', () => {
+    //     spyOn(component.dialogRef, 'close').and.callThrough();
+    //     // page.cancelButton.click();
+    //     expect(mockDialogRef.close).toHaveBeenCalled();
+    // });
 
     it('dialog should be closed after onNoClick()', () => {
         const spy = spyOn(component.dialogRef, 'close').and.callThrough();

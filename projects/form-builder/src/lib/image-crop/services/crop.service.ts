@@ -1,8 +1,16 @@
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
+
 import { ElementRef, Injectable } from '@angular/core';
-import { CropperSettings } from '../interfaces/cropper.settings';
 import { CropperPosition, ImageCroppedEvent } from '../interfaces';
-import { LoadedImage } from './load-image.service';
+import { CropperSettings } from '../interfaces/cropper.settings';
 import { resizeCanvas } from '../utils/resize.utils';
+import { LoadedImage } from './load-image.service';
 
 @Injectable({providedIn: 'root'})
 export class CropService {

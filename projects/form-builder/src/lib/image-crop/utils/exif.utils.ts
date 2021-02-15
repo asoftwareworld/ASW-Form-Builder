@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
+
 import { ExifTransform } from '../interfaces/exif-transform.interface';
 
 // Black 2x1 JPEG, with the following meta information set:

@@ -1,77 +1,46 @@
-import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AutocompleteComponent } from './autocomplete.component';
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
 
-describe('AutocompleteComponent', () => {
-  let component: AutocompleteComponent;
-  let fixture: ComponentFixture<AutocompleteComponent>;
-  let expectedControl: any;
-  // let controlDe: DebugElement;
-  // let controlEl: HTMLElement;
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { MatAutocompleteModule } from '@angular/material/autocomplete';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatDialogModule } from '@angular/material/dialog';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatTooltipModule } from '@angular/material/tooltip';
+// import { AutocompleteComponent } from './autocomplete.component';
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AutocompleteComponent ]
-    })
-    .compileComponents();
-  });
+// describe('AutocompleteComponent', () => {
+//     let component: AutocompleteComponent;
+//     let fixture: ComponentFixture<AutocompleteComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AutocompleteComponent);
-    component = fixture.componentInstance;
+//     beforeEach(async () => {
+//         await TestBed.configureTestingModule({
+//             declarations: [
+//                 AutocompleteComponent
+//             ],
+//             imports: [
+//                 MatDialogModule,
+//                 MatAutocompleteModule,
+//                 MatFormFieldModule,
+//                 MatTooltipModule,
+//                 MatButtonModule
+//             ]
+//         }).compileComponents();
+//     });
 
-    // mock the control supplied by the parent component
-    expectedControl = {
-      icon: 'corporate_fare',
-      displayName: 'Autocomplete',
-      controlType: 'autocomplete',
-      name: 'autocomplete',
-      tooltip: 'Select one',
-      label: 'Autocomplete',
-      style: 'outline',
-      isRequired: false,
-      options: [
-        {key: 'option-1', value: 'Option 1'},
-        {key: 'option-2', value: 'Option 2'},
-        {key: 'option-3', value: 'Option 3'}
-      ]
-    };
+//     beforeEach(() => {
+//         fixture = TestBed.createComponent(AutocompleteComponent);
+//         component = fixture.componentInstance;
 
-    // simulate the parent setting the input property with that control
-    component.control = expectedControl;
-    fixture.detectChanges();
-  });
+//         fixture.detectChanges();
+//     });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
-
-
-
-////// Test Autocomplete Component //////
-import { Component } from '@angular/core';
-
-@Component({
-  template: `
-    <dashboard-hero
-      [hero]="hero" (selected)="onSelected($event)">
-    </dashboard-hero>`
-})
-class TestAutocompleteComponent {
-  control: any = {
-    icon: 'corporate_fare',
-    displayName: 'Autocomplete',
-    controlType: 'autocomplete',
-    name: 'autocomplete',
-    tooltip: 'Select one',
-    label: 'Autocomplete',
-    style: 'outline',
-    isRequired: false,
-    options: [
-      {key: 'option-1', value: 'Option 1'},
-      {key: 'option-2', value: 'Option 2'},
-      {key: 'option-3', value: 'Option 3'}
-    ]
-  };
-}
+//     it('should create', () => {
+//         expect(component).toBeTruthy();
+//     });
+// });

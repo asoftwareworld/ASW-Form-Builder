@@ -1,6 +1,14 @@
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
+
+import { SimpleChanges } from '@angular/core';
 import { CropperOptions, OutputFormat } from './cropper-options.interface';
 import { ImageTransform } from './image-transform.interface';
-import { SimpleChanges } from '@angular/core';
 
 export class CropperSettings {
 

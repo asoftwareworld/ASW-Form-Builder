@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
+
 export function base64ToFile(base64Image: string): Blob {
     const split = base64Image.split(',');
     const type = split[0].replace('data:', '').replace(';base64', '');

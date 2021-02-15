@@ -135,6 +135,15 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-pipe-transform-interface": true,
+    "no-unused-variable": true,
+    "no-empty-interface": true,
+    "no-duplicate-imports": true,
+    "file-header": true,
+    "no-debugger": true,
+    "comment-format": [
+      true,
+      "check-space"
+    ]
   }
 }

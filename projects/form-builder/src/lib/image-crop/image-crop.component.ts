@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright ASW (A Software World) All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file
+ */
+
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -16,13 +24,13 @@ import {
   } from '@angular/core';
 import { DomSanitizer, SafeStyle, SafeUrl } from '@angular/platform-browser';
 import { CropperPosition, Dimensions, ImageCroppedEvent, ImageTransform, MoveStart } from './interfaces';
-import { MoveTypes } from './interfaces/move-start.interface';
-import { HammerStatic } from './utils/hammer.utils';
-import { CropService } from './services/crop.service';
-import { CropperSettings } from './interfaces/cropper.settings';
-import { LoadedImage, LoadImageService } from './services/load-image.service';
 import { OutputFormat } from './interfaces/cropper-options.interface';
+import { CropperSettings } from './interfaces/cropper.settings';
+import { MoveTypes } from './interfaces/move-start.interface';
+import { CropService } from './services/crop.service';
 import { CropperPositionService } from './services/cropper-position.service';
+import { LoadedImage, LoadImageService } from './services/load-image.service';
+import { HammerStatic } from './utils/hammer.utils';
 import { getEventForKey, getInvertedPositionForKey, getPositionForKey } from './utils/keyboard.utils';
 
 @Component({
@@ -292,7 +300,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         hammer.on('pinchend', this.pinchStop.bind(this));
         hammer.on('pinchstart', this.startPinch.bind(this));
       } else if (isDevMode()) {
-        console.warn('[NgxImageCropper] Could not find HammerJS - Pinch Gesture won\'t work');
+        console.warn('[asw-image-crop] Could not find HammerJS - Pinch Gesture won\'t work');
       }
     }
 
