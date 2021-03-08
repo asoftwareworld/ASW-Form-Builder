@@ -25,7 +25,7 @@
     "@angular/router": "~11.0.4",
     "bootstrap": "^4.5.2",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.1.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
