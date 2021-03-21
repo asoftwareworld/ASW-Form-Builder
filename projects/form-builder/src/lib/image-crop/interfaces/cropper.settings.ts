@@ -6,9 +6,9 @@
  * found in the LICENSE file
  */
 
-import { SimpleChanges } from '@angular/core';
 import { CropperOptions, OutputFormat } from './cropper-options.interface';
 import { ImageTransform } from './image-transform.interface';
+import { SimpleChanges } from '@angular/core';
 
 export class CropperSettings {
 
@@ -47,11 +47,19 @@ export class CropperSettings {
     Object.keys(options)
       .filter((k) => k in this)
       .forEach((k) => this[k] = options[k]);
+    this.validateOptions();
   }
 
   setOptionsFromChanges(changes: SimpleChanges): void {
     Object.keys(changes)
       .filter((k) => k in this)
       .forEach((k) => this[k] = changes[k].currentValue);
+    this.validateOptions();
+  }
+
+  private validateOptions(): void {
+    if (this.maintainAspectRatio && !this.aspectRatio) {
+      throw new Error('`aspectRatio` should > 0 when `maintainAspectRatio` is enabled');
+    }
   }
 }

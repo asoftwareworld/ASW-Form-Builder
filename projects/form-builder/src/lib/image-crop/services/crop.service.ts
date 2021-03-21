@@ -7,12 +7,11 @@
  */
 
 import { ElementRef, Injectable } from '@angular/core';
-import { CropperPosition, ImageCroppedEvent } from '../interfaces';
 import { CropperSettings } from '../interfaces/cropper.settings';
+import { CropperPosition, ImageCroppedEvent, LoadedImage } from '../interfaces';
 import { resizeCanvas } from '../utils/resize.utils';
-import { LoadedImage } from './load-image.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CropService {
 
   crop(sourceImage: ElementRef, loadedImage: LoadedImage, cropper: CropperPosition, settings: CropperSettings): ImageCroppedEvent | null {
@@ -44,7 +43,7 @@ export class CropService {
     const output: ImageCroppedEvent = {
       width, height,
       imagePosition,
-      cropperPosition: {...cropper}
+      cropperPosition: { ...cropper }
     };
     if (settings.containWithinAspectRatio) {
       output.offsetImagePosition = this.getOffsetImagePosition(sourceImage, loadedImage, cropper, settings);

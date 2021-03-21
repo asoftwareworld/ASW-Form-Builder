@@ -7,7 +7,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Dimensions } from '../interfaces';
+import { Dimensions, LoadedImage } from '../interfaces';
 import { CropperSettings } from '../interfaces/cropper.settings';
 import { ExifTransform } from '../interfaces/exif-transform.interface';
 import { getTransformationsFromExifData, supportsAutomaticRotation } from '../utils/exif.utils';
@@ -17,21 +17,7 @@ interface LoadImageBase64 {
   originalBase64: string;
 }
 
-export interface LoadedImage {
-  original: {
-    base64: string;
-    image: HTMLImageElement;
-    size: Dimensions;
-  };
-  transformed: {
-    base64: string;
-    image: HTMLImageElement;
-    size: Dimensions;
-  };
-  exifTransform: ExifTransform;
-}
-
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class LoadImageService {
 
   private autoRotateSupported: Promise<boolean> = supportsAutomaticRotation();
@@ -119,12 +105,12 @@ export class LoadImageService {
         original: {
           base64: loadedImage.original.base64,
           image: loadedImage.original.image,
-          size: {...originalSize}
+          size: { ...originalSize }
         },
         transformed: {
           base64: loadedImage.original.base64,
           image: loadedImage.original.image,
-          size: {...originalSize}
+          size: { ...originalSize }
         },
         exifTransform: loadedImage.exifTransform
       };
@@ -155,7 +141,7 @@ export class LoadImageService {
       original: {
         base64: loadedImage.original.base64,
         image: loadedImage.original.image,
-        size: {...originalSize}
+        size: { ...originalSize }
       },
       transformed: {
         base64: transformedBase64,
