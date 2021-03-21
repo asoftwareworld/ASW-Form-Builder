@@ -138,7 +138,21 @@
                                                           (slidetoggleUpdateEvent)="updatedControl($event)"
                                                           (slidetoggleDeleteEvent)="deleteControl($event)">
                                         </asw-slide-toggle>                                       
-                                    </div>                                    
+                                    </div> 
+                                    <div *ngSwitchCase="'gps'">
+                                        <asw-gps [control]="control"
+                                                 [controlIndex]="i"
+                                                 (slidetoggleUpdateEvent)="updatedControl($event)"
+                                                 (slidetoggleDeleteEvent)="deleteControl($event)">
+                                        </asw-gps>                                       
+                                    </div>
+                                    <div *ngSwitchCase="'signature'">
+                                        <asw-signature [control]="control"
+                                                       [controlIndex]="i"
+                                                       (signatureUpdateEvent)="updatedControl($event)"
+                                                       (signatureDeleteEvent)="deleteControl($event)">
+                                        </asw-signature>                                       
+                                    </div>                                       
                                 </div>
                             </div>
                         </div>

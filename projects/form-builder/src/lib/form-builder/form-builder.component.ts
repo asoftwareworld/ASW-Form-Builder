@@ -170,6 +170,22 @@ const CONTROLS: any[] = [
         label: 'Slide me!',
         color: 'primary',
         isRequired: false
+    },
+    {
+        icon: 'location_on',
+        displayName: 'GPS',
+        controlType: 'gps',
+        latitude : '',
+        longitude: '',
+        isRequired: false
+    },
+    {
+        icon: 'edit',
+        displayName: 'Signature',
+        controlType: 'signature',
+        label: 'Image',
+        imageUrl: '',
+        isRequired: false
     }
 ];
 

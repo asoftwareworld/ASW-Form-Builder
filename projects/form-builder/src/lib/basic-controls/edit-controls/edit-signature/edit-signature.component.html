@@ -1,0 +1,38 @@
+<h4 mat-dialog-title>Edit Property</h4>
+<mat-divider></mat-divider>
+<form #aswEditPropertyForm="ngForm" (ngSubmit)="onSubmit(aswEditPropertyForm)" novalidate>
+    <mat-dialog-content class="mat-typography">
+        <canvas #sigPad width="300" 
+                height="150" 
+                (mousedown)="onMouseDown($event)"
+                (mousemove)="onMouseMove($event)">
+        </canvas>
+        <button mat-raised-button
+                type="button"
+                class="btn btn-danger"
+                (click)="clear()">
+            Clear
+        </button>
+        <button mat-raised-button 
+                type="button"
+                class="btn btn-primary"
+                (click)="save()">
+            Save
+        </button>
+        <img [src]="img">
+        <span>{{img}}</span>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button
+                type="button"
+                class="btn btn-danger"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button mat-raised-button type="submit"
+                class="btn btn-primary"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>

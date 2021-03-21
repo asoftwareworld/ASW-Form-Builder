@@ -1,3 +1,15 @@
+
+
 <asw-form-builder (publishClick)="saveJsonData($event)"
                   (previewClick)="previewTemplate($event)"></asw-form-builder>
 <asw-preview-template [formContainer]="jsonData"></asw-preview-template>
+
+<asw-image-drawing [width]="width" [height]="height"
+                       borderCss="1px solid black"
+                       [showCancelButton]="false"
+                       outputMimeType="'image/jpeg'"
+                        outputQuality="0.8"
+                       [enableLoadAnotherImage]="true" [enableRemoveImage]="true"
+                       [drawingSizes]="{ small: 5, medium: 10, large: 25, extra: 50 }"
+        >
+        </asw-image-drawing>

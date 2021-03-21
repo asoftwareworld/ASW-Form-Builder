@@ -13,10 +13,10 @@ import { ConfirmDialogComponent } from '../../../shared-components/confirm-dialo
 import { EditButtonComponent } from '../../edit-controls/edit-button/edit-button.component';
 
 @Component({
-    selector: 'asw-button',
-    templateUrl: './button.component.html'
+    selector: 'asw-gps',
+    templateUrl: './gps.component.html'
 })
-export class ButtonComponent {
+export class GpsComponent {
 
     constants: any = Constants;
     /**
@@ -25,34 +25,34 @@ export class ButtonComponent {
     @Input() control: any;
 
     /**
-     * Button control index to help update or delete button from drop area
+     * Button control index to help update or delete gps from drop area
      */
     @Input() controlIndex: number;
     @Input() isPreviewTemplate = true;
 
-    @Output() buttonUpdateEvent = new EventEmitter<{control: any, index: number}>();
-    @Output() buttonDeleteEvent = new EventEmitter<number>();
+    @Output() gpsUpdateEvent = new EventEmitter<{control: any, index: number}>();
+    @Output() gpsDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
     /**
-     * Delete button control based on control index
-     * @param control button control items
-     * @param controlIndex button control index
+     * Delete gps control based on control index
+     * @param control gps control items
+     * @param controlIndex gps control index
      */
-    deleteButtonDialog(control: any, controlIndex: number): void {
+    deleteGpsDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
             width: '350px',
             data: { name: control.name, message: this.constants.messages.waringMessage }
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.buttonDeleteEvent.emit(controlIndex);
+                this.gpsDeleteEvent.emit(controlIndex);
             }
         });
     }
 
-    editButtonDialog(control: any, controlIndex: number): void {
+    editGpsDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(EditButtonComponent, {
             disableClose: true,
             width: '744px',
@@ -60,7 +60,7 @@ export class ButtonComponent {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.buttonUpdateEvent.emit({control: result, index: controlIndex});
+                this.gpsUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
     }
