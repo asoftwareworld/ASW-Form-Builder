@@ -24,6 +24,8 @@ import { ImageUploadDialogComponent } from './image-upload-dialog/image-upload-d
 import { ImageCropModule } from './../../image-crop/image-crop.module';
 import { EditSignatureComponent } from './edit-signature/edit-signature.component';
 import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog/confirm-dialog.component';
+import { ImageDrawingModule } from '../../image-drawing/image-drawing.module';
+import { EditGpsComponent } from './edit-gps/edit-gps.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    ImageCropModule
+    ImageCropModule,
+    ImageDrawingModule
   ],
   declarations: [
     EditTextboxComponent,
@@ -45,7 +48,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     EditHeaderComponent,
     EditParagraphComponent,
     ImageUploadDialogComponent,
-    EditSignatureComponent
+    EditSignatureComponent,
+    EditGpsComponent
   ],
   exports: [
     EditTextboxComponent,
@@ -58,7 +62,8 @@ import { ConfirmDialogComponent } from './../../shared-components/confirm-dialog
     EditHeaderComponent,
     EditParagraphComponent,
     ImageUploadDialogComponent,
-    EditSignatureComponent
+    EditSignatureComponent,
+    EditGpsComponent
   ]
 })
 export class EditControlsModule { }

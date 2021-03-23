@@ -13,33 +13,17 @@ import { Constants } from '../../../common/constants';
 
 @Component({
     selector: 'asw-edit-signature',
-    templateUrl: './edit-signature.component.html',
-    styles: [`
-  canvas {
-    border: 1px solid #000;
-  }
-  span {
-    width: 300px;
-  }
-  `]
+    templateUrl: './edit-signature.component.html'
 })
-export class EditSignatureComponent implements AfterViewInit {
+export class EditSignatureComponent {
 
-    @Input() name: string;
-    @ViewChild('sigPad') sigPad: ElementRef;
-    sigPadElement;
-    context;
-    isDrawing = false;
-    img;
+    public width  = 600;
+    public height = 250;
 
     constructor(public dialogRef: MatDialogRef<EditSignatureComponent>,
                 @Inject(MAT_DIALOG_DATA) public control: any) { }
 
-    ngAfterViewInit(): void {
-        this.sigPadElement = this.sigPad.nativeElement;
-        this.context = this.sigPadElement.getContext('2d');
-        this.context.strokeStyle = '#3742fa';
-    }
+
 
     onNoClick(): void {
         this.dialogRef.close();
@@ -60,42 +44,5 @@ export class EditSignatureComponent implements AfterViewInit {
         // this.model.isRequired = this.isRequired;
         // this.model.options = this.options;
         // this.dialogRef.close(this.model);
-    }
-
-
-
-    @HostListener('document:mouseup', ['$event'])
-    onMouseUp(e): void {
-        this.isDrawing = false;
-    }
-
-    onMouseDown(e): void {
-        this.isDrawing = true;
-        const coords = this.relativeCoords(e);
-        this.context.moveTo(coords.x, coords.y);
-    }
-
-    onMouseMove(e): void {
-        if (this.isDrawing) {
-            const coords = this.relativeCoords(e);
-            this.context.lineTo(coords.x, coords.y);
-            this.context.stroke();
-        }
-    }
-
-    private relativeCoords(event): any {
-        const bounds = event.target.getBoundingClientRect();
-        const x = event.clientX - bounds.left;
-        const y = event.clientY - bounds.top;
-        return { x, y };
-    }
-
-    clear(): void {
-        this.context.clearRect(0, 0, this.sigPadElement.width, this.sigPadElement.height);
-        this.context.beginPath();
-    }
-
-    save(): void {
-        this.img = this.sigPadElement.toDataURL('image/png');
     }
 }

@@ -177,6 +177,7 @@ const CONTROLS: any[] = [
         controlType: 'gps',
         latitude : '',
         longitude: '',
+        value: '',
         isRequired: false
     },
     {

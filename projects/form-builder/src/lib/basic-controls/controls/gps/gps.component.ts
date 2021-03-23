@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '../../../common/constants';
 import { ConfirmDialogComponent } from '../../../shared-components/confirm-dialog/confirm-dialog.component';
-import { EditButtonComponent } from '../../edit-controls/edit-button/edit-button.component';
+import { EditGpsComponent } from '../../edit-controls/edit-gps/edit-gps.component';
 
 @Component({
     selector: 'asw-gps',
@@ -53,7 +53,7 @@ export class GpsComponent {
     }
 
     editGpsDialog(control: any, controlIndex: number): void {
-        const dialogRef = this.dialog.open(EditButtonComponent, {
+        const dialogRef = this.dialog.open(EditGpsComponent, {
             disableClose: true,
             width: '744px',
             data: control

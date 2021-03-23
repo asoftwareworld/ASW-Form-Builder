@@ -82,6 +82,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
     public errorMessage = '';
 
     private canvas: fabric.Canvas;
+    private rect: fabric.Rect;
     private stack: fabric.Object[] = [];
 
     public colorsName: string[] = [];
@@ -172,108 +173,15 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
     }
 
     public saveImage(): void {
-        debugger;
-        if (!this.forceSizeExport || (this.forceSizeExport && this.width && this.height)) {
-            const canvasScaledElement: HTMLCanvasElement = document.createElement('canvas');
-            const canvasScaled = new fabric.Canvas(canvasScaledElement);
-            canvasScaled.backgroundColor = 'white';
-
-            new Observable<fabric.Canvas>(observer => {
-                if (this.imageUsed) {
-                    if (this.forceSizeExport) {
-                        canvasScaled.setWidth(this.width);
-                        canvasScaled.setHeight(this.height);
-
-                        this.imageUsed.cloneAsImage(imageCloned => {
-                            imageCloned.scaleToWidth(this.width, false);
-                            imageCloned.scaleToHeight(this.height, false);
-
-                            canvasScaled.setBackgroundImage(imageCloned, (img: HTMLImageElement) => {
-                                if (!img) {
-                                    observer.error(new Error('Impossible to draw the image on the temporary canvas'));
-                                }
-
-                                observer.next(canvasScaled);
-                                observer.complete();
-                            }, {
-                                crossOrigin: 'anonymous',
-                                originX: 'left',
-                                originY: 'top'
-                            });
-                        });
-                    } else {
-                        canvasScaled.setBackgroundImage(this.imageUsed, (img: HTMLImageElement) => {
-                            if (!img) {
-                                observer.error(new Error('Impossible to draw the image on the temporary canvas'));
-                            }
-
-                            canvasScaled.setWidth(img.width);
-                            canvasScaled.setHeight(img.height);
-
-                            observer.next(canvasScaled);
-                            observer.complete();
-                        }, {
-                            crossOrigin: 'anonymous',
-                            originX: 'left',
-                            originY: 'top'
-                        });
-                    }
-                } else {
-                    canvasScaled.setWidth(this.width);
-                    canvasScaled.setHeight(this.height);
-                }
-            }).pipe(
-                switchMap(() => {
-                    let process = of(canvasScaled);
-
-                    if (this.canvas.getObjects().length > 0) {
-                        const ratioX = canvasScaled.getWidth() / this.canvas.getWidth();
-                        const ratioY = canvasScaled.getHeight() / this.canvas.getHeight();
-
-                        this.canvas.getObjects().forEach((originalObject: fabric.Object, i: number) => {
-                            process = process.pipe(switchMap(() => {
-                                return new Observable<fabric.Canvas>(observerObject => {
-                                    originalObject.clone((clonedObject: fabric.Object) => {
-                                        clonedObject.set('left', originalObject.left * ratioX);
-                                        clonedObject.set('top', originalObject.top * ratioY);
-                                        clonedObject.scaleToWidth(originalObject.width * ratioX);
-                                        clonedObject.scaleToHeight(originalObject.height * ratioY);
-
-                                        canvasScaled.insertAt(clonedObject, i, false);
-                                        canvasScaled.renderAll();
-
-                                        observerObject.next(canvasScaled);
-                                        observerObject.complete();
-                                    });
-                                });
-                            }));
-                        });
-                    }
-                    return process;
-                }),
-            ).subscribe(() => {
-                canvasScaled.renderAll();
-                canvasScaled.getElement().toBlob(
-                    (data: Blob) => {
-                        const url = window.URL.createObjectURL(data);
-                        window.open(url);
-                        this.save.emit(data);
-                    },
-                    this.outputMimeType,
-                    this.outputQuality
-                );
-            });
-        } else {
-            this.canvas.getElement().toBlob(
-                (data: Blob) => {
-                    const url = window.URL.createObjectURL(data);
-                        window.open(url);
-                    this.save.emit(data);
-                },
-                this.outputMimeType,
-                this.outputQuality
-            );
-        }
+        this.canvas.getElement().toBlob(
+            (data: Blob) => {
+                this.save.emit(data);
+                const url = window.URL.createObjectURL(data);
+                window.open(url);
+            },
+            this.outputMimeType,
+            this.outputQuality
+        );
     }
 
     public cancelAction(): void {

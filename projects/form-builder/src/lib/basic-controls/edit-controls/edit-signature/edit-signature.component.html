@@ -2,25 +2,13 @@
 <mat-divider></mat-divider>
 <form #aswEditPropertyForm="ngForm" (ngSubmit)="onSubmit(aswEditPropertyForm)" novalidate>
     <mat-dialog-content class="mat-typography">
-        <canvas #sigPad width="300" 
-                height="150" 
-                (mousedown)="onMouseDown($event)"
-                (mousemove)="onMouseMove($event)">
-        </canvas>
-        <button mat-raised-button
-                type="button"
-                class="btn btn-danger"
-                (click)="clear()">
-            Clear
-        </button>
-        <button mat-raised-button 
-                type="button"
-                class="btn btn-primary"
-                (click)="save()">
-            Save
-        </button>
-        <img [src]="img">
-        <span>{{img}}</span>
+        <asw-image-drawing [width]="width" [height]="height"
+                       borderCss="1px solid black"
+                       [showCancelButton]="false"
+                       outputMimeType="'image/jpeg'"
+                       outputQuality="0.8"                       
+                       [drawingSizes]="{ small: 3, medium: 10, large: 25, extra: 50 }">
+        </asw-image-drawing>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-raised-button
