@@ -25,6 +25,7 @@ import { ParagraphComponent } from './paragraph/paragraph.component';
 import { RadioButtonComponent } from './radio-button/radio-button.component';
 import { SelectComponent } from './select/select.component';
 import { SignatureComponent } from './signature/signature.component';
+import { DrawingComponent } from './drawing/drawing.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { TextboxComponent } from './text-box/text-box.component';
@@ -53,7 +54,8 @@ import { TextboxComponent } from './text-box/text-box.component';
     DividerComponent,
     ImageComponent,
     GpsComponent,
-    SignatureComponent
+    SignatureComponent,
+    DrawingComponent
   ],
   exports: [
     TextboxComponent,
@@ -71,7 +73,8 @@ import { TextboxComponent } from './text-box/text-box.component';
     DividerComponent,
     ImageComponent,
     GpsComponent,
-    SignatureComponent
+    SignatureComponent,
+    DrawingComponent
   ]
 })
 export class ControlsModule { }

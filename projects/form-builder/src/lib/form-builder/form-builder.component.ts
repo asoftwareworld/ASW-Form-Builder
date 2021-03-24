@@ -187,6 +187,14 @@ const CONTROLS: any[] = [
         label: 'Image',
         imageUrl: '',
         isRequired: false
+    },
+    {
+        icon: 'border_color',
+        displayName: 'Drawing',
+        controlType: 'drawing',
+        label: 'Image',
+        imageUrl: '',
+        isRequired: false
     }
 ];
 
