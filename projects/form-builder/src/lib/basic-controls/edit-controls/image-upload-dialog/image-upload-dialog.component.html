@@ -4,58 +4,75 @@
     <mat-dialog-content class="mat-typography">
         <div class="row">
             <div class="col-md-12">
-                <input type="file" 
-                        id="imageUpload" 
-                        accept=".png, .jpg, .jpeg" 
-                        (change)="fileChangeEvent($event)" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="toolbar"> 
-                    <button type="button" class="toolbar__button" (click)="rotateLeft()">
-                        <span class="material-icons">
-                            rotate_left
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="rotateRight()">
-                        <span class="material-icons">
-                            rotate_right
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="flipHorizontal()">
-                        <span class="material-icons">
-                            swap_horiz
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="flipVertical()">
-                        <span class="material-icons">
-                            swap_vert
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="toggleContainWithinAspectRatio()">
-                        <span class="material-icons">
-                            {{containWithinAspectRatio?'crop_free':'crop_din'}}
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="resetImage()">
-                        <span class="material-icons">
-                            refresh
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="zoomOut()">
-                        <span class="material-icons">
-                            zoom_out
-                        </span>
-                    </button>
-                    <button type="button" class="toolbar__button" (click)="zoomIn()">
-                        <span class="material-icons">
-                            zoom_in
-                        </span>
-                    </button>
+                <div class="toolbar">
+                    <div class="tools">
+                        <div class="row toolbar-size">
+                            <input style="display: none" 
+                                    type="file" 
+                                    #fileInput 
+                                    (change)="fileChangeEvent($event)"
+                                    id="imageUpload" 
+                                    accept=".png, .jpg, .jpeg">
+                            <i class="material-icons btn-selector" 
+                                *ngIf="isImageLoaded"
+                                (click)="fileInput.click();"
+                                matTooltip="Load image">attach_file
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                *ngIf="!isImageLoaded"
+                                (click)="removeImage()"
+                                matTooltip="Remove image">clear
+                            </i>                
+                            <i class="material-icons btn-selector" 
+                                (click)="rotateLeft()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Left rotate">rotate_left
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="rotateRight()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Right rotate">rotate_right
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="flipHorizontal()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Swap horizontal">swap_horiz
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="flipVertical()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Swap vertical">swap_vert
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="toggleContainWithinAspectRatio()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}"
+                                >
+                                {{containWithinAspectRatio?'crop_free':'crop_din'}}
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="resetImage()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Reset image">refresh
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="zoomOut()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Zoom out">zoom_out
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="zoomIn()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Zoom in">zoom_in
+                            </i>
+                        </div>
+                    </div>
+                    
+                    <!-- Any additional toolbar buttons to be projected by the consuming app -->
+                    <ng-content></ng-content>
                 </div>
             </div>
-        </div>
+        </div>        
         <div class="row">
             <div class="col-md-12">
                 <asw-image-crop
@@ -77,6 +94,7 @@
                 ></asw-image-crop>
             </div>
         </div>
+        
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-raised-button

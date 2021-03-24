@@ -16,8 +16,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'form-builder-demo';
   jsonData: any[] = [];
-  public width = window.innerWidth - 60;
-  public height = window.innerHeight - 250;
 
   saveJsonData(data: any): void {
     console.log(data);

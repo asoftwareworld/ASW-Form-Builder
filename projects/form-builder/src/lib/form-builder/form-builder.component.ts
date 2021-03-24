@@ -177,12 +177,21 @@ const CONTROLS: any[] = [
         controlType: 'gps',
         latitude : '',
         longitude: '',
+        value: '',
         isRequired: false
     },
     {
         icon: 'edit',
         displayName: 'Signature',
         controlType: 'signature',
+        label: 'Image',
+        imageUrl: '',
+        isRequired: false
+    },
+    {
+        icon: 'border_color',
+        displayName: 'Drawing',
+        controlType: 'drawing',
         label: 'Image',
         imageUrl: '',
         isRequired: false

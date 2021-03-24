@@ -23,13 +23,13 @@ import {
     ViewChild
   } from '@angular/core';
 import { DomSanitizer, SafeStyle, SafeUrl } from '@angular/platform-browser';
-import { CropperPosition, Dimensions, ImageCroppedEvent, ImageTransform, MoveStart } from './interfaces';
+import { CropperPosition, Dimensions, ImageCroppedEvent, ImageTransform, MoveStart, LoadedImage } from './interfaces';
 import { OutputFormat } from './interfaces/cropper-options.interface';
 import { CropperSettings } from './interfaces/cropper.settings';
 import { MoveTypes } from './interfaces/move-start.interface';
 import { CropService } from './services/crop.service';
 import { CropperPositionService } from './services/cropper-position.service';
-import { LoadedImage, LoadImageService } from './services/load-image.service';
+import { LoadImageService } from './services/load-image.service';
 import { HammerStatic } from './utils/hammer.utils';
 import { getEventForKey, getInvertedPositionForKey, getPositionForKey } from './utils/keyboard.utils';
 

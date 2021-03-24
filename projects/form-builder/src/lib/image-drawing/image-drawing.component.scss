@@ -3,7 +3,6 @@
         display: flex;
         flex-flow: column;
         align-items: center;
-        height: 97vh;
     }
 
     .asw-drawing {
@@ -14,23 +13,6 @@
     .asw-drawing-canvas {
         border: 1.5px #d6d6d6 dashed;
         border-radius: 7px;
-    }
-
-    .toolsbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .tools {
-        display: inline-flex;
-        flex-direction: column;
-        padding: 20px;
-        margin: 10px;
-        background: #fff;
-        border-radius: 6px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, .4);
     }
 
     // .asw-drawing-card {
@@ -71,19 +53,6 @@
 
         &:first-child {
             margin-bottom: 10px;
-        }
-    }
-
-    .btn-selector {
-        cursor: pointer;
-
-        &.selected {
-            color: #bdbdbd;
-        }
-
-        &.disabled {
-            cursor: initial;
-            color: #bdbdbd;
         }
     }
 

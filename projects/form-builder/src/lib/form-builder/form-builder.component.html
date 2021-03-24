@@ -142,8 +142,8 @@
                                     <div *ngSwitchCase="'gps'">
                                         <asw-gps [control]="control"
                                                  [controlIndex]="i"
-                                                 (slidetoggleUpdateEvent)="updatedControl($event)"
-                                                 (slidetoggleDeleteEvent)="deleteControl($event)">
+                                                 (gpsUpdateEvent)="updatedControl($event)"
+                                                 (gpsDeleteEvent)="deleteControl($event)">
                                         </asw-gps>                                       
                                     </div>
                                     <div *ngSwitchCase="'signature'">
@@ -152,7 +152,14 @@
                                                        (signatureUpdateEvent)="updatedControl($event)"
                                                        (signatureDeleteEvent)="deleteControl($event)">
                                         </asw-signature>                                       
-                                    </div>                                       
+                                    </div>    
+                                    <div *ngSwitchCase="'drawing'">
+                                        <asw-drawing [control]="control"
+                                                       [controlIndex]="i"
+                                                       (drawingUpdateEvent)="updatedControl($event)"
+                                                       (drawingDeleteEvent)="deleteControl($event)">
+                                        </asw-drawing>                                       
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>

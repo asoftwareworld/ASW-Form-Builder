@@ -26,6 +26,7 @@ export class ImageUploadDialogComponent implements OnInit {
     rotation = 0;
     scale = 1;
     showCropper = false;
+    isImageLoaded = true;
     containWithinAspectRatio = false;
     transform: ImageTransform = {};
 
@@ -34,7 +35,13 @@ export class ImageUploadDialogComponent implements OnInit {
                 @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     fileChangeEvent(event: any): void {
+        this.isImageLoaded = false;
         this.imageChangedEvent = event;
+    }
+
+    removeImage(): void {
+        this.isImageLoaded = true;
+        this.imageChangedEvent = null;
     }
 
     imageCropped(event: ImageCroppedEvent): void {
@@ -141,6 +148,7 @@ export class ImageUploadDialogComponent implements OnInit {
     }
 
     editProperty(control: any): void {
+        if (control.event) { this.isImageLoaded = false; }
         this.aswImageCropForm.setValue({
             file: control.imageUrl
         });

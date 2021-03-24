@@ -12,15 +12,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../../../common/constants';
 
 @Component({
-    selector: 'asw-edit-signature',
-    templateUrl: './edit-signature.component.html'
+    selector: 'asw-edit-drawing',
+    templateUrl: './edit-drawing.component.html'
 })
-export class EditSignatureComponent {
+export class EditDrawingComponent {
 
     public width  = 600;
     public height = 250;
 
-    constructor(public dialogRef: MatDialogRef<EditSignatureComponent>,
+    constructor(public dialogRef: MatDialogRef<EditDrawingComponent>,
                 @Inject(MAT_DIALOG_DATA) public control: any) { }
 
 
