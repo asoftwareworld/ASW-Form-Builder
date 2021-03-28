@@ -8,8 +8,8 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormBuilderModule, PreviewTemplateModule, ImageDrawingModule } from 'form-builder';
-
+import { FormBuilderModule, PreviewTemplateModule, AswTextboxModule } from 'form-builder';
+// import { AswTextboxModule } from 'form-builder';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     FormBuilderModule,
     PreviewTemplateModule,
-    ImageDrawingModule
+    AswTextboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],
