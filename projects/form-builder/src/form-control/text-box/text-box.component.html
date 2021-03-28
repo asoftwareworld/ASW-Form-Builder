@@ -3,13 +3,23 @@
     <input matInput [type]="control.type"
                     [name]="control.name"
                     [placeholder]="control.label"
-                    [(ngModel)]="control.value"
-                    ngModel
-                    #input
+                    [(ngModel)]="control.value"                    
+                    #input="ngModel"
+                    minlength="4"
                     [matTooltip]="control.tooltip"
                     [maxlength]="control.maxlength"
                     [required]="control.isRequired">
-    <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>                
+    <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>
+    <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
+        <mat-error *ngIf="input.errors.required">
+            <mat-icon aria-hidden="false">error</mat-icon> 
+            Enter {{control.label}} is required
+        </mat-error>
+        <mat-error *ngIf="input.errors.minlength">
+            <mat-icon aria-hidden="false">error</mat-icon> 
+            Sorry, {{control.label}} must be at least 4 characters long.
+        </mat-error>
+    </mat-error>                  
 </mat-form-field>
 <div class="row" *ngIf="isPreviewTemplate">
     <div class="col-md-12">
