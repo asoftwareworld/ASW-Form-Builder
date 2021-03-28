@@ -9,11 +9,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from './confirm-dialog.component';
+import { AswConfirmDialogComponent } from './confirm-dialog.component';
 
-describe('ConfirmationDialogComponent', () => {
-    let component: ConfirmDialogComponent;
-    let fixture: ComponentFixture<ConfirmDialogComponent>;
+describe('AswConfirmDialogComponent', () => {
+    let component: AswConfirmDialogComponent;
+    let fixture: ComponentFixture<AswConfirmDialogComponent>;
     const data: any = {
         name: 'Textbox',
         message: 'Are you sure you want to remove this field?'
@@ -25,7 +25,7 @@ describe('ConfirmationDialogComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [
-                ConfirmDialogComponent
+                AswConfirmDialogComponent
             ],
             imports: [
                 MatButtonModule,
@@ -39,7 +39,7 @@ describe('ConfirmationDialogComponent', () => {
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(ConfirmDialogComponent);
+        fixture = TestBed.createComponent(AswConfirmDialogComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
