@@ -31,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatTooltipModule,
         MatDialogModule,
         MatIconModule,
+        MatTooltipModule,
         AswConfirmDialogModule
     ],
     declarations: [

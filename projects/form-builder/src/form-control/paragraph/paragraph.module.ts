@@ -20,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.
         MatDialogModule,
         MatDividerModule,
         MatIconModule,
+        MatTooltipModule,
         MatButtonToggleModule,
         AswConfirmDialogModule
     ],
