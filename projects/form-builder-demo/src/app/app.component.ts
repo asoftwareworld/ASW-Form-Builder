@@ -9,35 +9,32 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'asw-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'asw-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'form-builder-demo';
-  jsonData: any[] = [];
-  username: any = {};
-  firstname: any = {};
+    title = 'form-builder-demo';
+    jsonData: any[] = [];
+    username: any = {};
+    firstname: any = {};
 
-  ngOnInit(): void {
-    this.username = USERNAME;
-    this.firstname = FIRSTNAME;
-  }
+    ngOnInit(): void {
+        this.username = USERNAME;
+        this.firstname = FIRSTNAME;
+    }
 
-  saveJsonData(data: any): void {
-    console.log(data);
-  }
+    saveJsonData(data: any): void {
+        console.log(data);
+    }
 
-  previewTemplate(data: any): void {
-    this.jsonData = data;
-  }
+    previewTemplate(data: any): void {
+        this.jsonData = data;
+    }
 }
 
 const USERNAME: any =
 {
-    icon: 'text_fields',
-    displayName: 'Textbox',
-    controlType: 'textbox',
     name: 'Username',
     tooltip: 'Enter Username',
     value: '',
@@ -50,9 +47,6 @@ const USERNAME: any =
 
 const FIRSTNAME: any =
 {
-    icon: 'text_fields',
-    displayName: 'Textbox',
-    controlType: 'textbox',
     name: 'Firstname',
     tooltip: 'Enter Firstname',
     value: '',

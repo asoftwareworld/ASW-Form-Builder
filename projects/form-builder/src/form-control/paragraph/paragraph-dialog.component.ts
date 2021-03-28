@@ -30,7 +30,7 @@ export class AswParagraphDialogComponent implements OnInit {
 
     validateFormBuilder(): void {
         this.aswParagraphForm = this.formBuilder.group({
-            label: ['', [Validators.required, Validators.minLength(5)]],
+            label: ['', [Validators.required, Validators.minLength(4)]],
             subtype: [],
             style: []
         });

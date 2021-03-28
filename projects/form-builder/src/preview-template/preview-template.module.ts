@@ -30,31 +30,31 @@ import { AswTextboxModule } from '../form-control/text-box';
 import { PreviewTemplateComponent } from './preview-template.component';
 
 @NgModule({
-  declarations: [PreviewTemplateComponent],
-  imports:
-    [
-      BrowserModule,
-      BrowserAnimationsModule,
-      FormsModule,
-      HttpClientModule,
-      ReactiveFormsModule,
-      AswAutocompleteModule,
-      AswButtonModule,
-      AswCheckboxModule,
-      AswDatepickerModule,
-      AswDividerModule,
-      AswDrawingModule,
-      AswGpsModule,
-      AswHeaderModule,
-      AswImageModule,
-      AswMultiSelectModule,
-      AswParagraphModule,
-      AswSelectModule,
-      AswSignatureModule,
-      AswSlideToggleModule,
-      AswTextareaModule,
-      AswTextboxModule
-    ],
-  exports: [PreviewTemplateComponent]
+    declarations: [PreviewTemplateComponent],
+    imports:
+        [
+            BrowserModule,
+            BrowserAnimationsModule,
+            FormsModule,
+            HttpClientModule,
+            ReactiveFormsModule,
+            AswAutocompleteModule,
+            AswButtonModule,
+            AswCheckboxModule,
+            AswDatepickerModule,
+            AswDividerModule,
+            AswDrawingModule,
+            AswGpsModule,
+            AswHeaderModule,
+            AswImageModule,
+            AswMultiSelectModule,
+            AswParagraphModule,
+            AswSelectModule,
+            AswSignatureModule,
+            AswSlideToggleModule,
+            AswTextareaModule,
+            AswTextboxModule
+        ],
+    exports: [PreviewTemplateComponent]
 })
 export class PreviewTemplateModule { }

@@ -31,8 +31,8 @@ export class AswTextboxDialogComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditTextboxForm = this.formBuilder.group({
             tooltip: ['', []],
-            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
             type: ['', [Validators.required]],
             style: ['', [Validators.required]],

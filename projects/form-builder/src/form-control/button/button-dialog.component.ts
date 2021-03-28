@@ -31,8 +31,8 @@ export class AswButtonDialogComponent implements OnInit {
     validateFormBuilder(): void {
         this.aswEditButtonForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             type: ['', [Validators.required]],
             color: [],
             style: ['', [Validators.required]],
