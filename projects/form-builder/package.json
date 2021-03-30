@@ -1,38 +1,39 @@
 {
-  "name": "@asoftwareworld/form-builder",
-  "version": "3.0.0",
-  "author": "Anish Sharma",
-  "license": "MIT",
-  "peerDependencies": {
-    "@angular/common": "~11.0.4",
-    "@angular/core": "~11.0.4",
-    "@angular/cdk": "^11.0.2",
-    "@angular/material": "^11.0.2",
-    "bootstrap": "^4.5.2"
-  },
-  "dependencies": {    
-    "tslib": "^2.0.0"
-  },
-  "description": "ASW Form Builder helps you with rapid development and designed web forms which includes several controls. The key feature of Form Builder is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/asoftwareworld/ASW-Form-Builder.git"
-  },
-  "keywords": [
-    "angular",
-    "material",
-    "typescript",
-    "form",
-    "resume",
-    "builder",
-    "drag",
-    "drop"
-  ],
-  "bugs": {
-    "url": "https://github.com/asoftwareworld/ASW-Form-Builder/issues"
-  },
-  "homepage": "https://github.com/asoftwareworld/ASW-Form-Builder#readme"
+    "name": "@asoftwareworld/form-builder",
+    "version": "3.0.0",
+    "author": "Anish Sharma",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/common": "~11.0.4",
+        "@angular/core": "~11.0.4",
+        "@angular/cdk": "^11.0.2",
+        "@angular/material": "^11.0.2",
+        "fabric": "^4.3.1",
+        "bootstrap": "^4.5.2"
+    },
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
+    "description": "ASW Form Builder helps you with rapid development and designed web forms which includes several controls. The key feature of Form Builder is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/asoftwareworld/ASW-Form-Builder.git"
+    },
+    "keywords": [
+        "angular",
+        "material",
+        "typescript",
+        "form",
+        "resume",
+        "builder",
+        "drag",
+        "drop"
+    ],
+    "bugs": {
+        "url": "https://github.com/asoftwareworld/ASW-Form-Builder/issues"
+    },
+    "homepage": "https://github.com/asoftwareworld/ASW-Form-Builder#readme"
 }
