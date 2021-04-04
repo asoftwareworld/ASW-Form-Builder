@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 
-export * from './../confirm-dialog/index';
+export * from './../confirm-dialog/public-api';
 export * from './button.component';
 export * from './button-dialog.component';
 export * from './button.module';
