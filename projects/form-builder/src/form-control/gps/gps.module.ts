@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
 
 import { AswGpsDialogComponent } from './gps-dialog.component';
 import { AswGpsComponent } from './gps.component';

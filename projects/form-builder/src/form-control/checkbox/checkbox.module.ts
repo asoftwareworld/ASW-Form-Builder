@@ -18,7 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
 
 import { AswSelectDialogModule } from '../shared/select-dialog/select-dialog.module';
 import { AswCheckboxComponent } from './checkbox.component';

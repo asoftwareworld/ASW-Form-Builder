@@ -6,24 +6,27 @@
  * found in the LICENSE file
  */
 
-export * from './form-control/autocomplete/index';
-export * from './form-control/button/index';
-export * from './form-control/checkbox/index';
-export * from './form-control/datepicker/index';
-export * from './form-control/divider/index';
-export * from './form-control/drawing/index';
-export * from './form-control/gps/index';
-export * from './form-control/header/index';
-export * from './form-control/image/index';
-export * from './form-control/multi-select/index';
-export * from './form-control/paragraph/index';
-export * from './form-control/radio-button/index';
-export * from './form-control/select/index';
-export * from './form-control/signature/index';
-export * from './form-control/slide-toggle/index';
-export * from './form-control/text-area/index';
-export * from './form-control/text-box/index';
-export * from './form-builder/public-api';
-export * from './preview-template/index';
-export * from './image-crop/index';
-export * from './image-drawing/index';
+// export * from './form-control/autocomplete';
+// export * from './form-control/button';
+// export * from './form-control/checkbox';
+// export * from './form-control/datepicker';
+// export * from './form-control/divider';
+// export * from './form-control/drawing';
+// export * from './form-control/gps';
+// export * from './form-control/header';
+// export * from './form-control/image';
+// export * from './form-control/multi-select';
+// export * from './form-control/paragraph';
+// export * from './form-control/radio-button';
+// export * from './form-control/select';
+// export * from './form-control/signature';
+// export * from './form-control/slide-toggle';
+// export * from './form-control/text-area';
+// export * from './form-control/text-box';
+// export * from './form-control/confirm-dialog';
+// export * from './form-builder/form-builder.component';
+// export * from './form-builder/form-builder.module';
+// export * from './preview-template';
+// export * from './image-crop';
+// export * from './image-drawing';
+ export * from './form-builder/public-api';

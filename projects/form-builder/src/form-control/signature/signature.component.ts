@@ -9,7 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from './../common/constants';
-import { AswConfirmDialogComponent } from './../shared/confirm-dialog/confirm-dialog.component';
+import { AswConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { AswSignatureDialogComponent } from './signature-dialog.component';
 
 @Component({

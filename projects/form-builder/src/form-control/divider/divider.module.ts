@@ -13,7 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
 
 import { AswDividerComponent } from './divider.component';
 

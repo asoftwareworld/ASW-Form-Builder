@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswImageDrawingModule } from '../../image-drawing/image-drawing.module';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
 
 import { AswDrawingDialogComponent } from './drawing-dialog.component';
 import { AswDrawingComponent } from './drawing.component';

@@ -36,36 +36,37 @@ import { AswTextboxModule } from '../form-control/text-box';
 import { FormBuilderComponent } from './form-builder.component';
 
 @NgModule({
-  declarations: [FormBuilderComponent,
-    JsonPreviewDialogComponent],
-  imports:
-    [
-      BrowserModule,
-      BrowserAnimationsModule,
-      FormsModule,
-      HttpClientModule,
-      ReactiveFormsModule,
-      MatDialogModule,
-      DragDropModule,
-      ClipboardModule,
-      MatIconModule,
-      AswAutocompleteModule,
-      AswButtonModule,
-      AswCheckboxModule,
-      AswDatepickerModule,
-      AswDividerModule,
-      AswDrawingModule,
-      AswGpsModule,
-      AswHeaderModule,
-      AswImageModule,
-      AswMultiSelectModule,
-      AswParagraphModule,
-      AswSelectModule,
-      AswSignatureModule,
-      AswSlideToggleModule,
-      AswTextareaModule,
-      AswTextboxModule
+    declarations: [
+        FormBuilderComponent,
+        JsonPreviewDialogComponent
     ],
-  exports: [FormBuilderComponent]
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        DragDropModule,
+        ClipboardModule,
+        MatIconModule,
+        AswAutocompleteModule,
+        AswButtonModule,
+        AswCheckboxModule,
+        AswDatepickerModule,
+        AswDividerModule,
+        AswDrawingModule,
+        AswGpsModule,
+        AswHeaderModule,
+        AswImageModule,
+        AswMultiSelectModule,
+        AswParagraphModule,
+        AswSelectModule,
+        AswSignatureModule,
+        AswSlideToggleModule,
+        AswTextareaModule,
+        AswTextboxModule
+    ],
+    exports: [FormBuilderComponent]
 })
 export class FormBuilderModule { }

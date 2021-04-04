@@ -17,7 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
 
 import { AswHeaderDialogComponent } from './header-dialog.component';
 import { AswHeaderComponent } from './header.component';

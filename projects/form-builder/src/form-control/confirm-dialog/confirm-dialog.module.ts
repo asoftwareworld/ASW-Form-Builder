@@ -8,9 +8,8 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AswConfirmDialogComponent } from './confirm-dialog.component';
 
@@ -18,9 +17,7 @@ import { AswConfirmDialogComponent } from './confirm-dialog.component';
     imports: [
         BrowserModule,
         CommonModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatDialogModule
+        MatDialogModule,
     ],
     declarations: [
         AswConfirmDialogComponent

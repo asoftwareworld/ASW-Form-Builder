@@ -9,14 +9,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants } from './../common/constants';
+import { ButtonConstants } from './button-constants';
 
 @Component({
     selector: 'asw-button-dialog',
     templateUrl: './button-dialog.component.html'
 })
 export class AswButtonDialogComponent implements OnInit {
-    constants: any = Constants;
+    constants: any = ButtonConstants;
     aswEditButtonForm: FormGroup;
     status: boolean;
     constructor(private formBuilder: FormBuilder,

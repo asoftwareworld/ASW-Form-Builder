@@ -11,7 +11,7 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AswConfirmDialogComponent } from './../shared/confirm-dialog/confirm-dialog.component';
+import { AswConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { AswButtonComponent } from './button.component';
 
 describe('AswButtonComponent', () => {

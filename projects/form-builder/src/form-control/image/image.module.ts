@@ -17,7 +17,7 @@ import { ImageCropModule } from '../../image-crop/image-crop.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({

@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './form-builder.component';
-export * from './form-builder.module';
+export * from './confirm-dialog.component';
+export * from './confirm-dialog.module';

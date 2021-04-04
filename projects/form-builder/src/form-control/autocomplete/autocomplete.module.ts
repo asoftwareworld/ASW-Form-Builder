@@ -18,10 +18,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
-import { AswConfirmDialogModule } from '../shared/confirm-dialog/confirm-dialog.module';
 
-import { AswSelectDialogModule } from '../shared/select-dialog/select-dialog.module';
 import { AswAutocompleteComponent } from './autocomplete.component';
+import { AswConfirmDialogModule } from '../confirm-dialog/confirm-dialog.module';
+import { AswSelectDialogModule } from '../shared/select-dialog/select-dialog.module';
 
 @NgModule({
     imports: [
@@ -37,8 +37,8 @@ import { AswAutocompleteComponent } from './autocomplete.component';
         MatTooltipModule,
         MatIconModule,
         MatAutocompleteModule,
+        AswConfirmDialogModule,
         AswSelectDialogModule,
-        AswConfirmDialogModule
     ],
     declarations: [
         AswAutocompleteComponent

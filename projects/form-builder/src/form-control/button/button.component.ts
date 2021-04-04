@@ -8,8 +8,8 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from './../common/constants';
-import { AswConfirmDialogComponent } from './../shared/confirm-dialog/confirm-dialog.component';
+import { AswConfirmDialogComponent } from '../confirm-dialog';
+import { ButtonConstants } from './button-constants';
 import { AswButtonDialogComponent } from './button-dialog.component';
 
 @Component({
@@ -18,7 +18,7 @@ import { AswButtonDialogComponent } from './button-dialog.component';
 })
 export class AswButtonComponent {
 
-    constants: any = Constants;
+    constants: any = ButtonConstants;
     /**
      * Button control
      */
