@@ -1,5 +1,5 @@
 {
-    "name": "@asoftwareworld/form-builder",
+    "name": "@asoftwareworld/material",
     "version": "3.0.0",
     "author": "Anish Sharma",
     "license": "MIT",
@@ -30,7 +30,9 @@
         "resume",
         "builder",
         "drag",
-        "drop"
+        "drop",
+        "asw",
+        "asoftwareworld"
     ],
     "bugs": {
         "url": "https://github.com/asoftwareworld/ASW-Form-Builder/issues"

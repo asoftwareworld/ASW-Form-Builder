@@ -16,9 +16,9 @@
             "dom"
         ],
         "paths": {
-            "form-builder": [
-                "dist/form-builder/form-builder",
-                "dist/form-builder"
+            "material": [
+                "dist/material/form-builder",
+                "dist/material"
             ]
         }
     }

@@ -6,5 +6,7 @@
  * found in the LICENSE file
  */
 
-export * from './autocomplete.component';
-export * from './autocomplete.module';
+export * from './../confirm-dialog/index';
+export * from './button.component';
+export * from './button-dialog.component';
+export * from './button.module';

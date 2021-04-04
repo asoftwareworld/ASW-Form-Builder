@@ -8,7 +8,7 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AswConfirmDialogComponent } from '../confirm-dialog';
+import { AswConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ButtonConstants } from './button-constants';
 import { AswButtonDialogComponent } from './button-dialog.component';
 

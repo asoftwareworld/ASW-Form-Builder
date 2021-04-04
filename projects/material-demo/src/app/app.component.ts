@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    title = 'form-builder-demo';
+    title = 'material-demo';
     jsonData: any[] = [];
     username: any = {};
     firstname: any = {};

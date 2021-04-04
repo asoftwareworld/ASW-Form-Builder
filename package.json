@@ -6,7 +6,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "build": "ng build form-builder && ng build form-builder-demo",
+        "build": "ng build material && ng build material-demo",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
