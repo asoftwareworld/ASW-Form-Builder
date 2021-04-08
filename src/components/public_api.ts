@@ -6,4 +6,4 @@
  * found in the LICENSE file
  */
 
- export * from './form-builder/index';
+ export * from './form-builder/public_api';

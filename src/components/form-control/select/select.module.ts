@@ -19,7 +19,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core/public-api';
+import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswSelectComponent } from './select.component';
 
 @NgModule({

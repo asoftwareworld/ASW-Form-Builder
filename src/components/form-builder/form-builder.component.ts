@@ -9,7 +9,7 @@
 import { CdkDragDrop, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core/public-api';
+import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { AswJsonPreviewDialogComponent } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
 
 const CONTROLS: any[] = [

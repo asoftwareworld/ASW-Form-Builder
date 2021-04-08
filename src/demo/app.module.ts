@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormBuilderModule } from '@asoftwareworld/form-builder';
 import { PreviewTemplateModule } from '@asoftwareworld/form-builder/preview-template';
 import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/text-box';
+import { FormBuilderModule } from '@asoftwareworld/form-builder/form-builder';
 
 @NgModule({
     declarations: [

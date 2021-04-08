@@ -9,7 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialogComponent } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialogComponent, Constants } from '@asoftwareworld/form-builder/form-control/core/public-api';
+import { AswSelectDialogComponent, Constants } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
     selector: 'asw-select',

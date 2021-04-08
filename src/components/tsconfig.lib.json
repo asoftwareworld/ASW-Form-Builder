@@ -18,7 +18,7 @@
         "types": [],
         "paths": {
             "@asoftwareworld/form-builder/*": [
-                "src/components/*/public-api"
+                "src/components/*/public_api"
             ]
         }
     },
@@ -29,6 +29,6 @@
         "skipTemplateCodegen": true
     },
     "files": [
-        "./public-api.ts"
+        "./public_api.ts"
     ]
 }

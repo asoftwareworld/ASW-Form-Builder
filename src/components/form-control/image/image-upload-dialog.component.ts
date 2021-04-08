@@ -9,7 +9,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core/public-api';
+import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { Dimensions, ImageCroppedEvent, ImageTransform } from '@asoftwareworld/form-builder/image-crop';
 
 @Component({

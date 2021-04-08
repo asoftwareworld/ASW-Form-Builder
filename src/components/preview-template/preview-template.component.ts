@@ -7,7 +7,7 @@
  */
 
 import { Component, Input } from '@angular/core';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core/public-api';
+import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 
 
 @Component({

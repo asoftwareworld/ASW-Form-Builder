@@ -25,7 +25,7 @@
         ],
         "paths": {
             "@asoftwareworld/form-builder/*": [
-                "src/components/*/public-api"
+                "src/components/*/public_api"
             ]
         }
     },

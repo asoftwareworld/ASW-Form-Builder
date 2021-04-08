@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AswConfirmDialogComponent } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialogComponent, Constants } from '@asoftwareworld/form-builder/form-control/core/public-api';
+import { AswSelectDialogComponent, Constants } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
     selector: 'asw-autocomplete',
