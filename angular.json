@@ -3,74 +3,49 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "material": {
+        "form-builder": {
+            "root": "src",
             "projectType": "library",
-            "root": "projects/material",
-            "sourceRoot": "projects/material/src",
-            "prefix": "asw",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
-                        "tsConfig": "projects/material/tsconfig.lib.json",
-                        "project": "projects/material/ng-package.json"
-                    },
-                    "configurations": {
-                        "production": {
-                            "tsConfig": "projects/material/tsconfig.lib.prod.json"
-                        }
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "codeCoverage": true,
-                        "main": "projects/material/src/test.ts",
-                        "tsConfig": "projects/material/tsconfig.spec.json",
-                        "karmaConfig": "projects/material/karma.conf.js"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/material/tsconfig.lib.json",
-                            "projects/material/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "project": "src/components/ng-package.json",
+                        "tsConfig": "src/components/tsconfig.lib.json"
                     }
                 }
             }
         },
-        "material-demo": {
+        "asw-form-builder": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
                     "style": "scss"
+                },
+                "@schematics/angular:application": {
+                    "strict": true
                 }
             },
-            "root": "projects/material-demo",
-            "sourceRoot": "projects/material-demo/src",
+            "root": "",
+            "sourceRoot": "src",
             "prefix": "asw",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/material-demo",
-                        "index": "projects/material-demo/src/index.html",
-                        "main": "projects/material-demo/src/main.ts",
-                        "polyfills": "projects/material-demo/src/polyfills.ts",
-                        "tsConfig": "projects/material-demo/tsconfig.app.json",
+                        "outputPath": "dist/asw-form-builder",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
                         "aot": true,
                         "assets": [
-                            "projects/material-demo/src/favicon.ico",
-                            "projects/material-demo/src/assets"
+                            "src/favicon.ico",
+                            "src/assets"
                         ],
                         "styles": [
-                            "dist/material/theming/theming-bundle.scss",
-                            "projects/material-demo/src/styles.scss"
+                            "src/assets/theming-bundle.scss",
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     },
@@ -78,8 +53,8 @@
                         "production": {
                             "fileReplacements": [
                                 {
-                                    "replace": "projects/material-demo/src/environments/environment.ts",
-                                    "with": "projects/material-demo/src/environments/environment.prod.ts"
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
                                 }
                             ],
                             "optimization": true,
@@ -97,8 +72,8 @@
                                 },
                                 {
                                     "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
                                 }
                             ]
                         }
@@ -107,34 +82,34 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "material-demo:build"
+                        "browserTarget": "asw-form-builder:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "material-demo:build:production"
+                            "browserTarget": "asw-form-builder:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "material-demo:build"
+                        "browserTarget": "asw-form-builder:build"
                     }
                 },
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "codeCoverage": true,
-                        "main": "projects/material-demo/src/test.ts",
-                        "polyfills": "projects/material-demo/src/polyfills.ts",
-                        "tsConfig": "projects/material-demo/tsconfig.spec.json",
-                        "karmaConfig": "projects/material-demo/karma.conf.js",
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
                         "assets": [
-                            "projects/material-demo/src/favicon.ico",
-                            "projects/material-demo/src/assets"
+                            "src/favicon.ico",
+                            "src/assets"
                         ],
                         "styles": [
-                            "projects/material-demo/src/styles.scss"
+                            "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     }
@@ -143,9 +118,9 @@
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "projects/material-demo/tsconfig.app.json",
-                            "projects/material-demo/tsconfig.spec.json",
-                            "projects/material-demo/e2e/tsconfig.json"
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
                         ],
                         "exclude": [
                             "**/node_modules/**"
@@ -155,17 +130,17 @@
                 "e2e": {
                     "builder": "@angular-devkit/build-angular:protractor",
                     "options": {
-                        "protractorConfig": "projects/material-demo/e2e/protractor.conf.js",
-                        "devServerTarget": "material-demo:serve"
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "asw-form-builder:serve"
                     },
                     "configurations": {
                         "production": {
-                            "devServerTarget": "material-demo:serve:production"
+                            "devServerTarget": "asw-form-builder:serve:production"
                         }
                     }
                 }
             }
         }
     },
-    "defaultProject": "material"
+    "defaultProject": "asw-form-builder"
 }

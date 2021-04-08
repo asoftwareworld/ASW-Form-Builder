@@ -1,0 +1,17 @@
+<div class="avatar-upload">
+    <div class="avatar-preview">
+        <div id="imagePreview" [style.backgroundImage]="'url('+ control.imageUrl +')'"></div>
+    </div>
+</div>
+<div class="row" *ngIf="isPreviewTemplate">
+    <div class="col-md-12">
+        <button mat-raised-button type="button" matTooltip="Edit signature control" [matTooltipPosition]="'above'"
+            (click)="editSignatureDialog(control, controlIndex)" class="btn btn-success btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button type="button" matTooltip="Remove signature control" [matTooltipPosition]="'above'"
+            (click)="deleteSignatureDialog(control, controlIndex)" class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
+    </div>
+</div>

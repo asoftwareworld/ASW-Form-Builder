@@ -1,0 +1,43 @@
+<mat-form-field hintLabel="Max {{control.maxlength}} characters" appearance="{{control.style}}">
+    <mat-label>{{control.label}}</mat-label>
+    <input matInput [type]="control.type"
+                    [name]="control.name"
+                    [placeholder]="control.label"
+                    [(ngModel)]="control.value"                    
+                    #input="ngModel"
+                    minlength="4"
+                    [matTooltip]="control.tooltip"
+                    [maxlength]="control.maxlength"
+                    [required]="control.isRequired">
+    <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>
+    <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
+        <mat-error *ngIf="input?.errors?.required">
+            <mat-icon aria-hidden="false">error</mat-icon> 
+            Enter {{control.label}} is required
+        </mat-error>
+        <mat-error *ngIf="input?.errors?.minlength">
+            <mat-icon aria-hidden="false">error</mat-icon> 
+            Sorry, {{control.label}} must be at least 4 characters long.
+        </mat-error>
+    </mat-error>                  
+</mat-form-field>
+<div class="row" *ngIf="isPreviewTemplate">
+    <div class="col-md-12">
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit textbox control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editTextboxDialog(control, controlIndex)"
+                class="btn btn-success btn-link btn-sm btn-just-icon">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove textbox control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteTextboxDialog(control, controlIndex)"
+                class="btn btn-danger btn-link btn-sm btn-just-icon">
+            <i class="material-icons">close</i>
+        </button>
+    </div>                                            
+</div>
