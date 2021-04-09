@@ -6,6 +6,7 @@
  * found in the LICENSE file
  */
 
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -17,7 +18,8 @@ import { AswJsonPreviewDialogComponent } from './json-preview-dialog.component';
     imports: [
         BrowserModule,
         CommonModule,
-        MatDialogModule
+        MatDialogModule,
+        ClipboardModule
     ],
     declarations: [
         AswJsonPreviewDialogComponent

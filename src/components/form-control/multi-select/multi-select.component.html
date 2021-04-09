@@ -1,4 +1,4 @@
-<mat-form-field appearance="{{control.style}}">
+<mat-form-field [appearance]="control.style">
     <mat-label>{{control.label}}</mat-label>
     <mat-select [placeholder]="control.label" ngModel multiple [required]="control.isRequired">
         <mat-option *ngFor="let option of control.options" [value]="option.key">

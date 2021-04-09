@@ -1,4 +1,4 @@
-<mat-form-field hintLabel="Max {{control.maxlength}} characters" appearance="{{control.style}}">
+<mat-form-field hintLabel="Max {{control.maxlength}} characters" [appearance]="control.style">
     <mat-label>{{control.label}}</mat-label>
     <input matInput [type]="control.type"
                     [name]="control.name"

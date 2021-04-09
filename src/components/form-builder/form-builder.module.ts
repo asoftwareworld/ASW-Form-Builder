@@ -31,6 +31,7 @@ import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/si
 import { AswSlideToggleModule } from '@asoftwareworld/form-builder/form-control/slide-toggle';
 import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/text-area';
 import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/text-box';
+import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { AswJsonPreviewDialogModule } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
 import { FormBuilderComponent } from './form-builder.component';
 
@@ -64,6 +65,7 @@ import { FormBuilderComponent } from './form-builder.component';
         AswSlideToggleModule,
         AswTextareaModule,
         AswTextboxModule,
+        AswRadioButtonModule,
         AswJsonPreviewDialogModule
     ],
     exports: [FormBuilderComponent]

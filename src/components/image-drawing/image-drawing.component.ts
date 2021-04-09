@@ -171,7 +171,8 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
 
     public saveImage(): void {
         this.canvas.getElement().toBlob(
-            (data: Blob) => {
+            // (data: Blob) => {
+            (data: any) => {
                 this.save.emit(data);
                 const url = window.URL.createObjectURL(data);
                 window.open(url);

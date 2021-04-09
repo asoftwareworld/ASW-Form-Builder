@@ -27,6 +27,7 @@ import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/si
 import { AswSlideToggleModule } from '@asoftwareworld/form-builder/form-control/slide-toggle';
 import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/text-area';
 import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/text-box';
+import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { PreviewTemplateComponent } from './preview-template.component';
 
 @NgModule({
@@ -53,7 +54,8 @@ import { PreviewTemplateComponent } from './preview-template.component';
             AswSignatureModule,
             AswSlideToggleModule,
             AswTextareaModule,
-            AswTextboxModule
+            AswTextboxModule,
+            AswRadioButtonModule
         ],
     exports: [PreviewTemplateComponent]
 })

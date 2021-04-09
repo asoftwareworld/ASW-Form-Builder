@@ -6,7 +6,7 @@
         <ng-container *ngTemplateOutlet="errorTemplate ? errorTemplate : defaultError"></ng-container>
     </div>
     
-    <ng-template #defaultLoading><p>{{ loading }}</p></ng-template>
+    <ng-template #defaultLoading><p>{{ loadingText }}</p></ng-template>
     <ng-template #defaultError> <p>{{ errorMessage }}</p> </ng-template>
         
     <div class="asw-drawing">

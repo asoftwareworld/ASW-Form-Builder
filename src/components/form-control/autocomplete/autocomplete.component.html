@@ -1,4 +1,4 @@
-<mat-form-field appearance="{{control.style}}">
+<mat-form-field [appearance]="control.style">
     <mat-label>{{control.label}}</mat-label>
     <input [type]="control.type"
            [name]="control.name"
@@ -9,8 +9,8 @@
            [matTooltip]="control.tooltip"
            [required]="control.isRequired">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.value">
-            {{option.value}}
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
         </mat-option>
     </mat-autocomplete>
 </mat-form-field>
