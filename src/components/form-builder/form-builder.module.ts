@@ -29,15 +29,15 @@ import { AswParagraphModule } from '@asoftwareworld/form-builder/form-control/pa
 import { AswSelectModule } from '@asoftwareworld/form-builder/form-control/select';
 import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/signature';
 import { AswSlideToggleModule } from '@asoftwareworld/form-builder/form-control/slide-toggle';
-import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/text-area';
-import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/text-box';
+import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/textarea';
+import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/textbox';
 import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { AswJsonPreviewDialogModule } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
-import { FormBuilderComponent } from './form-builder.component';
+import { AswFormBuilder } from './form-builder';
 
 @NgModule({
     declarations: [
-        FormBuilderComponent
+        AswFormBuilder
     ],
     imports: [
         BrowserModule,
@@ -68,6 +68,6 @@ import { FormBuilderComponent } from './form-builder.component';
         AswRadioButtonModule,
         AswJsonPreviewDialogModule
     ],
-    exports: [FormBuilderComponent]
+    exports: [AswFormBuilder]
 })
-export class FormBuilderModule { }
+export class AswFormBuilderModule { }

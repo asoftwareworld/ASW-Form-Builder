@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './radio-button.component';
+export * from './radio-button';
 export * from './radio-button.module';

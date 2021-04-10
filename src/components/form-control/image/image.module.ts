@@ -11,8 +11,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AswImageComponent } from './image.component';
-import { AswImageUploadDialogComponent } from './image-upload-dialog.component';
+import { AswImage } from './image';
+import { AswImageUploadDialog } from './image-upload-dialog';
 import { ImageCropModule } from '@asoftwareworld/form-builder/image-crop';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -35,12 +35,12 @@ import { MatIconModule } from '@angular/material/icon';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswImageComponent,
-        AswImageUploadDialogComponent
+        AswImage,
+        AswImageUploadDialog
     ],
     exports: [
-        AswImageComponent,
-        AswImageUploadDialogComponent
+        AswImage,
+        AswImageUploadDialog
     ]
 })
 export class AswImageModule { }

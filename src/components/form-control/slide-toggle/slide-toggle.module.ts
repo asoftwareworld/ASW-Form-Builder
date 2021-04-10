@@ -19,8 +19,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswSlideToggleDialogComponent } from './slide-toggle-dialog.component';
-import { AswSlideToggleComponent } from './slide-toggle.component';
+import { AswSlideToggleDialog } from './slide-toggle-dialog';
+import { AswSlideToggle } from './slide-toggle';
 
 @NgModule({
     imports: [
@@ -38,12 +38,12 @@ import { AswSlideToggleComponent } from './slide-toggle.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswSlideToggleComponent,
-        AswSlideToggleDialogComponent
+        AswSlideToggle,
+        AswSlideToggleDialog
     ],
     exports: [
-        AswSlideToggleComponent,
-        AswSlideToggleDialogComponent
+        AswSlideToggle,
+        AswSlideToggleDialog
     ]
 })
 export class AswSlideToggleModule { }

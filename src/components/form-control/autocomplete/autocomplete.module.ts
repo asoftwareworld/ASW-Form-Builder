@@ -19,7 +19,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AswAutocompleteComponent } from './autocomplete.component';
+import { AswAutocomplete } from './autocomplete';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 
@@ -41,10 +41,10 @@ import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control
         AswSelectDialogModule,
     ],
     declarations: [
-        AswAutocompleteComponent
+        AswAutocomplete
     ],
     exports: [
-        AswAutocompleteComponent
+        AswAutocomplete
     ]
 })
 export class AswAutocompleteModule { }

@@ -18,7 +18,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AswSelectDialogComponent } from './select-dialog.component';
+import { AswSelectDialog } from './select-dialog';
 
 @NgModule({
     imports: [
@@ -35,10 +35,10 @@ import { AswSelectDialogComponent } from './select-dialog.component';
         MatDividerModule,
     ],
     declarations: [
-        AswSelectDialogComponent
+        AswSelectDialog
     ],
     exports: [
-        AswSelectDialogComponent
+        AswSelectDialog
     ]
 })
 export class AswSelectDialogModule { }

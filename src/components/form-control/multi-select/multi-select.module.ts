@@ -20,7 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
-import { AswMultiSelectComponent } from './multi-select.component';
+import { AswMultiSelect } from './multi-select';
 
 @NgModule({
     imports: [
@@ -39,10 +39,10 @@ import { AswMultiSelectComponent } from './multi-select.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswMultiSelectComponent
+        AswMultiSelect
     ],
     exports: [
-        AswMultiSelectComponent
+        AswMultiSelect
     ]
 })
 export class AswMultiSelectModule { }

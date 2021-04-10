@@ -20,8 +20,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswButtonDialogComponent } from './button-dialog.component';
-import { AswButtonComponent } from './button.component';
+import { AswButtonDialog } from './button-dialog';
+import { AswButton } from './button';
 
 @NgModule({
     imports: [
@@ -40,12 +40,12 @@ import { AswButtonComponent } from './button.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswButtonComponent,
-        AswButtonDialogComponent
+        AswButton,
+        AswButtonDialog
     ],
     exports: [
-        AswButtonComponent,
-        AswButtonDialogComponent
+        AswButton,
+        AswButtonDialog
     ]
 })
 export class AswButtonModule { }

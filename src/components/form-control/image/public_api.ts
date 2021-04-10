@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './image.component';
-export * from './image-upload-dialog.component';
+export * from './image';
+export * from './image-upload-dialog';
 export * from './image.module';

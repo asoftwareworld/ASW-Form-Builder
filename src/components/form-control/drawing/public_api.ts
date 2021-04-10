@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './drawing.component';
-export * from './drawing-dialog.component';
+export * from './drawing';
+export * from './drawing-dialog';
 export * from './drawing.module';

@@ -8,5 +8,5 @@
 
 export * from './constant/constants';
 export * from './interface/control';
-export * from './select-dialog/select-dialog.component';
+export * from './select-dialog/select-dialog';
 export * from './select-dialog/select-dialog.module';

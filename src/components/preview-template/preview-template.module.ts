@@ -25,13 +25,13 @@ import { AswParagraphModule } from '@asoftwareworld/form-builder/form-control/pa
 import { AswSelectModule } from '@asoftwareworld/form-builder/form-control/select';
 import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/signature';
 import { AswSlideToggleModule } from '@asoftwareworld/form-builder/form-control/slide-toggle';
-import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/text-area';
-import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/text-box';
+import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/textarea';
+import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/textbox';
 import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
-import { PreviewTemplateComponent } from './preview-template.component';
+import { AswPreviewTemplate } from './preview-template';
 
 @NgModule({
-    declarations: [PreviewTemplateComponent],
+    declarations: [AswPreviewTemplate],
     imports:
         [
             BrowserModule,
@@ -57,6 +57,6 @@ import { PreviewTemplateComponent } from './preview-template.component';
             AswTextboxModule,
             AswRadioButtonModule
         ],
-    exports: [PreviewTemplateComponent]
+    exports: [AswPreviewTemplate]
 })
-export class PreviewTemplateModule { }
+export class AswPreviewTemplateModule { }

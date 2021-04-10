@@ -20,8 +20,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswDatepickerDialogComponent } from './datepicker-dialog.component';
-import { AswDatepickerComponent } from './datepicker.component';
+import { AswDatepickerDialog } from './datepicker-dialog';
+import { AswDatepicker } from './datepicker';
 
 @NgModule({
     imports: [
@@ -40,12 +40,12 @@ import { AswDatepickerComponent } from './datepicker.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswDatepickerComponent,
-        AswDatepickerDialogComponent
+        AswDatepicker,
+        AswDatepickerDialog
     ],
     exports: [
-        AswDatepickerComponent,
-        AswDatepickerDialogComponent
+        AswDatepicker,
+        AswDatepickerDialog
     ]
 })
 export class AswDatepickerModule { }

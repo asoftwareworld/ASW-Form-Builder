@@ -20,7 +20,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
-import { AswCheckboxComponent } from './checkbox.component';
+import { AswCheckbox } from './checkbox';
 
 @NgModule({
     imports: [
@@ -40,10 +40,10 @@ import { AswCheckboxComponent } from './checkbox.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswCheckboxComponent
+        AswCheckbox
     ],
     exports: [
-        AswCheckboxComponent
+        AswCheckbox
     ]
 })
 export class AswCheckboxModule { }

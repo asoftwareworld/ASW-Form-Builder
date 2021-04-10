@@ -1,22 +1,7 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <asw-text-box [control]="username">
-                        </asw-text-box>
-                    </div>
-                    <div class="col-md-6">
-                        <asw-text-box [control]="firstname">
-                        </asw-text-box>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="wrapper">
+    <div class="main-panel">
+        <asw-navbar></asw-navbar>
+        <router-outlet></router-outlet>
+        <asw-footer></asw-footer>
     </div>
 </div>
-
-<asw-form-builder (publishClick)="saveJsonData($event)"
-                  (previewClick)="previewTemplate($event)"></asw-form-builder>
-<asw-preview-template [formContainer]="jsonData"></asw-preview-template>

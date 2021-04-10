@@ -1,0 +1,21 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <asw-textbox [control]="username">
+                        </asw-textbox>
+                    </div>
+                    <div class="col-md-6">
+                        <asw-textbox [control]="firstname">
+                        </asw-textbox>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+<asw-form-builder (publishClick)="saveJsonData($event)" 
+                            (previewClick)="previewTemplate($event)">
+</asw-form-builder>

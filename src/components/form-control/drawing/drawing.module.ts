@@ -17,8 +17,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AswImageDrawingModule } from '@asoftwareworld/form-builder/image-drawing';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswDrawingDialogComponent } from './drawing-dialog.component';
-import { AswDrawingComponent } from './drawing.component';
+import { AswDrawingDialog } from './drawing-dialog';
+import { AswDrawing } from './drawing';
 
 @NgModule({
     imports: [
@@ -34,12 +34,12 @@ import { AswDrawingComponent } from './drawing.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswDrawingComponent,
-        AswDrawingDialogComponent
+        AswDrawing,
+        AswDrawingDialog
     ],
     exports: [
-        AswDrawingComponent,
-        AswDrawingDialogComponent
+        AswDrawing,
+        AswDrawingDialog
     ]
 })
 export class AswDrawingModule { }

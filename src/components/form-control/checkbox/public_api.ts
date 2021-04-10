@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './checkbox.component';
+export * from './checkbox';
 export * from './checkbox.module';

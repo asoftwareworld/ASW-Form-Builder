@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AswJsonPreviewDialogComponent } from './json-preview-dialog.component';
+import { AswJsonPreviewDialog } from './json-preview-dialog';
 
 @NgModule({
     imports: [
@@ -22,10 +22,10 @@ import { AswJsonPreviewDialogComponent } from './json-preview-dialog.component';
         ClipboardModule
     ],
     declarations: [
-        AswJsonPreviewDialogComponent
+        AswJsonPreviewDialog
     ],
     exports: [
-        AswJsonPreviewDialogComponent
+        AswJsonPreviewDialog
     ]
 })
 export class AswJsonPreviewDialogModule { }

@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './datepicker.component';
-export * from './datepicker-dialog.component';
+export * from './datepicker';
+export * from './datepicker-dialog';
 export * from './datepicker.module';

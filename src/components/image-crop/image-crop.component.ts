@@ -41,13 +41,13 @@ import { getEventForKey, getInvertedPositionForKey, getPositionForKey } from './
 })
 
 export class ImageCropComponent implements OnChanges, OnInit {
-    private Hammer: HammerStatic| null = typeof window !== 'undefined'
+    private Hammer: HammerStatic | null = typeof window !== 'undefined'
         ? (window as any).Hammer as HammerStatic
         : null;
     private settings = new CropperSettings();
     private setImageMaxSizeRetries = 0;
     private moveStart!: MoveStart;
-    private loadedImage!: LoadedImage;
+    private loadedImage!: LoadedImage | null;
 
     safeImgDataUrl!: SafeUrl | string;
     safeTransformStyle!: SafeStyle | string;
@@ -196,7 +196,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
 
     private reset(): void {
         this.imageVisible = false;
-        this.loadedImage = null as any;
+        this.loadedImage = null;
         this.safeImgDataUrl = 'data:image/png;base64,iVBORw0KGg'
             + 'oAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAU'
             + 'AAarVyFEAAAAASUVORK5CYII=';
@@ -441,7 +441,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
 
     private setCropperScaledMinWidth(): void {
         this.settings.cropperScaledMinWidth = this.cropperMinWidth > 0
-            ? Math.max(20, this.cropperMinWidth / this.loadedImage.transformed.image.width * this.maxSize.width)
+            ? Math.max(20, this.cropperMinWidth / this.loadedImage!.transformed.image.width * this.maxSize.width)
             : 20;
     }
 
@@ -451,7 +451,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         } else if (this.cropperMinHeight > 0) {
             this.settings.cropperScaledMinHeight = Math.max(
                 20,
-                this.cropperMinHeight / this.loadedImage.transformed.image.height * this.maxSize.height
+                this.cropperMinHeight / this.loadedImage!.transformed.image.height * this.maxSize.height
             );
         } else {
             this.settings.cropperScaledMinHeight = 20;
@@ -518,9 +518,9 @@ export class ImageCropComponent implements OnChanges, OnInit {
     }
 
     crop(): ImageCroppedEvent | null {
-        if (this.sourceImage && this.sourceImage.nativeElement && this.loadedImage.transformed.image != null) {
+        if (this.sourceImage && this.sourceImage.nativeElement && this.loadedImage!.transformed.image != null) {
             this.startCropImage.emit();
-            const output = this.cropService.crop(this.sourceImage, this.loadedImage, this.cropper, this.settings);
+            const output = this.cropService.crop(this.sourceImage, this.loadedImage!, this.cropper, this.settings);
             if (output != null) {
                 this.imageCropped.emit(output);
             }

@@ -44,7 +44,7 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/assets/theming-bundle.scss",
+                            "src/assets/asw-theming.scss",
                             "src/styles.scss"
                         ],
                         "scripts": []

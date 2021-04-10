@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './preview-template.component';
+export * from './preview-template';
 export * from './preview-template.module';

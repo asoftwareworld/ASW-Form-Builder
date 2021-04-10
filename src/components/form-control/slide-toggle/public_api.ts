@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './slide-toggle.component';
-export * from './slide-toggle-dialog.component';
+export * from './slide-toggle';
+export * from './slide-toggle-dialog';
 export * from './slide-toggle.module';

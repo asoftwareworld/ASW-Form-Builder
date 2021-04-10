@@ -20,7 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
-import { AswSelectComponent } from './select.component';
+import { AswSelect } from './select';
 
 @NgModule({
     imports: [
@@ -39,10 +39,10 @@ import { AswSelectComponent } from './select.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswSelectComponent
+        AswSelect
     ],
     exports: [
-        AswSelectComponent
+        AswSelect
     ]
 })
 export class AswSelectModule { }

@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './select.component';
+export * from './select';
 export * from './select.module';

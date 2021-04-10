@@ -11,7 +11,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { AswConfirmDialogComponent } from './confirm-dialog.component';
+import { AswConfirmDialog } from './confirm-dialog';
 
 @NgModule({
     imports: [
@@ -20,10 +20,10 @@ import { AswConfirmDialogComponent } from './confirm-dialog.component';
         MatDialogModule,
     ],
     declarations: [
-        AswConfirmDialogComponent
+        AswConfirmDialog
     ],
     exports: [
-        AswConfirmDialogComponent
+        AswConfirmDialog
     ]
 })
 export class AswConfirmDialogModule { }

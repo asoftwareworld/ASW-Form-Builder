@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './multi-select.component';
+export * from './multi-select';
 export * from './multi-select.module';

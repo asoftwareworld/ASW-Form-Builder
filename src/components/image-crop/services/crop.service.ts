@@ -24,7 +24,7 @@ export class CropService {
 
         const ctx = cropCanvas.getContext('2d');
         if (!ctx) {
-            return;
+            return null;
         }
         if (settings.backgroundColor != null) {
             ctx.fillStyle = settings.backgroundColor;
@@ -61,9 +61,9 @@ export class CropService {
     }
 
     private getImagePosition(sourceImage: ElementRef,
-        loadedImage: LoadedImage,
-        cropper: CropperPosition,
-        settings: CropperSettings): CropperPosition {
+                             loadedImage: LoadedImage,
+                             cropper: CropperPosition,
+                             settings: CropperSettings): CropperPosition {
         const sourceImageElement = sourceImage.nativeElement;
         const ratio = loadedImage.transformed.size.width / sourceImageElement.offsetWidth;
 
@@ -85,9 +85,9 @@ export class CropService {
     }
 
     private getOffsetImagePosition(sourceImage: ElementRef,
-        loadedImage: LoadedImage,
-        cropper: CropperPosition,
-        settings: CropperSettings): CropperPosition {
+                                   loadedImage: LoadedImage,
+                                   cropper: CropperPosition,
+                                   settings: CropperSettings): CropperPosition {
         const canvasRotation = settings.canvasRotation + loadedImage.exifTransform.rotate;
         const sourceImageElement = sourceImage.nativeElement;
         const ratio = loadedImage.transformed.size.width / sourceImageElement.offsetWidth;

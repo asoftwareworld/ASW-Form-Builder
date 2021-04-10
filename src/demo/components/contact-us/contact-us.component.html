@@ -1,0 +1,146 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-primary">
+                        <div class="card-icon">
+                            <i class="material-icons-outlined">contact_phone</i>
+                        </div>
+                        <h4 class="card-title">
+                            Contactus
+                        </h4>
+                        <!-- <p class="card-category">Complete your profile</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline" class="example-full-width">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput
+                                               #name maxlength="25"
+                                               placeholder="Name"
+                                               formControlName="name" required>
+                                        <mat-hint align="end">{{name.value?.length || 0}}/25</mat-hint>
+                                        <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
+                                            <mat-error *ngIf="contactForm.get('name')?.hasError(validation.type) && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)">{{validation.message}}</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline" class="example-full-width">
+                                        <mat-label>Email address</mat-label>
+                                        <input matInput
+                                               placeholder="Email address"
+                                               type="email"
+                                               #emailAddress
+                                               pattern="^[A-Za-z0-9_\+-]+(\.[A-Za-z0-9_\+-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.([A-Za-z]{2,4})$"
+                                               formControlName="emailAddress" required>
+                                        <mat-error *ngFor="let validation of constants.accountValidationMessages.emailAddress">
+                                            <mat-error *ngIf="contactForm.get('emailAddress')?.hasError(validation.type) && (contactForm.get('emailAddress')?.dirty || contactForm.get('emailAddress')?.touched)">{{validation.message}}</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline" class="example-full-width">
+                                        <mat-label>Phone number</mat-label>
+                                        <input matInput
+                                               placeholder="Phone number"
+                                               #phoneNumber maxlength="10"
+                                               type="text"
+                                               formControlName="phoneNumber" required>
+                                        <mat-hint align="end">{{phoneNumber.value?.length || 0}}/10</mat-hint>
+                                        <mat-error *ngFor="let validation of constants.accountValidationMessages.phoneNumber">
+                                            <mat-error *ngIf="contactForm.get('phoneNumber')?.hasError(validation.type) && (contactForm.get('phoneNumber')?.dirty || contactForm.get('phoneNumber')?.touched)">{{validation.message}}</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field appearance="outline" class="example-full-width">
+                                        <mat-label>Message</mat-label>
+                                        <textarea matInput
+                                                  placeholder="Message"
+                                                  #message maxlength="255"
+                                                  formControlName="message" required></textarea>
+                                        <mat-hint align="end">{{message.value?.length || 0}}/255</mat-hint>
+                                        <mat-error *ngFor="let validation of constants.accountValidationMessages.message">
+                                            <mat-error *ngIf="contactForm.get('message')?.hasError(validation.type) && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">{{validation.message}}</mat-error>
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-primary pull-right">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-text card-header-primary">
+                                <div class="card-text">
+                                    <h4 class="card-title">Get in touch</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-description">
+                                    You can use this form for any type of query for help you need , whether you want to supply us some codes or you are a bulk buyer feel free to write us and we get back to you in 24 &#45; 48hrs weekdays.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-text">
+                                    <h4 class="card-title">The Office</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-description">
+                                    <b>Address</b>: ASW | A Software World
+                                </p>
+                                <p class="card-description">
+                                    <b>Phone</b>: 9205265625
+                                </p>
+                                <p class="card-description">
+                                    <b>Email</b>: asoftwareworld@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-text">
+                                    <h4 class="card-title">Business Hours</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-description">
+                                    Monday &#45; Friday 9am to 5pm
+                                </p>
+                                <p class="card-description">
+                                    Saturday &#45; 11am to 2pm
+                                </p>
+                                <p class="card-description">
+                                    Sunday &#45; Closed
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

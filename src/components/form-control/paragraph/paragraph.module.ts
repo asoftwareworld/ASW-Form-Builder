@@ -11,8 +11,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AswParagraphComponent } from './paragraph.component';
-import { AswParagraphDialogComponent } from './paragraph-dialog.component';
+import { AswParagraph } from './paragraph';
+import { AswParagraphDialog } from './paragraph-dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -38,12 +38,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswParagraphComponent,
-        AswParagraphDialogComponent
+        AswParagraph,
+        AswParagraphDialog
     ],
     exports: [
-        AswParagraphComponent,
-        AswParagraphDialogComponent
+        AswParagraph,
+        AswParagraphDialog
     ]
 })
 export class AswParagraphModule { }

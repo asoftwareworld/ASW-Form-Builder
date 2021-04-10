@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './autocomplete.component';
+export * from './autocomplete';
 export * from './autocomplete.module';

@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './json-preview-dialog.component';
+export * from './json-preview-dialog';
 export * from './json-preview-dialog.module';

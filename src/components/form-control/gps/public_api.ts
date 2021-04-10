@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './gps.component';
-export * from './gps-dialog.component';
+export * from './gps';
+export * from './gps-dialog';
 export * from './gps.module';

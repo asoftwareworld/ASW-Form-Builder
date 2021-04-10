@@ -17,8 +17,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswGpsDialogComponent } from './gps-dialog.component';
-import { AswGpsComponent } from './gps.component';
+import { AswGpsDialog } from './gps-dialog';
+import { AswGps } from './gps';
 
 @NgModule({
     imports: [
@@ -34,12 +34,12 @@ import { AswGpsComponent } from './gps.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswGpsComponent,
-        AswGpsDialogComponent
+        AswGps,
+        AswGpsDialog
     ],
     exports: [
-        AswGpsComponent,
-        AswGpsDialogComponent
+        AswGps,
+        AswGpsDialog
     ]
 })
 export class AswGpsModule { }

@@ -6,5 +6,5 @@
  * found in the LICENSE file
  */
 
-export * from './divider.component';
+export * from './divider';
 export * from './divider.module';

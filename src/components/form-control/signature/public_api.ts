@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './signature.component';
-export * from './signature-dialog.component';
+export * from './signature';
+export * from './signature-dialog';
 export * from './signature.module';

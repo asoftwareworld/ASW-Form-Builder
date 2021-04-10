@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './header.component';
-export * from './header-dialog.component';
+export * from './header';
+export * from './header-dialog';
 export * from './header.module';

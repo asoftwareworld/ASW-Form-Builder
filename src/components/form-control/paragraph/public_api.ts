@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './paragraph.component';
-export * from './paragraph-dialog.component';
+export * from './paragraph';
+export * from './paragraph-dialog';
 export * from './paragraph.module';

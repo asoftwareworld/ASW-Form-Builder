@@ -6,6 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './button.component';
-export * from './button-dialog.component';
+export * from './button';
+export * from './button-dialog';
 export * from './button.module';

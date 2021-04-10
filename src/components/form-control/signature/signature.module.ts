@@ -20,8 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
 import { AswImageDrawingModule } from '@asoftwareworld/form-builder/image-drawing';
-import { AswSignatureDialogComponent } from './signature-dialog.component';
-import { AswSignatureComponent } from './signature.component';
+import { AswSignatureDialog } from './signature-dialog';
+import { AswSignature } from './signature';
 
 @NgModule({
     imports: [
@@ -40,12 +40,12 @@ import { AswSignatureComponent } from './signature.component';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswSignatureComponent,
-        AswSignatureDialogComponent
+        AswSignature,
+        AswSignatureDialog
     ],
     exports: [
-        AswSignatureComponent,
-        AswSignatureDialogComponent
+        AswSignature,
+        AswSignatureDialog
     ]
 })
 export class AswSignatureModule { }
