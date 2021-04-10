@@ -15,12 +15,14 @@ import { MatInputModule } from '@angular/material/input';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { PreviewTemplateComponent } from './components/preview-template/preview-template.component';
+import { TextboxDemoComponent } from './components/form-control/textbox-demo/textbox-demo.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         PreviewTemplateComponent,
+        TextboxDemoComponent,
         AboutUsComponent,
         ContactUsComponent
     ],

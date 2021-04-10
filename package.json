@@ -10,7 +10,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "build-lib": "ng build form-builder"
+        "build-lib": "ng build form-builder && gulp build-assets"
     },
     "private": true,
     "dependencies": {
@@ -27,6 +27,11 @@
         "@types/fabric": "^4.2.5",
         "bootstrap": "^4.6.0",
         "fabric": "^4.4.0",
+        "gulp": "^4.0.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-flatten": "^0.4.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-uglifycss": "^1.1.0",
         "ng-packagr": "^11.2.4",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",
