@@ -22,6 +22,7 @@ import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-contro
 
 import { AswDatepickerDialog } from './datepicker-dialog';
 import { AswDatepicker } from './datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     imports: [
@@ -35,6 +36,7 @@ import { AswDatepicker } from './datepicker';
         MatSlideToggleModule,
         MatDividerModule,
         MatDatepickerModule,
+        MatNativeDateModule,
         MatIconModule,
         MatTooltipModule,
         AswConfirmDialogModule

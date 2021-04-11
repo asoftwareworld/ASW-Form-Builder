@@ -71,7 +71,7 @@ export class AswSelectDialog implements OnInit {
         this.name = control.name;
         this.label = control.label;
         this.tooltip = control.tooltip;
-        if (control.controlType !== 'radio' || control.controlType !== 'checkbox') {
+        if (control.controlType !== 'radio' && control.controlType !== 'checkbox') {
             this.isShowStyle = true;
             this.style = control.style;
         }
