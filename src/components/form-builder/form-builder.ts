@@ -50,11 +50,11 @@ const CONTROLS: any[] = [
       name: 'Textbox',
       tooltip: 'Enter Text',
       value: '',
-      type: 'text',
       label: 'TextBox',
       style: 'outline',
       isRequired: false,
-      maxlength: 50
+      maxlength: 50,
+      minlength: 0
     },
     {
         icon: 'notes',
@@ -67,7 +67,8 @@ const CONTROLS: any[] = [
         label: 'TextArea',
         style: 'outline',
         isRequired: false,
-        maxlength: 50
+        maxlength: 50,
+        minlength: 0
     },
     {
         icon: 'event',

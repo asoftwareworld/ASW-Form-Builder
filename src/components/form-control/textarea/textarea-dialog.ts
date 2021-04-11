@@ -40,6 +40,10 @@ export class AswTextareaDialog implements OnInit {
                 Validators.minLength(1),
                 Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            minlength: ['', [Validators.required,
+                Validators.minLength(1),
+                Validators.maxLength(3),
+                Validators.pattern(this.constants.matchPattern.numberPattern)]],
             isRequired: [false]
         });
     }
@@ -51,6 +55,7 @@ export class AswTextareaDialog implements OnInit {
             name: control.name,
             value: control.value,
             maxlength: control.maxlength,
+            minlength: control.minlength,
             style: control.style,
             isRequired: control.isRequired
         });

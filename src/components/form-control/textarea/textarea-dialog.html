@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <mat-form-field appearance="outline">
                         <mat-label>Value</mat-label>
                         <input matInput type="text"
@@ -59,8 +59,6 @@
                                         formControlName="value">                        
                     </mat-form-field>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
                         <mat-label>Textarea Style</mat-label>
@@ -70,6 +68,27 @@
                             <mat-option value="fill">Fill</mat-option>
                             <mat-option value="outline">Outline</mat-option>                    
                         </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Min Length</mat-label>
+                        <input matInput type="text"
+                                        name="minlength"
+                                        placeholder="Enter minlength"
+                                        matTooltip="Enter minlength"
+                                        maxlength="3"
+                                        minlength="1"
+                                        pattern="^[0-9]*$"
+                                        formControlName="minlength" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.minlength">
+                            <mat-error *ngIf="aswEditTextAreaForm.get('minlength')?.hasError(validation.type)">
+                                <mat-icon aria-hidden="false">error</mat-icon>
+                                {{validation.message}}
+                                </mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">                    

@@ -44,6 +44,10 @@ function getConstatnts(): any {
             { type: 'required', message: 'Maxlength is required' },
             { type: 'pattern', message: 'Maxlength must contain only numbers' },
         ],
+        minlength: [
+            { type: 'required', message: 'Minlength is required' },
+            { type: 'pattern', message: 'Minlength must contain only numbers' },
+        ],
     };
 
     const dataTypes = {
