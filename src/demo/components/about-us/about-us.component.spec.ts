@@ -8,24 +8,23 @@ let fixture: ComponentFixture<AboutUsComponent>;
 
 class MockTitle {
     isLoggedIn = true;
-    user = { name: 'Test User'};
+    user = { name: 'Test User' };
 }
 
 describe('AboutUsComponent', () => {
-    let titleService: Title;
-  beforeEach(() => {
-    fixture = TestBed.configureTestingModule({
-      declarations: [ AboutUsComponent ],
-      providers:[{provide: Title, useClass: MockTitle}],
-      schemas:  [ NO_ERRORS_SCHEMA ]
-    })
-    .createComponent(AboutUsComponent);
-    fixture.detectChanges(); // initial binding
-  });
+    beforeEach(() => {
+        fixture = TestBed.configureTestingModule({
+            declarations: [AboutUsComponent],
+            providers: [{ provide: Title, useClass: MockTitle }],
+            schemas: [NO_ERRORS_SCHEMA]
+        })
+            .createComponent(AboutUsComponent);
+        fixture.detectChanges(); // initial binding
+    });
 
-  it('should have skyblue <h2>', () => {
-    const h2: HTMLElement = fixture.nativeElement.querySelector('h2');
-    const bgColor = h2.style.backgroundColor;
-    expect(bgColor).toBe('skyblue');
-  });
+    it('should have skyblue <h2>', () => {
+        const h2: HTMLElement = fixture.nativeElement.querySelector('h2');
+        const bgColor = h2.style.backgroundColor;
+        expect(bgColor).toBe('skyblue');
+    });
 });

@@ -62,6 +62,7 @@ export class AswImageUploadDialog implements OnInit {
     }
 
     rotateLeft(): void {
+        debugger;
         this.canvasRotation--;
         this.flipAfterRotate();
     }

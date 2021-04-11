@@ -22,12 +22,12 @@ import { AswHeaderModule } from '@asoftwareworld/form-builder/form-control/heade
 import { AswImageModule } from '@asoftwareworld/form-builder/form-control/image';
 import { AswMultiSelectModule } from '@asoftwareworld/form-builder/form-control/multi-select';
 import { AswParagraphModule } from '@asoftwareworld/form-builder/form-control/paragraph';
+import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { AswSelectModule } from '@asoftwareworld/form-builder/form-control/select';
 import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/signature';
 import { AswSlideToggleModule } from '@asoftwareworld/form-builder/form-control/slide-toggle';
 import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/textarea';
 import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/textbox';
-import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { AswPreviewTemplate } from './preview-template';
 
 @NgModule({

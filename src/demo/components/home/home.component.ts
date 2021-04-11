@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     firstname: any = {};
 
     constructor(private aswSettingsService: AswSettingsService,
-        private router: Router) {
+                private router: Router) {
 
     }
 

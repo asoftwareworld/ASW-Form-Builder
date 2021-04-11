@@ -20,9 +20,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswDatepickerDialog } from './datepicker-dialog';
-import { AswDatepicker } from './datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AswDatepicker } from './datepicker';
+import { AswDatepickerDialog } from './datepicker-dialog';
 
 @NgModule({
     imports: [

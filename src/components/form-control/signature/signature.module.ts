@@ -20,8 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
 import { AswImageDrawingModule } from '@asoftwareworld/form-builder/image-drawing';
-import { AswSignatureDialog } from './signature-dialog';
 import { AswSignature } from './signature';
+import { AswSignatureDialog } from './signature-dialog';
 
 @NgModule({
     imports: [

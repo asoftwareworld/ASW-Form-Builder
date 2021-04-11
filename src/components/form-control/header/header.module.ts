@@ -19,8 +19,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswHeaderDialog } from './header-dialog';
 import { AswHeader } from './header';
+import { AswHeaderDialog } from './header-dialog';
 
 @NgModule({
     imports: [

@@ -17,8 +17,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswGpsDialog } from './gps-dialog';
 import { AswGps } from './gps';
+import { AswGpsDialog } from './gps-dialog';
 
 @NgModule({
     imports: [

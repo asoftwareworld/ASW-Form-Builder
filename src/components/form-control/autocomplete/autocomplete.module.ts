@@ -19,9 +19,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AswAutocomplete } from './autocomplete';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
+import { AswAutocomplete } from './autocomplete';
 
 @NgModule({
     imports: [

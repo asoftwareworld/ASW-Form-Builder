@@ -6,9 +6,9 @@
  * found in the LICENSE file
  */
 
+import { SimpleChanges } from '@angular/core';
 import { CropperOptions, OutputFormat } from './cropper-options.interface';
 import { ImageTransform } from './image-transform.interface';
-import { SimpleChanges } from '@angular/core';
 
 export class CropperSettings {
 
@@ -44,17 +44,21 @@ export class CropperSettings {
     stepSize = this.initialStepSize;
 
     // setOptions(options: Partial<CropperOptions>): void {
-    setOptions(options: Partial<CropperOptions>): void {
+    setOptions(options: any): void {
         Object.keys(options)
-            .filter((k) => k in this);
-            //.forEach((k) => this[k] = options[k]);
+            .filter((k) => k in this)
+            .forEach((k) => {
+                k = options[k];
+            });
         this.validateOptions();
     }
 
     setOptionsFromChanges(changes: SimpleChanges): void {
         Object.keys(changes)
-            .filter((k) => k in this);
-            //.forEach((k) => this[k] = changes[k].currentValue);
+            .filter((k) => k in this)
+            .forEach((k) => {
+                k = changes[k].currentValue;
+            });
         this.validateOptions();
     }
 
