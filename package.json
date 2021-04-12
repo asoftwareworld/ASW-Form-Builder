@@ -10,6 +10,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
+        "gulp": "gulp build-assets",
         "build-lib": "ng build form-builder && gulp build-assets"
     },
     "private": true,

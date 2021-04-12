@@ -10,19 +10,11 @@ var gulp = require('gulp'),
 gulp.task('build-css-prod', function() {
     return gulp.src('src/assets/**/*.scss')
         .pipe(sass.sync().on('error', sass.logError))
-        .pipe(concat('asw-theming.css'))
-        .pipe(gulp.dest('dist/theming'))
+        .pipe(concat('asw-theme.css'))
+        .pipe(gulp.dest('dist/theme'))
         .pipe(uglifycss({"uglyComments": true}))
-        .pipe(rename('asw-theming.min.css'))
-        .pipe(gulp.dest('dist/theming'));    
-});
-
-gulp.task('copy-component-css', function () {
-    return gulp.src([
-        'src/components/**/*.scss',
-        'src/assets/**/*.scss'
-    ])
-    .pipe(gulp.dest('dist/theming'));    
+        .pipe(rename('asw-theme.min.css'))
+        .pipe(gulp.dest('dist/theme'));    
 });
 
 gulp.task('images', function() {
@@ -32,7 +24,7 @@ gulp.task('images', function() {
 
 //Cleaning previous gulp tasks from project
 gulp.task('clean', function() {
-	return del(['dist/theming']);
+	return del(['dist/theme']);
 });
 
 //Copy readme
@@ -44,7 +36,6 @@ gulp.task('readme', function() {
 //Building project with run sequence
 gulp.task('build-assets', 
 gulp.series('clean', 
-'copy-component-css', 
 'build-css-prod', 
 'images', 
 'readme'));
