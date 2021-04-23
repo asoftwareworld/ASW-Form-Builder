@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { DateControl } from './date-control';
 import { AswDatepickerDialog } from './datepicker-dialog';
 
 @Component({
@@ -22,7 +23,7 @@ export class AswDatepicker {
     /**
      * Datepicker control
      */
-    @Input() control: any;
+    @Input() control: DateControl | null = null;
 
     /**
      * Datepicker control index to help update or delete button from drop area
@@ -30,7 +31,7 @@ export class AswDatepicker {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() datepickerUpdateEvent = new EventEmitter<{control: any, index: number}>();
+    @Output() datepickerUpdateEvent = new EventEmitter<{control: DateControl, index: number}>();
     @Output() datepickerDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
@@ -40,7 +41,7 @@ export class AswDatepicker {
      * @param control datepicker control items
      * @param controlIndex datepicker control index
      */
-      deleteDatepickerDialog(control: any, controlIndex: number): void {
+      deleteDatepickerDialog(control: DateControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.name, message: this.constants.messages.waringMessage }
@@ -52,7 +53,7 @@ export class AswDatepicker {
         });
     }
 
-    editDatepickerDialog(control: any, controlIndex: number): void {
+    editDatepickerDialog(control: DateControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswDatepickerDialog, {
             disableClose: true,
             width: '744px',

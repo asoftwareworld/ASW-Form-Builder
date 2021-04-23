@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { TextareaControl } from './textarea-control';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AswTextareaDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswTextareaDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: TextareaControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -48,7 +49,7 @@ export class AswTextareaDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: TextareaControl): void {
         this.aswEditTextAreaForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
@@ -69,7 +70,6 @@ export class AswTextareaDialog implements OnInit {
         if (this.aswEditTextAreaForm.invalid){
             return;
         }
-        this.aswEditTextAreaForm.value.displayName = this.control.displayName;
         this.aswEditTextAreaForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditTextAreaForm.value);
     }

@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { DateControl } from './date-control';
 
 @Component({
   selector: 'asw-datepicker-dialog',
@@ -21,7 +22,7 @@ export class AswDatepickerDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswDatepickerDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: DateControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -39,7 +40,7 @@ export class AswDatepickerDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: DateControl): void {
         this.aswDatepickerForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
@@ -55,7 +56,6 @@ export class AswDatepickerDialog implements OnInit {
     }
 
     onSubmit(): void {
-        this.aswDatepickerForm.value.displayName = this.control.displayName;
         this.aswDatepickerForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswDatepickerForm.value);
     }

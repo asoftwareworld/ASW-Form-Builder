@@ -41,143 +41,143 @@
                             class="asw-list"
                             (cdkDropListDropped)="drop($event)">
                             <div *ngFor="let control of formContainer; let i = index" class="asw-box" cdkDrag>
-                                <div [ngSwitch]="control.controlType" class="asw-full-width">
-                                    <div *ngSwitchCase="'autocomplete'">
+                                <ng-container [ngSwitch]="control.controlType" class="asw-full-width">
+                                    <ng-container *ngSwitchCase="'autocomplete'">
                                         <asw-autocomplete [control]="control"
                                                           [controlIndex]="i"
                                                           [isPreviewTemplate]="true"
                                                           (autocompleteUpdateEvent)="updatedControl($event)"
                                                           (autocompleteDeleteEvent)="deleteControl($event)">
                                         </asw-autocomplete>
-                                    </div>
-                                    <div *ngSwitchCase="'header'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'header'">
                                         <asw-header [control]="control"
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (headerUpdateEvent)="updatedControl($event)"
                                                     (headerDeleteEvent)="deleteControl($event)">
                                         </asw-header>
-                                    </div>
-                                    <div *ngSwitchCase="'image'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'image'">
                                         <asw-image [control]="control"
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (imageUpdateEvent)="updatedControl($event)"
                                                     (imageDeleteEvent)="deleteControl($event)">
                                         </asw-image>
-                                    </div>
-                                    <div *ngSwitchCase="'textbox'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'textbox'">
                                         <asw-textbox [control]="control"
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (textboxUpdateEvent)="updatedControl($event)"
                                                     (textboxDeleteEvent)="deleteControl($event)">
                                         </asw-textbox>
-                                    </div>
-                                    <div *ngSwitchCase="'textarea'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'textarea'">
                                         <asw-textarea [control]="control"
                                                        [controlIndex]="i"
                                                        [isPreviewTemplate]="true"
                                                        (textAreaUpdateEvent)="updatedControl($event)"
                                                        (textAreaDeleteEvent)="deleteControl($event)">
                                         </asw-textarea>
-                                    </div>
-                                    <div *ngSwitchCase="'select'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'select'">
                                         <asw-select [control]="control"
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (selectUpdateEvent)="updatedControl($event)"
                                                     (selectDeleteEvent)="deleteControl($event)">
                                         </asw-select>
-                                    </div>
-                                    <div *ngSwitchCase="'multi-select'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'multi-select'">
                                         <asw-multi-select [control]="control"
                                                           [controlIndex]="i"
                                                           [isPreviewTemplate]="true"
                                                           (multiSelectUpdateEvent)="updatedControl($event)"
                                                           (multiSelectDeleteEvent)="deleteControl($event)">
                                         </asw-multi-select>
-                                    </div>
-                                    <div *ngSwitchCase="'radio'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'radio'">
                                         <asw-radio-button [control]="control"
                                                           [controlIndex]="i"
                                                           [isPreviewTemplate]="true"
                                                           (radioButtonUpdateEvent)="updatedControl($event)"
                                                           (radioButtonDeleteEvent)="deleteControl($event)">
                                         </asw-radio-button>
-                                    </div>
-                                    <div *ngSwitchCase="'checkbox'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'checkbox'">
                                         <asw-checkbox [control]="control"
                                                       [controlIndex]="i"
                                                       [isPreviewTemplate]="true"
                                                       (checkboxUpdateEvent)="updatedControl($event)"
                                                       (checkboxDeleteEvent)="deleteControl($event)">
                                         </asw-checkbox>
-                                    </div>
-                                    <div *ngSwitchCase="'datepicker'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'datepicker'">
                                         <asw-datepicker [control]="control"
                                                         [controlIndex]="i"
                                                         [isPreviewTemplate]="true"
                                                         (datepickerUpdateEvent)="updatedControl($event)"
                                                         (datepickerDeleteEvent)="deleteControl($event)">
                                         </asw-datepicker>
-                                    </div>
-                                    <div *ngSwitchCase="'button'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'button'">
                                         <asw-button [control]="control"
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (buttonUpdateEvent)="updatedControl($event)"
                                                     (buttonDeleteEvent)="deleteControl($event)">
                                         </asw-button>                                       
-                                    </div>
-                                    <div *ngSwitchCase="'paragraph'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'paragraph'">
                                         <asw-paragraph [control]="control"
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (paragraphUpdateEvent)="updatedControl($event)"
                                                     (paragraphDeleteEvent)="deleteControl($event)">
                                         </asw-paragraph>
-                                    </div>
-                                    <div *ngSwitchCase="'divider'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'divider'">
                                         <asw-divider [control]="control"
                                                      [controlIndex]="i"
                                                      [isPreviewTemplate]="true"
                                                      (dividerDeleteEvent)="deleteControl($event)">
                                         </asw-divider>
-                                    </div>
-                                    <div *ngSwitchCase="'slide-toggle'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'slide-toggle'">
                                         <asw-slide-toggle [control]="control"
                                                           [controlIndex]="i"
                                                           [isPreviewTemplate]="true"
                                                           (slidetoggleUpdateEvent)="updatedControl($event)"
                                                           (slidetoggleDeleteEvent)="deleteControl($event)">
                                         </asw-slide-toggle>                                       
-                                    </div> 
-                                    <div *ngSwitchCase="'gps'">
+                                    </ng-container> 
+                                    <ng-container *ngSwitchCase="'gps'">
                                         <asw-gps [control]="control"
                                                  [controlIndex]="i"
                                                  [isPreviewTemplate]="true"
                                                  (gpsUpdateEvent)="updatedControl($event)"
                                                  (gpsDeleteEvent)="deleteControl($event)">
                                         </asw-gps>                                       
-                                    </div>
-                                    <div *ngSwitchCase="'signature'">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'signature'">
                                         <asw-signature [control]="control"
                                                        [controlIndex]="i"
                                                        [isPreviewTemplate]="true"
                                                        (signatureUpdateEvent)="updatedControl($event)"
                                                        (signatureDeleteEvent)="deleteControl($event)">
                                         </asw-signature>                                       
-                                    </div>    
-                                    <div *ngSwitchCase="'drawing'">
+                                    </ng-container>    
+                                    <ng-container *ngSwitchCase="'drawing'">
                                         <asw-drawing [control]="control"
                                                        [controlIndex]="i"
                                                        [isPreviewTemplate]="true"
                                                        (drawingUpdateEvent)="updatedControl($event)"
                                                        (drawingDeleteEvent)="deleteControl($event)">
                                         </asw-drawing>                                       
-                                    </div>                                    
-                                </div>
+                                    </ng-container>                                    
+                                </ng-container>
                             </div>
                         </div>
                     </div>

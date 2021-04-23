@@ -5,8 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
+import { Control } from '@asoftwareworld/form-builder/form-control/core';
 
-export * from './datepicker';
-export * from './date-control';
-export * from './datepicker-dialog';
-export * from './datepicker.module';
+export interface DateControl extends Control {
+
+}

@@ -1,47 +1,51 @@
-<div [ngSwitch]="control.subtype">
-    <div *ngSwitchCase="'p'">
-        <p [class]="control.style">
-            {{control.label}}
-        </p>
-    </div>
-    <div *ngSwitchCase="'address'">
-        <address [class]="control.style">
-            {{control.label}}
-        </address>
-    </div>
-    <div *ngSwitchCase="'blockquote'">
-        <blockquote [class]="control.style">
-            {{control.label}}
-        </blockquote>
-    </div>
-    <div *ngSwitchCase="'canvas'">
-        <canvas [class]="control.style">
-            {{control.label}}
-        </canvas>
-    </div>
-    <div *ngSwitchCase="'output'">
-        <output [class]="control.style">
-            {{control.label}}
-        </output>
-    </div>
-</div>
-<div class="row" *ngIf="isPreviewTemplate">
-    <div class="col-md-12">
-        <button mat-raised-button 
-                type="button" 
-                matTooltip="Edit paragraph control" 
-                [matTooltipPosition]="'above'" 
-                (click)="editParagraphDialog(control, controlIndex)"
-                class="btn btn-success btn-link btn-sm btn-just-icon">
-            <i class="material-icons">edit</i>
-        </button>
-        <button mat-raised-button 
-                type="button" 
-                matTooltip="Remove paragraph control" 
-                [matTooltipPosition]="'above'" 
-                (click)="deleteParagraphDialog(control, controlIndex)"
-                class="btn btn-danger btn-link btn-sm btn-just-icon">
-            <i class="material-icons">close</i>
-        </button>
-    </div>                                            
-</div>
+<ng-container *ngIf="control as control">
+    <ng-container [ngSwitch]="control.subtype">
+        <ng-container *ngSwitchCase="'p'">
+            <p [class]="control.style">
+                {{control.label}}
+            </p>
+        </ng-container>
+        <ng-container *ngSwitchCase="'address'">
+            <address [class]="control.style">
+                {{control.label}}
+            </address>
+        </ng-container>
+        <ng-container *ngSwitchCase="'blockquote'">
+            <blockquote [class]="control.style">
+                {{control.label}}
+            </blockquote>
+        </ng-container>
+        <ng-container *ngSwitchCase="'canvas'">
+            <canvas [class]="control.style">
+                {{control.label}}
+            </canvas>
+        </ng-container>
+        <ng-container *ngSwitchCase="'output'">
+            <output [class]="control.style">
+                {{control.label}}
+            </output>
+        </ng-container>
+    </ng-container>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit paragraph control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editParagraphDialog(control, controlIndex)"
+                        class="btn btn-success btn-link btn-sm btn-just-icon">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove paragraph control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteParagraphDialog(control, controlIndex)"
+                        class="btn btn-danger btn-link btn-sm btn-just-icon">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

@@ -8,4 +8,5 @@
 
 export * from './textbox';
 export * from './textbox-dialog';
+export * from './textbox-control';
 export * from './textbox.module';

@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { TextboxControl } from './textbox-control';
 
 @Component({
   selector: 'asw-textbox-dialog',
@@ -21,7 +22,7 @@ export class AswTextboxDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswTextboxDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: TextboxControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -45,7 +46,7 @@ export class AswTextboxDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: TextboxControl): void {
         this.aswEditTextboxForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
@@ -66,7 +67,6 @@ export class AswTextboxDialog implements OnInit {
         if (this.aswEditTextboxForm.invalid) {
             return;
         }
-        this.aswEditTextboxForm.value.displayName = this.control.displayName;
         this.aswEditTextboxForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditTextboxForm.value);
     }

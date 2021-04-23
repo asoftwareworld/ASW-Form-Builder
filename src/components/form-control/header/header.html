@@ -1,40 +1,44 @@
-<div [ngSwitch]="control.subtype">
-    <div *ngSwitchCase="'h1'">
-        <h1 [class]="control.style">{{control.label}}</h1>
-    </div>
-    <div *ngSwitchCase="'h2'">
-        <h2 [class]="control.style">{{control.label}}</h2>
-    </div>
-    <div *ngSwitchCase="'h3'">
-        <h3 [class]="control.style">{{control.label}}</h3>
-    </div>
-    <div *ngSwitchCase="'h4'">
-        <h4 [class]="control.style">{{control.label}}</h4>
-    </div>
-    <div *ngSwitchCase="'h5'">
-        <h5 [class]="control.style">{{control.label}}</h5>
-    </div>
-    <div *ngSwitchCase="'h6'">
-        <h6 [class]="control.style">{{control.label}}</h6>
-    </div>
-</div>
-<div class="row" *ngIf="isPreviewTemplate">
-    <div class="col-md-12">
-        <button mat-raised-button 
-                type="button" 
-                matTooltip="Edit header control" 
-                [matTooltipPosition]="'above'" 
-                (click)="editHeaderDialog(control, controlIndex)"
-                class="btn btn-success btn-link btn-sm btn-just-icon">
-            <i class="material-icons">edit</i>
-        </button>
-        <button mat-raised-button 
-                type="button" 
-                matTooltip="Remove header control" 
-                [matTooltipPosition]="'above'" 
-                (click)="deleteHeaderDialog(control, controlIndex)"
-                class="btn btn-danger btn-link btn-sm btn-just-icon">
-            <i class="material-icons">close</i>
-        </button>
-    </div>                                            
-</div>
+<ng-container *ngIf="control as control">
+    <ng-container [ngSwitch]="control.subtype">
+        <ng-container *ngSwitchCase="'h1'">
+            <h1 [class]="control.style">{{control.label}}</h1>
+        </ng-container>
+        <ng-container *ngSwitchCase="'h2'">
+            <h2 [class]="control.style">{{control.label}}</h2>
+        </ng-container>
+        <ng-container *ngSwitchCase="'h3'">
+            <h3 [class]="control.style">{{control.label}}</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'h4'">
+            <h4 [class]="control.style">{{control.label}}</h4>
+        </ng-container>
+        <ng-container *ngSwitchCase="'h5'">
+            <h5 [class]="control.style">{{control.label}}</h5>
+        </ng-container>
+        <ng-container *ngSwitchCase="'h6'">
+            <h6 [class]="control.style">{{control.label}}</h6>
+        </ng-container>
+    </ng-container>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit header control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editHeaderDialog(control, controlIndex)"
+                        class="btn btn-success btn-link btn-sm btn-just-icon">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove header control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteHeaderDialog(control, controlIndex)"
+                        class="btn btn-danger btn-link btn-sm btn-just-icon">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

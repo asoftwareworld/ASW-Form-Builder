@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../constant/constants';
+import { SelectControl } from '../interface/select-control';
 
 @Component({
   selector: 'asw-select-dialog',
@@ -29,7 +30,7 @@ export class AswSelectDialog implements OnInit {
     optionKeyMessage!: string;
 
     constructor(public dialogRef: MatDialogRef<AswSelectDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: SelectControl) { }
 
     ngOnInit(): void {
         this.setValue(this.control);
@@ -54,12 +55,11 @@ export class AswSelectDialog implements OnInit {
         if (aswEditPropertyForm.invalid) {
             return;
         }
-        this.model.displayName = this.control.displayName;
         this.model.controlType = this.control.controlType;
         this.model.name = this.name;
         this.model.label = this.label;
         this.model.tooltip = this.tooltip;
-        if (this.control.controlType !== 'radio' || this.control.controlType !== 'checkbox') {
+        if (this.control.controlType !== 'radio' && this.control.controlType !== 'checkbox') {
             this.model.style = this.style;
         }
         this.model.isRequired = this.isRequired;

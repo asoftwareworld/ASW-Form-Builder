@@ -6,15 +6,11 @@
  * found in the LICENSE file
  */
 export interface Control {
-    icon: string;
-    displayName: string;
     controlType: string;
     name: string;
     tooltip: string;
     value: string;
-    type: string;
     label: string;
-    style: string;
+    style: 'legacy' | 'standard' | 'fill' | 'outline';
     isRequired: boolean;
-    maxlength: number;
 }

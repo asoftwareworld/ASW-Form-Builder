@@ -9,7 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { AswSelectDialog, Constants, SelectControl } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
     selector: 'asw-select',
@@ -21,7 +21,7 @@ export class AswSelect {
     /**
      * Select control
      */
-    @Input() control: any;
+    @Input() control: SelectControl | null = null;
 
     /**
      * Select control index to help update or delete button from drop area
@@ -29,12 +29,12 @@ export class AswSelect {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() selectUpdateEvent = new EventEmitter<{control: any, index: number}>();
+    @Output() selectUpdateEvent = new EventEmitter<{control: SelectControl, index: number}>();
     @Output() selectDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    deleteSelectDialog(control: any, controlIndex: number): void {
+    deleteSelectDialog(control: SelectControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.name, message: this.constants.messages.waringMessage }
@@ -46,7 +46,7 @@ export class AswSelect {
         });
     }
 
-    editSelectDialog(control: any, controlIndex: number): void {
+    editSelectDialog(control: SelectControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswSelectDialog, {
             disableClose: true,
             width: '744px',

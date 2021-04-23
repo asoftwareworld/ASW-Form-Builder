@@ -7,6 +7,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import { TextboxControl } from '@asoftwareworld/form-builder/form-control/textbox';
 
 @Component({
     templateUrl: './textbox-demo.component.html'
@@ -22,16 +23,17 @@ export class TextboxDemoComponent implements OnInit {
     }
 }
 
-const USERNAME: any =
+const USERNAME: TextboxControl =
 {
+    controlType: '',
     name: 'Username',
     tooltip: 'Enter Username',
     value: '',
-    type: 'text',
     label: 'Username',
     style: 'outline',
     isRequired: true,
-    maxlength: 50
+    maxlength: 50,
+    minlength: 0
 };
 
 const FIRSTNAME: any =

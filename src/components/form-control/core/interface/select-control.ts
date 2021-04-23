@@ -5,8 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
+import { Control } from './control';
+import { ControlOption } from './control-option';
 
-export * from './datepicker';
-export * from './date-control';
-export * from './datepicker-dialog';
-export * from './datepicker.module';
+export interface SelectControl extends Control, ControlOption {
+
+}
