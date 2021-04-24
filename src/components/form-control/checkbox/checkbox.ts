@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswSelectDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { CheckboxControl } from './checkbox-control';
 
 @Component({
     selector: 'asw-checkbox',
@@ -18,7 +19,7 @@ import { AswSelectDialog, Constants } from '@asoftwareworld/form-builder/form-co
 export class AswCheckbox {
 
     constants: any = Constants;
-    @Input() control: any;
+    @Input() control: CheckboxControl | null = null;
 
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;

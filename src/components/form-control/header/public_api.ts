@@ -8,4 +8,5 @@
 
 export * from './header';
 export * from './header-dialog';
+export * from './header-control';
 export * from './header.module';

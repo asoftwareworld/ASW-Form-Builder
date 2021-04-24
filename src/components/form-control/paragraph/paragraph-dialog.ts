@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { ParagraphControl } from './paragraph-control';
 
 @Component({
   selector: 'asw-paragraph-dialog',
@@ -21,7 +22,7 @@ export class AswParagraphDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswParagraphDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: ParagraphControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -36,7 +37,7 @@ export class AswParagraphDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: ParagraphControl): void {
         this.aswParagraphForm.setValue({
             label: control.label,
             subtype: control.subtype,
@@ -52,7 +53,6 @@ export class AswParagraphDialog implements OnInit {
         if (this.aswParagraphForm.invalid){
             return;
         }
-        this.aswParagraphForm.value.displayName = this.control.displayName;
         this.aswParagraphForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswParagraphForm.value);
     }

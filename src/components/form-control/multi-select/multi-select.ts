@@ -9,7 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { AswSelectDialog, Constants, SelectControl } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
     selector: 'asw-multi-select',
@@ -21,7 +21,7 @@ export class AswMultiSelect {
     /**
      * MultiSelect control
      */
-    @Input() control: any;
+    @Input() control: SelectControl | null = null;
 
     /**
      * MultiSelect control index to help update or delete button from drop area
@@ -29,12 +29,12 @@ export class AswMultiSelect {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() multiSelectUpdateEvent = new EventEmitter<{control: any, index: number}>();
+    @Output() multiSelectUpdateEvent = new EventEmitter<{control: SelectControl, index: number}>();
     @Output() multiSelectDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    deleteMultiSelectDialog(control: any, controlIndex: number): void {
+    deleteMultiSelectDialog(control: SelectControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.name, message: this.constants.messages.waringMessage }
@@ -46,7 +46,7 @@ export class AswMultiSelect {
         });
     }
 
-    editMultiSelectDialog(control: any, controlIndex: number): void {
+    editMultiSelectDialog(control: SelectControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswSelectDialog, {
             disableClose: true,
             width: '744px',

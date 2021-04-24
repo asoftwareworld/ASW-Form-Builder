@@ -7,4 +7,5 @@
  */
 
 export * from './autocomplete';
+export * from './autocomplete-control';
 export * from './autocomplete.module';

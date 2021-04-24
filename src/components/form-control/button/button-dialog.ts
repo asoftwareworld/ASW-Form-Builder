@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { ButtonControl } from './button-control';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AswButtonDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswButtonDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: ButtonControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -41,7 +42,7 @@ export class AswButtonDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: ButtonControl): void {
         this.aswEditButtonForm.setValue({
             tooltip: control.tooltip,
             label: control.label,
@@ -61,7 +62,6 @@ export class AswButtonDialog implements OnInit {
         if (this.aswEditButtonForm.invalid) {
             return;
         }
-        this.aswEditButtonForm.value.displayName = this.control.displayName;
         this.aswEditButtonForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditButtonForm.value);
     }

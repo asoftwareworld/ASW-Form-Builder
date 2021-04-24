@@ -6,7 +6,9 @@
  * found in the LICENSE file
  */
 
-export * from './slide-toggle';
-export * from './slide-toggle-dialog';
-export * from './slide-toggle-control';
-export * from './slide-toggle.module';
+export interface HeaderControl {
+    controlType: string;
+    subtype: string;
+    style: string;
+    label: string;
+}

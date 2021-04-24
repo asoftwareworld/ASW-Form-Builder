@@ -8,4 +8,5 @@
 
 export * from './paragraph';
 export * from './paragraph-dialog';
+export * from './paragraph-control';
 export * from './paragraph.module';

@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { SlideToggleControl } from './slide-toggle-control';
 
 @Component({
   selector: 'asw-slide-toggle-dialog',
@@ -21,7 +22,7 @@ export class AswSlideToggleDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswSlideToggleDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: SlideToggleControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -36,7 +37,7 @@ export class AswSlideToggleDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: SlideToggleControl): void {
         this.aswEditSlideToggleForm.setValue({
             label: control.label,
             color: control.color,
@@ -52,7 +53,6 @@ export class AswSlideToggleDialog implements OnInit {
         if (this.aswEditSlideToggleForm.invalid){
             return;
         }
-        this.aswEditSlideToggleForm.value.displayName = this.control.displayName;
         this.aswEditSlideToggleForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditSlideToggleForm.value);
     }

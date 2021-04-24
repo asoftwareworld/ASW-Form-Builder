@@ -1,21 +1,25 @@
-<mat-slide-toggle [color]="control.color" [required]="control.isRequired">{{control.label}}</mat-slide-toggle>
-<div class="row" *ngIf="isPreviewTemplate">
-    <div class="col-md-12">
-        <button mat-raised-button 
-                type="button" 
-                matTooltip="Edit slide toggle control" 
-                [matTooltipPosition]="'above'" 
-                (click)="editSlideToggleDialog(control, controlIndex)"
-                class="btn btn-success btn-link btn-sm btn-just-icon">
-            <i class="material-icons">edit</i>
-        </button>
-        <button mat-raised-button 
-                type="button" 
-                matTooltip="Remove slide toggle control" 
-                [matTooltipPosition]="'above'" 
-                (click)="deleteSlideToggleDialog(control, controlIndex)"
-                class="btn btn-danger btn-link btn-sm btn-just-icon">
-            <i class="material-icons">close</i>
-        </button>
-    </div>                                            
-</div>
+<ng-container *ngIf="control as control">
+    <mat-slide-toggle [color]="control.color" [required]="control.isRequired">{{control.label}}</mat-slide-toggle>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit slide toggle control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editSlideToggleDialog(control, controlIndex)"
+                        class="btn btn-success btn-link btn-sm btn-just-icon">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove slide toggle control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteSlideToggleDialog(control, controlIndex)"
+                        class="btn btn-danger btn-link btn-sm btn-just-icon">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

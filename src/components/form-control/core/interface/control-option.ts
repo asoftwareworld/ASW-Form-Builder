@@ -10,8 +10,8 @@ import { Control } from './control';
 export interface ControlOption extends Control {
     options: [
         {
-            key: string;
-            value: string;
+            key: string,
+            value: string
         }
     ];
 }

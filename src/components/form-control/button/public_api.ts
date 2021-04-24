@@ -8,4 +8,5 @@
 
 export * from './button';
 export * from './button-dialog';
+export * from './button-control';
 export * from './button.module';

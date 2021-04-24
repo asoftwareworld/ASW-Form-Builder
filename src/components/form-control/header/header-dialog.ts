@@ -10,6 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { HeaderControl } from './header-control';
 
 @Component({
   selector: 'asw-header-dialog',
@@ -21,7 +22,7 @@ export class AswHeaderDialog implements OnInit {
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswHeaderDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+                @Inject(MAT_DIALOG_DATA) public control: HeaderControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -36,7 +37,7 @@ export class AswHeaderDialog implements OnInit {
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: HeaderControl): void {
         this.aswHeaderForm.setValue({
             label: control.label,
             subtype: control.subtype,
@@ -52,7 +53,6 @@ export class AswHeaderDialog implements OnInit {
         if (this.aswHeaderForm.invalid){
             return;
         }
-        this.aswHeaderForm.value.displayName = this.control.displayName;
         this.aswHeaderForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswHeaderForm.value);
     }

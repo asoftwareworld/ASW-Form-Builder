@@ -5,8 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
+import { Control } from '@asoftwareworld/form-builder/form-control/core';
 
-export * from './slide-toggle';
-export * from './slide-toggle-dialog';
-export * from './slide-toggle-control';
-export * from './slide-toggle.module';
+export interface ButtonControl extends Control {
+    color: string;
+    type: string;
+}
