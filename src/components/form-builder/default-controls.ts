@@ -97,6 +97,7 @@ export const CONTROLS = [
         name: 'multi-select',
         tooltip: 'Select options',
         label: 'MultiSelect',
+        value: '',
         style: 'outline',
         isRequired: false,
         options: [
@@ -112,6 +113,7 @@ export const CONTROLS = [
         name: 'radio',
         tooltip: 'radio',
         label: 'Radio',
+        value: '',
         isRequired: false,
         options: [
             {key: 'option-1', value: 'Option 1'},

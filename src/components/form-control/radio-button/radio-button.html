@@ -1,7 +1,10 @@
 <ng-container *ngIf="control as control">
     <label id="example-radio-group-label">{{control.label}}</label>
-    <mat-radio-group class="asw-radio-group" [matTooltip]="control.tooltip">
-        <mat-radio-button color="primary" *ngFor="let option of control.options" 
+    <mat-radio-group class="asw-radio-group" 
+        [matTooltip]="control.tooltip"
+        [(ngModel)]="control.value"                    
+        #input="ngModel">
+        <mat-radio-button *ngFor="let option of control.options" 
                         [value]="option.key">
                     {{ option.value }}
         </mat-radio-button>

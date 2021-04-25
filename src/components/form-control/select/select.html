@@ -1,11 +1,21 @@
 <ng-container *ngIf="control as control">
     <mat-form-field [appearance]="control.style">
         <mat-label>{{control.label}}</mat-label>
-        <mat-select [placeholder]="control.label" ngModel [matTooltip]="control.tooltip" [required]="control.isRequired">
+        <mat-select [placeholder]="control.label" 
+            [matTooltip]="control.tooltip"
+            [(ngModel)]="control.value"                    
+            #input="ngModel"
+            [required]="control.isRequired">
             <mat-option *ngFor="let option of control.options" [value]="option.key">
                 {{ option.value }}
             </mat-option>
-        </mat-select>               
+        </mat-select>
+        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error *ngIf="input?.errors?.required">
+                <mat-icon aria-hidden="false">error</mat-icon> 
+                {{control.label}} is required
+            </mat-error>
+        </mat-error>
     </mat-form-field>
     <ng-template [ngIf]="isPreviewTemplate">
         <div class="row">

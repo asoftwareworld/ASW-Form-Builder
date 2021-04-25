@@ -1,0 +1,109 @@
+@keyframes checkbox-on {
+    0% {
+        box-shadow:
+        0 0 0 10px,
+        10px -10px 0 10px,
+        32px 0 0 20px,
+        0px 32px 0 20px,
+        -5px 5px 0 10px,
+        15px 2px 0 11px;
+    }
+    50% {
+        box-shadow:
+        0 0 0 10px,
+        10px -10px 0 10px,
+        32px 0 0 20px,
+        0px 32px 0 20px,
+        -5px 5px 0 10px,
+        20px 2px 0 11px;
+    }
+    100% {
+        box-shadow:
+        0 0 0 10px,
+        10px -10px 0 10px,
+        32px 0 0 20px,
+        0px 32px 0 20px,
+        -5px 5px 0 10px,
+        20px -12px 0 11px;
+    }   
+}
+
+@keyframes rippleOn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes rippleOff {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.mat-option {
+    .mat-pseudo-checkbox {
+        border-width: 1px;
+    }
+    .mat-pseudo-checkbox-checked {
+        background: $transparent;
+        border-color: $mdb-checkbox-border-color !important;
+        &:after {
+            color: $mdb-checkbox-checked-color;
+            stroke: $mdb-checkbox-checked-color !important;
+            top: 3.5px;
+            width: 10px;
+            border-left: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+        }
+    }
+}
+
+.mat-checkbox {
+    .mat-checkbox-layout {
+        .mat-checkbox-inner-container {
+            .mat-checkbox-frame {
+                border-width: 1px;
+                border-color: $mdb-checkbox-border-color;
+            }
+            .mat-checkbox-background {
+                background: $transparent;
+            }
+            .mat-checkbox-checkmark-path {
+                background: $mdb-checkbox-checked-color;
+                stroke: $mdb-checkbox-checked-color !important;
+            }
+        }
+    }
+    &.mb-0 {
+        .mat-checkbox-layout {
+            margin-bottom: 0;
+        }
+    }
+    &.mat-checkbox-disabled {
+        .mat-checkbox-layout {
+            .mat-checkbox-inner-container {
+                .mat-checkbox-frame {
+                    opacity: .26;
+                }
+                .mat-checkbox-checkmark-path {
+                    background: #000;
+                    stroke: #000 !important;
+                    opacity: .26;
+                }        
+            }
+            .mat-checkbox-label{
+                color: inherit;
+            }
+        }
+    }
+}

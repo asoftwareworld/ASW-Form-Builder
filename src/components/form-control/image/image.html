@@ -1,7 +1,12 @@
 <div class="avatar-upload">
-    <div class="avatar-preview">
-        <div id="imagePreview" [style.backgroundImage]="'url('+ control.imageUrl +')'"></div>
+    <div class="avatar-preview circle">
+        <img src="{{control.imageUrl}}" class="avatar-src" />
     </div>
+    <ng-container *ngIf="!isPreviewTemplate">
+        <button mat-raised-button 
+            class="btn btn-primary btn-round"
+            (click)="editImageDialog(control, controlIndex)">Upload image</button>
+    </ng-container>    
 </div>
 <div class="row" *ngIf="isPreviewTemplate">
   <div class="col-md-12">
