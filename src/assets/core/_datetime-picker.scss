@@ -1,0 +1,47 @@
+.mat-calendar-body-selected {
+    &,
+    &:hover {
+        background-color: $brand-primary;
+        color: #fff;
+        @include shadow-big-color($brand-primary);
+    }
+}
+.mat-datepicker-toggle-active {
+    color: $brand-primary;
+}
+
+.mat-calendar-body-cell {
+	&:not(.mat-calendar-body-disabled) {
+		&:hover {
+			>.mat-calendar-body-cell-content {
+				&:not(.mat-calendar-body-selected) {
+					&:not(.mat-calendar-body-comparison-identical) {
+						background-color: $light-blue-50;
+					}
+				}
+			}
+		}
+	}
+}
+.cdk-keyboard-focused {
+	.mat-calendar-body-active {
+		>.mat-calendar-body-cell-content {
+			&:not(.mat-calendar-body-selected) {
+				&:not(.mat-calendar-body-comparison-identical) {
+					background-color: $light-blue-50;
+				}
+			}
+		}
+	}
+}
+.cdk-program-focused {
+	.mat-calendar-body-active {
+		>.mat-calendar-body-cell-content {
+			&:not(.mat-calendar-body-selected) {
+				&:not(.mat-calendar-body-comparison-identical) {
+					background-color: $light-blue-50;
+				}
+			}
+		}
+	}
+}
