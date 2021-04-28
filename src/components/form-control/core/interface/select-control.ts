@@ -9,5 +9,5 @@ import { Control } from './control';
 import { ControlOption } from './control-option';
 
 export interface SelectControl extends Control, ControlOption {
-
+    value: string;
 }

@@ -4,6 +4,7 @@
         <mat-checkbox color="primary" 
                     [name]="control.name"
                     [matTooltip]="option.value"
+                    [(ngModel)]="option.isChecked"
                     [required]="control.isRequired">
             {{option.value}}
         </mat-checkbox>

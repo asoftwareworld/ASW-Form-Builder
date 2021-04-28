@@ -130,9 +130,9 @@ export const CONTROLS = [
         label: 'Checkbox',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1'},
-            {key: 'option-2', value: 'Option 2'},
-            {key: 'option-3', value: 'Option 3'}
+            {key: 'option-1', value: 'Option 1', isChecked: true},
+            {key: 'option-2', value: 'Option 2', isChecked: false},
+            {key: 'option-3', value: 'Option 3', isChecked: false}
         ]
     },
     {

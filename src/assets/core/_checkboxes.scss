@@ -1,55 +1,3 @@
-@keyframes checkbox-on {
-    0% {
-        box-shadow:
-        0 0 0 10px,
-        10px -10px 0 10px,
-        32px 0 0 20px,
-        0px 32px 0 20px,
-        -5px 5px 0 10px,
-        15px 2px 0 11px;
-    }
-    50% {
-        box-shadow:
-        0 0 0 10px,
-        10px -10px 0 10px,
-        32px 0 0 20px,
-        0px 32px 0 20px,
-        -5px 5px 0 10px,
-        20px 2px 0 11px;
-    }
-    100% {
-        box-shadow:
-        0 0 0 10px,
-        10px -10px 0 10px,
-        32px 0 0 20px,
-        0px 32px 0 20px,
-        -5px 5px 0 10px,
-        20px -12px 0 11px;
-    }   
-}
-
-@keyframes rippleOn {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.2;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@keyframes rippleOff {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.2;
-    }
-    100% {
-        opacity: 0;
-    }
-}
 .mat-option {
     .mat-pseudo-checkbox {
         border-width: 1px;
@@ -106,4 +54,25 @@
             }
         }
     }
+}
+
+.mat-checkbox-checked {
+	&:not(.mat-checkbox-disabled).mat-accent {
+		.mat-ripple-element {
+			background: $light-blue-50;
+		}
+	}
+}
+.mat-checkbox {
+	&:active {
+		&:not(.mat-checkbox-disabled).mat-accent {
+			.mat-ripple-element {
+				background: $light-blue-50;
+			}
+		}
+	}
+}
+
+.asw-padding-top {
+    padding-top: 20px;
 }

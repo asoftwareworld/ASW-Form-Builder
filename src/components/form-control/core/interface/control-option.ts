@@ -11,7 +11,8 @@ export interface ControlOption extends Control {
     options: [
         {
             key: string,
-            value: string
+            value: string,
+            isChecked: boolean
         }
     ];
 }

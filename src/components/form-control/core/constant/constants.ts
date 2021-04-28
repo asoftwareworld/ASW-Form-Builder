@@ -15,39 +15,48 @@ function getConstatnts(): any {
 
     const accountValidationMessages = {
         name: [
-            { type: 'required', message: 'Name is required' },
-            { type: 'minlength', message: 'Name must be at least 5 characters long' },
-            { type: 'maxlength', message: 'Name cannot be more than 25 characters long' },
-            { type: 'pattern', message: 'Your username must contain only numbers and letters' }
+            { type: 'required', message: 'Name is required.' },
+            { type: 'minlength', message: 'Name must be at least 5 characters long.' },
+            { type: 'maxlength', message: 'Name cannot be more than 25 characters long.' },
+            { type: 'pattern', message: 'Your username must contain only numbers and letters.' }
         ],
         emailAddress: [
-            { type: 'required', message: 'Email is required' },
-            { type: 'email', message: 'Please enter a valid email address' },
-            { type: 'pattern', message: 'Email format should be xyz@example.com' }
+            { type: 'required', message: 'Email is required.' },
+            { type: 'email', message: 'Please enter a valid email address.' },
+            { type: 'pattern', message: 'Email format should be xyz@example.com.' }
         ],
         phoneNumber: [
-            { type: 'required', message: 'Phone number is required' },
-            { type: 'minlength', message: 'Phone number must be at least 10 characters long' },
-            { type: 'maxlength', message: 'Phone number cannot be more than 10 characters long' },
+            { type: 'required', message: 'Phone number is required.' },
+            { type: 'minlength', message: 'Phone number must be at least 10 characters long.' },
+            { type: 'maxlength', message: 'Phone number cannot be more than 10 characters long.' },
         ],
         message: [
-            { type: 'required', message: 'Message is required' },
-            { type: 'minlength', message: 'Message must be at least 6 characters long' },
-            { type: 'maxlength', message: 'Message cannot be more than 255 characters long' },
+            { type: 'required', message: 'Message is required.' },
+            { type: 'minlength', message: 'Message must be at least 6 characters long.' },
+            { type: 'maxlength', message: 'Message cannot be more than 255 characters long.' },
         ],
         label: [
-            { type: 'required', message: 'Label is required' },
-            { type: 'minlength', message: 'Label must be at least 5 characters long' },
-            { type: 'maxlength', message: 'Label cannot be more than 25 characters long' }
+            { type: 'required', message: 'Label is required.' },
+            { type: 'minlength', message: 'Label must be at least 5 characters long.' },
+            { type: 'maxlength', message: 'Label cannot be more than 25 characters long.' }
         ],
         maxlength: [
-            { type: 'required', message: 'Maxlength is required' },
-            { type: 'pattern', message: 'Maxlength must contain only numbers' },
+            { type: 'required', message: 'Maxlength is required.' },
+            { type: 'pattern', message: 'Maxlength must contain only numbers.' },
         ],
         minlength: [
-            { type: 'required', message: 'Minlength is required' },
-            { type: 'pattern', message: 'Minlength must contain only numbers' },
+            { type: 'required', message: 'Minlength is required.' },
+            { type: 'pattern', message: 'Minlength must contain only numbers.' },
         ],
+        key: [
+            { type: 'required', message: 'Option key is required.' },
+            { type: 'minlength', message: 'Sorry, your option key must be between 1 and 50 characters long.' },
+            { type: 'pattern', message: 'Sorry, only letters (a-z), numbers (0-9), and periods (- and _) are allowed.' }
+        ],
+        value: [
+            { type: 'required', message: 'Option value is required.' },
+            { type: 'minlength', message: 'Sorry, your option value must be between 1 and 999 characters long.' }
+        ]
     };
 
     const dataTypes = {

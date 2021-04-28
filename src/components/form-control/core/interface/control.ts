@@ -9,7 +9,6 @@ export interface Control {
     controlType: string;
     name: string;
     tooltip: string;
-    value: string;
     label: string;
     style: 'legacy' | 'standard' | 'fill' | 'outline';
     isRequired: boolean;

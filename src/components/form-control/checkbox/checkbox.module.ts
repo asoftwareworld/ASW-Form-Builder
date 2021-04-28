@@ -21,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswCheckbox } from './checkbox';
+import { AswCheckboxDialog } from './checkbox-dialog';
 
 @NgModule({
     imports: [
@@ -40,10 +41,12 @@ import { AswCheckbox } from './checkbox';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswCheckbox
+        AswCheckbox,
+        AswCheckboxDialog
     ],
     exports: [
-        AswCheckbox
+        AswCheckbox,
+        AswCheckboxDialog
     ]
 })
 export class AswCheckboxModule { }
