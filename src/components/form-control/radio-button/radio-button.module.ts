@@ -22,6 +22,7 @@ import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-contro
 
 import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswRadioButton } from './radio-button';
+import { AswRadioButtonDialog } from './radio-button-dialog';
 
 @NgModule({
     imports: [
@@ -41,10 +42,12 @@ import { AswRadioButton } from './radio-button';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswRadioButton
+        AswRadioButton,
+        AswRadioButtonDialog
     ],
     exports: [
-        AswRadioButton
+        AswRadioButton,
+        AswRadioButtonDialog
     ]
 })
 export class AswRadioButtonModule { }

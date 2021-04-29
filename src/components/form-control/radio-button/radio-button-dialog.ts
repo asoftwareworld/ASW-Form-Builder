@@ -7,45 +7,47 @@
  */
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatRadioChange } from '@angular/material/radio';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { CheckboxControl } from './checkbox-control';
+import { RadioButtonControl } from './radio-button-control';
 
 @Component({
-    selector: 'asw-checkbox-dialog',
-    templateUrl: './checkbox-dialog.html'
+    selector: 'asw-radio-button-dialog',
+    templateUrl: './radio-button-dialog.html'
 })
-export class AswCheckboxDialog implements OnInit {
+export class AswRadioButtonDialog implements OnInit {
     constants: any = Constants;
-    aswEditCheckboxForm: FormGroup;
+    aswEditRadioButtonForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswCheckboxDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
-                    this.aswEditCheckboxForm = this.formBuilder.group({
-                        tooltip: ['', [Validators.required]],
-                        label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-                        name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-                        options: this.formBuilder.array([this.createOption()]),
-                        isRequired: [false]
-                    });
-                }
+                public dialogRef: MatDialogRef<AswRadioButtonDialog>,
+                @Inject(MAT_DIALOG_DATA) public control: RadioButtonControl) {
+        this.aswEditRadioButtonForm = this.formBuilder.group({
+            tooltip: ['', [Validators.required]],
+            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            options: this.formBuilder.array([this.createOption()]),
+            isRequired: [false]
+        });
+    }
 
     ngOnInit(): void {
         this.setValue(this.control);
     }
 
     get options(): FormArray {
-        return this.aswEditCheckboxForm.get('options') as FormArray;
+        return this.aswEditRadioButtonForm.get('options') as FormArray;
     }
 
     validateFormBuilder(): void {
-        this.aswEditCheckboxForm = this.formBuilder.group({
+        this.aswEditRadioButtonForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            value: ['', []],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false]
         });
@@ -72,23 +74,29 @@ export class AswCheckboxDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditCheckboxForm.invalid) {
+        if (this.aswEditRadioButtonForm.invalid) {
             return;
         }
-        this.aswEditCheckboxForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditCheckboxForm.value);
+        this.aswEditRadioButtonForm.value.options.forEach((element: any) => {
+            if (element.isChecked){
+                this.aswEditRadioButtonForm.value.value = element.key;
+            }
+        });
+        this.aswEditRadioButtonForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditRadioButtonForm.value);
     }
 
     setValue(control: any): void {
-        this.aswEditCheckboxForm.patchValue({
+        this.aswEditRadioButtonForm.patchValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
+            value: control.value,
             isRequired: control.isRequired
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditCheckboxForm.setControl('options', optionFormArray);
+        this.aswEditRadioButtonForm.setControl('options', optionFormArray);
     }
 
     onChange(event: any): void {
@@ -101,5 +109,14 @@ export class AswCheckboxDialog implements OnInit {
                 this.optionKeyMessage = this.constants.messages.optionKeyValidationMessage;
             }
         });
+    }
+
+    radioChange(event: MatRadioChange): void {
+        this.options.controls.filter((element) => {
+            element.value.isChecked = element.value.key === event.value ? true : false;
+        });
+        const optionFormGroup = this.options.controls.map((option: any) => this.formBuilder.group(option.value));
+        const optionFormArray = this.formBuilder.array(optionFormGroup);
+        this.aswEditRadioButtonForm.setControl('options', optionFormArray);
     }
 }

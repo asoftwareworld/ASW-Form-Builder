@@ -113,12 +113,12 @@ export const CONTROLS = [
         name: 'radio',
         tooltip: 'radio',
         label: 'Radio',
-        value: '',
+        value: 'option-1',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1'},
-            {key: 'option-2', value: 'Option 2'},
-            {key: 'option-3', value: 'Option 3'}
+            {key: 'option-1', value: 'Option 1', isChecked: true},
+            {key: 'option-2', value: 'Option 2', isChecked: false},
+            {key: 'option-3', value: 'Option 3', isChecked: false}
         ]
     },
     {
@@ -130,7 +130,7 @@ export const CONTROLS = [
         label: 'Checkbox',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: true},
+            {key: 'option-1', value: 'Option 1', isChecked: false},
             {key: 'option-2', value: 'Option 2', isChecked: false},
             {key: 'option-3', value: 'Option 3', isChecked: false}
         ]

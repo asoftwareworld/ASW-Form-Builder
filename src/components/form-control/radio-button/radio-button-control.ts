@@ -8,5 +8,5 @@
 import { Control, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
 
 export interface RadioButtonControl extends Control, ControlOption {
-
+    value: string;
 }

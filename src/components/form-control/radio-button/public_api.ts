@@ -7,5 +7,6 @@
  */
 
 export * from './radio-button';
+export * from './radio-button-dialog';
 export * from './radio-button-control';
 export * from './radio-button.module';

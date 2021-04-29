@@ -1,6 +1,6 @@
-<h4 mat-dialog-title>Edit checkbox property</h4>
+<h4 mat-dialog-title>Edit radio button property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditCheckboxForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditRadioButtonForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width"><br>
             <div class="row">
@@ -12,7 +12,7 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditCheckboxForm.get('label')?.hasError(validation.type) && (aswEditCheckboxForm.get('label')?.dirty || aswEditCheckboxForm.get('label')?.touched)">
+                            <mat-error *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
                                 <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -37,7 +37,7 @@
                                         matTooltip="Enter name"
                                         formControlName="name" required>
                         <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error *ngIf="aswEditCheckboxForm.get('name')?.hasError(validation.type) && (aswEditCheckboxForm.get('name')?.dirty || aswEditCheckboxForm.get('name')?.touched)">
+                            <mat-error *ngIf="aswEditRadioButtonForm.get('name')?.hasError(validation.type) && (aswEditRadioButtonForm.get('name')?.dirty || aswEditRadioButtonForm.get('name')?.touched)">
                                 <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -49,8 +49,12 @@
                     *ngFor="let option of options.controls; let index = index; let last=last;" 
                     [formGroupName]="index">
                     <div class="col-md-1 asw-padding-top">
-                        <mat-checkbox 
-                        formControlName="isChecked"></mat-checkbox>
+                        <mat-radio-group formControlName="key">
+                            <mat-radio-button  
+                            [value]="option.value.key"
+                            (change)="radioChange($event)"
+                            [checked]="option.value.isChecked"></mat-radio-button>
+                          </mat-radio-group>
                     </div>
                     <div class="col-md-4">
                         <mat-form-field appearance="outline">
