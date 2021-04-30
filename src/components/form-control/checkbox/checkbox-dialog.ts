@@ -96,10 +96,14 @@ export class AswCheckboxDialog implements OnInit {
     }
 
     onKey(event: any, index: number): void {
+        let isError = false;
         this.options.controls.filter((element, elementIndex) => {
             if (element.value.key === event.target.value && index !== elementIndex) {
-                this.optionKeyMessage = this.constants.messages.optionKeyValidationMessage;
+                isError = true;
             }
         });
+        if (isError) {
+            this.options.controls[index].get('key')?.setErrors({unique: true});
+        }
     }
 }

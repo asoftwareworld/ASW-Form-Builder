@@ -51,7 +51,8 @@ function getConstatnts(): any {
         key: [
             { type: 'required', message: 'Option key is required.' },
             { type: 'minlength', message: 'Sorry, your option key must be between 1 and 50 characters long.' },
-            { type: 'pattern', message: 'Sorry, only letters (a-z), numbers (0-9), and periods (- and _) are allowed.' }
+            { type: 'pattern', message: 'Sorry, only letters (a-z), numbers (0-9), and periods (- and _) are allowed.' },
+            { type: 'unique', message: 'Option key is already exist. Try another.' }
         ],
         value: [
             { type: 'required', message: 'Option value is required.' },

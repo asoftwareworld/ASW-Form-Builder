@@ -69,7 +69,7 @@
                                     pattern="^[a-z0-9_-]{1,50}$"
                                     required>
                                 <mat-error *ngFor="let validation of constants.accountValidationMessages.key">
-                                    <mat-error *ngIf="options.controls[index].get('key')?.hasError(validation.type) && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
+                                    <mat-error *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
                                         <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
                                     </mat-error>
                                 </mat-error>
