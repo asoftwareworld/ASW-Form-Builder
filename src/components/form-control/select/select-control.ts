@@ -5,9 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
-import { Control } from './control';
-import { ControlOption } from './control-option';
+import { Control, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface SelectControl extends Control, ControlOption {
+export interface SelectControl extends Control {
     value: string;
+    options: ControlOption[];
 }

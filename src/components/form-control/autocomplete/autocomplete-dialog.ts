@@ -11,24 +11,25 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatRadioChange } from '@angular/material/radio';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { RadioButtonControl } from './radio-button-control';
+import { AutoCompleteControl } from './autocomplete-control';
 
 @Component({
-    selector: 'asw-radio-button-dialog',
-    templateUrl: './radio-button-dialog.html'
+    selector: 'asw-autocomplete-dialog',
+    templateUrl: './autocomplete-dialog.html'
 })
-export class AswRadioButtonDialog implements OnInit {
+export class AswAutocompleteDialog implements OnInit {
     constants: any = Constants;
     aswEditRadioButtonForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswRadioButtonDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: RadioButtonControl) {
+                public dialogRef: MatDialogRef<AswAutocompleteDialog>,
+                @Inject(MAT_DIALOG_DATA) public control: AutoCompleteControl) {
         this.aswEditRadioButtonForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            style: ['', [Validators.required]],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false]
         });
@@ -67,7 +68,7 @@ export class AswRadioButtonDialog implements OnInit {
             return;
         }
         this.aswEditRadioButtonForm.value.options.forEach((element: any) => {
-            if (element.isChecked){
+            if (element.isChecked) {
                 this.aswEditRadioButtonForm.value.value = element.key;
             }
         });
@@ -75,11 +76,12 @@ export class AswRadioButtonDialog implements OnInit {
         this.dialogRef.close(this.aswEditRadioButtonForm.value);
     }
 
-    setValue(control: RadioButtonControl): void {
+    setValue(control: AutoCompleteControl): void {
         this.aswEditRadioButtonForm.patchValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
+            style: control.style,
             value: control.value,
             isRequired: control.isRequired
         });
@@ -100,7 +102,7 @@ export class AswRadioButtonDialog implements OnInit {
             }
         });
         if (isError) {
-            this.options.controls[index].get('key')?.setErrors({unique: true});
+            this.options.controls[index].get('key')?.setErrors({ unique: true });
         }
     }
 

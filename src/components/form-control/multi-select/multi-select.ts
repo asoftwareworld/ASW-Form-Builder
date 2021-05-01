@@ -9,7 +9,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialog, Constants, SelectControl } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { MultiSelectControl } from './multi-select-control';
+import { AswMultiSelectDialog } from './multi-select-dialog';
 
 @Component({
     selector: 'asw-multi-select',
@@ -21,7 +23,7 @@ export class AswMultiSelect {
     /**
      * MultiSelect control
      */
-    @Input() control: SelectControl | null = null;
+    @Input() control: MultiSelectControl | null = null;
 
     /**
      * MultiSelect control index to help update or delete button from drop area
@@ -29,12 +31,12 @@ export class AswMultiSelect {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() multiSelectUpdateEvent = new EventEmitter<{control: SelectControl, index: number}>();
+    @Output() multiSelectUpdateEvent = new EventEmitter<{control: MultiSelectControl, index: number}>();
     @Output() multiSelectDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    deleteMultiSelectDialog(control: SelectControl, controlIndex: number): void {
+    deleteMultiSelectDialog(control: MultiSelectControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.name, message: this.constants.messages.waringMessage }
@@ -46,8 +48,11 @@ export class AswMultiSelect {
         });
     }
 
-    editMultiSelectDialog(control: SelectControl, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswSelectDialog, {
+    editMultiSelectDialog(control: MultiSelectControl, controlIndex: number): void {
+        control.options.forEach(element => {
+            element.isChecked = control.value.includes(element.key) ? true : false;
+        });
+        const dialogRef = this.dialog.open(AswMultiSelectDialog, {
             disableClose: true,
             width: '744px',
             data: control

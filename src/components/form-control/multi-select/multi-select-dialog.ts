@@ -10,28 +10,29 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { CheckboxControl } from './checkbox-control';
+import { MultiSelectControl } from './multi-select-control';
 
 @Component({
-    selector: 'asw-checkbox-dialog',
-    templateUrl: './checkbox-dialog.html'
+    selector: 'asw-multi-select-dialog',
+    templateUrl: './multi-select-dialog.html'
 })
-export class AswCheckboxDialog implements OnInit {
+export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
     aswEditCheckboxForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswCheckboxDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
-                    this.aswEditCheckboxForm = this.formBuilder.group({
-                        tooltip: ['', [Validators.required]],
-                        label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-                        name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-                        options: this.formBuilder.array([this.createOption()]),
-                        isRequired: [false]
-                    });
-                }
+                public dialogRef: MatDialogRef<AswMultiSelectDialog>,
+                @Inject(MAT_DIALOG_DATA) public control: MultiSelectControl) {
+        this.aswEditCheckboxForm = this.formBuilder.group({
+            tooltip: ['', [Validators.required]],
+            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            style: ['', [Validators.required]],
+            options: this.formBuilder.array([this.createOption()]),
+            isRequired: [false]
+        });
+    }
 
     ngOnInit(): void {
         this.setValue(this.control);
@@ -65,15 +66,23 @@ export class AswCheckboxDialog implements OnInit {
         if (this.aswEditCheckboxForm.invalid) {
             return;
         }
+        const value: string[] = [];
+        this.aswEditCheckboxForm.value.options.forEach((element: any) => {
+            if (element.isChecked) {
+                value.push(element.key);
+            }
+        });
+        this.aswEditCheckboxForm.value.value = value;
         this.aswEditCheckboxForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditCheckboxForm.value);
     }
 
-    setValue(control: CheckboxControl): void {
+    setValue(control: MultiSelectControl): void {
         this.aswEditCheckboxForm.patchValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
+            style: control.style,
             isRequired: control.isRequired
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
@@ -93,7 +102,7 @@ export class AswCheckboxDialog implements OnInit {
             }
         });
         if (isError) {
-            this.options.controls[index].get('key')?.setErrors({unique: true});
+            this.options.controls[index].get('key')?.setErrors({ unique: true });
         }
     }
 }

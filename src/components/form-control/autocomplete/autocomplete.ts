@@ -7,12 +7,13 @@
  */
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
+import { OptionControl } from 'dist/form-control/core/public_api';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { AutoCompleteControl } from './autocomplete-control';
+import { AswAutocompleteDialog } from './autocomplete-dialog';
 
 @Component({
     selector: 'asw-autocomplete',
@@ -20,11 +21,12 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class AswAutocomplete implements OnInit {
     constants: any = Constants;
-    autocomplete = new FormControl();
+    filteredOptions!: ControlOption[] | undefined;
+
     /**
      * Autocomplete control
      */
-    @Input() control: any;
+    @Input() control: AutoCompleteControl | null = null;
 
     /**
      * Autocomplete control index to help update or delete button from drop area
@@ -32,23 +34,21 @@ export class AswAutocomplete implements OnInit {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() autocompleteUpdateEvent = new EventEmitter<{ control: any, index: number }>();
+    @Output() autocompleteUpdateEvent = new EventEmitter<{ control: AutoCompleteControl, index: number }>();
     @Output() autocompleteDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) { }
 
-    filteredOptions!: Observable<string[]>;
-
     ngOnInit(): void {
-        this.filteredOptions = this.autocomplete.valueChanges.pipe(
-            startWith(''),
-            map(value => this._filter(value))
-        );
+        this.filteredOptions = this.control?.options;
     }
 
-    private _filter(value: string): string[] {
-        const filterValue = value.toLowerCase();
-        return this.control.options.filter((option: any) => option.value.toLowerCase().indexOf(filterValue) === 0);
+    filter(value: string): ControlOption[] | undefined {
+        if (value) {
+            const filterValue = value.toLowerCase();
+            return this.control?.options.filter(option => option.value.toLowerCase().startsWith(filterValue));
+        }
+        return this.control?.options;
     }
 
     /**
@@ -56,7 +56,7 @@ export class AswAutocomplete implements OnInit {
      * @param control autocomplete control items
      * @param controlIndex autocomplete control index
      */
-    deleteAutocompleteDialog(control: any, controlIndex: number): void {
+    deleteAutocompleteDialog(control: AutoCompleteControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.name, message: this.constants.messages.waringMessage }
@@ -68,8 +68,11 @@ export class AswAutocomplete implements OnInit {
         });
     }
 
-    editAutocompleteDialog(control: any, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswSelectDialog, {
+    editAutocompleteDialog(control: AutoCompleteControl, controlIndex: number): void {
+        control.options.forEach(element => {
+            element.isChecked = control.value === element.key ? true : false;
+        });
+        const dialogRef = this.dialog.open(AswAutocompleteDialog, {
             disableClose: true,
             width: '744px',
             data: control

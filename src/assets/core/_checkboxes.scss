@@ -10,11 +10,18 @@
             stroke: $mdb-checkbox-checked-color !important;
             top: 3.5px;
             width: 10px;
-            border-left: 1.5px solid currentColor;
-            border-bottom: 1.5px solid currentColor;
+            left: 2px
         }
     }
 }
+.mat-primary {
+	.mat-option.mat-selected {
+		&:not(.mat-option-disabled) {
+			color: $mdb-checkbox-checked-color;
+		}
+	}
+}
+
 
 .mat-checkbox {
     .mat-checkbox-layout {

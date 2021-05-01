@@ -19,7 +19,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswCheckbox } from './checkbox';
 import { AswCheckboxDialog } from './checkbox-dialog';
 
@@ -37,7 +36,6 @@ import { AswCheckboxDialog } from './checkbox-dialog';
         MatCheckboxModule,
         MatIconModule,
         MatTooltipModule,
-        AswSelectDialogModule,
         AswConfirmDialogModule
     ],
     declarations: [

@@ -32,9 +32,9 @@ export const CONTROLS = [
         style: 'outline',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1'},
-            {key: 'option-2', value: 'Option 2'},
-            {key: 'option-3', value: 'Option 3'}
+            {key: 'option-1', value: 'Option 1', isChecked: false},
+            {key: 'option-2', value: 'Option 2', isChecked: false},
+            {key: 'option-3', value: 'Option 3', isChecked: false}
         ]
     },
     {
@@ -85,9 +85,9 @@ export const CONTROLS = [
         value: '',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1'},
-            {key: 'option-2', value: 'Option 2'},
-            {key: 'option-3', value: 'Option 3'}
+            {key: 'option-1', value: 'Option 1', isChecked: false},
+            {key: 'option-2', value: 'Option 2', isChecked: false},
+            {key: 'option-3', value: 'Option 3', isChecked: false}
         ]
     },
     {
@@ -101,9 +101,9 @@ export const CONTROLS = [
         style: 'outline',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1'},
-            {key: 'option-2', value: 'Option 2'},
-            {key: 'option-3', value: 'Option 3'}
+            {key: 'option-1', value: 'Option 1', isChecked: false},
+            {key: 'option-2', value: 'Option 2', isChecked: false},
+            {key: 'option-3', value: 'Option 3', isChecked: false}
         ]
     },
     {
@@ -116,7 +116,7 @@ export const CONTROLS = [
         value: 'option-1',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: true},
+            {key: 'option-1', value: 'Option 1', isChecked: false},
             {key: 'option-2', value: 'Option 2', isChecked: false},
             {key: 'option-3', value: 'Option 3', isChecked: false}
         ]

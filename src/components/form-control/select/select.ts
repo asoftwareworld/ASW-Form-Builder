@@ -9,7 +9,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSelectDialog, Constants, SelectControl } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { SelectControl } from './select-control';
+import { AswSelectDialog } from './select-dialog';
 
 @Component({
     selector: 'asw-select',
@@ -47,6 +49,9 @@ export class AswSelect {
     }
 
     editSelectDialog(control: SelectControl, controlIndex: number): void {
+        control.options.forEach(element => {
+            element.isChecked = control.value === element.key ? true : false;
+        });
         const dialogRef = this.dialog.open(AswSelectDialog, {
             disableClose: true,
             width: '744px',

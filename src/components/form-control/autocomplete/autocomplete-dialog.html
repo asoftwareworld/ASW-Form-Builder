@@ -1,0 +1,154 @@
+<h4 mat-dialog-title>Edit autocomplete property</h4>
+<mat-divider></mat-divider>
+<form [formGroup]="aswEditRadioButtonForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <div class="asw-full-width"><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput type="text"
+                                        placeholder="Enter label"
+                                        matTooltip="Enter label"
+                                        formControlName="label" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tooltip</mat-label>
+                        <input matInput type="text"
+                                        placeholder="Enter tooltip"
+                                        matTooltip="Enter tooltip"
+                                        formControlName="tooltip">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text"
+                                        placeholder="Enter name"
+                                        matTooltip="Enter name"
+                                        formControlName="name" required>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
+                            <mat-error *ngIf="aswEditRadioButtonForm.get('name')?.hasError(validation.type) && (aswEditRadioButtonForm.get('name')?.dirty || aswEditRadioButtonForm.get('name')?.touched)">
+                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Textbox Style</mat-label>
+                        <mat-select formControlName="style" matTooltip="Select textbox style">
+                            <mat-option value="legacy">Legacy</mat-option>
+                            <mat-option value="standard">Standard</mat-option>
+                            <mat-option value="fill">Fill</mat-option>
+                            <mat-option value="outline">Outline</mat-option>                    
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <ng-container formArrayName="options">
+                <div class="row" 
+                    *ngFor="let option of options.controls; let index = index; let last=last;" 
+                    [formGroupName]="index">
+                    <div class="col-md-1 asw-padding-top">
+                        <mat-radio-group formControlName="key">
+                            <mat-radio-button  
+                            [value]="option.value.key"
+                            (change)="radioChange($event)"
+                            [checked]="option.value.isChecked"></mat-radio-button>
+                          </mat-radio-group>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Option key {{index+1}}</mat-label>
+                            <input matInput type="text"
+                                    placeholder="Option key"
+                                    formControlName="key"
+                                    matTooltip="Option key"
+                                    minlength="1"
+                                    maxlength="50"
+                                    (keyup)="onKey($event, index)"
+                                    pattern="^[a-z0-9_-]{1,50}$"
+                                    required>
+                                <mat-error *ngFor="let validation of constants.accountValidationMessages.key">
+                                    <mat-error *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
+                                        <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                                    </mat-error>
+                                </mat-error>
+                                <mat-error>
+                                    {{optionKeyMessage}}
+                                </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Option value {{index+1}}</mat-label>
+                            <input matInput type="text"
+                                    placeholder="Option value"
+                                    formControlName="value"
+                                    matTooltip="Option value"
+                                    minlength="1"
+                                    maxlength="999"
+                                    required>
+                                <mat-error *ngFor="let validation of constants.accountValidationMessages.value">
+                                    <mat-error *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
+                                        <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                                    </mat-error>
+                                </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                        <button mat-raised-button *ngIf="last"
+                                type="button" 
+                                matTooltip="Add option" 
+                                [matTooltipPosition]="'above'"
+                                (click)="addNewOption()" 
+                                class="btn btn-success btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">add_circle_outline</i>
+                        </button>
+                        <button mat-raised-button *ngIf="index != 0"
+                                type="button" 
+                                matTooltip="Remove option" 
+                                [matTooltipPosition]="'above'" 
+                                (click)="removeOption(index)"
+                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">remove_circle_outline</i>
+                        </button>
+                    </div>
+                </div> 
+            </ng-container>            
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-slide-toggle color="primary"
+                          #isActive
+                          name="isRequired"
+                          formControlName="isRequired"
+                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button
+                type="button"
+                class="btn btn-danger"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button mat-raised-button type="submit"
+                class="btn btn-primary"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>

@@ -7,6 +7,7 @@
  */
 import { Control, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface RadioButtonControl extends Control, ControlOption {
+export interface RadioButtonControl extends Control {
     value: string;
+    options: ControlOption[];
 }

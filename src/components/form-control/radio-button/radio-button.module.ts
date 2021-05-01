@@ -20,7 +20,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswSelectDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswRadioButton } from './radio-button';
 import { AswRadioButtonDialog } from './radio-button-dialog';
 
@@ -38,7 +37,6 @@ import { AswRadioButtonDialog } from './radio-button-dialog';
         MatRadioModule,
         MatIconModule,
         MatTooltipModule,
-        AswSelectDialogModule,
         AswConfirmDialogModule
     ],
     declarations: [
