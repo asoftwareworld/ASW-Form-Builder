@@ -17,7 +17,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
 import { AswMultiSelect } from './multi-select';
@@ -25,7 +24,6 @@ import { AswMultiSelectDialog } from './multi-select-dialog';
 
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

@@ -10,8 +10,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
-import { OptionControl } from 'dist/form-control/core/public_api';
-import { Observable } from 'rxjs';
 import { AutoCompleteControl } from './autocomplete-control';
 import { AswAutocompleteDialog } from './autocomplete-dialog';
 

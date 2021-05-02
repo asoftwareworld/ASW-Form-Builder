@@ -13,7 +13,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswImageDrawingModule } from '@asoftwareworld/form-builder/image-drawing';
 
@@ -22,7 +21,6 @@ import { AswDrawingDialog } from './drawing-dialog';
 
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

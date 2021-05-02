@@ -14,7 +14,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { BrowserModule } from '@angular/platform-browser';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
 import { AswGps } from './gps';
@@ -22,7 +21,6 @@ import { AswGpsDialog } from './gps-dialog';
 
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

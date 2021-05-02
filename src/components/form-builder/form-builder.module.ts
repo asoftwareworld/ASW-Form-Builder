@@ -8,13 +8,12 @@
 
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control/autocomplete';
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
 import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/checkbox';
@@ -40,8 +39,7 @@ import { AswFormBuilder } from './form-builder';
         AswFormBuilder
     ],
     imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
+        CommonModule,
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,

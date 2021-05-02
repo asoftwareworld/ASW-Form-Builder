@@ -9,7 +9,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -22,7 +21,6 @@ import { AswImageUploadDialog } from './image-upload-dialog';
 
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

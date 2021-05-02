@@ -10,13 +10,11 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AswJsonPreviewDialog } from './json-preview-dialog';
 
 @NgModule({
     imports: [
-        BrowserModule,
         CommonModule,
         MatDialogModule,
         ClipboardModule
