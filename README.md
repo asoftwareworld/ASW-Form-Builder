@@ -160,5 +160,5 @@ LinkedIn: <https://in.linkedin.com/company/asoftwareworld>
 Facebook: <https://www.facebook.com/asoftwaresworld>
 
 ## Donate
-<a href="https://paypal.me/asoftwareworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
+<a href="https://paypal.me/asoftwaresworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
 If you found value in `ASW Form Builder` or a contributor helped you out of a jam, consider becoming a contributor yourself.
