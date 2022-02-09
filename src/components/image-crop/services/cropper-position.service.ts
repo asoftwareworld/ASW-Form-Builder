@@ -12,8 +12,10 @@ import { CropperSettings } from '../interfaces/cropper.settings';
 
 @Injectable({ providedIn: 'root' })
 export class CropperPositionService {
-
     resetCropperPosition(sourceImage: ElementRef, cropperPosition: CropperPosition, settings: CropperSettings): void {
+        if (!sourceImage?.nativeElement) {
+            return;
+        }
         const sourceImageElement = sourceImage.nativeElement;
         if (settings.cropperStaticHeight && settings.cropperStaticWidth) {
             cropperPosition.x1 = 0;
@@ -30,7 +32,7 @@ export class CropperPositionService {
                 cropperPosition.x2 = cropperWidth;
                 cropperPosition.y1 = 0;
                 cropperPosition.y2 = cropperHeight;
-            } else if (cropperWidth / settings.aspectRatio < cropperHeight) {
+            } else if (sourceImageElement.offsetWidth / settings.aspectRatio < sourceImageElement.offsetHeight) {
                 cropperPosition.x1 = 0;
                 cropperPosition.x2 = cropperWidth;
                 const cropperHeightWithAspectRatio = cropperWidth / settings.aspectRatio;
@@ -130,11 +132,11 @@ export class CropperPositionService {
         }
 
         if (settings.maintainAspectRatio) {
-            this.checkAspectRatio(moveStart.position!, cropperPosition, maxSize, settings);
+            this.checkAspectRatio(moveStart.position, cropperPosition, maxSize, settings);
         }
     }
 
-    checkAspectRatio(position: string, cropperPosition: CropperPosition, maxSize: Dimensions, settings: CropperSettings): void {
+    checkAspectRatio(position: string | null, cropperPosition: CropperPosition, maxSize: Dimensions, settings: CropperSettings): void {
         let overflowX = 0;
         let overflowY = 0;
 
@@ -207,20 +209,18 @@ export class CropperPositionService {
                         ? (overflowY1 * settings.aspectRatio) : overflowX1;
                     cropperPosition.x2 -= (overflowY2 * settings.aspectRatio) > overflowX2
                         ? (overflowY2 * settings.aspectRatio) : overflowX2;
-                    cropperPosition.y1 += (overflowY2 * settings.aspectRatio) > overflowX2
-                        ? overflowY2 : overflowX2 / settings.aspectRatio;
-                    cropperPosition.y2 -= (overflowY1 * settings.aspectRatio) > overflowX1
-                        ? overflowY1 : overflowX1 / settings.aspectRatio;
+                    cropperPosition.y1 += (overflowY2 * settings.aspectRatio) > overflowX2 ? overflowY2 : overflowX2 / settings.aspectRatio;
+                    cropperPosition.y2 -= (overflowY1 * settings.aspectRatio) > overflowX1 ? overflowY1 : overflowX1 / settings.aspectRatio;
                 }
                 break;
         }
     }
 
     getClientX(event: any): number {
-        return (event.touches && event.touches[0] ? event.touches[0].clientX : event.clientX) || 0;
+        return event.touches?.[0].clientX || event.clientX || 0;
     }
 
     getClientY(event: any): number {
-        return (event.touches && event.touches[0] ? event.touches[0].clientY : event.clientY) || 0;
+        return event.touches?.[0].clientY || event.clientY || 0;
     }
 }

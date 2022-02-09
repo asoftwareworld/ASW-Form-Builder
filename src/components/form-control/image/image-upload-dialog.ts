@@ -13,8 +13,8 @@ import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { Dimensions, ImageCroppedEvent, ImageTransform } from '@asoftwareworld/form-builder/image-crop';
 
 @Component({
-  selector: 'asw-image-upload-dialog',
-  templateUrl: './image-upload-dialog.html'
+    selector: 'asw-image-upload-dialog',
+    templateUrl: './image-upload-dialog.html'
 })
 export class AswImageUploadDialog implements OnInit {
 
@@ -26,16 +26,17 @@ export class AswImageUploadDialog implements OnInit {
     rotation = 0;
     scale = 1;
     showCropper = false;
-    isImageLoaded = true;
+    isImageLoaded = false;
     containWithinAspectRatio = false;
     transform: ImageTransform = {};
 
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswImageUploadDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswImageUploadDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     fileChangeEvent(event: any): void {
-        this.isImageLoaded = false;
+        this.isImageLoaded = true;
         this.imageChangedEvent = event;
     }
 
@@ -55,6 +56,7 @@ export class AswImageUploadDialog implements OnInit {
 
     cropperReady(sourceImageDimensions: Dimensions): void {
         console.log('Cropper ready', sourceImageDimensions);
+        this.isImageLoaded = false;
     }
 
     loadImageFailed(): void {
@@ -62,13 +64,19 @@ export class AswImageUploadDialog implements OnInit {
     }
 
     rotateLeft(): void {
-        this.canvasRotation--;
-        this.flipAfterRotate();
+        this.isImageLoaded = true;
+        setTimeout(() => { // Use timeout because rotating image is a heavy operation and will block the ui thread
+            this.canvasRotation--;
+            this.flipAfterRotate();
+        });
     }
 
     rotateRight(): void {
-        this.canvasRotation++;
-        this.flipAfterRotate();
+        this.isImageLoaded = true;
+        setTimeout(() => {
+            this.canvasRotation++;
+            this.flipAfterRotate();
+        });
     }
 
     private flipAfterRotate(): void {
@@ -155,7 +163,7 @@ export class AswImageUploadDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswImageCropForm.invalid){
+        if (this.aswImageCropForm.invalid) {
             return;
         }
         this.aswImageCropForm.value.displayName = this.control.displayName;

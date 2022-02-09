@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 export interface Control {
-    controlType: string;
+    controlType?: string;
     name: string;
     tooltip: string;
     label: string;

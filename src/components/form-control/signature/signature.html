@@ -6,11 +6,11 @@
 <div class="row" *ngIf="isPreviewTemplate">
     <div class="col-md-12">
         <button mat-raised-button type="button" matTooltip="Edit signature control" [matTooltipPosition]="'above'"
-            (click)="editSignatureDialog(control, controlIndex)" class="btn btn-success btn-link btn-sm btn-just-icon">
+            (click)="editSignatureDialog(control, controlIndex)" class="btn btn-just-icon btn-sm btn-outline-success mr-2 mb-1">
             <i class="material-icons">edit</i>
         </button>
         <button mat-raised-button type="button" matTooltip="Remove signature control" [matTooltipPosition]="'above'"
-            (click)="deleteSignatureDialog(control, controlIndex)" class="btn btn-danger btn-link btn-sm btn-just-icon">
+            (click)="deleteSignatureDialog(control, controlIndex)" class="btn btn-just-icon btn-sm btn-outline-danger mb-1">
             <i class="material-icons">close</i>
         </button>
     </div>

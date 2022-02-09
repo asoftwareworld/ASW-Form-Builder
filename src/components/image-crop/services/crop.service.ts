@@ -13,7 +13,6 @@ import { resizeCanvas } from '../utils/resize.utils';
 
 @Injectable({ providedIn: 'root' })
 export class CropService {
-
     crop(sourceImage: ElementRef, loadedImage: LoadedImage, cropper: CropperPosition, settings: CropperSettings): ImageCroppedEvent | null {
         const imagePosition = this.getImagePosition(sourceImage, loadedImage, cropper, settings);
         const width = imagePosition.x2 - imagePosition.x1;
@@ -60,10 +59,11 @@ export class CropService {
         return output;
     }
 
-    private getImagePosition(sourceImage: ElementRef,
-                             loadedImage: LoadedImage,
-                             cropper: CropperPosition,
-                             settings: CropperSettings): CropperPosition {
+    private getImagePosition(
+        sourceImage: ElementRef,
+        loadedImage: LoadedImage,
+        cropper: CropperPosition,
+        settings: CropperSettings): CropperPosition {
         const sourceImageElement = sourceImage.nativeElement;
         const ratio = loadedImage.transformed.size.width / sourceImageElement.offsetWidth;
 
@@ -84,10 +84,11 @@ export class CropService {
         return out;
     }
 
-    private getOffsetImagePosition(sourceImage: ElementRef,
-                                   loadedImage: LoadedImage,
-                                   cropper: CropperPosition,
-                                   settings: CropperSettings): CropperPosition {
+    private getOffsetImagePosition(
+        sourceImage: ElementRef,
+        loadedImage: LoadedImage,
+        cropper: CropperPosition,
+        settings: CropperSettings): CropperPosition {
         const canvasRotation = settings.canvasRotation + loadedImage.exifTransform.rotate;
         const sourceImageElement = sourceImage.nativeElement;
         const ratio = loadedImage.transformed.size.width / sourceImageElement.offsetWidth;

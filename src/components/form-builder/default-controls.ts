@@ -172,6 +172,7 @@ export const CONTROLS = [
         icon: 'location_on',
         displayName: 'GPS',
         controlType: 'gps',
+        label: 'Gps',
         latitude : '',
         longitude: '',
         value: '',
@@ -192,5 +193,21 @@ export const CONTROLS = [
         label: 'Image',
         imageUrl: '',
         isRequired: false
+    },
+    {
+        icon: 'border_color',
+        displayName: 'Grid',
+        controlType: 'grid',
+        label: '',
+        columns: [
+            {
+                width: 6,
+                size: 'md'
+            },
+            {
+                width: 6,
+                size: 'md'
+            }
+        ]
     }
 ];

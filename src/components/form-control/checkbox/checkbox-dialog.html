@@ -97,7 +97,7 @@
                                 matTooltip="Add option" 
                                 [matTooltipPosition]="'above'"
                                 (click)="addNewOption()" 
-                                class="btn btn-success btn-link btn-sm btn-just-icon">
+                                class="btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
                             <i class="material-icons">add_circle_outline</i>
                         </button>
                         <button mat-raised-button *ngIf="index != 0"
@@ -105,7 +105,7 @@
                                 matTooltip="Remove option" 
                                 [matTooltipPosition]="'above'" 
                                 (click)="removeOption(index)"
-                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
                             <i class="material-icons">remove_circle_outline</i>
                         </button>
                     </div>
@@ -126,12 +126,12 @@
     <mat-dialog-actions align="end">
         <button mat-raised-button
                 type="button"
-                class="btn btn-danger"
+                class="btn btn-danger mr-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>
         <button mat-raised-button type="submit"
-                class="btn btn-primary"
+                class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes
         </button>
