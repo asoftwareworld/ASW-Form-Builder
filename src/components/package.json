@@ -1,0 +1,41 @@
+{
+    "name": "@asoftwareworld/form-builder",
+    "version": "4.0.0",
+    "author": "Anish Sharma",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/common": ">=8.0.0",
+        "@angular/core": ">=8.0.0"        
+    },
+    "dependencies": {
+        "@angular/cdk": ">=8.0.0",
+        "@angular/material": ">=8.0.0",
+        "bootstrap": "^4.6.0",
+        "fabric": "^4.4.0",
+        "tslib": "^2.0.0"
+    },
+    "description": "ASW Form Builder helps you with rapid development and designed web forms which includes several controls. The key feature of Form Builder is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/asoftwareworld/ASW-Form-Builder.git"
+    },
+    "keywords": [
+        "angular",
+        "material",
+        "typescript",
+        "form",
+        "resume",
+        "builder",
+        "drag",
+        "drop",
+        "asw",
+        "asoftwareworld"
+    ],
+    "bugs": {
+        "url": "https://github.com/asoftwareworld/ASW-Form-Builder/issues"
+    },
+    "homepage": "https://github.com/asoftwareworld/ASW-Form-Builder#readme"
+}

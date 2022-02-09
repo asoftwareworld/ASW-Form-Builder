@@ -1,0 +1,31 @@
+<mat-form-field appearance="outline">
+    <mat-label>GPS</mat-label>
+    <input matInput type="text"
+                    name="gps"
+                    placeholder="Enter location"
+                    [(ngModel)]="control.value"
+                    ngModel
+                    #input
+                    matTooltip="Enter location"
+                    [required]="control.isRequired">               
+</mat-form-field>
+<div class="row" *ngIf="isPreviewTemplate">
+    <div class="col-md-12">
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit gps control" 
+                [matTooltipPosition]="'above'" 
+                (click)="editGpsDialog(control, controlIndex)"
+                class="btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+            <i class="material-icons">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove gps control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteGpsDialog(control, controlIndex)"
+                class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
+            <i class="material-icons">close</i>
+        </button>
+    </div>                                            
+</div>

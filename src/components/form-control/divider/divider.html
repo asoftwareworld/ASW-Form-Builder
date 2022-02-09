@@ -1,0 +1,13 @@
+<mat-divider></mat-divider>
+<div class="row" *ngIf="isPreviewTemplate">
+    <div class="col-md-12">        
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Remove divider control" 
+                [matTooltipPosition]="'above'" 
+                (click)="deleteHeaderDialog(control, controlIndex)"
+                class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
+            <i class="material-icons">close</i>
+        </button>
+    </div>                                            
+</div>

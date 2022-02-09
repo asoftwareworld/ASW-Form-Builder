@@ -1,0 +1,20 @@
+﻿<h1 mat-dialog-title id="confirmDialogTitle">Warning!</h1>
+<mat-dialog-content class="mat-typography">
+    <p id="confirmDialogContent">{{data.message}} </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button
+            id="no"
+            type="button"
+            class="btn btn-primary mr-2 mb-1"
+            (click)="onNoClick()">
+        No
+    </button>
+    <button mat-raised-button type="button"
+            id="yes"
+            class="btn btn-danger mb-1"
+            [mat-dialog-close]="data.name"
+            cdkFocusInitial>
+        Yes
+    </button>
+</mat-dialog-actions>

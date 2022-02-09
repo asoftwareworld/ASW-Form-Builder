@@ -1,0 +1,42 @@
+<ng-container *ngIf="control as control">
+    <mat-form-field [appearance]="control.style">
+        <mat-label>{{control.label}}</mat-label>
+        <mat-select [placeholder]="control.label" 
+            [matTooltip]="control.tooltip"
+            [(ngModel)]="control.value"                    
+            #input="ngModel"
+            [required]="control.isRequired">
+            <mat-option *ngFor="let option of control.options" [value]="option.key">
+                {{ option.value }}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error *ngIf="input?.errors?.required">
+                <mat-icon aria-hidden="false">error</mat-icon> 
+                {{control.label}} is required
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit select control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editSelectDialog(control, controlIndex)"
+                        class="btn btn-just-icon btn-sm btn-outline-success mr-2 mb-1">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove select control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteSelectDialog(control, controlIndex)"
+                        class="btn btn-just-icon btn-sm btn-outline-danger mb-1">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

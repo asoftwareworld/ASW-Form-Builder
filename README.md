@@ -36,14 +36,15 @@ npm install @asoftwareworld/form-builder
 Import the NgModule for each component you want to use:
 
 ```
-import { FormBuilderModule, PreviewTemplateModule } from '@asoftwareworld/form-builder';
+import { AswFormBuilderModule } from '@asoftwareworld/form-builder/form-builder';
+import { AswPreviewTemplateModule } from '@asoftwareworld/form-builder/preview-template';
 // ...
 
 @NgModule({
   imports: [
     // shown passing global defaults (optional)
-    FormBuilderModule,
-    PreviewTemplateModule
+    AswFormBuilderModule,
+    AswPreviewTemplateModule
     ...
   ]
   // ...
@@ -57,7 +58,7 @@ Including a theme is required to apply the form builder and controls design.
 You can include this theme in component `SCSS or CSS` files to not use this globally in your application.
 
 ```html
-@import '~@asoftwareworld/form-builder/theming/theming-bundle.scss';
+@import '~@asoftwareworld/form-builder/theme/asw-theme.min.css';
 ```
 
 If you're using the Angular CLI, and you want to use themes globally in your application. Then you can add this to your `styles.css` or `angular.json`:
@@ -65,14 +66,14 @@ If you're using the Angular CLI, and you want to use themes globally in your app
 `styles.css or styles.scss`:
 
 ```html
-@import '~@asoftwareworld/form-builder/theming/theming-bundle.scss';
+@import '~@asoftwareworld/form-builder/theme/asw-theme.min.css';
 ```
 or 
 
 `angular.json`:
 ```html
 "styles": [
-  "./node_modules/@asoftwareworld/form-builder/theming/theming-bundle.scss"
+  "./node_modules/@asoftwareworld/form-builder/theme/asw-theme.min.css"
 ],
 ```
 

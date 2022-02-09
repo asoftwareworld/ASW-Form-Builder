@@ -1,0 +1,34 @@
+<ng-container *ngIf="control as control">
+    <mat-label>{{control.label}}</mat-label>
+    <div *ngFor="let option of control.options">
+        <mat-checkbox color="primary" 
+                    [name]="control.name"
+                    [matTooltip]="option.value"
+                    [(ngModel)]="option.isChecked"
+                    [required]="control.isRequired">
+            {{option.value}}
+        </mat-checkbox>
+    </div>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit checkbox control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editCheckboxDialog(control, controlIndex)"
+                        class="btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove checkbox control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteCheckboxDialog(control, controlIndex)"
+                        class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

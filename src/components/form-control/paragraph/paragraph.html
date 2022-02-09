@@ -1,0 +1,51 @@
+<ng-container *ngIf="control as control">
+    <ng-container [ngSwitch]="control.subtype">
+        <ng-container *ngSwitchCase="'p'">
+            <p [class]="control.style">
+                {{control.label}}
+            </p>
+        </ng-container>
+        <ng-container *ngSwitchCase="'address'">
+            <address [class]="control.style">
+                {{control.label}}
+            </address>
+        </ng-container>
+        <ng-container *ngSwitchCase="'blockquote'">
+            <blockquote [class]="control.style">
+                {{control.label}}
+            </blockquote>
+        </ng-container>
+        <ng-container *ngSwitchCase="'canvas'">
+            <canvas [class]="control.style">
+                {{control.label}}
+            </canvas>
+        </ng-container>
+        <ng-container *ngSwitchCase="'output'">
+            <output [class]="control.style">
+                {{control.label}}
+            </output>
+        </ng-container>
+    </ng-container>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit paragraph control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editParagraphDialog(control, controlIndex)"
+                        class="btn btn-just-icon btn-sm btn-outline-success mr-2 mb-1">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove paragraph control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteParagraphDialog(control, controlIndex)"
+                        class="btn btn-just-icon btn-sm btn-outline-danger mb-1">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

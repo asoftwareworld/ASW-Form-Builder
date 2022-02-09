@@ -1,0 +1,112 @@
+<h4 mat-dialog-title>Edit Property</h4>
+<mat-divider></mat-divider>
+<form [formGroup]="aswImageCropForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="toolbar">
+                    <div class="tools">
+                        <div class="row toolbar-size">
+                            <input style="display: none" 
+                                    type="file" 
+                                    #fileInput 
+                                    (change)="fileChangeEvent($event)"
+                                    id="imageUpload" 
+                                    accept=".png, .jpg, .jpeg">
+                            <i class="material-icons btn-selector" 
+                                *ngIf="isImageLoaded"
+                                (click)="fileInput.click();"
+                                matTooltip="Load image">attach_file
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                *ngIf="!isImageLoaded"
+                                (click)="removeImage()"
+                                matTooltip="Remove image">clear
+                            </i>                
+                            <i class="material-icons btn-selector" 
+                                (click)="rotateLeft()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Left rotate">rotate_left
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="rotateRight()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Right rotate">rotate_right
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="flipHorizontal()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Swap horizontal">swap_horiz
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="flipVertical()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Swap vertical">swap_vert
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="toggleContainWithinAspectRatio()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}"
+                                >
+                                {{containWithinAspectRatio?'crop_free':'crop_din'}}
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="resetImage()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Reset image">refresh
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="zoomOut()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Zoom out">zoom_out
+                            </i>
+                            <i class="material-icons btn-selector" 
+                                (click)="zoomIn()"
+                                [class.disabled]="isImageLoaded"
+                                matTooltip="Zoom in">zoom_in
+                            </i>
+                        </div>
+                    </div>
+                    
+                    <!-- Any additional toolbar buttons to be projected by the consuming app -->
+                    <ng-content></ng-content>
+                </div>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-md-12">
+                <asw-image-crop
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [containWithinAspectRatio]="containWithinAspectRatio"
+                [aspectRatio]="1"
+                [resizeToWidth]="256" 
+                [roundCropper]="true"
+                [canvasRotation]="canvasRotation"
+                [transform]="transform"
+                [alignImage]="'center'"
+                [style.display]="showCropper ? null : 'none'"
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady($event)"
+                (loadImageFailed)="loadImageFailed()"
+                ></asw-image-crop>
+            </div>
+        </div>
+        
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button
+                type="button"
+                class="btn btn-danger mr-2 mb-1"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button mat-raised-button type="submit"
+                class="btn btn-primary mb-1"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>

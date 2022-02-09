@@ -1,0 +1,34 @@
+<ng-container *ngIf="control as control">
+    <label id="example-radio-group-label">{{control.label}}</label>
+    <mat-radio-group class="asw-radio-group" 
+        [matTooltip]="control.tooltip"
+        [(ngModel)]="control.value"
+        [name]="control.name">
+        <mat-radio-button *ngFor="let option of control.options" 
+                        [value]="option.key">
+                    {{ option.value }}
+        </mat-radio-button>
+    </mat-radio-group>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row">
+            <div class="col-md-12">
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit radio button control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="editRadioButtonDialog(control, controlIndex)"
+                        class="btn btn-just-icon btn-sm btn-outline-success mr-2 mb-1">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Remove radio button control" 
+                        [matTooltipPosition]="'above'" 
+                        (click)="deleteRadioButtonDialog(control, controlIndex)"
+                        class="btn btn-just-icon btn-sm btn-outline-danger mb-1">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>    
+</ng-container>

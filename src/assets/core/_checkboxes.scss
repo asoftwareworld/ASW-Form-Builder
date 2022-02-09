@@ -1,0 +1,85 @@
+.mat-option {
+    .mat-pseudo-checkbox {
+        border-width: 1px;
+    }
+    .mat-pseudo-checkbox-checked {
+        background: $transparent;
+        border-color: $mdb-checkbox-border-color !important;
+        &:after {
+            color: $mdb-checkbox-checked-color;
+            stroke: $mdb-checkbox-checked-color !important;
+            top: 3.5px;
+            width: 10px;
+            left: 2px
+        }
+    }
+}
+.mat-primary {
+	.mat-option.mat-selected {
+		&:not(.mat-option-disabled) {
+			color: $mdb-checkbox-checked-color;
+		}
+	}
+}
+
+
+.mat-checkbox {
+    .mat-checkbox-layout {
+        .mat-checkbox-inner-container {
+            .mat-checkbox-frame {
+                border-width: 1px;
+                border-color: $mdb-checkbox-border-color;
+            }
+            .mat-checkbox-background {
+                background: $transparent;
+            }
+            .mat-checkbox-checkmark-path {
+                background: $mdb-checkbox-checked-color;
+                stroke: $mdb-checkbox-checked-color !important;
+            }
+        }
+    }
+    &.mb-0 {
+        .mat-checkbox-layout {
+            margin-bottom: 0;
+        }
+    }
+    &.mat-checkbox-disabled {
+        .mat-checkbox-layout {
+            .mat-checkbox-inner-container {
+                .mat-checkbox-frame {
+                    opacity: .26;
+                }
+                .mat-checkbox-checkmark-path {
+                    background: #000;
+                    stroke: #000 !important;
+                    opacity: .26;
+                }        
+            }
+            .mat-checkbox-label{
+                color: inherit;
+            }
+        }
+    }
+}
+
+.mat-checkbox-checked {
+	&:not(.mat-checkbox-disabled).mat-accent {
+		.mat-ripple-element {
+			background: $light-blue-50;
+		}
+	}
+}
+.mat-checkbox {
+	&:active {
+		&:not(.mat-checkbox-disabled).mat-accent {
+			.mat-ripple-element {
+				background: $light-blue-50;
+			}
+		}
+	}
+}
+
+.asw-padding-top {
+    padding-top: 20px;
+}

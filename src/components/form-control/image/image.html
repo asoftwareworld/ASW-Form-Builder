@@ -1,0 +1,30 @@
+<div class="avatar-upload">
+    <div class="avatar-preview circle">
+        <img src="{{control.imageUrl}}" class="avatar-src" />
+    </div>
+    <ng-container *ngIf="!isPreviewTemplate">
+        <button mat-raised-button 
+            class="btn btn-primary btn-round"
+            (click)="editImageDialog(control, controlIndex)">Upload image</button>
+    </ng-container>    
+</div>
+<div class="row" *ngIf="isPreviewTemplate">
+  <div class="col-md-12">
+      <button mat-raised-button 
+              type="button" 
+              matTooltip="Edit image control" 
+              [matTooltipPosition]="'above'" 
+              (click)="editImageDialog(control, controlIndex)"
+              class="btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+          <i class="material-icons">edit</i>
+      </button>
+      <button mat-raised-button 
+              type="button" 
+              matTooltip="Remove image control" 
+              [matTooltipPosition]="'above'" 
+              (click)="deleteImageDialog(control, controlIndex)"
+              class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
+          <i class="material-icons">close</i>
+      </button>
+  </div>                                            
+</div>

@@ -1,0 +1,39 @@
+<ng-container *ngIf="control as control">
+    <mat-form-field [appearance]="control.style">
+        <mat-label>{{control.label}}</mat-label>
+        <input matInput [matDatepicker]="picker" 
+                        #input="ngModel"
+                        [(ngModel)]="control.value"
+                        [matTooltip]="control.tooltip"
+                        [placeholder]="control.label" 
+                        [required]="control.isRequired">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error *ngIf="input?.errors?.required">
+                <mat-icon aria-hidden="false">error</mat-icon> 
+                {{control.label}} is required
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <div class="row" *ngIf="isPreviewTemplate">
+        <div class="col-md-12">
+            <button mat-raised-button 
+                    type="button" 
+                    matTooltip="Edit datepicker control" 
+                    [matTooltipPosition]="'above'" 
+                    (click)="editDatepickerDialog(control, controlIndex)"
+                    class="btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+                <i class="material-icons">edit</i>
+            </button>
+            <button mat-raised-button 
+                    type="button" 
+                    matTooltip="Remove datepicker control" 
+                    [matTooltipPosition]="'above'" 
+                    (click)="deleteDatepickerDialog(control, controlIndex)"
+                    class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
+                <i class="material-icons">close</i>
+            </button>
+        </div>                                            
+    </div>
+</ng-container>
