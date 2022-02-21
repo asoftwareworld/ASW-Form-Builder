@@ -12,132 +12,84 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <div *ngFor="let control of formContainer; let i = index">
-                            <div [ngSwitch]="control.controlType" class="asw-full-width">                                    
-                                <div *ngSwitchCase="'autocomplete'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                        <div class="row col-md-12">
+                            <ng-container *ngFor="let control of formContainer; let i = index">
+                                <ng-container [ngSwitch]="control.controlType" class="asw-full-width">
+                                    <div [ngClass]="control.column">
+                                        <ng-container *ngSwitchCase="'autocomplete'">
                                             <asw-autocomplete [control]="control"
                                                               [controlIndex]="i">
-                                            </asw-autocomplete>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'header'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-autocomplete>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'header'">
                                             <asw-header [control]="control"
                                                         [controlIndex]="i">
-                                            </asw-header>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'image'">
-                                    <asw-image [control]="control"
-                                               [controlIndex]="i">
-                                    </asw-image>
-                                </div>
-                                <div *ngSwitchCase="'textbox'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-header>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'image'">
+                                            <asw-image [control]="control"
+                                                       [controlIndex]="i">
+                                            </asw-image>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'textbox'">
                                             <asw-textbox [control]="control"
                                                         [controlIndex]="i">
-                                            </asw-textbox>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'textarea'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-textbox>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'textarea'">
                                             <asw-textarea [control]="control"
                                                             [controlIndex]="i">
-                                            </asw-textarea>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'select'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-textarea>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'select'">
                                             <asw-select [control]="control"
                                                         [controlIndex]="i">
-                                            </asw-select>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'multi-select'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-select>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'multi-select'">
                                             <asw-multi-select [control]="control"
                                                                 [controlIndex]="i">
-                                            </asw-multi-select>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'radio'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-multi-select>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'radio'">
                                             <asw-radio-button [control]="control"
                                                                 [controlIndex]="i">
-                                            </asw-radio-button>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'checkbox'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-radio-button>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'checkbox'">
                                             <asw-checkbox [control]="control"
                                                             [controlIndex]="i">
-                                            </asw-checkbox>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'datepicker'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-checkbox>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'datepicker'">
                                             <asw-datepicker [control]="control"
                                                             [controlIndex]="i">
-                                            </asw-datepicker>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'button'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-datepicker>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'button'">
                                             <asw-button [control]="control"
                                                         [controlIndex]="i">
-                                            </asw-button>                                                
-                                        </div>
-                                    </div>                                       
-                                </div>
-                                <div *ngSwitchCase="'paragraph'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-button>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'paragraph'">
                                             <asw-paragraph [control]="control"
                                                             [controlIndex]="i">
-                                            </asw-paragraph>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'divider'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                            </asw-paragraph>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'divider'">
                                             <asw-divider [control]="control"
                                                         [controlIndex]="i">
                                             </asw-divider>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div *ngSwitchCase="'slide-toggle'">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'slide-toggle'">
                                             <asw-slide-toggle [control]="control"
                                                                 [controlIndex]="i">
-                                            </asw-slide-toggle>                                                  
-                                        </div>
-                                    </div>                                     
-                                </div>
-                            </div>
-                        </div>
+                                            </asw-slide-toggle>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </div>                        
                     </div>
                 </div>
             </div>

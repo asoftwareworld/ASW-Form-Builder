@@ -30,6 +30,7 @@ export class AswAutocompleteDialog implements OnInit {
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             style: ['', [Validators.required]],
+            column: [],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false]
         });
@@ -83,6 +84,7 @@ export class AswAutocompleteDialog implements OnInit {
             name: control.name,
             style: control.style,
             value: control.value,
+            column: control.column,
             isRequired: control.isRequired
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));

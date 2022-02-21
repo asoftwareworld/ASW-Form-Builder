@@ -35,6 +35,7 @@ export class AswDatepickerDialog implements OnInit {
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
+            column: [],
             style: ['', [Validators.required]],
             isRequired: [false]
         });
@@ -47,6 +48,7 @@ export class AswDatepickerDialog implements OnInit {
             name: control.name,
             value: control.value,
             style: control.style,
+            column: control.column,
             isRequired: control.isRequired
         });
     }

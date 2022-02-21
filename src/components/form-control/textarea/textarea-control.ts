@@ -9,4 +9,5 @@ import { Control, ControlLength } from '@asoftwareworld/form-builder/form-contro
 
 export interface TextareaControl extends Control, ControlLength {
     value: string;
+    column?: string;
 }

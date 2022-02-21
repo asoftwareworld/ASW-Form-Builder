@@ -31,7 +31,8 @@ export class AswSelectDialog implements OnInit {
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             style: ['', [Validators.required]],
             options: this.formBuilder.array([this.createOption()]),
-            isRequired: [false]
+            isRequired: [false],
+            column: []
         });
     }
 
@@ -83,7 +84,8 @@ export class AswSelectDialog implements OnInit {
             name: control.name,
             style: control.style,
             value: control.value,
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            column: control.column
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);

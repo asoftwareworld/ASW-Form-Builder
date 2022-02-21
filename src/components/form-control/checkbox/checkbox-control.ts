@@ -8,5 +8,7 @@
 import { Control, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
 
 export interface CheckboxControl extends Control {
+    value: string;
     options: ControlOption[];
+    column?: string;
 }

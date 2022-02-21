@@ -37,6 +37,7 @@ export class AswTextareaDialog implements OnInit {
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
             style: ['', [Validators.required]],
+            column: [''],
             maxlength: ['', [Validators.required,
                 Validators.minLength(1),
                 Validators.maxLength(3),
@@ -58,6 +59,7 @@ export class AswTextareaDialog implements OnInit {
             maxlength: control.maxlength,
             minlength: control.minlength,
             style: control.style,
+            column: control.column,
             isRequired: control.isRequired
         });
     }

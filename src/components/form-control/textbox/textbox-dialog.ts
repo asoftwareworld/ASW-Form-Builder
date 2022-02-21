@@ -36,6 +36,7 @@ export class AswTextboxDialog implements OnInit {
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
             style: ['', [Validators.required]],
+            column: [''],
             maxlength: ['', [Validators.required,
                 Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
@@ -54,6 +55,7 @@ export class AswTextboxDialog implements OnInit {
             value: control.value,
             maxlength: control.maxlength,
             minlength: control.minlength,
+            column: control.column,
             style: control.style,
             isRequired: control.isRequired
         });
