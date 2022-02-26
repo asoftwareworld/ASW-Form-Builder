@@ -42,7 +42,7 @@ export class LoadImageService {
     }
 
     private isValidImageType(type: string): boolean {
-        return /image\/(png|jpg|jpeg|bmp|gif|tiff|webp)/.test(type);
+        return /image\/(png|jpg|jpeg|bmp|gif|tiff|webp|x-icon|vnd.microsoft.icon)/.test(type);
     }
 
     loadImageFromURL(url: string, cropperSettings: CropperSettings): Promise<LoadedImage> {
@@ -94,44 +94,55 @@ export class LoadImageService {
         return this.transformLoadedImage(loadedImage, cropperSettings);
     }
 
-    async transformLoadedImage(loadedImage: any, cropperSettings: CropperSettings): Promise<LoadedImage> {
-        const canvasRotation = cropperSettings.canvasRotation + loadedImage?.exifTransform?.rotate;
+    async transformLoadedImage(loadedImage: Partial<LoadedImage>, cropperSettings: CropperSettings): Promise<LoadedImage> {
+        // tslint:disable-next-line:no-non-null-assertion
+        const canvasRotation = cropperSettings.canvasRotation + loadedImage.exifTransform!.rotate;
         const originalSize = {
-            width: loadedImage.original.image.naturalWidth,
-            height: loadedImage.original.image.naturalHeight
+            // tslint:disable-next-line:no-non-null-assertion
+            width: loadedImage.original!.image.naturalWidth,
+            // tslint:disable-next-line:no-non-null-assertion
+            height: loadedImage.original!.image.naturalHeight
         };
-        if (canvasRotation === 0 && !loadedImage.exifTransform.flip && !cropperSettings.containWithinAspectRatio) {
+        // tslint:disable-next-line:no-non-null-assertion
+        if (canvasRotation === 0 && !loadedImage.exifTransform!.flip && !cropperSettings.containWithinAspectRatio) {
             return {
                 original: {
-                    base64: loadedImage.original.base64,
-                    image: loadedImage.original.image,
+                    // tslint:disable-next-line:no-non-null-assertion
+                    base64: loadedImage.original!.base64,
+                    // tslint:disable-next-line:no-non-null-assertion
+                    image: loadedImage.original!.image,
                     size: { ...originalSize }
                 },
                 transformed: {
-                    base64: loadedImage.original.base64,
-                    image: loadedImage.original.image,
+                    // tslint:disable-next-line:no-non-null-assertion
+                    base64: loadedImage.original!.base64,
+                    // tslint:disable-next-line:no-non-null-assertion
+                    image: loadedImage.original!.image,
                     size: { ...originalSize }
                 },
-                exifTransform: loadedImage.exifTransform
+                // tslint:disable-next-line:no-non-null-assertion
+                exifTransform: loadedImage.exifTransform!
             };
         }
-
-        const transformedSize = this.getTransformedSize(originalSize, loadedImage.exifTransform, cropperSettings);
+        // tslint:disable-next-line:no-non-null-assertion
+        const transformedSize = this.getTransformedSize(originalSize, loadedImage.exifTransform!, cropperSettings);
         const canvas = document.createElement('canvas');
         canvas.width = transformedSize.width;
         canvas.height = transformedSize.height;
-        const ctx: any = canvas.getContext('2d');
-        ctx.setTransform(
-            loadedImage.exifTransform.flip ? -1 : 1,
+        const ctx = canvas.getContext('2d');
+        ctx?.setTransform(
+            // tslint:disable-next-line:no-non-null-assertion
+            loadedImage.exifTransform!.flip ? -1 : 1,
             0,
             0,
             1,
             canvas.width / 2,
             canvas.height / 2
         );
-        ctx.rotate(Math.PI * (canvasRotation / 2));
-        ctx.drawImage(
-            loadedImage.original.image,
+        ctx?.rotate(Math.PI * (canvasRotation / 2));
+        ctx?.drawImage(
+            // tslint:disable-next-line:no-non-null-assertion
+            loadedImage.original!.image,
             -originalSize.width / 2,
             -originalSize.height / 2
         );
@@ -139,8 +150,10 @@ export class LoadImageService {
         const transformedImage = await this.loadImageFromBase64(transformedBase64);
         return {
             original: {
-                base64: loadedImage.original.base64,
-                image: loadedImage.original.image,
+                // tslint:disable-next-line:no-non-null-assertion
+                base64: loadedImage.original!.base64,
+                // tslint:disable-next-line:no-non-null-assertion
+                image: loadedImage.original!.image,
                 size: { ...originalSize }
             },
             transformed: {
@@ -151,7 +164,8 @@ export class LoadImageService {
                     height: transformedImage.height
                 }
             },
-            exifTransform: loadedImage.exifTransform
+            // tslint:disable-next-line:no-non-null-assertion
+            exifTransform: loadedImage.exifTransform!
         };
     }
 

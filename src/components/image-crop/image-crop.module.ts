@@ -9,7 +9,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ImageCropComponent } from './image-crop.component';
+import { AswImageCropComponent } from './image-crop.component';
 
 @NgModule({
     imports: [
@@ -18,10 +18,10 @@ import { ImageCropComponent } from './image-crop.component';
         ReactiveFormsModule
     ],
     declarations: [
-        ImageCropComponent
+        AswImageCropComponent
     ],
     exports: [
-        ImageCropComponent
+        AswImageCropComponent
     ]
 })
-export class ImageCropModule {}
+export class AswImageCropModule {}

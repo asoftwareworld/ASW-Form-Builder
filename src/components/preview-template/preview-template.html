@@ -28,7 +28,8 @@
                                         </ng-container>
                                         <ng-container *ngSwitchCase="'image'">
                                             <asw-image [control]="control"
-                                                       [controlIndex]="i">
+                                                       [controlIndex]="i"
+                                                       (imageUpdateEvent)="updatedControl($event)">
                                             </asw-image>
                                         </ng-container>
                                         <ng-container *ngSwitchCase="'textbox'">

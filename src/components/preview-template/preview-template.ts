@@ -17,4 +17,8 @@ import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 export class AswPreviewTemplate {
     constants: any = Constants;
     @Input() formContainer: any[] = [];
+
+    updatedControl(data: any): void {
+        this.formContainer.splice(data.index, 1, data.control);
+    }
 }

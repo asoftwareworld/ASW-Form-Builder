@@ -6,11 +6,6 @@
  * found in the LICENSE file
  */
 
-export interface ImageTransform {
-    scale?: number;
-    rotate?: number;
-    flipH?: boolean;
-    flipV?: boolean;
-    translateH?: number;
-    translateV?: number;
+export function percentage(percent: number, totalValue: number): number {
+    return (percent / 100) * totalValue;
 }
