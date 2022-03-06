@@ -94,6 +94,11 @@ export class AswGps implements OnInit {
     async onChange(searchText: string): Promise<void> {
         if (searchText) {
             this.searchedAddress = await this.googleMapService.getPlacePredictions(searchText);
+            if (this.searchedAddress.length === 0) {
+                const lat = searchText.split(',')[0].trim();
+                const lng = searchText.split(',')[1].trim();
+                this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
+            }
             this.filteredAddress = this.searchedAddress;
         } else {
             this.filteredAddress = this.searchedAddress;

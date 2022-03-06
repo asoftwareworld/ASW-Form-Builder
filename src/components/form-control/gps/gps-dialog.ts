@@ -42,6 +42,11 @@ export class AswGpsDialog implements OnInit {
         ).subscribe(async address => {
             if (address) {
                 this.searchedAddress = await this.googleMapService.getPlacePredictions(address);
+                if (this.searchedAddress.length === 0) {
+                    const lat = address.split(',')[0].trim();
+                    const lng = address.split(',')[1].trim();
+                    this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
+                }
                 this.filteredAddress = this.searchedAddress;
             }else{
                 this.filteredAddress = this.searchedAddress;

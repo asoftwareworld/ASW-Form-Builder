@@ -87,13 +87,14 @@ export class GoogleMapService {
                 }
                 else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
                     resultAddress = [];
-                    reject(status);
+                    resolve(resultAddress);
                 }
             });
         }).then();
     }
 
     getAddress(latitude: number, longitude: number): Promise<any> {
+        this.searchedAddress = [];
         return new Promise((resolve, reject) => {
             this.geoCoder.geocode({
                 location: {
