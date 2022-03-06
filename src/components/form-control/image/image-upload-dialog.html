@@ -4,8 +4,8 @@
     <mat-dialog-content class="mat-typography">
         <div class="row">
             <div class="col-md-12">
-                <div class="btn-toolbar" role="toolbar" aria-label="Image controls toolbar">
-                    <div class="btn-group" role="group" aria-label="toolbar">
+                <div class="text-center btn-toolbar" role="toolbar" aria-label="Image controls toolbar">
+                    <div class="btn-group-sm" role="group" aria-label="toolbar">
                         <button type="button" 
                             class="btn btn-outline-primary"
                             (click)="fileInput.click()"
@@ -21,7 +21,8 @@
                         </button>
                         <button type="button" 
                                 class="btn btn-outline-primary"
-                                matTooltip="Remove image" 
+                                matTooltip="Remove image"
+                                matTooltipPosition="right"
                                 *ngIf="!isImageLoaded" 
                                 (click)="removeImage()">
                             <i class="material-icons btn-selector">clear</i>
@@ -30,26 +31,30 @@
                                 class="btn btn-outline-primary" 
                                 [disabled]="isImageLoaded" 
                                 matTooltip="Left rotate"
+                                matTooltipPosition="right"
                                 (click)="rotateLeft()">
                             <i class="material-icons btn-selector">rotate_left</i>
                         </button>
                         <button type="button" 
                                 class="btn btn-outline-primary" 
                                 matTooltip="Right rotate"
+                                matTooltipPosition="right"
                                 [disabled]="isImageLoaded" 
                                 (click)="rotateRight()">
                             <i class="material-icons btn-selector">rotate_right</i>
                         </button>
                         <button type="button" 
                                 class="btn btn-outline-primary"
-                                matTooltip="Swap horizontal" 
+                                matTooltip="Swap horizontal"
+                                matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="flipHorizontal()">
                             <i class="material-icons btn-selector">swap_horiz</i>
                         </button>
                         <button type="button" 
                                 class="btn btn-outline-primary"
-                                matTooltip="Swap vertical" 
+                                matTooltip="Swap vertical"
+                                matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="flipVertical()">
                             <i class="material-icons btn-selector">swap_vert</i>
@@ -57,6 +62,7 @@
                         <button type="button" 
                                 class="btn btn-outline-primary" 
                                 matTooltip="{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}"
+                                matTooltipPosition="right"
                                 [disabled]="isImageLoaded" 
                                 (click)="toggleContainWithinAspectRatio()">
                             <i class="material-icons btn-selector">
@@ -66,26 +72,29 @@
                         <button type="button" 
                                 class="btn btn-outline-primary" 
                                 [disabled]="isImageLoaded"
-                                matTooltip="Reset image" 
+                                matTooltip="Reset image"
+                                matTooltipPosition="right" 
                                 (click)="resetImage()">
                             <i class="material-icons btn-selector">refresh</i>
                         </button>
                         <button type="button" 
                                 class="btn btn-outline-primary"
-                                matTooltip="Zoom out" 
+                                matTooltip="Zoom out"
+                                matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="zoomOut()">
                             <i class="material-icons btn-selector">zoom_out</i>
                         </button>
                         <button type="button" 
                                 class="btn btn-outline-primary"
-                                matTooltip="Zoom in" 
+                                matTooltip="Zoom in"
+                                matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="zoomIn()">
                             <i class="material-icons btn-selector">zoom_in</i>
                         </button>
                     </div>
-                </div>                
+                </div>
                 <!-- <div class="toolbar">
                     <div class="tools">
                         <div class="row toolbar-size">
