@@ -11,4 +11,6 @@ export interface ImageTransform {
     rotate?: number;
     flipH?: boolean;
     flipV?: boolean;
+    translateH?: number;
+    translateV?: number;
 }

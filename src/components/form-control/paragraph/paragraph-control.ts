@@ -11,4 +11,5 @@ export interface ParagraphControl {
     subtype: string;
     style: string;
     label: string;
+    column?: string;
 }

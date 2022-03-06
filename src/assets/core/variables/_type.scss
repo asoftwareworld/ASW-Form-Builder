@@ -19,7 +19,7 @@ $display1-size: 7rem !default; // md display-4 112px was 6rem;
 $display2-size: 3.5rem !default; // md display-3 56px was 5.5rem
 $display3-size: 2.8125rem !default; // md display-2 45px was 4.5rem
 $display4-size: 2.125rem !default; // md display-1 34px was 3.5rem
-$headings-margin-bottom:     ($spacer / 2) !default;
+$headings-margin-bottom:     calc($spacer / 2) !default;
 $headings-font-weight:         400 !default; // was 500
 
 $font-weight-light: 300 !default;

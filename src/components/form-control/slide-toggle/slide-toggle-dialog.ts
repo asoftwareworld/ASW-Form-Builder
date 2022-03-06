@@ -33,6 +33,8 @@ export class AswSlideToggleDialog implements OnInit {
         this.aswEditSlideToggleForm = this.formBuilder.group({
             label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(25)]],
             color: [],
+            value: [false],
+            column: [],
             isRequired: [false]
         });
     }
@@ -41,6 +43,8 @@ export class AswSlideToggleDialog implements OnInit {
         this.aswEditSlideToggleForm.setValue({
             label: control.label,
             color: control.color,
+            column: control.column,
+            value: control.value,
             isRequired: control.isRequired
         });
     }

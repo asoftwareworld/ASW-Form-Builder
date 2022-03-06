@@ -4,7 +4,89 @@
     <mat-dialog-content class="mat-typography">
         <div class="row">
             <div class="col-md-12">
-                <div class="toolbar">
+                <div class="btn-toolbar" role="toolbar" aria-label="Image controls toolbar">
+                    <div class="btn-group" role="group" aria-label="toolbar">
+                        <button type="button" 
+                            class="btn btn-outline-primary"
+                            (click)="fileInput.click()"
+                            matTooltip="Load image" 
+                            *ngIf="isImageLoaded">
+                            <input style="display: none" 
+                                    type="file" 
+                                    #fileInput 
+                                    (change)="fileChangeEvent($event)"
+                                    id="imageUpload" 
+                                    accept=".png, .jpg, .jpeg">
+                            <i class="material-icons btn-selector">attach_file</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary"
+                                matTooltip="Remove image" 
+                                *ngIf="!isImageLoaded" 
+                                (click)="removeImage()">
+                            <i class="material-icons btn-selector">clear</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary" 
+                                [disabled]="isImageLoaded" 
+                                matTooltip="Left rotate"
+                                (click)="rotateLeft()">
+                            <i class="material-icons btn-selector">rotate_left</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary" 
+                                matTooltip="Right rotate"
+                                [disabled]="isImageLoaded" 
+                                (click)="rotateRight()">
+                            <i class="material-icons btn-selector">rotate_right</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary"
+                                matTooltip="Swap horizontal" 
+                                [disabled]="isImageLoaded" 
+                                (click)="flipHorizontal()">
+                            <i class="material-icons btn-selector">swap_horiz</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary"
+                                matTooltip="Swap vertical" 
+                                [disabled]="isImageLoaded" 
+                                (click)="flipVertical()">
+                            <i class="material-icons btn-selector">swap_vert</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary" 
+                                matTooltip="{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}"
+                                [disabled]="isImageLoaded" 
+                                (click)="toggleContainWithinAspectRatio()">
+                            <i class="material-icons btn-selector">
+                                {{containWithinAspectRatio?'crop_free':'crop_din'}}
+                            </i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary" 
+                                [disabled]="isImageLoaded"
+                                matTooltip="Reset image" 
+                                (click)="resetImage()">
+                            <i class="material-icons btn-selector">refresh</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary"
+                                matTooltip="Zoom out" 
+                                [disabled]="isImageLoaded" 
+                                (click)="zoomOut()">
+                            <i class="material-icons btn-selector">zoom_out</i>
+                        </button>
+                        <button type="button" 
+                                class="btn btn-outline-primary"
+                                matTooltip="Zoom in" 
+                                [disabled]="isImageLoaded" 
+                                (click)="zoomIn()">
+                            <i class="material-icons btn-selector">zoom_in</i>
+                        </button>
+                    </div>
+                </div>                
+                <!-- <div class="toolbar">
                     <div class="tools">
                         <div class="row toolbar-size">
                             <input style="display: none" 
@@ -23,11 +105,7 @@
                                 (click)="removeImage()"
                                 matTooltip="Remove image">clear
                             </i>                
-                            <i class="material-icons btn-selector" 
-                                (click)="rotateLeft()"
-                                [class.disabled]="isImageLoaded"
-                                matTooltip="Left rotate">rotate_left
-                            </i>
+                            
                             <i class="material-icons btn-selector" 
                                 (click)="rotateRight()"
                                 [class.disabled]="isImageLoaded"
@@ -68,9 +146,9 @@
                         </div>
                     </div>
                     
-                    <!-- Any additional toolbar buttons to be projected by the consuming app -->
+                    Any additional toolbar buttons to be projected by the consuming app
                     <ng-content></ng-content>
-                </div>
+                </div> -->
             </div>
         </div>        
         <div class="row">
@@ -80,7 +158,8 @@
                 [maintainAspectRatio]="true"
                 [containWithinAspectRatio]="containWithinAspectRatio"
                 [aspectRatio]="1"
-                [resizeToWidth]="256" 
+                [resizeToWidth]="256"
+                [onlyScaleDown]="true" 
                 [roundCropper]="true"
                 [canvasRotation]="canvasRotation"
                 [transform]="transform"

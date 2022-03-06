@@ -33,6 +33,7 @@ export class AswHeaderDialog implements OnInit {
         this.aswHeaderForm = this.formBuilder.group({
             label: ['', [Validators.required, Validators.minLength(5)]],
             subtype: [],
+            column: [],
             style: []
         });
     }
@@ -41,7 +42,8 @@ export class AswHeaderDialog implements OnInit {
         this.aswHeaderForm.setValue({
             label: control.label,
             subtype: control.subtype,
-            style: control.style
+            style: control.style,
+            column: control.column
         });
     }
 

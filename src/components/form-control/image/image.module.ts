@@ -15,7 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { ImageCropModule } from '@asoftwareworld/form-builder/image-crop';
+import { AswImageCropModule } from '@asoftwareworld/form-builder/image-crop';
 import { AswImage } from './image';
 import { AswImageUploadDialog } from './image-upload-dialog';
 
@@ -24,7 +24,7 @@ import { AswImageUploadDialog } from './image-upload-dialog';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        ImageCropModule,
+        AswImageCropModule,
         MatDividerModule,
         MatTooltipModule,
         MatDialogModule,

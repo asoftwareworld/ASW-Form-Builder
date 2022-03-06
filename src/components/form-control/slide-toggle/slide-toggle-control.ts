@@ -11,4 +11,6 @@ export interface SlideToggleControl {
     label: string;
     color: string;
     isRequired: boolean;
+    column?: string;
+    value: boolean;
 }

@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
         this.username = USERNAME;
         this.firstname = FIRSTNAME;
+        this.jsonData = this.aswSettingsService.previewData;
     }
 
     saveJsonData(data: any): void {

@@ -33,7 +33,8 @@ export class AswParagraphDialog implements OnInit {
         this.aswParagraphForm = this.formBuilder.group({
             label: ['', [Validators.required, Validators.minLength(4)]],
             subtype: [],
-            style: []
+            style: [],
+            column: []
         });
     }
 
@@ -41,7 +42,8 @@ export class AswParagraphDialog implements OnInit {
         this.aswParagraphForm.setValue({
             label: control.label,
             subtype: control.subtype,
-            style: control.style
+            style: control.style,
+            column: control.column
         });
     }
 

@@ -9,10 +9,12 @@
 import { ElementRef, Injectable } from '@angular/core';
 import { CropperPosition, ImageCroppedEvent, LoadedImage } from '../interfaces';
 import { CropperSettings } from '../interfaces/cropper.settings';
+import { percentage } from '../utils/percentage.utils';
 import { resizeCanvas } from '../utils/resize.utils';
 
 @Injectable({ providedIn: 'root' })
 export class CropService {
+
     crop(sourceImage: ElementRef, loadedImage: LoadedImage, cropper: CropperPosition, settings: CropperSettings): ImageCroppedEvent | null {
         const imagePosition = this.getImagePosition(sourceImage, loadedImage, cropper, settings);
         const width = imagePosition.x2 - imagePosition.x1;
@@ -37,7 +39,15 @@ export class CropService {
         ctx.setTransform(scaleX, 0, 0, scaleY, transformedImage.size.width / 2, transformedImage.size.height / 2);
         ctx.translate(-imagePosition.x1 / scaleX, -imagePosition.y1 / scaleY);
         ctx.rotate((settings.transform.rotate || 0) * Math.PI / 180);
-        ctx.drawImage(transformedImage.image, -transformedImage.size.width / 2, -transformedImage.size.height / 2);
+
+        const translateH = settings.transform.translateH ? percentage(settings.transform.translateH, transformedImage.size.width) : 0;
+        const translateV = settings.transform.translateV ? percentage(settings.transform.translateV, transformedImage.size.height) : 0;
+
+        ctx.drawImage(
+            transformedImage.image,
+            translateH - transformedImage.size.width / 2,
+            translateV - transformedImage.size.height / 2
+        );
 
         const output: ImageCroppedEvent = {
             width, height,

@@ -6,8 +6,6 @@
  * found in the LICENSE file
  */
 
-export * from './gps';
-export * from './gps-dialog';
-export * from './gps-control';
-export * from './google-map.service';
-export * from './gps.module';
+export function percentage(percent: number, totalValue: number): number {
+    return (percent / 100) * totalValue;
+}

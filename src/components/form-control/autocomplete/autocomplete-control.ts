@@ -10,4 +10,5 @@ import { Control, ControlOption } from '@asoftwareworld/form-builder/form-contro
 export interface AutoCompleteControl extends Control {
     value: string;
     options: ControlOption[];
+    column?: string;
 }

@@ -40,29 +40,30 @@ import { getEventForKey, getInvertedPositionForKey, getPositionForKey } from './
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ImageCropComponent implements OnChanges, OnInit {
-    private Hammer: HammerStatic | null = typeof window
-        ? (window as any).Hammer as HammerStatic
-        : null;
+export class AswImageCropComponent implements OnChanges, OnInit {
+    private Hammer: HammerStatic = (window as any).Hammer || null;
     private settings = new CropperSettings();
     private setImageMaxSizeRetries = 0;
-    private moveStart!: MoveStart;
-    private loadedImage!: LoadedImage | null;
+    private moveStart?: MoveStart;
+    private loadedImage?: LoadedImage;
 
-    safeImgDataUrl!: SafeUrl | string;
-    safeTransformStyle!: SafeStyle | string;
+    safeImgDataUrl?: SafeUrl | string;
+    safeTransformStyle?: SafeStyle | string;
     marginLeft: SafeStyle | string = '0px';
-    maxSize!: Dimensions;
+    maxSize: Dimensions = {
+        width: 0,
+        height: 0
+    };
     moveTypes = MoveTypes;
     imageVisible = false;
 
     @ViewChild('wrapper', { static: true }) wrapper!: ElementRef<HTMLDivElement>;
     @ViewChild('sourceImage', { static: false }) sourceImage!: ElementRef<HTMLDivElement>;
 
-    @Input() imageChangedEvent: any;
-    @Input() imageURL!: string;
-    @Input() imageBase64!: string;
-    @Input() imageFile!: File;
+    @Input() imageChangedEvent?: any;
+    @Input() imageURL?: string;
+    @Input() imageBase64?: string;
+    @Input() imageFile?: File;
 
     @Input() format: OutputFormat = this.settings.format;
     @Input() transform: ImageTransform = {};
@@ -182,7 +183,8 @@ export class ImageCropComponent implements OnChanges, OnInit {
         this.safeTransformStyle = this.sanitizer.bypassSecurityTrustStyle(
             'scaleX(' + (this.transform.scale || 1) * (this.transform.flipH ? -1 : 1) + ')' +
             'scaleY(' + (this.transform.scale || 1) * (this.transform.flipV ? -1 : 1) + ')' +
-            'rotate(' + (this.transform.rotate || 0) + 'deg)'
+            'rotate(' + (this.transform.rotate || 0) + 'deg)' +
+            `translate(${this.transform.translateH || 0}%, ${this.transform.translateV || 0}%)`
         );
     }
 
@@ -193,7 +195,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
 
     private reset(): void {
         this.imageVisible = false;
-        this.loadedImage = null;
+        this.loadedImage = undefined;
         this.safeImgDataUrl = 'data:image/png;base64,iVBORw0KGg'
             + 'oAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAU'
             + 'AAarVyFEAAAAASUVORK5CYII=';
@@ -297,7 +299,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
             hammer.on('pinchend', this.pinchStop.bind(this));
             hammer.on('pinchstart', this.startPinch.bind(this));
         } else if (isDevMode()) {
-            console.warn('[asw-image-crop] Could not find HammerJS - Pinch Gesture won\'t work');
+            console.warn('[AswImageCropper] Could not find HammerJS - Pinch Gesture won\'t work');
         }
     }
 
@@ -317,7 +319,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
         this.imageVisible = true;
     }
 
-    keyboardAccess(event: any): void {
+    keyboardAccess(event: KeyboardEvent): void {
         this.changeKeyboardStepSize(event);
         this.keyboardMoveCropper(event);
     }
@@ -345,7 +347,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
     }
 
     startMove(event: any, moveType: MoveTypes, position: string | null = null): void {
-        if (this.moveStart && this.moveStart.active && this.moveStart.type === MoveTypes.Pinch) {
+        if (this.moveStart?.active && this.moveStart?.type === MoveTypes.Pinch) {
             return;
         }
         if (event.preventDefault) {
@@ -381,19 +383,24 @@ export class ImageCropComponent implements OnChanges, OnInit {
     @HostListener('document:mousemove', ['$event'])
     @HostListener('document:touchmove', ['$event'])
     moveImg(event: any): void {
-        if (this.moveStart.active) {
+        // tslint:disable-next-line:no-non-null-assertion
+        if (this.moveStart!.active) {
             if (event.stopPropagation) {
                 event.stopPropagation();
             }
             if (event.preventDefault) {
                 event.preventDefault();
             }
-            if (this.moveStart.type === MoveTypes.Move) {
-                this.cropperPositionService.move(event, this.moveStart, this.cropper);
+            // tslint:disable-next-line:no-non-null-assertion
+            if (this.moveStart!.type === MoveTypes.Move) {
+                // tslint:disable-next-line:no-non-null-assertion
+                this.cropperPositionService.move(event, this.moveStart!, this.cropper);
                 this.checkCropperPosition(true);
-            } else if (this.moveStart.type === MoveTypes.Resize) {
+            // tslint:disable-next-line:no-non-null-assertion
+            } else if (this.moveStart!.type === MoveTypes.Resize) {
                 if (!this.cropperStaticWidth && !this.cropperStaticHeight) {
-                    this.cropperPositionService.resize(event, this.moveStart, this.cropper, this.maxSize, this.settings);
+                    // tslint:disable-next-line:no-non-null-assertion
+                    this.cropperPositionService.resize(event, this.moveStart!, this.cropper, this.maxSize, this.settings);
                 }
                 this.checkCropperPosition(false);
             }
@@ -402,15 +409,18 @@ export class ImageCropComponent implements OnChanges, OnInit {
     }
 
     onPinch(event: any): void {
-        if (this.moveStart.active) {
+        // tslint:disable-next-line:no-non-null-assertion
+        if (this.moveStart!.active) {
             if (event.stopPropagation) {
                 event.stopPropagation();
             }
             if (event.preventDefault) {
                 event.preventDefault();
             }
-            if (this.moveStart.type === MoveTypes.Pinch) {
-                this.cropperPositionService.resize(event, this.moveStart, this.cropper, this.maxSize, this.settings);
+            // tslint:disable-next-line:no-non-null-assertion
+            if (this.moveStart!.type === MoveTypes.Pinch) {
+                // tslint:disable-next-line:no-non-null-assertion
+                this.cropperPositionService.resize(event, this.moveStart!, this.cropper, this.maxSize, this.settings);
                 this.checkCropperPosition(false);
             }
             this.cd.detectChanges();
@@ -458,7 +468,7 @@ export class ImageCropComponent implements OnChanges, OnInit {
     }
 
     private setCropperScaledMaxSize(): void {
-        if (this.loadedImage && this.loadedImage.transformed && this.loadedImage.transformed.image) {
+        if (this.loadedImage?.transformed?.image) {
             const ratio = this.loadedImage.transformed.size.width / this.maxSize.width;
             this.settings.cropperScaledMaxWidth = this.cropperMaxWidth > 20 ? this.cropperMaxWidth / ratio : this.maxSize.width;
             this.settings.cropperScaledMaxHeight = this.cropperMaxHeight > 20 ? this.cropperMaxHeight / ratio : this.maxSize.height;
@@ -497,15 +507,19 @@ export class ImageCropComponent implements OnChanges, OnInit {
     @HostListener('document:mouseup')
     @HostListener('document:touchend')
     moveStop(): void {
-        if (this.moveStart.active) {
-            this.moveStart.active = false;
+        // tslint:disable-next-line:no-non-null-assertion
+        if (this.moveStart!.active) {
+            // tslint:disable-next-line:no-non-null-assertion
+            this.moveStart!.active = false;
             this.doAutoCrop();
         }
     }
 
     pinchStop(): void {
-        if (this.moveStart.active) {
-            this.moveStart.active = false;
+        // tslint:disable-next-line:no-non-null-assertion
+        if (this.moveStart!.active) {
+            // tslint:disable-next-line:no-non-null-assertion
+            this.moveStart!.active = false;
             this.doAutoCrop();
         }
     }
@@ -517,11 +531,9 @@ export class ImageCropComponent implements OnChanges, OnInit {
     }
 
     crop(): ImageCroppedEvent | null {
-        // tslint:disable-next-line:no-non-null-assertion
-        if (this.sourceImage && this.sourceImage.nativeElement && this.loadedImage!.transformed.image != null) {
+        if (this.loadedImage?.transformed?.image != null) {
             this.startCropImage.emit();
-            // tslint:disable-next-line:no-non-null-assertion
-            const output = this.cropService.crop(this.sourceImage, this.loadedImage!, this.cropper, this.settings);
+            const output = this.cropService.crop(this.sourceImage, this.loadedImage, this.cropper, this.settings);
             if (output != null) {
                 this.imageCropped.emit(output);
             }

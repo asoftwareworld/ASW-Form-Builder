@@ -9,4 +9,5 @@ import { Control } from '@asoftwareworld/form-builder/form-control/core';
 
 export interface DateControl extends Control {
     value: string;
+    column?: string;
 }

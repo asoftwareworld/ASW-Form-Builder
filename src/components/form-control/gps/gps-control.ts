@@ -5,10 +5,11 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
-import { Control, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
+import { Control } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface CheckboxControl extends Control {
+export interface GpsControl extends Control {
     value: string;
-    options: ControlOption[];
     column?: string;
+    latitude: string;
+    longitude: string;
 }

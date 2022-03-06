@@ -6,14 +6,14 @@
  * found in the LICENSE file
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { AswSettingsService } from 'src/demo/shared/service/asw-setting-service';
 
 @Component({
     selector: 'asw-preview',
     templateUrl: './preview-template.component.html'
 })
-export class PreviewTemplateComponent implements OnInit {
+export class PreviewTemplateComponent implements OnInit, OnChanges {
     title = 'ASW-Form-Builder-demo';
     jsonData: any[] = [];
     constructor(private aswSettingsService: AswSettingsService) {
@@ -21,5 +21,9 @@ export class PreviewTemplateComponent implements OnInit {
     }
     ngOnInit(): void {
         this.jsonData = this.aswSettingsService.previewData;
+    }
+    ngOnChanges(): void {
+        debugger;
+        this.aswSettingsService.previewData = this.jsonData;
     }
 }
