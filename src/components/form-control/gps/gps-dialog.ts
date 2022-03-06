@@ -50,6 +50,7 @@ export class AswGpsDialog implements OnInit {
                         this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
                     } else {
                         this.searchedAddress = [];
+                        this.aswEditGpsForm.get('value')?.setErrors({ searchAddress: true });
                     }
                 }
                 this.filteredAddress = this.searchedAddress;

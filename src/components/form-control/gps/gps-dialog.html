@@ -112,13 +112,27 @@
                                [matAutocomplete]="auto"
                                formControlName="value">
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="searchAddress($event)">
-                          <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
-                            <img class="example-option-img" aria-hidden [src]="address.icon" height="20">
-                            <span>{{address.alias}}</span> 
-                            <small> {{address.addressName}}</small>
-                          </mat-option>
+                            <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
+                                <img class="example-option-img" aria-hidden [src]="address.icon" height="20">
+                                <span>{{address.alias}}</span> 
+                                <small> {{address.addressName}}</small>
+                            </mat-option>
                         </mat-autocomplete>
+                        <mat-error *ngFor="let validation of constants.accountValidationMessages.searchAddress">
+                            <mat-error *ngIf="aswEditGpsForm.get('value')?.errors?.searchAddress">
+                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                            </mat-error>
+                        </mat-error>
                     </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-slide-toggle color="primary"
+                          #isActive
+                          formControlName="isRequired"
+                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}
+                    </mat-slide-toggle>
                 </div>
             </div>
         </div>  

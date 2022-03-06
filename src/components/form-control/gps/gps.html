@@ -1,15 +1,4 @@
 <ng-container *ngIf="control as control">
-    <!-- <mat-form-field appearance="outline">
-        <mat-label>GPS</mat-label>
-        <input matInput type="text"
-                        name="gps"
-                        placeholder="Enter location"
-                        [(ngModel)]="control.value"
-                        ngModel
-                        #input
-                        matTooltip="Enter location"
-                        [required]="control.isRequired">               
-    </mat-form-field> -->
     <mat-form-field [appearance]="control.style">
         <mat-label>{{control.label}}</mat-label>
         <input matInput
@@ -17,18 +6,27 @@
                [placeholder]="control.label"
                [matAutocomplete]="auto"
                [(ngModel)]="control.value"
-               ngModel
-               #input
+               #input="ngModel"
                (ngModelChange)="onChange($event)"
                [matTooltip]="control.tooltip"
                [required]="control.isRequired">
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="searchAddress($event)">
-          <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
-            <img class="example-option-img" aria-hidden [src]="address.icon" height="20">
-            <span>{{address.alias}}</span> 
-            <small> {{address.addressName}}</small>
-          </mat-option>
+            <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
+                <img class="example-option-img" aria-hidden [src]="address.icon" height="20">
+                <span>{{address.alias}}</span> 
+                <small> {{address.addressName}}</small>
+            </mat-option>
         </mat-autocomplete>
+        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error *ngIf="input?.errors?.required">
+                <mat-icon aria-hidden="false">error</mat-icon> 
+                {{control.label}} is required
+            </mat-error>
+            <mat-error *ngIf="input?.errors?.searchAddress">
+                <mat-icon aria-hidden="false">error</mat-icon> 
+                Sorry, {{control.value}} did not found.
+            </mat-error>
+        </mat-error>
     </mat-form-field>
     <div class="row" *ngIf="isPreviewTemplate">
         <div class="col-md-12">

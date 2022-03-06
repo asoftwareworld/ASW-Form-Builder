@@ -57,6 +57,9 @@ function getConstatnts(): any {
         value: [
             { type: 'required', message: 'Option value is required.' },
             { type: 'minlength', message: 'Sorry, your option value must be between 1 and 999 characters long.' }
+        ],
+        searchAddress: [
+            { type: 'unique', message: 'Searched address not found.' }
         ]
     };
 

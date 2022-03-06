@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
@@ -26,6 +26,7 @@ export class AswGps implements OnInit {
     searchedAddress: any[] = [];
     filteredAddress: any;
     constants: any = Constants;
+    @ViewChild('input') gpsForm!: HTMLFormElement;
     /**
      * Button control
      */
@@ -101,6 +102,7 @@ export class AswGps implements OnInit {
                     const lng = searchText.split(',')[1].trim();
                     this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
                 } else {
+                    this.gpsForm.control.setErrors({ searchAddress: true });
                     this.searchedAddress = [];
                 }
 
