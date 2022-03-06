@@ -95,9 +95,15 @@ export class AswGps implements OnInit {
         if (searchText) {
             this.searchedAddress = await this.googleMapService.getPlacePredictions(searchText);
             if (this.searchedAddress.length === 0) {
-                const lat = searchText.split(',')[0].trim();
-                const lng = searchText.split(',')[1].trim();
-                this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
+                const isValidSearch = this.googleMapService.isLetter(searchText);
+                if (isValidSearch) {
+                    const lat = searchText.split(',')[0].trim();
+                    const lng = searchText.split(',')[1].trim();
+                    this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
+                } else {
+                    this.searchedAddress = [];
+                }
+
             }
             this.filteredAddress = this.searchedAddress;
         } else {

@@ -147,4 +147,12 @@ export class GoogleMapService {
                 });
         }).then();
     }
+
+    isLetter(value: string): boolean {
+        const letters = /^[A-Za-z]+$/;
+        if (value && value.match(letters)) {
+            return false;
+        }
+        return true;
+    }
 }
