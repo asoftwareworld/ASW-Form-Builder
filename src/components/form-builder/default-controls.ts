@@ -55,6 +55,20 @@ export const CONTROLS = [
       minlength: 0
     },
     {
+        icon: 'location_on',
+        displayName: 'GPS',
+        controlType: 'gps',
+        name: 'gps',
+        label: 'Gps',
+        tooltip: 'Enter Location',
+        latitude : '',
+        longitude: '',
+        style: 'outline',
+        column: 'col-md-12',
+        value: '',
+        isRequired: false
+    },
+    {
         icon: 'notes',
         displayName: 'Text Area',
         controlType: 'textarea',
@@ -181,17 +195,6 @@ export const CONTROLS = [
         value: false,
         color: 'primary',
         column: 'col-md-12',
-        isRequired: false
-    },
-    {
-        icon: 'location_on',
-        displayName: 'GPS',
-        controlType: 'gps',
-        label: 'Gps',
-        latitude : '',
-        longitude: '',
-        column: 'col-md-12',
-        value: '',
         isRequired: false
     },
     {

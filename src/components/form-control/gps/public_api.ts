@@ -8,4 +8,6 @@
 
 export * from './gps';
 export * from './gps-dialog';
+export * from './gps-control';
+export * from './google-map.service';
 export * from './gps.module';

@@ -7,9 +7,13 @@
  */
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { map, startWith } from 'rxjs/operators';
+import { GoogleMapService } from './google-map.service';
+import { GpsControl } from './gps-control';
 
 @Component({
     selector: 'asw-gps-dialog',
@@ -19,28 +23,57 @@ export class AswGpsDialog implements OnInit {
     constants: any = Constants;
     aswEditGpsForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswGpsDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
+    filteredAddress: any;
+    searchedAddress: any[] = [];
+    constructor(
+        private formBuilder: FormBuilder,
+        private googleMapService: GoogleMapService,
+        public dialogRef: MatDialogRef<AswGpsDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) {
+    }
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
         this.validateFormBuilder();
+        this.searchedAddress = await this.googleMapService.getNearestAddress();
         this.editProperty(this.control);
+        this.aswEditGpsForm.get('value')?.valueChanges.pipe(
+            startWith(''),
+            map(address => (address)),
+        ).subscribe(async address => {
+            if (address) {
+                this.searchedAddress = await this.googleMapService.getPlacePredictions(address);
+                this.filteredAddress = this.searchedAddress;
+            }else{
+                this.filteredAddress = this.searchedAddress;
+            }
+        });
     }
 
     validateFormBuilder(): void {
         this.aswEditGpsForm = this.formBuilder.group({
+            tooltip: ['', []],
+            label: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+            name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
             latitude: ['', []],
             longitude: ['', []],
-            value: ['', []]
+            value: ['', []],
+            style: ['', [Validators.required]],
+            column: [''],
+            isRequired: [false]
         });
     }
 
-    editProperty(control: any): void {
+    editProperty(control: GpsControl): void {
         this.aswEditGpsForm.setValue({
             latitude: control.latitude,
             longitude: control.longitude,
-            value: control.value
+            value: control.value,
+            tooltip: control.tooltip,
+            label: control.label,
+            name: control.name,
+            column: control.column,
+            style: control.style,
+            isRequired: control.isRequired
         });
     }
 
@@ -52,7 +85,6 @@ export class AswGpsDialog implements OnInit {
         if (this.aswEditGpsForm.invalid) {
             return;
         }
-        this.aswEditGpsForm.value.displayName = this.control.displayName;
         this.aswEditGpsForm.value.controlType = this.control.controlType;
         this.dialogRef.close(this.aswEditGpsForm.value);
     }
@@ -63,5 +95,16 @@ export class AswGpsDialog implements OnInit {
         } else {
             this.status = false;
         }
+    }
+
+    async searchAddress(searchedText: MatAutocompleteSelectedEvent): Promise<void> {
+        let selectedAddress = this.searchedAddress.find(x => x.label === searchedText.option.value);
+        if (!selectedAddress?.latitude && !selectedAddress?.longitude) {
+            selectedAddress = await this.googleMapService.getDetails(selectedAddress);
+        }
+        this.aswEditGpsForm.patchValue({
+            latitude: selectedAddress.latitude,
+            longitude: selectedAddress.longitude,
+        });
     }
 }
