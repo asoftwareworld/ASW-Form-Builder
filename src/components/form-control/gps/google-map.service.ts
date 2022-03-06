@@ -39,21 +39,20 @@ export class GoogleMapService {
             };
             this.placesService.nearbySearch(
                 request,
-                (options: string | any[], status: any) => {
+                (options: any[], status: any) => {
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
-                        // tslint:disable-next-line:prefer-for-of
-                        for (let i = 0; i < options.length; i++) {
+                        options.map(element =>  {
                             const address = {
-                                id: options[i].place_id,
-                                label: options[i].name + ', ' + options[i].vicinity,
-                                alias: options[i].name,
-                                addressName: options[i].vicinity,
-                                latitude: options[i].geometry.location.lat(),
-                                longitude: options[i].geometry.location.lng(),
+                                id: element.place_id,
+                                label: element.name + ', ' + element.vicinity,
+                                alias: element.name,
+                                addressName: element.vicinity,
+                                latitude: element.geometry.location.lat(),
+                                longitude: element.geometry.location.lng(),
                                 icon: 'https://maps.gstatic.com/consumer/images/icons/2x/place_grey650.png'
                             };
                             nearestAddress.push(address);
-                        }
+                        });
                         this.searchedAddress = nearestAddress;
                         resolve(this.searchedAddress);
                     } else {
@@ -63,14 +62,14 @@ export class GoogleMapService {
         }).then();
     }
 
-    getPlacePredictions(query: string): Promise<any> {
+    getQueryPredictions(query: string): Promise<any> {
         this.autocompleteService = new google.maps.places.AutocompleteService();
         const request = {
             input: query
         };
         let resultAddress: any[] = [];
         return new Promise((resolve, reject) => {
-            this.autocompleteService.getPlacePredictions(request, (options: any[], status: any) => {
+            this.autocompleteService.getQueryPredictions(request, (options: any[], status: any) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK && options.length > 0) {
                     options.map(element => {
                         const address = {
@@ -94,6 +93,7 @@ export class GoogleMapService {
     }
 
     getAddress(latitude: number, longitude: number): Promise<any> {
+        this.geoCoder = new google.maps.Geocoder();
         this.searchedAddress = [];
         return new Promise((resolve, reject) => {
             this.geoCoder.geocode({
@@ -149,7 +149,7 @@ export class GoogleMapService {
     }
 
     isLetter(value: string): boolean {
-        const letters = /^[A-Za-z]+$/;
+        const letters = /[a-z A-Z]/g;
         if (value && value.match(letters)) {
             return false;
         }

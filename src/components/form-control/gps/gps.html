@@ -10,7 +10,7 @@
                (ngModelChange)="onChange($event)"
                [matTooltip]="control.tooltip"
                [required]="control.isRequired">
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="searchAddress($event)">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedSearchAddress($event)">
             <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
                 <img class="example-option-img" aria-hidden [src]="address.icon" height="20">
                 <span>{{address.alias}}</span> 

@@ -46,6 +46,10 @@ export class AswGps implements OnInit {
         private googleMapService: GoogleMapService) { }
 
     async ngOnInit(): Promise<void> {
+        if (this.control?.latitude && this.control.longitude) {
+            const searchedAddress = await this.googleMapService.getAddress(Number(this.control?.latitude), Number(this.control.longitude));
+            this.control.value = searchedAddress[0].label;
+        }
         this.searchedAddress = await this.googleMapService.getNearestAddress();
         this.filteredAddress = this.searchedAddress;
     }
@@ -80,7 +84,7 @@ export class AswGps implements OnInit {
         });
     }
 
-    async searchAddress(searchedText: MatAutocompleteSelectedEvent): Promise<void> {
+    async selectedSearchAddress(searchedText: MatAutocompleteSelectedEvent): Promise<void> {
         let selectedAddress = this.searchedAddress.find(x => x.label === searchedText.option.value);
         if (!selectedAddress?.latitude && !selectedAddress?.longitude) {
             selectedAddress = await this.googleMapService.getDetails(selectedAddress);
@@ -93,8 +97,11 @@ export class AswGps implements OnInit {
     }
 
     async onChange(searchText: string): Promise<void> {
+        if (searchText.length > 50) {
+            return;
+        }
         if (searchText) {
-            this.searchedAddress = await this.googleMapService.getPlacePredictions(searchText);
+            this.searchedAddress = await this.googleMapService.getQueryPredictions(searchText);
             if (this.searchedAddress.length === 0) {
                 const isValidSearch = this.googleMapService.isLetter(searchText);
                 if (isValidSearch) {
@@ -105,7 +112,6 @@ export class AswGps implements OnInit {
                     this.gpsForm.control.setErrors({ searchAddress: true });
                     this.searchedAddress = [];
                 }
-
             }
             this.filteredAddress = this.searchedAddress;
         } else {
