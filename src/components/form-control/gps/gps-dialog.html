@@ -111,7 +111,7 @@
                                aria-label="location"
                                [matAutocomplete]="auto"
                                formControlName="value">
-                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="searchAddress($event)">
+                        <mat-autocomplete #auto="matAutocomplete">
                             <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
                                 <img class="example-option-img" aria-hidden [src]="address.icon" height="20">
                                 <span>{{address.alias}}</span> 

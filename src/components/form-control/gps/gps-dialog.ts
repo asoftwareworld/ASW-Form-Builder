@@ -40,25 +40,7 @@ export class AswGpsDialog implements OnInit {
             startWith(''),
             map(address => (address)),
         ).subscribe(async address => {
-            if (address) {
-                if (address.length < 50) {
-                    this.searchedAddress = await this.googleMapService.getQueryPredictions(address);
-                }
-                if (this.searchedAddress.length === 0) {
-                    const isValidSearch = this.googleMapService.isLetter(address);
-                    if (isValidSearch) {
-                        const lat = address.split(',')[0].trim();
-                        const lng = address.split(',')[1].trim();
-                        this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
-                    } else {
-                        this.searchedAddress = [];
-                        this.aswEditGpsForm.get('value')?.setErrors({ searchAddress: true });
-                    }
-                }
-                this.filteredAddress = this.searchedAddress;
-            } else {
-                this.filteredAddress = this.searchedAddress;
-            }
+            await this.searchAddressFromExitingData(address);
         });
     }
 
@@ -110,14 +92,42 @@ export class AswGpsDialog implements OnInit {
         }
     }
 
-    async searchAddress(searchedText: MatAutocompleteSelectedEvent): Promise<void> {
-        let selectedAddress = this.searchedAddress.find(x => x.label === searchedText.option.value);
-        if (!selectedAddress?.latitude && !selectedAddress?.longitude) {
-            selectedAddress = await this.googleMapService.getDetails(selectedAddress);
+    private async searchAddressFromExitingData(address: string): Promise<void> {
+        const filteredAddress = this.searchedAddress.find(x => x.label === address);
+        if (filteredAddress) {
+            await this.selectedAddress(filteredAddress);
+        } else {
+            await this.getAddressFromGoogleApi(address);
+        }
+    }
+
+    private async selectedAddress(filteredAddress: any): Promise<void> {
+        if (!filteredAddress?.latitude && !filteredAddress?.longitude) {
+            filteredAddress = await this.googleMapService.getDetails(filteredAddress);
         }
         this.aswEditGpsForm.patchValue({
-            latitude: selectedAddress.latitude,
-            longitude: selectedAddress.longitude,
+            latitude: filteredAddress.latitude,
+            longitude: filteredAddress.longitude,
         });
+    }
+
+    async getAddressFromGoogleApi(address: string): Promise<void> {
+        if (address) {
+            this.searchedAddress = await this.googleMapService.getQueryPredictions(address);
+            if (this.searchedAddress.length === 0) {
+                const isValidSearch = this.googleMapService.isLetter(address);
+                if (isValidSearch) {
+                    const lat = address.split(',')[0].trim();
+                    const lng = address.split(',')[1].trim();
+                    this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
+                } else {
+                    this.searchedAddress = [];
+                    this.aswEditGpsForm.get('value')?.setErrors({ searchAddress: true });
+                }
+            }
+            this.filteredAddress = this.searchedAddress;
+        } else {
+            this.filteredAddress = this.searchedAddress;
+        }
     }
 }

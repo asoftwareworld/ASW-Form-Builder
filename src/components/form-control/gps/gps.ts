@@ -84,33 +84,38 @@ export class AswGps implements OnInit {
         });
     }
 
-    async selectedSearchAddress(searchedText: MatAutocompleteSelectedEvent): Promise<void> {
-        let selectedAddress = this.searchedAddress.find(x => x.label === searchedText.option.value);
-        if (!selectedAddress?.latitude && !selectedAddress?.longitude) {
-            selectedAddress = await this.googleMapService.getDetails(selectedAddress);
-        }
-        if (this.control) {
-            this.control.latitude = selectedAddress.latitude;
-            this.control.longitude = selectedAddress.longitude;
-            this.control.value = selectedAddress.label;
+    async onChange(address: string): Promise<void> {
+        const filteredAddress = this.searchedAddress.find(x => x.label === address);
+        if (filteredAddress) {
+            await this.selectedAddress(filteredAddress);
+        } else {
+            await this.getAddressFromGoogleApi(address);
         }
     }
 
-    async onChange(searchText: string): Promise<void> {
-        if (searchText.length > 50) {
-            return;
+    private async selectedAddress(filteredAddress: any): Promise<void> {
+        if (!filteredAddress?.latitude && !filteredAddress?.longitude) {
+            filteredAddress = await this.googleMapService.getDetails(filteredAddress);
         }
-        if (searchText) {
-            this.searchedAddress = await this.googleMapService.getQueryPredictions(searchText);
+        if (this.control) {
+            this.control.latitude = filteredAddress.latitude;
+            this.control.longitude = filteredAddress.longitude;
+            this.control.value = filteredAddress.label;
+        }
+    }
+
+    async getAddressFromGoogleApi(address: string): Promise<void> {
+        if (address) {
+            this.searchedAddress = await this.googleMapService.getQueryPredictions(address);
             if (this.searchedAddress.length === 0) {
-                const isValidSearch = this.googleMapService.isLetter(searchText);
+                const isValidSearch = this.googleMapService.isLetter(address);
                 if (isValidSearch) {
-                    const lat = searchText.split(',')[0].trim();
-                    const lng = searchText.split(',')[1].trim();
+                    const lat = address.split(',')[0].trim();
+                    const lng = address.split(',')[1].trim();
                     this.searchedAddress = await this.googleMapService.getAddress(Number(lat), Number(lng));
                 } else {
-                    this.gpsForm.control.setErrors({ searchAddress: true });
                     this.searchedAddress = [];
+                    this.gpsForm.control.setErrors({ searchAddress: true });
                 }
             }
             this.filteredAddress = this.searchedAddress;
