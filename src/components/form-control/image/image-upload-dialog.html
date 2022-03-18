@@ -1,11 +1,11 @@
-<h4 mat-dialog-title>Edit Property</h4>
+<h4 mat-dialog-title>Crop Uploaded Image</h4>
 <mat-divider></mat-divider>
 <form [formGroup]="aswImageCropForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-2">
                 <div class="text-center btn-toolbar" role="toolbar" aria-label="Image controls toolbar">
-                    <div class="btn-group-sm" role="group" aria-label="toolbar">
+                    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="toolbar">
                         <button type="button" 
                             class="btn btn-outline-primary"
                             (click)="fileInput.click()"
@@ -159,9 +159,7 @@
                     <ng-content></ng-content>
                 </div> -->
             </div>
-        </div>        
-        <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <asw-image-crop
                 [imageChangedEvent]="imageChangedEvent"
                 [maintainAspectRatio]="true"
@@ -181,7 +179,29 @@
                 (loadImageFailed)="loadImageFailed()"
                 ></asw-image-crop>
             </div>
-        </div>
+        </div>        
+        <!-- <div class="row">
+            <div class="col-md-10">
+                <asw-image-crop
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [containWithinAspectRatio]="containWithinAspectRatio"
+                [aspectRatio]="1"
+                [resizeToWidth]="256"
+                [onlyScaleDown]="true" 
+                [roundCropper]="true"
+                [canvasRotation]="canvasRotation"
+                [transform]="transform"
+                [alignImage]="'center'"
+                [style.display]="showCropper ? null : 'none'"
+                format="png"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady($event)"
+                (loadImageFailed)="loadImageFailed()"
+                ></asw-image-crop>
+            </div>
+        </div> -->
         
     </mat-dialog-content>
     <mat-dialog-actions align="end">

@@ -46,7 +46,7 @@ export class AswGps implements OnInit {
         private googleMapService: GoogleMapService) { }
 
     async ngOnInit(): Promise<void> {
-        if (this.control?.latitude && this.control.longitude) {
+        if (this.control?.latitude && this.control.longitude && !this.control.value) {
             const searchedAddress = await this.googleMapService.getAddress(Number(this.control?.latitude), Number(this.control.longitude));
             this.control.value = searchedAddress[0].label;
         }
