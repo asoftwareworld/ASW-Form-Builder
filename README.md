@@ -1,14 +1,47 @@
-# ASW Form Builder
+<h1 align="center">ASW Form Builder - Design dynamic web forms.</h1>
 
-[![npm version](https://badge.fury.io/js/%40asoftwareworld%2Fform-builder.svg)](https://www.npmjs.com/package/@asoftwareworld/form-builder)
-[![Build status](https://circleci.com/gh/asoftwareworld/ASW-Form-Builder.svg?style=svg)](https://circleci.com/gh/asoftwareworld/ASW-Form-Builder)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE)
+<p align="center">
+  <img src="asw.png" alt="asw-logo" width="120px" height="120px"/>
+  <br>
+  <i>ASW Form Builder helps you with rapid development and designed web forms which includes several controls
+    <br> using Angular/Angular-Material and Bootstrap.</i>
+  <br>
+</p>
+
+<p align="center">
+  <a href="https://asoftwareworld.github.io/asw-demo/form-builder"><strong>https://asoftwareworld.github.io/asw-demo/form-builder</strong></a>
+  <br>
+</p>
+
+<p align="center">
+  <a href="CONTRIBUTING.md">Contributing Guidelines</a>
+  ·
+  <a href="https://github.com/asoftwareworld/ASW-Form-Builder/issues">Submit an Issue</a>
+  ·
+  <a href="https://asoftwareworld.github.io/asw-demo/">Blog</a>
+  <br>
+  <br>
+</p>
+
+<p align="center">
+  <a href="https://circleci.com/gh/asoftwareworld/ASW-Form-Builder">
+    <img src="https://badge.fury.io/js/%40asoftwareworld%2Fform-builder.svg" alt="CI status" />
+  </a>&nbsp;
+  <a href="https://www.npmjs.com/package/@asoftwareworld/form-builder">
+    <img src="https://circleci.com/gh/asoftwareworld/ASW-Form-Builder.svg?style=svg" alt="Asw form builder on npm" />
+  </a>&nbsp;
+  <a href="https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Discord conversation" />
+  </a>
+</p>
+
+<hr>
+
+# Documentation
 
 `ASW Form Builder` helps you with rapid development and designed web forms which includes several controls. The key feature of `Form Builder` is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.
 
 `Form Builder` is compatible with the latest version of Angular and Angular Material. Only a few clicks can create an attractive web form and provide a JSON Schema to render all controls.
-
-## [Live Demo](https://asoftwareworld.github.io/ASW-Form-Builder/#/)
 
 ## Installation
 Below are some prerequisites before install `Form Builder`.
@@ -161,6 +194,10 @@ LinkedIn: <https://in.linkedin.com/company/asoftwareworld>
 
 Facebook: <https://www.facebook.com/asoftwaresworld>
 
+(https://github.com/asoftwareworld/ASW-Form-Builder)
+
+**Love ASW Form Builder? Give our repo a star :star: :arrow_up:.**
+
 ## Donate
 <a href="https://paypal.me/asoftwaresworld?locale.x=en_GB"><img src="blue.svg" height="40"></a>  
-If you found value in `ASW Form Builder` or a contributor helped you out of a jam, consider becoming a contributor yourself.
+If this project help you reduce time to develop, you can give me a cup of coffee :)
