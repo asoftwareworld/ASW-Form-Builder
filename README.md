@@ -118,6 +118,7 @@ and Bootstrap [more information](https://getbootstrap.com/docs/4.0/getting-start
 | controls        | description                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | Header          | Headings are defined with the `<h1> to <h6>` tags. Used as a title of the post, template and resume, etc.       |
+| Image Upload    | Upload image with crop, zoom in, zoom out, reset, rotate, swap etc. features.                                   |
 | Autocomplete    | The autocomplete is a normal text input enhanced by a panel of suggested relevant options as the user types.    |
 | Textbox         | Enable native inputs to be used within a form field. The styles such as the underline, floating label.          |
 | Text area       | Enable native inputs to be used within a form field. The styles such as the underline, floating label.          |
@@ -130,8 +131,8 @@ and Bootstrap [more information](https://getbootstrap.com/docs/4.0/getting-start
 | Paragraph       | Paragraphs are the building blocks of papers.                                                                   |
 | Divider         | Create a horizontal or vertical line styled with a Angular Material theme                                       |
 | Slide toggle    | Is an on/off control that can be toggled via clicking and draggable switch.                                     |
-| Grid            | **Coming soon**                                                                                                 |
-| Material icon   | **Coming soon**                                                                                                 |
+| Grid            | Configure bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content.   |
+| GPS             | Add google map key in [index.html](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/src/index.html) file to use GPS feature.|
 
 
 ## Browser Support
