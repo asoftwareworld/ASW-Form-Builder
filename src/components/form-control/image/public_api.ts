@@ -8,4 +8,5 @@
 
 export * from './image';
 export * from './image-upload-dialog';
+export * from './image-dialog';
 export * from './image.module';

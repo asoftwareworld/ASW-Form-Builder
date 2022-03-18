@@ -35,6 +35,13 @@ export class AswImageUploadDialog implements OnInit {
         public dialogRef: MatDialogRef<AswImageUploadDialog>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
+    ngOnInit(): void {
+        this.validateFormBuilder();
+        this.editProperty(this.control);
+        this.croppedImage = this.control.imageUrl;
+        this.imageChangedEvent = this.control.event;
+    }
+
     fileChangeEvent(event: any): void {
         this.isImageLoaded = true;
         this.imageChangedEvent = event;
@@ -51,11 +58,9 @@ export class AswImageUploadDialog implements OnInit {
 
     imageLoaded(): void {
         this.showCropper = true;
-        console.log('Image loaded');
     }
 
     cropperReady(sourceImageDimensions: Dimensions): void {
-        console.log('Cropper ready', sourceImageDimensions);
         this.isImageLoaded = false;
     }
 
@@ -148,13 +153,6 @@ export class AswImageUploadDialog implements OnInit {
         });
     }
 
-    ngOnInit(): void {
-        this.validateFormBuilder();
-        this.editProperty(this.control);
-        this.croppedImage = this.control.imageUrl;
-        this.imageChangedEvent = this.control.event;
-    }
-
     editProperty(control: any): void {
         if (control.event) { this.isImageLoaded = false; }
         this.aswImageCropForm.setValue({
@@ -169,6 +167,8 @@ export class AswImageUploadDialog implements OnInit {
         this.aswImageCropForm.value.displayName = this.control.displayName;
         this.aswImageCropForm.value.controlType = this.control.controlType;
         this.aswImageCropForm.value.label = this.control.label;
+        this.aswImageCropForm.value.class = this.control.class;
+        this.aswImageCropForm.value.column = this.control.column;
         this.aswImageCropForm.value.imageUrl = this.croppedImage;
         this.aswImageCropForm.value.event = this.imageChangedEvent;
         this.dialogRef.close(this.aswImageCropForm.value);
