@@ -1,13 +1,13 @@
 .mat-calendar-body-selected {
     &,
     &:hover {
-        background-color: $brand-primary;
+        background-color: #03a9f4;
         color: #fff;
-        @include shadow-big-color($brand-primary);
+        box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(3 169 244 / 40%);
     }
 }
 .mat-datepicker-toggle-active {
-    color: $brand-primary;
+    color: #03a9f4;
 }
 
 .mat-calendar-body-cell {
@@ -16,7 +16,7 @@
 			>.mat-calendar-body-cell-content {
 				&:not(.mat-calendar-body-selected) {
 					&:not(.mat-calendar-body-comparison-identical) {
-						background-color: $light-blue-50;
+						background-color: #e1f5fe;
 					}
 				}
 			}
@@ -28,7 +28,7 @@
 		>.mat-calendar-body-cell-content {
 			&:not(.mat-calendar-body-selected) {
 				&:not(.mat-calendar-body-comparison-identical) {
-					background-color: $light-blue-50;
+					background-color: #e1f5fe;
 				}
 			}
 		}
@@ -39,7 +39,7 @@
 		>.mat-calendar-body-cell-content {
 			&:not(.mat-calendar-body-selected) {
 				&:not(.mat-calendar-body-comparison-identical) {
-					background-color: $light-blue-50;
+					background-color: #e1f5fe;
 				}
 			}
 		}

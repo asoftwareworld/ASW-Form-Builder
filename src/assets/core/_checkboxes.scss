@@ -3,11 +3,11 @@
         border-width: 1px;
     }
     .mat-pseudo-checkbox-checked {
-        background: $transparent;
-        border-color: $mdb-checkbox-border-color !important;
+        background: transparent;
+        border-color: rgba(0,0,0, .54) !important;
         &:after {
-            color: $mdb-checkbox-checked-color;
-            stroke: $mdb-checkbox-checked-color !important;
+            color: #03a9f4;
+            stroke: #03a9f4 !important;
             top: 3.5px;
             width: 10px;
             left: 2px
@@ -17,7 +17,7 @@
 .mat-primary {
 	.mat-option.mat-selected {
 		&:not(.mat-option-disabled) {
-			color: $mdb-checkbox-checked-color;
+			color: #03a9f4;
 		}
 	}
 }
@@ -28,14 +28,14 @@
         .mat-checkbox-inner-container {
             .mat-checkbox-frame {
                 border-width: 1px;
-                border-color: $mdb-checkbox-border-color;
+                border-color: rgba(0,0,0, .54);
             }
             .mat-checkbox-background {
-                background: $transparent;
+                background: transparent;
             }
             .mat-checkbox-checkmark-path {
-                background: $mdb-checkbox-checked-color;
-                stroke: $mdb-checkbox-checked-color !important;
+                background: #03a9f4;
+                stroke: #03a9f4 !important;
             }
         }
     }
@@ -66,7 +66,7 @@
 .mat-checkbox-checked {
 	&:not(.mat-checkbox-disabled).mat-accent {
 		.mat-ripple-element {
-			background: $light-blue-50;
+			background: #e1f5fe;
 		}
 	}
 }
@@ -74,12 +74,8 @@
 	&:active {
 		&:not(.mat-checkbox-disabled).mat-accent {
 			.mat-ripple-element {
-				background: $light-blue-50;
+				background: #e1f5fe;
 			}
 		}
 	}
-}
-
-.asw-padding-top {
-    padding-top: 20px;
 }

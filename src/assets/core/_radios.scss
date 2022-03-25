@@ -2,23 +2,6 @@
     display: flex;
     flex-direction: column;
 }
-
-@mixin radio-color($color, $opacity) {
-    & ~ .check,
-    & ~ .circle  {
-      opacity: $opacity;
-    }
-  
-    & ~ .check {
-      background-color: $color;
-    }
-  
-    & ~ .circle  {
-      border-color: $color;
-    }
-}
-  
-
   
 .mat-radio-button {
     .mat-radio-container {
@@ -33,7 +16,7 @@
         .mat-radio-inner-circle {
             height: 16px;
             width: 16px;
-            background-color: $mdb-radio-color-on;
+            background-color: #03a9f4;
         }
         .mat-radio-ripple {
             opacity: 0;
@@ -42,7 +25,7 @@
     &.mat-accent {
         &.mat-radio-checked {
             .mat-radio-outer-circle {
-                border-color: $mdb-radio-color-on;
+                border-color: #03a9f4;
             }
             .mat-radio-inner-circle {
                 transform: scale3d(0.65, 0.65, 1);
@@ -52,11 +35,11 @@
     &.mat-radio-disabled {
         &.mat-accent {
             .mat-radio-outer-circle{
-                border-color: $black;
+                border-color: #000;
                 opacity: .26;
             }
             .mat-radio-inner-circle{
-                background-color: $black;
+                background-color: #000;
                 opacity: .26;
             }
         }

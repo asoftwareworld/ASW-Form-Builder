@@ -1,25 +1,11 @@
- @import "./../../node_modules/@angular/material/prebuilt-themes/indigo-pink";
+@import "./../../node_modules/@angular/material/prebuilt-themes/indigo-pink";
+@import "./../../node_modules/bootstrap/scss/bootstrap";
 
- @import "core/variables";
- @import "core/mixins";
- @import "./../../node_modules/bootstrap/scss/bootstrap";
-
-
- // Core Components
- @import "core/buttons";
- @import "core/forms";
- @import "core/images";
- @import "core/icon";
- @import "core/radios";
- @import "core/checkboxes";
- @import "core/datetime-picker";
- @import "core/type"; 
- @import "core/tooltip";
- @import "core/misc";
-
-@import "core/cards";
-@import "core/cards/card-stats";
-@import "core/cards/card-profile";
-@import "core/cards/card-plain";
-
- @import "core/responsive";
+// Core Components
+@import "core/buttons";
+@import "core/forms";
+@import "core/images";
+@import "core/icon";
+@import "core/radios";
+@import "core/checkboxes";
+@import "core/datetime-picker";

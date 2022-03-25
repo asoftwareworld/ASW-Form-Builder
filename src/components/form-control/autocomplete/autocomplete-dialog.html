@@ -80,7 +80,7 @@
                 <div class="row" 
                     *ngFor="let option of options.controls; let index = index; let last=last;" 
                     [formGroupName]="index">
-                    <div class="col-md-1 asw-padding-top">
+                    <div class="col-md-1 mt-3">
                         <mat-radio-group formControlName="key">
                             <mat-radio-button  
                             [value]="option.value.key"
@@ -133,16 +133,16 @@
                                 matTooltip="Add option" 
                                 [matTooltipPosition]="'above'"
                                 (click)="addNewOption()" 
-                                class="btn btn-sm btn-outline-success btn-just-icon mr-2 mb-1">
-                            <i class="material-icons">add_circle_outline</i>
+                                class="asw-btn btn btn-sm btn-outline-success btn-just-icon mr-2 mt-3">
+                            <i class="material-icons asw-material-icon">add_circle_outline</i>
                         </button>
                         <button mat-raised-button *ngIf="index != 0"
                                 type="button" 
                                 matTooltip="Remove option" 
                                 [matTooltipPosition]="'above'" 
                                 (click)="removeOption(index)"
-                                class="btn btn-sm btn-just-icon btn-outline-danger mb-1">
-                            <i class="material-icons">remove_circle_outline</i>
+                                class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mt-3">
+                            <i class="material-icons asw-material-icon">remove_circle_outline</i>
                         </button>
                     </div>
                 </div> 
