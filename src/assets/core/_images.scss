@@ -67,7 +67,7 @@
 //     }
 // }
 
-.avatar-wrapper{
+.asw-avatar-wrapper{
 	position: relative;
 	height: 152px;
 	width: 152px;
@@ -80,10 +80,10 @@
 		transform: scale(1.05);
 		cursor: pointer;
 	}
-	&:hover .profile-pic{
+	&:hover .asw-profile-pic{
 		opacity: .5;
 	}
-	.profile-pic {
+	.asw-profile-pic {
     height: 100%;
 		width: 100%;
 		transition: all .3s ease;
@@ -100,7 +100,7 @@
 			text-align: center;
 		}
 	}
-	.upload-button {
+	.asw-upload-button {
 		position: absolute;
 		top: 0; left: 0;
 		height: 100%;
