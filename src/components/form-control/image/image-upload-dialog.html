@@ -4,10 +4,10 @@
     <mat-dialog-content class="mat-typography">
         <div class="row">
             <div class="col-md-2">
-                <div class="text-center btn-toolbar" role="toolbar" aria-label="Image controls toolbar">
-                    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="toolbar">
+                <div class="text-center btn-toolbar mt-2" role="toolbar" aria-label="Image controls toolbar">
+                    <div class="btn-group-vertical" role="group" aria-label="toolbar">
                         <button type="button" 
-                            class="btn btn-outline-primary"
+                            class="asw-btn btn btn-outline-primary"
                             (click)="fileInput.click()"
                             matTooltip="Load image" 
                             *ngIf="isImageLoaded">
@@ -17,81 +17,81 @@
                                     (change)="fileChangeEvent($event)"
                                     id="imageUpload" 
                                     accept=".png, .jpg, .jpeg">
-                            <i class="material-icons btn-selector">attach_file</i>
+                            <i class="asw-material-icon material-icons btn-selector">attach_file</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary"
+                                class="asw-btn btn btn-outline-primary"
                                 matTooltip="Remove image"
                                 matTooltipPosition="right"
                                 *ngIf="!isImageLoaded" 
                                 (click)="removeImage()">
-                            <i class="material-icons btn-selector">clear</i>
+                            <i class="asw-material-icon material-icons btn-selector">clear</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary" 
+                                class="asw-btn btn btn-outline-primary" 
                                 [disabled]="isImageLoaded" 
                                 matTooltip="Left rotate"
                                 matTooltipPosition="right"
                                 (click)="rotateLeft()">
-                            <i class="material-icons btn-selector">rotate_left</i>
+                            <i class="asw-material-icon material-icons btn-selector">rotate_left</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary" 
+                                class="asw-btn btn btn-outline-primary" 
                                 matTooltip="Right rotate"
                                 matTooltipPosition="right"
                                 [disabled]="isImageLoaded" 
                                 (click)="rotateRight()">
-                            <i class="material-icons btn-selector">rotate_right</i>
+                            <i class="asw-material-icon material-icons btn-selector">rotate_right</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary"
+                                class="asw-btn btn btn-outline-primary"
                                 matTooltip="Swap horizontal"
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="flipHorizontal()">
-                            <i class="material-icons btn-selector">swap_horiz</i>
+                            <i class="asw-material-icon material-icons btn-selector">swap_horiz</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary"
+                                class="asw-btn btn btn-outline-primary"
                                 matTooltip="Swap vertical"
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="flipVertical()">
-                            <i class="material-icons btn-selector">swap_vert</i>
+                            <i class="asw-material-icon material-icons btn-selector">swap_vert</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary" 
+                                class="asw-btn btn btn-outline-primary" 
                                 matTooltip="{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}"
                                 matTooltipPosition="right"
                                 [disabled]="isImageLoaded" 
                                 (click)="toggleContainWithinAspectRatio()">
-                            <i class="material-icons btn-selector">
+                            <i class="asw-material-icon material-icons btn-selector">
                                 {{containWithinAspectRatio?'crop_free':'crop_din'}}
                             </i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary" 
+                                class="asw-btn btn btn-outline-primary" 
                                 [disabled]="isImageLoaded"
                                 matTooltip="Reset image"
                                 matTooltipPosition="right" 
                                 (click)="resetImage()">
-                            <i class="material-icons btn-selector">refresh</i>
+                            <i class="asw-material-icon material-icons btn-selector">refresh</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary"
+                                class="asw-btn btn btn-outline-primary"
                                 matTooltip="Zoom out"
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="zoomOut()">
-                            <i class="material-icons btn-selector">zoom_out</i>
+                            <i class="asw-material-icon material-icons btn-selector">zoom_out</i>
                         </button>
                         <button type="button" 
-                                class="btn btn-outline-primary"
+                                class="asw-btn btn btn-outline-primary"
                                 matTooltip="Zoom in"
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="zoomIn()">
-                            <i class="material-icons btn-selector">zoom_in</i>
+                            <i class="asw-material-icon material-icons btn-selector">zoom_in</i>
                         </button>
                     </div>
                 </div>

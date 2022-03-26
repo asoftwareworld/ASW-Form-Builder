@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-12 text-right">
-        <button type="button"
-                class="btn btn-primary btn-sm mr-1"
+        <button type="button" *ngIf="isShowPreviewButton"
+                class="btn btn-primary btn-sm mr-1 mb-2"
                 (click)="previewTemplate()">Preview</button>
-        <button type="button" 
-                class="btn btn-secondary btn-sm mr-1"
+        <button type="button" *ngIf="isShowJsonDataButton"
+                class="btn btn-secondary btn-sm mr-1 mb-2"
                 (click)="previewJsonData()">Json Data</button>
-        <button class="btn btn-success btn-sm"
-                type="button" 
+        <button class="btn btn-success btn-sm mb-2"
+                type="button" *ngIf="isShowPublishButton"
                 (click)="publishTemplate()">Publish</button>
     </div>
 </div>

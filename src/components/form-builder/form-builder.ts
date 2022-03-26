@@ -7,7 +7,7 @@
  */
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { AswJsonPreviewDialog } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
@@ -22,6 +22,9 @@ export class AswFormBuilder implements OnInit {
     constants: any = Constants;
     availableControls: any[] = [];
     formContainer: any[] = [];
+    @Input() isShowPreviewButton = true;
+    @Input() isShowJsonDataButton = true;
+    @Input() isShowPublishButton = true;
 
     @Output() previewClick = new EventEmitter<any[]>();
     @Output() publishClick = new EventEmitter<any[]>();
