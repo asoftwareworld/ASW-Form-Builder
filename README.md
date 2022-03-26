@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://asoftwareworld.github.io/asw-demo/form-builder"><strong>https://asoftwareworld.github.io/asw-demo/form-builder</strong></a>
+  <a href="https://asoftwareworld.github.io/form-builder"><strong>https://asoftwareworld.github.io/form-builder</strong></a>
   <br>
 </p>
 
@@ -18,7 +18,7 @@
   ·
   <a href="https://github.com/asoftwareworld/ASW-Form-Builder/issues">Submit an Issue</a>
   ·
-  <a href="https://asoftwareworld.github.io/asw-demo/">Blog</a>
+  <a href="https://asoftwareworld.github.io/form-builder">Blog</a>
   <br>
   <br>
 </p>
