@@ -1,5 +1,5 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field [appearance]="control.style">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field">
         <mat-label>{{control.label}}</mat-label>
         <mat-select [placeholder]="control.label" 
             [(ngModel)]="control.value"                    

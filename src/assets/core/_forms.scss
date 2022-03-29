@@ -11,9 +11,6 @@
         }
     }
 }
-.mat-form-field {
-    display: block !important;
-}
   
 .has-success {
     .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
@@ -50,7 +47,8 @@
     }
 }
 
-.mat-form-field {
+.asw-mat-form-field {
+    display: block !important;
     width: 100%;
 }
 
