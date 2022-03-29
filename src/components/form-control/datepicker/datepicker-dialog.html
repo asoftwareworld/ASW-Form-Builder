@@ -9,10 +9,10 @@
                         <mat-label>Label</mat-label>
                         <input matInput type="text" name="label" placeholder="Enter label" matTooltip="Enter label"
                             formControlName="label" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error"
                                 *ngIf="aswDatepickerForm.get('label')?.hasError(validation.type) && (aswDatepickerForm.get('label')?.dirty || aswDatepickerForm.get('label')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon>
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -32,10 +32,10 @@
                         <mat-label>Name</mat-label>
                         <input matInput type="text" name="name" placeholder="Enter name" matTooltip="Enter name"
                             formControlName="name" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
+                            <mat-error class="asw-mat-error"
                                 *ngIf="aswDatepickerForm.get('name')?.hasError(validation.type) && (aswDatepickerForm.get('name')?.dirty || aswDatepickerForm.get('name')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon>
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>

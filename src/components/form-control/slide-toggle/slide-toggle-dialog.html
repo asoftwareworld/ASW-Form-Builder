@@ -12,9 +12,9 @@
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
                                         formControlName="label" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditSlideToggleForm.get('label')?.hasError(validation.type) && (aswEditSlideToggleForm.get('label')?.dirty || aswEditSlideToggleForm.get('label')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditSlideToggleForm.get('label')?.hasError(validation.type) && (aswEditSlideToggleForm.get('label')?.dirty || aswEditSlideToggleForm.get('label')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>

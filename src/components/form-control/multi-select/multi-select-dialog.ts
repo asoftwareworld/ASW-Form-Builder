@@ -19,7 +19,6 @@ import { MultiSelectControl } from './multi-select-control';
 export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
     aswEditCheckboxForm: FormGroup;
-    optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswMultiSelectDialog>,

@@ -11,9 +11,9 @@
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
                                         formControlName="label" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -36,9 +36,9 @@
                                         placeholder="Enter name"
                                         matTooltip="Enter name"
                                         formControlName="name" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error *ngIf="aswEditRadioButtonForm.get('name')?.hasError(validation.type) && (aswEditRadioButtonForm.get('name')?.dirty || aswEditRadioButtonForm.get('name')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('name')?.hasError(validation.type) && (aswEditRadioButtonForm.get('name')?.dirty || aswEditRadioButtonForm.get('name')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -89,13 +89,10 @@
                                     (keyup)="onKey($event, index)"
                                     pattern="^[a-z0-9_-]{1,50}$"
                                     required>
-                                <mat-error *ngFor="let validation of constants.accountValidationMessages.key">
-                                    <mat-error *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
-                                        <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                                <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.key">
+                                    <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
+                                        <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                                     </mat-error>
-                                </mat-error>
-                                <mat-error>
-                                    {{optionKeyMessage}}
                                 </mat-error>
                         </mat-form-field>
                     </div>
@@ -109,9 +106,9 @@
                                     minlength="1"
                                     maxlength="999"
                                     required>
-                                <mat-error *ngFor="let validation of constants.accountValidationMessages.value">
-                                    <mat-error *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
-                                        <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                                <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.value">
+                                    <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
+                                        <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                                     </mat-error>
                                 </mat-error>
                         </mat-form-field>

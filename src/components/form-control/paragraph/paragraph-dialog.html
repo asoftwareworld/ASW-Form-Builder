@@ -11,9 +11,9 @@
                                         placeholder="Enter Content"
                                         matTooltip="Enter Content"
                                         formControlName="label" required></textarea>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswParagraphForm.get('label')?.hasError(validation.type) && (aswParagraphForm.get('label')?.dirty || aswParagraphForm.get('label')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error" *ngIf="aswParagraphForm.get('label')?.hasError(validation.type) && (aswParagraphForm.get('label')?.dirty || aswParagraphForm.get('label')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -36,16 +36,16 @@
                     Text style: 
                     <mat-button-toggle-group formControlName="style" name="fontStyle" aria-label="Font Style">
                         <mat-button-toggle value="text-left" aria-label="Text align left">
-                            <mat-icon>format_align_left</mat-icon>
+                            <mat-icon class="asw-mat-icon">format_align_left</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-center" aria-label="Text align center">
-                            <mat-icon>format_align_center</mat-icon>
+                            <mat-icon class="asw-mat-icon">format_align_center</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-right" aria-label="Text align right">
-                            <mat-icon>format_align_right</mat-icon>
+                            <mat-icon class="asw-mat-icon">format_align_right</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-justify" aria-label="Text align justify">
-                            <mat-icon>format_align_justify</mat-icon>
+                            <mat-icon class="asw-mat-icon">format_align_justify</mat-icon>
                         </mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>

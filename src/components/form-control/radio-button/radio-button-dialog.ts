@@ -20,7 +20,6 @@ import { RadioButtonControl } from './radio-button-control';
 export class AswRadioButtonDialog implements OnInit {
     constants: any = Constants;
     aswEditRadioButtonForm: FormGroup;
-    optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswRadioButtonDialog>,

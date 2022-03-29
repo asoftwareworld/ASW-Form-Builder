@@ -17,13 +17,13 @@
                 <small> {{address.addressName}}</small>
             </mat-option>
         </mat-autocomplete>
-        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error *ngIf="input?.errors?.required">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 {{control.label}} is required
             </mat-error>
-            <mat-error *ngIf="input?.errors?.searchAddress">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.searchAddress">
+                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 Sorry, {{control.value}} did not found.
             </mat-error>
         </mat-error>

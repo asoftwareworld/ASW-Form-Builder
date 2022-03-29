@@ -12,9 +12,9 @@
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
                                         formControlName="label" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditButtonForm.get('label')?.hasError(validation.type) && (aswEditButtonForm.get('label')?.dirty || aswEditButtonForm.get('label')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditButtonForm.get('label')?.hasError(validation.type) && (aswEditButtonForm.get('label')?.dirty || aswEditButtonForm.get('label')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -37,9 +37,9 @@
                                 placeholder="Enter name"
                                 matTooltip="Enter name"
                                 formControlName="name" required>
-                <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                    <mat-error *ngIf="aswEditButtonForm.get('name')?.hasError(validation.type) && (aswEditButtonForm.get('name')?.dirty || aswEditButtonForm.get('name')?.touched)">
-                        <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
+                    <mat-error class="asw-mat-error" *ngIf="aswEditButtonForm.get('name')?.hasError(validation.type) && (aswEditButtonForm.get('name')?.dirty || aswEditButtonForm.get('name')?.touched)">
+                        <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                     </mat-error>
                 </mat-error>
             </mat-form-field>

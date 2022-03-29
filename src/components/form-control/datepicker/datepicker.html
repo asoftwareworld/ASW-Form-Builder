@@ -9,9 +9,9 @@
                         [required]="control.isRequired">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error *ngIf="input?.errors?.required">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 {{control.label}} is required
             </mat-error>
         </mat-error>

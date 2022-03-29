@@ -12,9 +12,9 @@
                                         placeholder="Enter label"
                                         matTooltip="Enter label"
                                         formControlName="label" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error *ngIf="aswEditGpsForm.get('label')?.hasError(validation.type) && (aswEditGpsForm.get('label')?.dirty || aswEditGpsForm.get('label')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon> 
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('label')?.hasError(validation.type) && (aswEditGpsForm.get('label')?.dirty || aswEditGpsForm.get('label')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -40,9 +40,9 @@
                                         placeholder="Enter name"
                                         matTooltip="Enter name"
                                         formControlName="name" required>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error *ngIf="aswEditGpsForm.get('name')?.hasError(validation.type) && (aswEditGpsForm.get('name')?.dirty || aswEditGpsForm.get('name')?.touched)">
-                                <mat-icon aria-hidden="false">error</mat-icon>
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('name')?.hasError(validation.type) && (aswEditGpsForm.get('name')?.dirty || aswEditGpsForm.get('name')?.touched)">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
                                  {{validation.message}}
                                 </mat-error>
                         </mat-error>
@@ -118,9 +118,9 @@
                                 <small> {{address.addressName}}</small>
                             </mat-option>
                         </mat-autocomplete>
-                        <mat-error *ngFor="let validation of constants.accountValidationMessages.searchAddress">
-                            <mat-error *ngIf="aswEditGpsForm.get('value')?.errors?.searchAddress">
-                                <mat-icon aria-hidden="false">error</mat-icon> {{validation.message}}
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.searchAddress">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('value')?.errors?.searchAddress">
+                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>

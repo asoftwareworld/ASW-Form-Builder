@@ -11,13 +11,13 @@
                         [minlength]="control.minlength"
                         [required]="control.isRequired">
         <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>
-        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error *ngIf="input?.errors?.required">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 {{control.label}} is required
             </mat-error>
-            <mat-error *ngIf="input?.errors?.minlength">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.minlength">
+                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 Sorry, {{control.label}} must be at least {{control.minlength}} characters long.
             </mat-error>
         </mat-error>
