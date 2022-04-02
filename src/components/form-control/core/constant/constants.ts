@@ -63,6 +63,57 @@ function getConstatnts(): any {
         ]
     };
 
+    const columns = [
+        {
+            value: 'col-md-1',
+            label: 'Column 1'
+        },
+        {
+            value: 'col-md-2',
+            label: 'Column 2'
+        },
+        {
+            value: 'col-md-3',
+            label: 'Column 3'
+        },
+        {
+            value: 'col-md-4',
+            label: 'Column 4'
+        },
+        {
+            value: 'col-md-5',
+            label: 'Column 5'
+        },
+        {
+            value: 'col-md-6',
+            label: 'Column 6'
+        },
+        {
+            value: 'col-md-7',
+            label: 'Column 7'
+        },
+        {
+            value: 'col-md-8',
+            label: 'Column 8'
+        },
+        {
+            value: 'col-md-9',
+            label: 'Column 9'
+        },
+        {
+            value: 'col-md-10',
+            label: 'Column 10'
+        },
+        {
+            value: 'col-md-11',
+            label: 'Column 11'
+        },
+        {
+            value: 'col-md-12',
+            label: 'Column 12'
+        }
+    ];
+
     const dataTypes = {
         dataTypeString: 'string',
         dataTypeNumber: 'number',
@@ -100,7 +151,8 @@ function getConstatnts(): any {
         dataTypes,
         matchPattern,
         notificationMessage,
-        messages
+        messages,
+        columns
     };
 
     return applicationConstants;
