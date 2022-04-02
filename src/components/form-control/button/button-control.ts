@@ -10,4 +10,5 @@ import { Control } from '@asoftwareworld/form-builder/form-control/core';
 export interface ButtonControl extends Control {
     color: string;
     type: string;
+    column?: string;
 }

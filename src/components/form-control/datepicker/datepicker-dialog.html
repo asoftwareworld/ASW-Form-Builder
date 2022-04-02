@@ -12,7 +12,6 @@
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
                             <mat-error class="asw-mat-error"
                                 *ngIf="aswDatepickerForm.get('label')?.hasError(validation.type) && (aswDatepickerForm.get('label')?.dirty || aswDatepickerForm.get('label')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -35,7 +34,6 @@
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
                             <mat-error class="asw-mat-error"
                                 *ngIf="aswDatepickerForm.get('name')?.hasError(validation.type) && (aswDatepickerForm.get('name')?.dirty || aswDatepickerForm.get('name')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -95,7 +93,7 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button type="button" class="btn btn-danger mr-2 mb-1" (click)="onNoClick()">
+        <button mat-raised-button type="button" class="btn btn-danger mr-2 mb-1 me-2" (click)="onNoClick()">
             No
         </button>
         <button mat-raised-button type="submit" class="btn btn-primary mb-1" cdkFocusInitial>

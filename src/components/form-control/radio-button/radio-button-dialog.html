@@ -13,7 +13,7 @@
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
                             <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -38,7 +38,7 @@
                                         formControlName="name" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
                             <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('name')?.hasError(validation.type) && (aswEditRadioButtonForm.get('name')?.dirty || aswEditRadioButtonForm.get('name')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -91,7 +91,7 @@
                                     required>
                                 <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.key">
                                     <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
-                                        <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                        {{validation.message}}
                                     </mat-error>
                                 </mat-error>
                         </mat-form-field>
@@ -108,7 +108,7 @@
                                     required>
                                 <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.value">
                                     <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
-                                        <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                        {{validation.message}}
                                     </mat-error>
                                 </mat-error>
                         </mat-form-field>
@@ -119,7 +119,7 @@
                                 matTooltip="Add option" 
                                 [matTooltipPosition]="'above'"
                                 (click)="addNewOption()" 
-                                class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 mt-3">
+                                class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mt-3">
                             <i class="material-icons asw-material-icon">add_circle_outline</i>
                         </button>
                         <button mat-raised-button *ngIf="index != 0"
@@ -148,7 +148,7 @@
     <mat-dialog-actions align="end">
         <button mat-raised-button
                 type="button"
-                class="btn btn-danger mr-2 mb-1"
+                class="btn btn-danger mr-2 me-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>

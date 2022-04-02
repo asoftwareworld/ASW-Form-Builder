@@ -11,7 +11,6 @@
         <mat-datepicker #picker></mat-datepicker>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
-                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 {{control.label}} is required
             </mat-error>
         </mat-error>
@@ -23,7 +22,7 @@
                     matTooltip="Edit datepicker control" 
                     [matTooltipPosition]="'above'" 
                     (click)="editDatepickerDialog(control, controlIndex)"
-                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 me-2 mb-1">
                 <i class="material-icons asw-material-icon">edit</i>
             </button>
             <button mat-raised-button 

@@ -1,9 +1,14 @@
+// .asw-list {
+//     border: solid 1px #ccc;
+//     min-height: 630px;
+//     background: white;
+//     border-radius: 4px;
+//     overflow: hidden;
+//     display: block;
+// }
 .asw-list {
-    border: solid 1px #ccc;
-    min-height: 630px;
-    background: white;
+    min-height: 595px;
     border-radius: 4px;
-    overflow: hidden;
     display: block;
 }
 
@@ -40,8 +45,4 @@
 
 .asw-list.cdk-drop-list-dragging .asw-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.mat-form-field {
-  display: block !important;
 }

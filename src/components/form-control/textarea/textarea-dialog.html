@@ -14,7 +14,7 @@
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
                             <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('label')?.hasError(validation.type) && (aswEditTextAreaForm.get('label')?.dirty || aswEditTextAreaForm.get('label')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -41,7 +41,6 @@
                                         formControlName="name" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
                             <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('name')?.hasError(validation.type) && (aswEditTextAreaForm.get('name')?.dirty || aswEditTextAreaForm.get('name')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -106,9 +105,8 @@
                                         formControlName="minlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.minlength">
                             <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('minlength')?.hasError(validation.type)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
                                 {{validation.message}}
-                                </mat-error>
+                            </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -125,7 +123,7 @@
                                         formControlName="maxlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.maxlength">
                             <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('maxlength')?.hasError(validation.type)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -145,7 +143,7 @@
     <mat-dialog-actions align="end">
         <button mat-raised-button
                 type="button"
-                class="btn btn-danger mr-2 mb-1"
+                class="btn btn-danger mr-2 me-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>

@@ -19,11 +19,9 @@
         </mat-autocomplete>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
-                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 {{control.label}} is required
             </mat-error>
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.searchAddress">
-                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 Sorry, {{control.value}} did not found.
             </mat-error>
         </mat-error>
@@ -35,7 +33,7 @@
                     matTooltip="Edit gps control" 
                     [matTooltipPosition]="'above'" 
                     (click)="editGpsDialog(control, controlIndex)"
-                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
                 <i class="material-icons asw-material-icon">edit</i>
             </button>
             <button mat-raised-button 

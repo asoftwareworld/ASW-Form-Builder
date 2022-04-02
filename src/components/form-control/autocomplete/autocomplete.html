@@ -17,7 +17,6 @@
         </mat-autocomplete>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
-                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                 {{control.label}} is required
             </mat-error>
         </mat-error>
@@ -30,7 +29,7 @@
                         matTooltip="Edit autocomplete control" 
                         [matTooltipPosition]="'above'" 
                         (click)="editAutocompleteDialog(control, controlIndex)"
-                        class="asw-btn btn btn-sm btn-outline-success btn-just-icon mr-2 mb-1">
+                        class="asw-btn btn btn-sm btn-outline-success btn-just-icon mr-2 mb-1 me-2">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
                 <button mat-raised-button 

@@ -14,7 +14,7 @@
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
                             <mat-error class="asw-mat-error" *ngIf="aswHeaderForm.get('label')?.hasError(validation.type) && (aswHeaderForm.get('label')?.dirty || aswHeaderForm.get('label')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -37,13 +37,13 @@
                 <div class="col-md-6">
                     Text style:
                     <mat-button-toggle-group formControlName="style" name="fontStyle" aria-label="Font Style">
-                        <mat-button-toggle value="text-left" aria-label="Text align left">
+                        <mat-button-toggle value="text-left text-start" aria-label="Text align left">
                             <mat-icon class="asw-mat-icon">format_align_left</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-center" aria-label="Text align center">
                             <mat-icon class="asw-mat-icon">format_align_center</mat-icon>
                         </mat-button-toggle>
-                        <mat-button-toggle value="text-right" aria-label="Text align right">
+                        <mat-button-toggle value="text-right text-end" aria-label="Text align right">
                             <mat-icon class="asw-mat-icon">format_align_right</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-justify" aria-label="Text align justify">
@@ -78,7 +78,7 @@
     <mat-dialog-actions align="end">
         <button mat-raised-button
                 type="button"
-                class="btn btn-danger mr-2 mb-1"
+                class="btn btn-danger mr-2 mb-1 me-2"
                 (click)="onNoClick()">
             No
         </button>

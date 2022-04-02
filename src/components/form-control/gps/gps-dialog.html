@@ -14,7 +14,6 @@
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
                             <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('label')?.hasError(validation.type) && (aswEditGpsForm.get('label')?.dirty || aswEditGpsForm.get('label')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> 
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -42,9 +41,8 @@
                                         formControlName="name" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
                             <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('name')?.hasError(validation.type) && (aswEditGpsForm.get('name')?.dirty || aswEditGpsForm.get('name')?.touched)">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon>
-                                 {{validation.message}}
-                                </mat-error>
+                                {{validation.message}}
+                            </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -120,7 +118,7 @@
                         </mat-autocomplete>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.searchAddress">
                             <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('value')?.errors?.searchAddress">
-                                <mat-icon class="asw-mat-icon" aria-hidden="false">error</mat-icon> {{validation.message}}
+                                {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -140,7 +138,7 @@
     <mat-dialog-actions align="end">
         <button mat-raised-button
                 type="button"
-                class="btn btn-danger mr-2 mb-1"
+                class="btn btn-danger mr-2 mb-1 me-2"
                 (click)="onNoClick()">
             No
         </button>

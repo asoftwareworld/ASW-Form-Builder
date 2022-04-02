@@ -30,8 +30,9 @@
                     [type]="control.type"
                     [title]="control.tooltip"
                     [name]="control.name"
-                    [title]="control.tooltip"
-                    >{{control.label}}</button>
+                    [title]="control.tooltip">
+                {{control.label}}
+            </button>
         </ng-container>
     </ng-container>
     <ng-template [ngIf]="isPreviewTemplate">
@@ -41,7 +42,7 @@
                         matTooltip="Edit button" 
                         [matTooltipPosition]="'above'" 
                         (click)="editButtonDialog(control, controlIndex)"
-                        class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+                        class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
                 <button type="button" 
