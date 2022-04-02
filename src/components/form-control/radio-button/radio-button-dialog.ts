@@ -20,13 +20,12 @@ import { RadioButtonControl } from './radio-button-control';
 export class AswRadioButtonDialog implements OnInit {
     constants: any = Constants;
     aswEditRadioButtonForm: FormGroup;
-    optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswRadioButtonDialog>,
                 @Inject(MAT_DIALOG_DATA) public control: RadioButtonControl) {
         this.aswEditRadioButtonForm = this.formBuilder.group({
-            tooltip: ['', [Validators.required]],
+            tooltip: [''],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             options: this.formBuilder.array([this.createOption()]),

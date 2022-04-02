@@ -1,5 +1,5 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field [appearance]="control.style">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field">
         <mat-label>{{control.label}}</mat-label>
         <mat-select [placeholder]="control.label" 
             [matTooltip]="control.tooltip"
@@ -10,9 +10,8 @@
                 {{ option.value }}
             </mat-option>
         </mat-select>
-        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error *ngIf="input?.errors?.required">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required
             </mat-error>
         </mat-error>
@@ -25,7 +24,7 @@
                         matTooltip="Edit select control" 
                         [matTooltipPosition]="'above'" 
                         (click)="editSelectDialog(control, controlIndex)"
-                        class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 mb-1">
+                        class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mb-1">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
                 <button mat-raised-button 

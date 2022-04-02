@@ -1,5 +1,5 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field [appearance]="control.style">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field">
         <mat-label>{{control.label}}</mat-label>
         <input matInput [matDatepicker]="picker" 
                         #input="ngModel"
@@ -9,9 +9,8 @@
                         [required]="control.isRequired">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error *ngIf="input?.errors?.required">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required
             </mat-error>
         </mat-error>
@@ -23,7 +22,7 @@
                     matTooltip="Edit datepicker control" 
                     [matTooltipPosition]="'above'" 
                     (click)="editDatepickerDialog(control, controlIndex)"
-                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1">
+                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 me-2 mb-1">
                 <i class="material-icons asw-material-icon">edit</i>
             </button>
             <button mat-raised-button 

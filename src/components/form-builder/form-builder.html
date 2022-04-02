@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="col-md-12 text-right">
+    <div class="col-md-12 text-right float-right text-end">
         <button type="button" *ngIf="isShowPreviewButton"
-                class="btn btn-primary btn-sm mr-1 mb-2"
+                class="btn btn-primary btn-sm mr-1 mb-2 me-1"
                 (click)="previewTemplate()">Preview</button>
         <button type="button" *ngIf="isShowJsonDataButton"
-                class="btn btn-secondary btn-sm mr-1 mb-2"
+                class="btn btn-secondary btn-sm mr-1 mb-2 me-1"
                 (click)="previewJsonData()">Json Data</button>
-        <button class="btn btn-success btn-sm mb-2"
+        <button class="btn btn-success btn-sm mb-2 me-1"
                 type="button" *ngIf="isShowPublishButton"
                 (click)="publishTemplate()">Publish</button>
     </div>
@@ -19,9 +19,13 @@
                 <div cdkDropList
                     [cdkDropListData]="availableControls"
                     class="asw-list">
-                    <div class="asw-box" *ngFor="let item of availableControls" cdkDrag>
-                        <mat-icon aria-hidden="false">{{item.icon}}</mat-icon>
-                        {{item.displayName}}
+                    <div class="row">
+                        <ng-container *ngFor="let item of availableControls">
+                            <div class="asw-box col-md-12" cdkDrag>
+                                <i class="asw-mat-icon material-icons" aria-hidden="false">{{item.icon}}</i>
+                                {{item.displayName}}
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>
@@ -33,9 +37,9 @@
                 <h4 class="card-title mb-3">Drop Area</h4>
                 <div cdkDropList
                     [cdkDropListData]="formContainer"
-                    class="asw-list col-md-12"
+                    class="asw-list"
                     (cdkDropListDropped)="drop($event)">
-                    <div class="row col-md-12">
+                    <div class="row">
                         <ng-container *ngFor="let control of formContainer; let i = index">
                             <div class="asw-box" [ngClass]="control.column" cdkDrag>
                                 <ng-container [ngSwitch]="control.controlType" class="asw-full-width">

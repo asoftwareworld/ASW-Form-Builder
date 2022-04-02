@@ -25,7 +25,7 @@ export class AswCheckboxDialog implements OnInit {
                 public dialogRef: MatDialogRef<AswCheckboxDialog>,
                 @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
                     this.aswEditCheckboxForm = this.formBuilder.group({
-                        tooltip: ['', [Validators.required]],
+                        tooltip: [''],
                         label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
                         name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
                         options: this.formBuilder.array([this.createOption()]),

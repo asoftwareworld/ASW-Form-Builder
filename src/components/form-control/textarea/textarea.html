@@ -1,5 +1,5 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field hintLabel="Max {{control.maxlength}} characters" [appearance]="control.style">
+    <mat-form-field hintLabel="Max {{control.maxlength}} characters" [appearance]="control.style" class="asw-mat-form-field">
         <mat-label>{{control.label}}</mat-label>
         <textarea matInput [name]="control.name"
                         type="text"
@@ -11,13 +11,11 @@
                         [minlength]="control.minlength"
                         [required]="control.isRequired"></textarea>
         <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>  
-        <mat-error *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error *ngIf="input?.errors?.required">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required
             </mat-error>
-            <mat-error *ngIf="input?.errors?.minlength">
-                <mat-icon aria-hidden="false">error</mat-icon> 
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.minlength">
                 Sorry, {{control.label}} must be at least {{control.minlength}} characters long.
             </mat-error>
         </mat-error>
@@ -30,7 +28,7 @@
                         matTooltip="Edit textarea control" 
                         [matTooltipPosition]="'above'" 
                         (click)="editTextAreaDialog(control, controlIndex)"
-                        class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 mb-1">
+                        class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mb-1">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
                 <button mat-raised-button 

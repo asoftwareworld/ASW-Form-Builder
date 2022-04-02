@@ -2,7 +2,7 @@
     <div class="col-md-12 text-right">
         <button mat-raised-button 
                 type="button"
-                class="btn btn-default btn-sm">Download Pdf
+                class="btn btn-secondary btn-sm float-end mb-2">Download Pdf
         </button>                
     </div>
 </div>
@@ -10,7 +10,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <div class="row col-md-12">
+                <div class="row">
                     <ng-container *ngFor="let control of formContainer; let i = index">
                         <ng-container [ngSwitch]="control.controlType" class="asw-full-width">
                             <div [ngClass]="control.column">
@@ -84,6 +84,11 @@
                                     <asw-slide-toggle [control]="control"
                                                         [controlIndex]="i">
                                     </asw-slide-toggle>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'gps'">
+                                    <asw-gps [control]="control"
+                                                [controlIndex]="i">
+                                    </asw-gps>
                                 </ng-container>
                             </div>
                         </ng-container>
