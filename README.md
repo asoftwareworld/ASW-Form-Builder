@@ -115,7 +115,8 @@ If you are not using the Angular CLI, you can include a theme via a `<link>` ele
 ## Add a selector to HTML
 In your template, use the component selector:
 ```
-<asw-form-builder [isShowPreviewButton]="isShowPreviewButton"
+<asw-form-builder [uploadData]="jsonData1"
+                  [isShowPreviewButton]="isShowPreviewButton"
                   [isShowJsonDataButton]="isShowJsonDataButton"
                   [isShowPublishButton]="isShowPublishButton"
                   (publishClick)="saveJsonData($event)"
@@ -131,7 +132,8 @@ Define in your component to get published event :
 ```
 export class AppComponent {
   title = 'ASW Form Builder Demo';
-  jsonData:any[]=[];
+  jsonData: any[] = [];
+  jsonData1: any[] = [];
   isShowPreviewButton = false;
   isShowJsonDataButton = true;
   isShowPublishButton = false;
