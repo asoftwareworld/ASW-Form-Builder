@@ -7,7 +7,7 @@
  */
 
 export interface ParagraphControl {
-    controlType: string;
+    controlType?: string;
     subtype: string;
     style: string;
     label: string;

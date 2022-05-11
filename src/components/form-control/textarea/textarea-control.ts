@@ -5,9 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
-import { Control, ControlLength } from '@asoftwareworld/form-builder/form-control/core';
+import { Control, ControlLength, StyleControl } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface TextareaControl extends Control, ControlLength {
+export interface TextareaControl extends Control, ControlLength, StyleControl {
     value: string;
     column?: string;
 }

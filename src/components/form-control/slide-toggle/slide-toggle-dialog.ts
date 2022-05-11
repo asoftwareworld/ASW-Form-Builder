@@ -31,7 +31,7 @@ export class AswSlideToggleDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditSlideToggleForm = this.formBuilder.group({
-            label: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(1)]],
             color: [],
             value: [false],
             column: [],

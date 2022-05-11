@@ -34,7 +34,8 @@ export class AswImageDialog implements OnInit {
             label: ['', [Validators.required, Validators.minLength(5)]],
             column: [],
             class: [],
-            imageUrl: []
+            imageUrl: [],
+            imageShape: []
         });
     }
 
@@ -43,7 +44,8 @@ export class AswImageDialog implements OnInit {
             label: control.label,
             class: control.class,
             column: control.column,
-            imageUrl: control.imageUrl
+            imageUrl: control.imageUrl,
+            imageShape: control.imageShape
         });
     }
 

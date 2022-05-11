@@ -170,6 +170,7 @@ export class AswImageUploadDialog implements OnInit {
         this.aswImageCropForm.value.class = this.control.class;
         this.aswImageCropForm.value.column = this.control.column;
         this.aswImageCropForm.value.imageUrl = this.croppedImage;
+        this.aswImageCropForm.value.imageShape = this.control.imageShape;
         this.aswImageCropForm.value.event = this.imageChangedEvent;
         this.dialogRef.close(this.aswImageCropForm.value);
     }

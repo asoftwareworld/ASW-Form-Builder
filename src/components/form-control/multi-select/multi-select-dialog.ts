@@ -18,12 +18,12 @@ import { MultiSelectControl } from './multi-select-control';
 })
 export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
-    aswEditCheckboxForm: FormGroup;
+    aswEditMultiselectForm: FormGroup;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswMultiSelectDialog>,
                 @Inject(MAT_DIALOG_DATA) public control: MultiSelectControl) {
-        this.aswEditCheckboxForm = this.formBuilder.group({
+        this.aswEditMultiselectForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
@@ -39,7 +39,7 @@ export class AswMultiSelectDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditCheckboxForm.get('options') as FormArray;
+        return this.aswEditMultiselectForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
@@ -63,32 +63,33 @@ export class AswMultiSelectDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditCheckboxForm.invalid) {
+        if (this.aswEditMultiselectForm.invalid) {
             return;
         }
         const value: string[] = [];
-        this.aswEditCheckboxForm.value.options.forEach((element: any) => {
+        this.aswEditMultiselectForm.value.options.forEach((element: any) => {
             if (element.isChecked) {
                 value.push(element.key);
             }
         });
-        this.aswEditCheckboxForm.value.value = value;
-        this.aswEditCheckboxForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditCheckboxForm.value);
+        this.aswEditMultiselectForm.value.value = value;
+        this.aswEditMultiselectForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditMultiselectForm.value);
     }
 
     setValue(control: MultiSelectControl): void {
-        this.aswEditCheckboxForm.patchValue({
+        this.aswEditMultiselectForm.patchValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
             style: control.style,
             isRequired: control.isRequired,
-            column: control.column
+            column: control.column,
+            value: control.value,
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditCheckboxForm.setControl('options', optionFormArray);
+        this.aswEditMultiselectForm.setControl('options', optionFormArray);
     }
 
     onChange(event: any): void {

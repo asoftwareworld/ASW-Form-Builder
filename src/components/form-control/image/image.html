@@ -1,10 +1,13 @@
-<div class="asw-avatar-wrapper {{control.class}}">
-	<img class="asw-profile-pic" src="{{control.imageUrl}}" />
-	<div class="asw-upload-button" (click)="uploadImageDialog(control, controlIndex)">
-		<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-	</div>
-	<span class="file-upload" ></span>
+<div class="asw-avatar-wrap {{control.class}}">
+    <div class="{{control.imageShape}}">
+        <img class="asw-profile-pic" src="{{control.imageUrl}}" />	
+        <span class="file-upload" ></span>
+    </div>
+    <div class="asw-upload-button">
+        <i class="fa fa-camera" aria-hidden="true" (click)="uploadImageDialog(control, controlIndex)"></i>
+    </div>
 </div>
+
 <div class="row" *ngIf="isPreviewTemplate">
   <div class="col-md-12">
       <button mat-raised-button 

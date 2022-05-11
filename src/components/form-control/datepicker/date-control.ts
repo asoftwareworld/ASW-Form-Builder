@@ -5,9 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
-import { Control } from '@asoftwareworld/form-builder/form-control/core';
+import { Control, StyleControl } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface DateControl extends Control {
+export interface DateControl extends Control, StyleControl {
     value: string;
     column?: string;
 }

@@ -1,6 +1,6 @@
 <h4 mat-dialog-title>Edit autocomplete property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditRadioButtonForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditAutocompleteForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width"><br>
             <div class="row">
@@ -12,7 +12,7 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditAutocompleteForm.get('label')?.hasError(validation.type) && (aswEditAutocompleteForm.get('label')?.dirty || aswEditAutocompleteForm.get('label')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -49,7 +49,7 @@
                                         matTooltip="Enter name"
                                         formControlName="name" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('name')?.hasError(validation.type) && (aswEditRadioButtonForm.get('name')?.dirty || aswEditRadioButtonForm.get('name')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditAutocompleteForm.get('name')?.hasError(validation.type) && (aswEditAutocompleteForm.get('name')?.dirty || aswEditAutocompleteForm.get('name')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>

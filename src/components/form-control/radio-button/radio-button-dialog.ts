@@ -26,7 +26,7 @@ export class AswRadioButtonDialog implements OnInit {
                 @Inject(MAT_DIALOG_DATA) public control: RadioButtonControl) {
         this.aswEditRadioButtonForm = this.formBuilder.group({
             tooltip: [''],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(4)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false],
@@ -45,7 +45,7 @@ export class AswRadioButtonDialog implements OnInit {
     createOption(): FormGroup {
         return this.formBuilder.group({
             key: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
-            value: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(999)]],
+            value: ['', [Validators.required, Validators.minLength(1)]],
             isChecked: [false]
         });
     }
