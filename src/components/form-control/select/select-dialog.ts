@@ -19,13 +19,13 @@ import { SelectControl } from './select-control';
 })
 export class AswSelectDialog implements OnInit {
     constants: any = Constants;
-    aswEditRadioButtonForm: FormGroup;
+    aswEditSelectForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswSelectDialog>,
                 @Inject(MAT_DIALOG_DATA) public control: SelectControl) {
-        this.aswEditRadioButtonForm = this.formBuilder.group({
+        this.aswEditSelectForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
@@ -41,7 +41,7 @@ export class AswSelectDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditRadioButtonForm.get('options') as FormArray;
+        return this.aswEditSelectForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
@@ -65,20 +65,20 @@ export class AswSelectDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditRadioButtonForm.invalid) {
+        if (this.aswEditSelectForm.invalid) {
             return;
         }
-        this.aswEditRadioButtonForm.value.options.forEach((element: any) => {
+        this.aswEditSelectForm.value.options.forEach((element: any) => {
             if (element.isChecked) {
-                this.aswEditRadioButtonForm.value.value = element.key;
+                this.aswEditSelectForm.value.value = element.key;
             }
         });
-        this.aswEditRadioButtonForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditRadioButtonForm.value);
+        this.aswEditSelectForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditSelectForm.value);
     }
 
     setValue(control: SelectControl): void {
-        this.aswEditRadioButtonForm.patchValue({
+        this.aswEditSelectForm.patchValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
@@ -89,7 +89,7 @@ export class AswSelectDialog implements OnInit {
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditRadioButtonForm.setControl('options', optionFormArray);
+        this.aswEditSelectForm.setControl('options', optionFormArray);
     }
 
     onChange(event: any): void {
@@ -114,6 +114,6 @@ export class AswSelectDialog implements OnInit {
         });
         const optionFormGroup = this.options.controls.map((option: any) => this.formBuilder.group(option.value));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditRadioButtonForm.setControl('options', optionFormArray);
+        this.aswEditSelectForm.setControl('options', optionFormArray);
     }
 }

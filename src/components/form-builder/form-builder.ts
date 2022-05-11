@@ -14,14 +14,15 @@ import { AswJsonPreviewDialog } from '@asoftwareworld/form-builder/form-control/
 import { CONTROLS } from './default-controls';
 
 @Component({
-  selector: 'asw-form-builder',
-  templateUrl: './form-builder.html',
-  styleUrls: ['./form-builder.scss']
+    selector: 'asw-form-builder',
+    templateUrl: './form-builder.html',
+    styleUrls: ['./form-builder.scss']
 })
 export class AswFormBuilder implements OnInit {
     constants: any = Constants;
     availableControls: any[] = [];
     formContainer: any[] = [];
+    @Input() uploadData: any[] = [];
     @Input() isShowPreviewButton = true;
     @Input() isShowJsonDataButton = true;
     @Input() isShowPublishButton = true;
@@ -33,6 +34,9 @@ export class AswFormBuilder implements OnInit {
 
     ngOnInit(): void {
         this.availableControls = CONTROLS;
+        if (this.uploadData.length) {
+            this.formContainer = this.uploadData;
+        }
     }
 
     drop(event: CdkDragDrop<string[]>): void {
@@ -40,9 +44,9 @@ export class AswFormBuilder implements OnInit {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else {
             transferArrayItem(JSON.parse(JSON.stringify(event.previousContainer.data)),
-                            event.container.data,
-                            event.previousIndex,
-                            event.currentIndex);
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex);
         }
     }
 

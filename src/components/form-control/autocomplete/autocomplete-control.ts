@@ -5,9 +5,9 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
-import { Control, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
+import { Control, ControlOption, StyleControl } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface AutoCompleteControl extends Control {
+export interface AutoCompleteControl extends Control, StyleControl {
     value: string;
     options: ControlOption[];
     column?: string;

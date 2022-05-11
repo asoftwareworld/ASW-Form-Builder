@@ -11,4 +11,5 @@ export interface ButtonControl extends Control {
     color: string;
     type: string;
     column?: string;
+    style: string;
 }

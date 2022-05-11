@@ -10,6 +10,9 @@ export interface Control {
     name: string;
     tooltip: string;
     label: string;
-    style: 'legacy' | 'standard' | 'fill' | 'outline';
     isRequired: boolean;
+}
+
+export interface StyleControl {
+    style: 'legacy' | 'standard' | 'fill' | 'outline';
 }

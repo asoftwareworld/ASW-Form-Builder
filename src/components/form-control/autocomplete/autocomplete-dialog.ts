@@ -19,13 +19,13 @@ import { AutoCompleteControl } from './autocomplete-control';
 })
 export class AswAutocompleteDialog implements OnInit {
     constants: any = Constants;
-    aswEditRadioButtonForm: FormGroup;
+    aswEditAutocompleteForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswAutocompleteDialog>,
                 @Inject(MAT_DIALOG_DATA) public control: AutoCompleteControl) {
-        this.aswEditRadioButtonForm = this.formBuilder.group({
+        this.aswEditAutocompleteForm = this.formBuilder.group({
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
@@ -41,7 +41,7 @@ export class AswAutocompleteDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditRadioButtonForm.get('options') as FormArray;
+        return this.aswEditAutocompleteForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
@@ -65,20 +65,20 @@ export class AswAutocompleteDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditRadioButtonForm.invalid) {
+        if (this.aswEditAutocompleteForm.invalid) {
             return;
         }
-        this.aswEditRadioButtonForm.value.options.forEach((element: any) => {
+        this.aswEditAutocompleteForm.value.options.forEach((element: any) => {
             if (element.isChecked) {
-                this.aswEditRadioButtonForm.value.value = element.key;
+                this.aswEditAutocompleteForm.value.value = element.key;
             }
         });
-        this.aswEditRadioButtonForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditRadioButtonForm.value);
+        this.aswEditAutocompleteForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditAutocompleteForm.value);
     }
 
     setValue(control: AutoCompleteControl): void {
-        this.aswEditRadioButtonForm.patchValue({
+        this.aswEditAutocompleteForm.patchValue({
             tooltip: control.tooltip,
             label: control.label,
             name: control.name,
@@ -89,7 +89,7 @@ export class AswAutocompleteDialog implements OnInit {
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditRadioButtonForm.setControl('options', optionFormArray);
+        this.aswEditAutocompleteForm.setControl('options', optionFormArray);
     }
 
     onChange(event: any): void {
@@ -114,6 +114,6 @@ export class AswAutocompleteDialog implements OnInit {
         });
         const optionFormGroup = this.options.controls.map((option: any) => this.formBuilder.group(option.value));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditRadioButtonForm.setControl('options', optionFormArray);
+        this.aswEditAutocompleteForm.setControl('options', optionFormArray);
     }
 }
