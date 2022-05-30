@@ -1,11 +1,6 @@
-// .asw-list {
-//     border: solid 1px #ccc;
-//     min-height: 630px;
-//     background: white;
-//     border-radius: 4px;
-//     overflow: hidden;
-//     display: block;
-// }
+h2 {
+    margin: 0;
+}
 .asw-list {
     min-height: 595px;
     border-radius: 4px;
@@ -23,6 +18,30 @@
     cursor: move;
     background: white;
     font-size: 14px;
+}
+.alert {
+    padding: 0.4rem 0.4rem !important;
+    margin-bottom: 0.4rem !important;
+    
+}
+.asw-alert-primary {
+    color: #fff !important;
+    background-color: #2780e3 !important;
+    border-color: #2780e3 !important;
+    cursor: move;
+}
+
+.asw-card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.asw-alert-info {
+    color: #502c61 !important;
+    background-color: #ebddf1 !important;
+    border-color: #e2cfec !important;
 }
 
 .cdk-drag-preview {

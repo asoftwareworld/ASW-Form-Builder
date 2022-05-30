@@ -7,7 +7,7 @@
  */
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { AswJsonPreviewDialog } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
@@ -18,10 +18,11 @@ import { CONTROLS } from './default-controls';
     templateUrl: './form-builder.html',
     styleUrls: ['./form-builder.scss']
 })
-export class AswFormBuilder implements OnInit {
+export class AswFormBuilder implements OnInit, OnChanges {
     constants: any = Constants;
     availableControls: any[] = [];
     formContainer: any[] = [];
+    viewInitialized = false;
     @Input() uploadData: any[] = [];
     @Input() isShowPreviewButton = true;
     @Input() isShowJsonDataButton = true;
@@ -34,6 +35,9 @@ export class AswFormBuilder implements OnInit {
 
     ngOnInit(): void {
         this.availableControls = CONTROLS;
+    }
+
+    ngOnChanges(): void {
         if (this.uploadData.length) {
             this.formContainer = this.uploadData;
         }

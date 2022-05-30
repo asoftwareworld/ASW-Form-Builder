@@ -14,16 +14,20 @@
 <div class="row" cdkDropListGroup>
     <div class="col-md-3">
         <div class="card">
+            <h2 class="asw-card-header">
+                Controls
+            </h2>
             <div class="card-body">
-                <h4 class="card-title mb-3">Controls</h4>
                 <div cdkDropList
                     [cdkDropListData]="availableControls"
                     class="asw-list">
                     <div class="row">
                         <ng-container *ngFor="let item of availableControls">
-                            <div class="asw-box col-md-12" cdkDrag>
-                                <i class="asw-mat-icon material-icons" aria-hidden="false">{{item.icon}}</i>
-                                {{item.displayName}}
+                            <div class="col-md-12">
+                                <div class="alert alert-primary asw-alert-primary" cdkDrag>
+                                    <i class="asw-mat-icon material-icons" aria-hidden="false">{{item.icon}}</i>
+                                    {{item.displayName}}
+                                </div>
                             </div>
                         </ng-container>
                     </div>
@@ -32,9 +36,9 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div class="card">            
-            <div class="card-body">
-                <h4 class="card-title mb-3">Drop Area</h4>
+        <div class="card">
+            <h2 class="asw-card-header text-center alert-info asw-alert-info">Drag and Drop a form component</h2>
+            <div class="card-body">                
                 <div cdkDropList
                     [cdkDropListData]="formContainer"
                     class="asw-list"
