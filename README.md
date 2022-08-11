@@ -1,7 +1,7 @@
 <h1 align="center">ASW Form Builder - Design dynamic web forms.</h1>
 
 <p align="center">
-  <img src="asw.png" alt="asw-logo" width="100px" height="100px"/>
+  <img src="asw.svg" alt="asw-logo" width="100px" height="100px"/>
   <br>
   <i>ASW Form Builder helps you with rapid development and designed web forms which includes several controls
     <br> using Angular/Angular-Material and Bootstrap.</i>
