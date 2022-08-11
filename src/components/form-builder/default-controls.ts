@@ -30,6 +30,7 @@ export const CONTROLS = [
         }
     },
     {
+        id: '1',
         icon: 'corporate_fare',
         displayName: 'Autocomplete',
         controlType: 'autocomplete',
@@ -40,26 +41,28 @@ export const CONTROLS = [
         style: 'outline',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: false},
-            {key: 'option-2', value: 'Option 2', isChecked: false},
-            {key: 'option-3', value: 'Option 3', isChecked: false}
+            { key: 'option-1', value: 'Option 1', isChecked: false },
+            { key: 'option-2', value: 'Option 2', isChecked: false },
+            { key: 'option-3', value: 'Option 3', isChecked: false }
         ]
     },
     {
-      icon: 'text_fields',
-      displayName: 'Textbox',
-      controlType: 'textbox',
-      name: 'Textbox',
-      tooltip: 'Enter Text',
-      value: '',
-      label: 'TextBox',
-      style: 'outline',
-      column: 'col-md-12',
-      isRequired: false,
-      maxlength: 50,
-      minlength: 0
+        id: '1',
+        icon: 'text_fields',
+        displayName: 'Textbox',
+        controlType: 'textbox',
+        name: 'Textbox',
+        tooltip: 'Enter Text',
+        value: '',
+        label: 'TextBox',
+        style: 'outline',
+        column: 'col-md-12',
+        isRequired: false,
+        maxlength: 50,
+        minlength: 0
     },
     {
+        id: '1',
         icon: 'notes',
         displayName: 'Text Area',
         controlType: 'textarea',
@@ -74,6 +77,7 @@ export const CONTROLS = [
         minlength: 0
     },
     {
+        id: '1',
         icon: 'event',
         displayName: 'Datepicker',
         controlType: 'datepicker',
@@ -86,6 +90,7 @@ export const CONTROLS = [
         isRequired: false
     },
     {
+        id: '1',
         icon: 'arrow_drop_down_circle',
         displayName: 'Select',
         controlType: 'select',
@@ -97,12 +102,13 @@ export const CONTROLS = [
         value: '',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: false},
-            {key: 'option-2', value: 'Option 2', isChecked: false},
-            {key: 'option-3', value: 'Option 3', isChecked: false}
+            { key: 'option-1', value: 'Option 1', isChecked: false },
+            { key: 'option-2', value: 'Option 2', isChecked: false },
+            { key: 'option-3', value: 'Option 3', isChecked: false }
         ]
     },
     {
+        id: '1',
         icon: 'storage',
         displayName: 'Multi Select',
         controlType: 'multi-select',
@@ -114,12 +120,13 @@ export const CONTROLS = [
         style: 'outline',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: false},
-            {key: 'option-2', value: 'Option 2', isChecked: false},
-            {key: 'option-3', value: 'Option 3', isChecked: false}
+            { key: 'option-1', value: 'Option 1', isChecked: false },
+            { key: 'option-2', value: 'Option 2', isChecked: false },
+            { key: 'option-3', value: 'Option 3', isChecked: false }
         ]
     },
     {
+        id: '1',
         icon: 'radio_button_checked',
         displayName: 'Radio Button',
         controlType: 'radio',
@@ -130,12 +137,13 @@ export const CONTROLS = [
         column: 'col-md-12',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: false},
-            {key: 'option-2', value: 'Option 2', isChecked: false},
-            {key: 'option-3', value: 'Option 3', isChecked: false}
+            { key: 'option-1', value: 'Option 1', isChecked: false },
+            { key: 'option-2', value: 'Option 2', isChecked: false },
+            { key: 'option-3', value: 'Option 3', isChecked: false }
         ]
     },
     {
+        id: '1',
         icon: 'check_box',
         displayName: 'Checkbox',
         controlType: 'checkbox',
@@ -145,12 +153,13 @@ export const CONTROLS = [
         column: 'col-md-12',
         isRequired: false,
         options: [
-            {key: 'option-1', value: 'Option 1', isChecked: false},
-            {key: 'option-2', value: 'Option 2', isChecked: false},
-            {key: 'option-3', value: 'Option 3', isChecked: false}
+            { key: 'option-1', value: 'Option 1', isChecked: false },
+            { key: 'option-2', value: 'Option 2', isChecked: false },
+            { key: 'option-3', value: 'Option 3', isChecked: false }
         ]
     },
     {
+        id: '1',
         icon: 'touch_app',
         displayName: 'Button',
         controlType: 'button',
@@ -164,6 +173,7 @@ export const CONTROLS = [
         isRequired: false
     },
     {
+        id: '1',
         icon: 'format_textdirection_l_to_r',
         displayName: 'Paragraph',
         controlType: 'paragraph',
@@ -179,6 +189,7 @@ export const CONTROLS = [
         column: 'col-md-12'
     },
     {
+        id: '1',
         icon: 'toggle_on',
         displayName: 'Slide Toggle',
         controlType: 'slide-toggle',
@@ -189,13 +200,14 @@ export const CONTROLS = [
         isRequired: false
     },
     {
+        id: '1',
         icon: 'location_on',
         displayName: 'GPS',
         controlType: 'gps',
         name: 'gps',
         label: 'Gps',
         tooltip: 'Enter Location',
-        latitude : '',
+        latitude: '',
         longitude: '',
         style: 'outline',
         column: 'col-md-12',

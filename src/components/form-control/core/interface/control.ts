@@ -6,11 +6,13 @@
  * found in the LICENSE file
  */
 export interface Control {
+    id: string;
     controlType?: string;
     name: string;
     tooltip: string;
     label: string;
     isRequired: boolean;
+    customClass?: string;
 }
 
 export interface StyleControl {
