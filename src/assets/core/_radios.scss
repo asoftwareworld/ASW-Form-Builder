@@ -35,11 +35,11 @@
     &.mat-radio-disabled {
         &.mat-accent {
             .mat-radio-outer-circle{
-                border-color: #000;
+                border-color: #000 !important;
                 opacity: .26;
             }
             .mat-radio-inner-circle{
-                background-color: #000;
+                background-color: #000 !important;
                 opacity: .26;
             }
         }

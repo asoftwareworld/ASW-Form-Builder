@@ -2,7 +2,6 @@
     <mat-label>{{control.label}}</mat-label>
     <div *ngFor="let option of control.options">
         <mat-checkbox color="primary"
-                    [id]="control.id"
                     [class]="control.customClass"
                     [matTooltip]="option.value"
                     [(ngModel)]="option.isChecked"

@@ -31,8 +31,10 @@ export class AswButton {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
+    @Output() buttonClickEvent = new EventEmitter<string>();
+
     @Output() buttonUpdateEvent = new EventEmitter<{control: ButtonControl, index: number}>();
-    @Output() buttonDeleteEvent = new EventEmitter<number>();
+    @Output() buttonDeleteEvent = new EventEmitter();
 
     constructor(public dialog: MatDialog) { }
 
@@ -64,5 +66,9 @@ export class AswButton {
                 this.buttonUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    buttonClick(): void {
+        this.buttonClickEvent.emit();
     }
 }

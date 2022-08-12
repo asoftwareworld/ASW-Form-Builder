@@ -67,7 +67,8 @@
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'button'">
                                     <asw-button [control]="control"
-                                                [controlIndex]="i">
+                                                [controlIndex]="i"
+                                                (buttonClickEvent)="buttonClicked()">
                                     </asw-button>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'paragraph'">

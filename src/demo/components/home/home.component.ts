@@ -53,6 +53,10 @@ export class HomeComponent implements OnInit {
         this.aswSettingsService.previewData = data;
         this.router.navigate(['preview-template']);
     }
+
+    buttonClick(data: any): void {
+        console.log(data);
+    }
 }
 
 const USERNAME: any =

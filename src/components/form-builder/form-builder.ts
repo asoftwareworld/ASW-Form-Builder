@@ -31,6 +31,8 @@ export class AswFormBuilder implements OnInit, OnChanges {
     @Output() previewClick = new EventEmitter<any[]>();
     @Output() publishClick = new EventEmitter<any[]>();
 
+    @Output() buttonClick = new EventEmitter<any[]>();
+
     constructor(public dialog: MatDialog) { }
 
     ngOnInit(): void {
@@ -77,5 +79,9 @@ export class AswFormBuilder implements OnInit, OnChanges {
 
     publishTemplate(): void {
         this.publishClick.emit(this.formContainer);
+    }
+
+    buttonClicked(): void {
+        this.buttonClick.emit(this.formContainer);
     }
 }

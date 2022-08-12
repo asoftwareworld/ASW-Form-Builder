@@ -26,7 +26,6 @@ export class AswCheckboxDialog implements OnInit {
         public dialogRef: MatDialogRef<AswCheckboxDialog>,
         @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
         this.aswEditCheckboxForm = this.formBuilder.group({
-            id: ['', [Validators.required]],
             customClass: [],
             tooltip: [''],
             label: ['', [Validators.required, Validators.minLength(4)]],
@@ -74,7 +73,6 @@ export class AswCheckboxDialog implements OnInit {
 
     setValue(control: CheckboxControl): void {
         this.aswEditCheckboxForm.patchValue({
-            id: control.id,
             customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,

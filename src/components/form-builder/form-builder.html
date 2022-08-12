@@ -132,7 +132,8 @@
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (buttonUpdateEvent)="updatedControl($event)"
-                                                    (buttonDeleteEvent)="deleteControl($event)">
+                                                    (buttonDeleteEvent)="deleteControl($event)"
+                                                    (buttonClickEvent)="buttonClicked()">
                                         </asw-button>                                       
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'paragraph'">
