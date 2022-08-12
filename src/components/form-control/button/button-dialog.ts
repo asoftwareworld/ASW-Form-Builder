@@ -21,9 +21,10 @@ export class AswButtonDialog implements OnInit {
     constants: any = Constants;
     aswEditButtonForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswButtonDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: ButtonControl) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswButtonDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: ButtonControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -32,9 +33,10 @@ export class AswButtonDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditButtonForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             type: ['', [Validators.required]],
             color: [],
             column: [],
@@ -45,9 +47,10 @@ export class AswButtonDialog implements OnInit {
 
     editProperty(control: ButtonControl): void {
         this.aswEditButtonForm.setValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             type: control.type,
             color: control.color,
             style: control.style,

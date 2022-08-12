@@ -1,9 +1,9 @@
 <ng-container *ngIf="control as control">
     <label id="example-radio-group-label">{{control.label}}</label>
-    <mat-radio-group class="asw-radio-group" 
-        [matTooltip]="control.tooltip"
-        [(ngModel)]="control.value"
-        [name]="control.name">
+    <mat-radio-group class="asw-radio-group {{control.customClass}}"
+                    [id]="control.id"
+                    [matTooltip]="control.tooltip"
+                    [(ngModel)]="control.value">
         <mat-radio-button *ngFor="let option of control.options" 
                         [value]="option.key">
                     {{ option.value }}

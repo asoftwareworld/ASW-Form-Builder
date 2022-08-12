@@ -13,16 +13,17 @@ import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { SlideToggleControl } from './slide-toggle-control';
 
 @Component({
-  selector: 'asw-slide-toggle-dialog',
-  templateUrl: './slide-toggle-dialog.html'
+    selector: 'asw-slide-toggle-dialog',
+    templateUrl: './slide-toggle-dialog.html'
 })
 export class AswSlideToggleDialog implements OnInit {
     constants: any = Constants;
     aswEditSlideToggleForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswSlideToggleDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: SlideToggleControl) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswSlideToggleDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: SlideToggleControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -31,6 +32,8 @@ export class AswSlideToggleDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditSlideToggleForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             label: ['', [Validators.required, Validators.minLength(1)]],
             color: [],
             value: [false],
@@ -41,6 +44,8 @@ export class AswSlideToggleDialog implements OnInit {
 
     editProperty(control: SlideToggleControl): void {
         this.aswEditSlideToggleForm.setValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             label: control.label,
             color: control.color,
             column: control.column,
@@ -54,7 +59,7 @@ export class AswSlideToggleDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditSlideToggleForm.invalid){
+        if (this.aswEditSlideToggleForm.invalid) {
             return;
         }
         this.aswEditSlideToggleForm.value.controlType = this.control.controlType;

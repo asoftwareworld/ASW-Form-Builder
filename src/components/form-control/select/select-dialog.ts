@@ -22,13 +22,15 @@ export class AswSelectDialog implements OnInit {
     aswEditSelectForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswSelectDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: SelectControl) {
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswSelectDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: SelectControl) {
         this.aswEditSelectForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             style: ['', [Validators.required]],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false],
@@ -79,9 +81,10 @@ export class AswSelectDialog implements OnInit {
 
     setValue(control: SelectControl): void {
         this.aswEditSelectForm.patchValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             style: control.style,
             value: control.value,
             isRequired: control.isRequired,

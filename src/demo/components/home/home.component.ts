@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         this.username = USERNAME;
         this.firstname = FIRSTNAME;
         this.jsonData = this.aswSettingsService.previewData;
-        this.getJson();
+        // this.getJson();
     }
 
     saveJsonData(data: any): void {

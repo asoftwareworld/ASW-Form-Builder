@@ -13,16 +13,17 @@ import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { ParagraphControl } from './paragraph-control';
 
 @Component({
-  selector: 'asw-paragraph-dialog',
-  templateUrl: './paragraph-dialog.html'
+    selector: 'asw-paragraph-dialog',
+    templateUrl: './paragraph-dialog.html'
 })
 export class AswParagraphDialog implements OnInit {
     constants: any = Constants;
     aswParagraphForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswParagraphDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: ParagraphControl) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswParagraphDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: ParagraphControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -31,6 +32,7 @@ export class AswParagraphDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswParagraphForm = this.formBuilder.group({
+            customClass: [''],
             label: ['', [Validators.required, Validators.minLength(4)]],
             subtype: [],
             style: [],
@@ -41,6 +43,7 @@ export class AswParagraphDialog implements OnInit {
     editProperty(control: ParagraphControl): void {
         this.aswParagraphForm.setValue({
             label: control.label,
+            customClass: control.customClass ?? '',
             subtype: control.subtype,
             style: control.style,
             column: control.column
@@ -52,7 +55,7 @@ export class AswParagraphDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswParagraphForm.invalid){
+        if (this.aswParagraphForm.invalid) {
             return;
         }
         this.aswParagraphForm.value.controlType = this.control.controlType;

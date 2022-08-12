@@ -1,8 +1,9 @@
 <ng-container *ngIf="control as control">
     <mat-label>{{control.label}}</mat-label>
     <div *ngFor="let option of control.options">
-        <mat-checkbox color="primary" 
-                    [name]="control.name"
+        <mat-checkbox color="primary"
+                    [id]="control.id"
+                    [class]="control.customClass"
                     [matTooltip]="option.value"
                     [(ngModel)]="option.isChecked"
                     [required]="control.isRequired">

@@ -34,23 +34,8 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-            </div>
+            </div>      
             <div class="row">
-                <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Name</mat-label>
-                        <input matInput type="text"
-                                        name="name"
-                                        placeholder="Enter name"
-                                        matTooltip="Enter name"
-                                        formControlName="name" required>
-                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('name')?.hasError(validation.type) && (aswEditTextAreaForm.get('name')?.dirty || aswEditTextAreaForm.get('name')?.touched)">
-                                {{validation.message}}
-                            </mat-error>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Tooltip</mat-label>
@@ -61,9 +46,7 @@
                                         formControlName="tooltip">
                     </mat-form-field>
                 </div>
-            </div>            
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Custom CSS Class</mat-label>
                         <input matInput type="text"

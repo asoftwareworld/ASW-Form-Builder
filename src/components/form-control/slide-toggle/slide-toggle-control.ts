@@ -9,6 +9,7 @@
 export interface SlideToggleControl {
     id: string;
     controlType?: string;
+    customClass?: string;
     label: string;
     color: string;
     isRequired: boolean;

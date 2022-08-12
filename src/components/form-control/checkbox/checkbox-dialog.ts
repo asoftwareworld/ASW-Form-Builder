@@ -21,18 +21,20 @@ export class AswCheckboxDialog implements OnInit {
     aswEditCheckboxForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswCheckboxDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
-                    this.aswEditCheckboxForm = this.formBuilder.group({
-                        tooltip: [''],
-                        label: ['', [Validators.required, Validators.minLength(4)]],
-                        name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-                        options: this.formBuilder.array([this.createOption()]),
-                        isRequired: [false],
-                        column: []
-                    });
-                }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswCheckboxDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
+        this.aswEditCheckboxForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
+            tooltip: [''],
+            label: ['', [Validators.required, Validators.minLength(4)]],
+            options: this.formBuilder.array([this.createOption()]),
+            isRequired: [false],
+            column: []
+        });
+    }
 
     ngOnInit(): void {
         this.setValue(this.control);
@@ -72,9 +74,10 @@ export class AswCheckboxDialog implements OnInit {
 
     setValue(control: CheckboxControl): void {
         this.aswEditCheckboxForm.patchValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             isRequired: control.isRequired,
             column: control.column
         });
@@ -95,7 +98,7 @@ export class AswCheckboxDialog implements OnInit {
             }
         });
         if (isError) {
-            this.options.controls[index].get('key')?.setErrors({unique: true});
+            this.options.controls[index].get('key')?.setErrors({ unique: true });
         }
     }
 }

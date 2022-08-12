@@ -1,5 +1,7 @@
 <ng-container *ngIf="control as control">
     <mat-slide-toggle [color]="control.color" 
+                    [id]="control.id"
+                    [class]="control.customClass"
                     [required]="control.isRequired"
                     [checked]="control.value">{{control.label}}</mat-slide-toggle>
     <ng-template [ngIf]="isPreviewTemplate">

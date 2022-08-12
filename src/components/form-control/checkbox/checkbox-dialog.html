@@ -6,6 +6,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Unique Id</mat-label>
+                        <input matInput type="text"
+                                        name="id"
+                                        placeholder="Enter Unique Id"
+                                        matTooltip="Enter Unique Id"
+                                        formControlName="id" required>
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditCheckboxForm.get('id')?.hasError(validation.type) && (aswEditCheckboxForm.get('id')?.dirty || aswEditCheckboxForm.get('id')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Label</mat-label>
                         <input matInput type="text"
                                         placeholder="Enter label"
@@ -18,6 +33,18 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Custom CSS Class</mat-label>
+                        <input matInput type="text"
+                                        name="customClass"
+                                        placeholder="Custom CSS Class"
+                                        matTooltip="Custom CSS Class"
+                                        formControlName="customClass">
+                    </mat-form-field>
+                </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Tooltip</mat-label>
@@ -25,22 +52,6 @@
                                         placeholder="Enter tooltip"
                                         matTooltip="Enter tooltip"
                                         formControlName="tooltip">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Name</mat-label>
-                        <input matInput type="text"
-                                        placeholder="Enter name"
-                                        matTooltip="Enter name"
-                                        formControlName="name" required>
-                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditCheckboxForm.get('name')?.hasError(validation.type) && (aswEditCheckboxForm.get('name')?.dirty || aswEditCheckboxForm.get('name')?.touched)">
-                                {{validation.message}}
-                            </mat-error>
-                        </mat-error>
                     </mat-form-field>
                 </div>
             </div>

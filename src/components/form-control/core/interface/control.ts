@@ -8,7 +8,6 @@
 export interface Control {
     id: string;
     controlType?: string;
-    name: string;
     tooltip: string;
     label: string;
     isRequired: boolean;
