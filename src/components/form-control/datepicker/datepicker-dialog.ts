@@ -13,16 +13,17 @@ import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { DateControl } from './date-control';
 
 @Component({
-  selector: 'asw-datepicker-dialog',
-  templateUrl: './datepicker-dialog.html'
+    selector: 'asw-datepicker-dialog',
+    templateUrl: './datepicker-dialog.html'
 })
 export class AswDatepickerDialog implements OnInit {
     constants: any = Constants;
     aswDatepickerForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswDatepickerDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: DateControl) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswDatepickerDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: DateControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -31,9 +32,10 @@ export class AswDatepickerDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswDatepickerForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
             column: [],
             style: ['', [Validators.required]],
@@ -43,9 +45,10 @@ export class AswDatepickerDialog implements OnInit {
 
     editProperty(control: DateControl): void {
         this.aswDatepickerForm.setValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             value: control.value,
             style: control.style,
             column: control.column,

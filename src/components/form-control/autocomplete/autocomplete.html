@@ -1,8 +1,8 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field [appearance]="control.style" class="asw-mat-form-field">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field {{control.customClass}}">
         <mat-label>{{control.label}}</mat-label>
-        <input [name]="control.name"
-               [placeholder]="control.label"
+        <input [placeholder]="control.label"
+               [id]="control.id"
                [matAutocomplete]="auto"
                matInput
                [(ngModel)]="control.value"                    

@@ -14,8 +14,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
     templateUrl: './confirm-dialog.html',
 })
 export class AswConfirmDialog {
-    constructor(public dialogRef: MatDialogRef<AswConfirmDialog>,
-                @Inject(MAT_DIALOG_DATA) public data: any) { }
+    constructor(
+        public dialogRef: MatDialogRef<AswConfirmDialog>,
+        @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onNoClick(): void {
         this.dialogRef.close();

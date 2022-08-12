@@ -13,16 +13,17 @@ import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { TextboxControl } from './textbox-control';
 
 @Component({
-  selector: 'asw-textbox-dialog',
-  templateUrl: './textbox-dialog.html'
+    selector: 'asw-textbox-dialog',
+    templateUrl: './textbox-dialog.html'
 })
 export class AswTextboxDialog implements OnInit {
     constants: any = Constants;
     aswEditTextboxForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswTextboxDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: TextboxControl) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswTextboxDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: TextboxControl) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -31,12 +32,15 @@ export class AswTextboxDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditTextboxForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
             style: ['', [Validators.required]],
             column: [''],
+            pattern: [''],
+            customClass: [''],
+            customErrorMsg: [''],
             maxlength: ['', [Validators.required,
                 Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
@@ -49,9 +53,12 @@ export class AswTextboxDialog implements OnInit {
 
     editProperty(control: TextboxControl): void {
         this.aswEditTextboxForm.setValue({
+            id: control.id,
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
+            pattern: control.pattern ?? '',
+            customClass: control.customClass ?? '',
+            customErrorMsg: control.customErrorMsg ?? '',
             value: control.value,
             maxlength: control.maxlength,
             minlength: control.minlength,

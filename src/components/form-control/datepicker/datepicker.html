@@ -1,8 +1,9 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field [appearance]="control.style" class="asw-mat-form-field">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field {{control.customClass}}">
         <mat-label>{{control.label}}</mat-label>
         <input matInput [matDatepicker]="picker" 
                         #input="ngModel"
+                        [id]="control.id"
                         [(ngModel)]="control.value"
                         [matTooltip]="control.tooltip"
                         [placeholder]="control.label" 

@@ -1,27 +1,27 @@
 <ng-container *ngIf="control as control">
     <ng-container [ngSwitch]="control.subtype">
         <ng-container *ngSwitchCase="'p'">
-            <p [class]="control.style">
+            <p class="{{control.style}} {{control.customClass}}">
                 {{control.label}}
             </p>
         </ng-container>
         <ng-container *ngSwitchCase="'address'">
-            <address [class]="control.style">
+            <address class="{{control.style}} {{control.customClass}}">
                 {{control.label}}
             </address>
         </ng-container>
         <ng-container *ngSwitchCase="'blockquote'">
-            <blockquote [class]="control.style">
+            <blockquote class="{{control.style}} {{control.customClass}}">
                 {{control.label}}
             </blockquote>
         </ng-container>
         <ng-container *ngSwitchCase="'canvas'">
-            <canvas [class]="control.style">
+            <canvas class="{{control.style}} {{control.customClass}}">
                 {{control.label}}
             </canvas>
         </ng-container>
         <ng-container *ngSwitchCase="'output'">
-            <output [class]="control.style">
+            <output class="{{control.style}} {{control.customClass}}">
                 {{control.label}}
             </output>
         </ng-container>

@@ -46,9 +46,10 @@ export class AswGpsDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditGpsForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
             latitude: ['', []],
             longitude: ['', []],
             value: ['', []],
@@ -60,12 +61,13 @@ export class AswGpsDialog implements OnInit {
 
     editProperty(control: GpsControl): void {
         this.aswEditGpsForm.setValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             latitude: control.latitude,
             longitude: control.longitude,
             value: control.value,
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             column: control.column,
             style: control.style,
             isRequired: control.isRequired

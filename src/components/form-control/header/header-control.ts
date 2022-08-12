@@ -7,6 +7,7 @@
  */
 
 export interface HeaderControl {
+    customClass?: string;
     controlType?: string;
     subtype: string;
     style: string;

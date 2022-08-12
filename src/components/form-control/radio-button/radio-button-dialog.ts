@@ -21,13 +21,15 @@ export class AswRadioButtonDialog implements OnInit {
     constants: any = Constants;
     aswEditRadioButtonForm: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswRadioButtonDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: RadioButtonControl) {
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswRadioButtonDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: RadioButtonControl) {
         this.aswEditRadioButtonForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             tooltip: [''],
             label: ['', [Validators.required, Validators.minLength(4)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false],
             column: []
@@ -67,7 +69,7 @@ export class AswRadioButtonDialog implements OnInit {
             return;
         }
         this.aswEditRadioButtonForm.value.options.forEach((element: any) => {
-            if (element.isChecked){
+            if (element.isChecked) {
                 this.aswEditRadioButtonForm.value.value = element.key;
             }
         });
@@ -77,9 +79,10 @@ export class AswRadioButtonDialog implements OnInit {
 
     setValue(control: RadioButtonControl): void {
         this.aswEditRadioButtonForm.patchValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             value: control.value,
             isRequired: control.isRequired,
             column: control.column
@@ -101,7 +104,7 @@ export class AswRadioButtonDialog implements OnInit {
             }
         });
         if (isError) {
-            this.options.controls[index].get('key')?.setErrors({unique: true});
+            this.options.controls[index].get('key')?.setErrors({ unique: true });
         }
     }
 

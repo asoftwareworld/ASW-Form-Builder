@@ -6,6 +6,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Unique Id</mat-label>
+                        <input matInput type="text"
+                                        name="id"
+                                        placeholder="Enter Unique Id"
+                                        matTooltip="Enter Unique Id"
+                                        formControlName="id" required>
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('id')?.hasError(validation.type) && (aswEditTextAreaForm.get('id')?.dirty || aswEditTextAreaForm.get('id')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Label</mat-label>
                         <input matInput type="text"
                                         name="label"
@@ -19,6 +34,8 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
+            </div>      
+            <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Tooltip</mat-label>
@@ -29,21 +46,36 @@
                                         formControlName="tooltip">
                     </mat-form-field>
                 </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Custom CSS Class</mat-label>
+                        <input matInput type="text"
+                                        name="customClass"
+                                        placeholder="Custom CSS Class"
+                                        matTooltip="Custom CSS Class"
+                                        formControlName="customClass">
+                    </mat-form-field>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Name</mat-label>
+                        <mat-label>Input Mask</mat-label>
                         <input matInput type="text"
-                                        name="name"
-                                        placeholder="Enter name"
-                                        matTooltip="Enter name"
-                                        formControlName="name" required>
-                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.name">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('name')?.hasError(validation.type) && (aswEditTextAreaForm.get('name')?.dirty || aswEditTextAreaForm.get('name')?.touched)">
-                                {{validation.message}}
-                            </mat-error>
-                        </mat-error>
+                                        name="pattern"
+                                        placeholder="Input Mask"
+                                        matTooltip="Input Mask"
+                                        formControlName="pattern">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Input Mask Custom Error Msg</mat-label>
+                        <input matInput type="text"
+                                        name="customErrorMsg"
+                                        placeholder="Input Mask Custom Error Msg"
+                                        matTooltip="Input Mask Custom Error Msg"
+                                        formControlName="customErrorMsg">
                     </mat-form-field>
                 </div>
             </div>

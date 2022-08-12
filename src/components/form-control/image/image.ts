@@ -34,7 +34,7 @@ export class AswImage {
     deleteImageDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
-            data: { name: control.label, message: this.constants.messages.waringMessage }
+            data: { name: control.controlType, message: this.constants.messages.waringMessage }
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result) {

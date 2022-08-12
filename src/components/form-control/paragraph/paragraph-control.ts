@@ -7,6 +7,7 @@
  */
 
 export interface ParagraphControl {
+    customClass?: string;
     controlType?: string;
     subtype: string;
     style: string;

@@ -20,13 +20,15 @@ export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
     aswEditMultiselectForm: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswMultiSelectDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: MultiSelectControl) {
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswMultiSelectDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: MultiSelectControl) {
         this.aswEditMultiselectForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
+            customClass: [],
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             style: ['', [Validators.required]],
             options: this.formBuilder.array([this.createOption()]),
             column: [],
@@ -79,9 +81,10 @@ export class AswMultiSelectDialog implements OnInit {
 
     setValue(control: MultiSelectControl): void {
         this.aswEditMultiselectForm.patchValue({
+            id: control.id,
+            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             style: control.style,
             isRequired: control.isRequired,
             column: control.column,

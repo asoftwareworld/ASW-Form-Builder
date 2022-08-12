@@ -32,12 +32,15 @@ export class AswTextareaDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditTextAreaForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             value: ['', []],
             style: ['', [Validators.required]],
             column: [''],
+            pattern: [''],
+            customClass: [''],
+            customErrorMsg: [''],
             maxlength: ['', [Validators.required,
                 Validators.minLength(1),
                 Validators.maxLength(3),
@@ -52,14 +55,17 @@ export class AswTextareaDialog implements OnInit {
 
     editProperty(control: TextareaControl): void {
         this.aswEditTextAreaForm.setValue({
+            id: control.id,
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
+            pattern: control.pattern ?? '',
+            customClass: control.customClass ?? '',
+            customErrorMsg: control.customErrorMsg ?? '',
             value: control.value,
             maxlength: control.maxlength,
             minlength: control.minlength,
-            style: control.style,
             column: control.column,
+            style: control.style,
             isRequired: control.isRequired
         });
     }

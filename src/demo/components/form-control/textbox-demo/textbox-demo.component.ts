@@ -25,8 +25,8 @@ export class TextboxDemoComponent implements OnInit {
 
 const USERNAME: TextboxControl =
 {
+    id: '1',
     controlType: '',
-    name: 'Username',
     tooltip: 'Enter Username',
     value: '',
     label: 'Username',
@@ -38,7 +38,6 @@ const USERNAME: TextboxControl =
 
 const FIRSTNAME: any =
 {
-    name: 'Firstname',
     tooltip: 'Enter Firstname',
     value: '',
     type: 'text',

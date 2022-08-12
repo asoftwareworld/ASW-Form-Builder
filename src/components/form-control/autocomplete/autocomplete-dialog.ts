@@ -22,15 +22,17 @@ export class AswAutocompleteDialog implements OnInit {
     aswEditAutocompleteForm: FormGroup;
     optionKeyMessage!: string;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswAutocompleteDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: AutoCompleteControl) {
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswAutocompleteDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: AutoCompleteControl) {
         this.aswEditAutocompleteForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
             style: ['', [Validators.required]],
             column: [],
+            customClass: [],
             options: this.formBuilder.array([this.createOption()]),
             isRequired: [false]
         });
@@ -79,12 +81,13 @@ export class AswAutocompleteDialog implements OnInit {
 
     setValue(control: AutoCompleteControl): void {
         this.aswEditAutocompleteForm.patchValue({
+            id: control.id,
             tooltip: control.tooltip,
             label: control.label,
-            name: control.name,
             style: control.style,
             value: control.value,
             column: control.column,
+            customClass: control.customClass ?? '',
             isRequired: control.isRequired
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));

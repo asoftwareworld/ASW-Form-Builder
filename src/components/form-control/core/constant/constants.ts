@@ -60,6 +60,9 @@ function getConstatnts(): any {
         ],
         searchAddress: [
             { type: 'unique', message: 'Searched address not found.' }
+        ],
+        id: [
+            { type: 'required', message: 'Unique id is required.' }
         ]
     };
 

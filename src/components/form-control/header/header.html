@@ -1,22 +1,22 @@
 <ng-container *ngIf="control as control">
     <ng-container [ngSwitch]="control.subtype">
         <ng-container *ngSwitchCase="'h1'">
-            <h1 [class]="control.style">{{control.label}}</h1>
+            <h1 class="{{control.style}} {{control.customClass}}">{{control.label}}</h1>
         </ng-container>
         <ng-container *ngSwitchCase="'h2'">
-            <h2 [class]="control.style">{{control.label}}</h2>
+            <h2 class="{{control.style}} {{control.customClass}}">{{control.label}}</h2>
         </ng-container>
         <ng-container *ngSwitchCase="'h3'">
-            <h3 [class]="control.style">{{control.label}}</h3>
+            <h3 class="{{control.style}} {{control.customClass}}">{{control.label}}</h3>
         </ng-container>
         <ng-container *ngSwitchCase="'h4'">
-            <h4 [class]="control.style">{{control.label}}</h4>
+            <h4 class="{{control.style}} {{control.customClass}}">{{control.label}}</h4>
         </ng-container>
         <ng-container *ngSwitchCase="'h5'">
-            <h5 [class]="control.style">{{control.label}}</h5>
+            <h5 class="{{control.style}} {{control.customClass}}">{{control.label}}</h5>
         </ng-container>
         <ng-container *ngSwitchCase="'h6'">
-            <h6 [class]="control.style">{{control.label}}</h6>
+            <h6 class="{{control.style}} {{control.customClass}}">{{control.label}}</h6>
         </ng-container>
     </ng-container>
     <ng-template [ngIf]="isPreviewTemplate">
