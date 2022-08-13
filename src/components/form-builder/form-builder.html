@@ -77,7 +77,8 @@
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (textboxUpdateEvent)="updatedControl($event)"
-                                                    (textboxDeleteEvent)="deleteControl($event)">
+                                                    (textboxDeleteEvent)="deleteControl($event)"
+                                                    (aswModelChange)="onSelectionChange($event)">
                                         </asw-textbox>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'textarea'">
@@ -85,7 +86,8 @@
                                                         [controlIndex]="i"
                                                         [isPreviewTemplate]="true"
                                                         (textAreaUpdateEvent)="updatedControl($event)"
-                                                        (textAreaDeleteEvent)="deleteControl($event)">
+                                                        (textAreaDeleteEvent)="deleteControl($event)"
+                                                        (aswModelChange)="onSelectionChange($event)">
                                         </asw-textarea>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'select'">

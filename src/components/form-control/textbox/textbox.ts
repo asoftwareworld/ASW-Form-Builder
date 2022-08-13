@@ -34,6 +34,7 @@ export class AswTextbox {
 
     @Output() textboxUpdateEvent = new EventEmitter<{control: TextboxControl, index: number}>();
     @Output() textboxDeleteEvent = new EventEmitter<number>();
+    @Output() aswModelChange = new EventEmitter<TextboxControl>();
 
     constructor(public dialog: MatDialog) {
     }
@@ -61,5 +62,9 @@ export class AswTextbox {
                 this.textboxUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    onChange(control: TextboxControl): void {
+        this.aswModelChange.emit(control);
     }
 }

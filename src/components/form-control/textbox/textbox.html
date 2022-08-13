@@ -7,6 +7,7 @@
                         [placeholder]="control.label"
                         [(ngModel)]="control.value"                    
                         #input="ngModel"
+                        (change)="onChange(control)"
                         [matTooltip]="control.tooltip"
                         [maxlength]="control.maxlength"
                         [minlength]="control.minlength"
