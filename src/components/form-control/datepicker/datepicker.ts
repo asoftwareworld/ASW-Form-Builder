@@ -31,8 +31,9 @@ export class AswDatepicker {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() datepickerUpdateEvent = new EventEmitter<{control: DateControl, index: number}>();
+    @Output() datepickerUpdateEvent = new EventEmitter<{ control: DateControl, index: number }>();
     @Output() datepickerDeleteEvent = new EventEmitter<number>();
+    @Output() dateChange = new EventEmitter<DateControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -41,7 +42,7 @@ export class AswDatepicker {
      * @param control datepicker control items
      * @param controlIndex datepicker control index
      */
-      deleteDatepickerDialog(control: DateControl, controlIndex: number): void {
+    deleteDatepickerDialog(control: DateControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.controlType, message: this.constants.messages.waringMessage }
@@ -61,8 +62,12 @@ export class AswDatepicker {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.datepickerUpdateEvent.emit({control: result, index: controlIndex});
+                this.datepickerUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    onDateChange(control: DateControl): void {
+        this.dateChange.emit(control);
     }
 }

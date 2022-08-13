@@ -10,4 +10,6 @@ import { Control, StyleControl } from '@asoftwareworld/form-builder/form-control
 export interface DateControl extends Control, StyleControl {
     value: string;
     column?: string;
+    minDate?: Date;
+    maxDate?: Date;
 }

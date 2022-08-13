@@ -33,6 +33,7 @@ export class AswMultiSelect {
 
     @Output() multiSelectUpdateEvent = new EventEmitter<{control: MultiSelectControl, index: number}>();
     @Output() multiSelectDeleteEvent = new EventEmitter<number>();
+    @Output() selectionChange = new EventEmitter<MultiSelectControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -62,5 +63,12 @@ export class AswMultiSelect {
                 this.multiSelectUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    onSelectionChange(control: MultiSelectControl): void {
+        control.options.forEach(element => {
+            element.isChecked = control.value.includes(element.key) ? true : false;
+        });
+        this.selectionChange.emit(control);
     }
 }

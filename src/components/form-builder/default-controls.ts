@@ -83,7 +83,8 @@ export const CONTROLS = [
         label: 'Date Picker',
         style: 'outline',
         column: 'col-md-12',
-        isRequired: false
+        isRequired: false,
+        isWeekendsDisable: false
     },
     {
         id: '1',
@@ -156,12 +157,11 @@ export const CONTROLS = [
         displayName: 'Button',
         controlType: 'button',
         tooltip: 'Click button',
-        label: 'Button',
+        label: 'Submit',
         type: 'button',
         column: 'col-md-12',
         color: 'primary',
-        style: 'mat-raised-button',
-        isRequired: false
+        style: 'mat-raised-button'
     },
     {
         id: '1',

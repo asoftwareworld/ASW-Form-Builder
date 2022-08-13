@@ -29,4 +29,8 @@ export class PreviewTemplateComponent implements OnInit, OnChanges {
     buttonClick(data: any): void {
         console.log(data);
     }
+
+    onSelectionChange(control: any): void {
+        console.log(control);
+    }
 }

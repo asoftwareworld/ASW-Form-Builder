@@ -11,7 +11,7 @@ export class NotificationService {
     /* Method used notify message to user */
     openNotification(message: string, action?: string): void {
         this.snackBar.open(message, action, {
-            duration: 1000
+            duration: 15000
         });
     }
 }

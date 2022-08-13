@@ -40,6 +40,7 @@ export class AswGps implements OnInit {
 
     @Output() gpsUpdateEvent = new EventEmitter<{ control: GpsControl, index: number }>();
     @Output() gpsDeleteEvent = new EventEmitter<number>();
+    @Output() gpsAddressChange = new EventEmitter<GpsControl>();
 
     constructor(
         public dialog: MatDialog,
@@ -84,13 +85,14 @@ export class AswGps implements OnInit {
         });
     }
 
-    async onChange(address: string): Promise<void> {
+    async onChange(address: string, control: GpsControl): Promise<void> {
         const filteredAddress = this.searchedAddress.find(x => x.label === address);
         if (filteredAddress) {
             await this.selectedAddress(filteredAddress);
         } else {
             await this.getAddressFromGoogleApi(address);
         }
+        this.gpsAddressChange.emit(control);
     }
 
     private async selectedAddress(filteredAddress: any): Promise<void> {

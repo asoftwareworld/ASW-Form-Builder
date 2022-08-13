@@ -40,8 +40,7 @@ export class AswButtonDialog implements OnInit {
             type: ['', [Validators.required]],
             color: [],
             column: [],
-            style: ['', [Validators.required]],
-            isRequired: [false]
+            style: ['', [Validators.required]]
         });
     }
 
@@ -54,8 +53,7 @@ export class AswButtonDialog implements OnInit {
             type: control.type,
             color: control.color,
             style: control.style,
-            column: control.column,
-            isRequired: control.isRequired
+            column: control.column
         });
     }
 

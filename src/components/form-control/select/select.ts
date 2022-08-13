@@ -33,6 +33,7 @@ export class AswSelect {
 
     @Output() selectUpdateEvent = new EventEmitter<{control: SelectControl, index: number}>();
     @Output() selectDeleteEvent = new EventEmitter<number>();
+    @Output() selectionChange = new EventEmitter<SelectControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -62,5 +63,12 @@ export class AswSelect {
                 this.selectUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    onSelectionChange(control: SelectControl): void {
+        control.options.forEach(element => {
+            element.isChecked = control.value === element.key ? true : false;
+        });
+        this.selectionChange.emit(control);
     }
 }

@@ -101,25 +101,15 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <mat-slide-toggle color="primary"
-                          #isActive
-                          formControlName="isRequired"
-                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}
-                    </mat-slide-toggle>
-                </div>
-            </div>
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button
-                type="button"
+        <button type="button"
                 class="btn btn-danger mr-2 mb-1 me-2"
                 (click)="onNoClick()">
             No
         </button>
-        <button mat-raised-button type="submit"
+        <button type="submit"
                 class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes

@@ -5,6 +5,7 @@
                     [class]="control.customClass"
                     [matTooltip]="option.value"
                     [(ngModel)]="option.isChecked"
+                    (change)="onSelectionChange(control)"
                     [required]="control.isRequired">
             {{option.value}}
         </mat-checkbox>

@@ -32,6 +32,7 @@ export class AswFormBuilder implements OnInit, OnChanges {
     @Output() publishClick = new EventEmitter<any[]>();
 
     @Output() buttonClick = new EventEmitter<any[]>();
+    @Output() aswModelChange = new EventEmitter<any>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -83,5 +84,9 @@ export class AswFormBuilder implements OnInit, OnChanges {
 
     buttonClicked(): void {
         this.buttonClick.emit(this.formContainer);
+    }
+
+    onSelectionChange(control: any): void {
+        this.aswModelChange.emit(control);
     }
 }

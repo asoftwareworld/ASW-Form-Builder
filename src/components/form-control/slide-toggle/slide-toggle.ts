@@ -8,6 +8,7 @@
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { SlideToggleControl } from './slide-toggle-control';
@@ -33,6 +34,7 @@ export class AswSlideToggle {
 
     @Output() slidetoggleUpdateEvent = new EventEmitter<{control: SlideToggleControl, index: number}>();
     @Output() slidetoggleDeleteEvent = new EventEmitter<number>();
+    @Output() selectionChange = new EventEmitter<SlideToggleControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -59,5 +61,10 @@ export class AswSlideToggle {
                 this.slidetoggleUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    onChange(event: MatSlideToggleChange, control: SlideToggleControl): void {
+        control.value = event.checked;
+        this.selectionChange.emit(control);
     }
 }

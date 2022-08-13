@@ -6,6 +6,7 @@
             [matTooltip]="control.tooltip"
             [(ngModel)]="control.value"                    
             #input="ngModel"
+            (selectionChange)="onSelectionChange(control)"
             [required]="control.isRequired">
             <mat-option *ngFor="let option of control.options" [value]="option.key">
                 {{ option.value }}

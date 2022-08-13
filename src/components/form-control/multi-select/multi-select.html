@@ -6,6 +6,7 @@
             [id]="control.id"
             #input="ngModel" 
             multiple 
+            (selectionChange)="onSelectionChange(control)"
             [required]="control.isRequired">
             <mat-option *ngFor="let option of control.options" [value]="option.key">
                 {{ option.value }}

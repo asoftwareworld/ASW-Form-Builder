@@ -7,7 +7,7 @@
                [matAutocomplete]="auto"
                [(ngModel)]="control.value"
                #input="ngModel"
-               (ngModelChange)="onChange($event)"
+               (ngModelChange)="onChange($event, control)"
                [matTooltip]="control.tooltip"
                [required]="control.isRequired">
         <mat-autocomplete #auto="matAutocomplete">
