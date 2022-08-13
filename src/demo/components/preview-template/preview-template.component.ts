@@ -23,7 +23,14 @@ export class PreviewTemplateComponent implements OnInit, OnChanges {
         this.jsonData = this.aswSettingsService.previewData;
     }
     ngOnChanges(): void {
-        debugger;
         this.aswSettingsService.previewData = this.jsonData;
+    }
+
+    buttonClick(data: any): void {
+        console.log(data);
+    }
+
+    onSelectionChange(control: any): void {
+        console.log(control);
     }
 }

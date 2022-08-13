@@ -10,3 +10,4 @@ export * from './constant/constants';
 export * from './interface/control';
 export * from './interface/control-option';
 export * from './interface/control-length';
+export * from './service/notification.service';

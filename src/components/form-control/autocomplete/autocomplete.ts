@@ -7,6 +7,7 @@
  */
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
@@ -34,6 +35,7 @@ export class AswAutocomplete implements OnInit {
 
     @Output() autocompleteUpdateEvent = new EventEmitter<{ control: AutoCompleteControl, index: number }>();
     @Output() autocompleteDeleteEvent = new EventEmitter<number>();
+    @Output() selectionChange = new EventEmitter<AutoCompleteControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -41,9 +43,13 @@ export class AswAutocomplete implements OnInit {
         this.filteredOptions = this.control?.options;
     }
 
-    filter(value: string): ControlOption[] | undefined {
-        if (value) {
-            const filterValue = value.toLowerCase();
+    filter(control: AutoCompleteControl): ControlOption[] | undefined {
+        if (control.value) {
+            const filterValue = control.value.toLowerCase();
+            control.options.forEach(element => {
+                element.isChecked = control.value === element.key ? true : false;
+            });
+            this.selectionChange.emit(control);
             return this.control?.options.filter(option => option.value.toLowerCase().startsWith(filterValue));
         }
         return this.control?.options;

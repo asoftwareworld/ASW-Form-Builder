@@ -33,6 +33,7 @@ export class AswRadioButton {
 
     @Output() radioButtonUpdateEvent = new EventEmitter<{control: RadioButtonControl, index: number}>();
     @Output() radioButtonDeleteEvent = new EventEmitter<number>();
+    @Output() selectionChange = new EventEmitter<RadioButtonControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -62,5 +63,12 @@ export class AswRadioButton {
                 this.radioButtonUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    onSelectionChange(control: RadioButtonControl): void {
+        control.options.forEach(element => {
+            element.isChecked = control.value === element.key ? true : false;
+        });
+        this.selectionChange.emit(control);
     }
 }

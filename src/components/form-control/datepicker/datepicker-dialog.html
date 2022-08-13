@@ -56,6 +56,26 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Min Date</mat-label>
+                        <input matInput name="minDate" placeholder="Enter min date" matTooltip="Enter min date"
+                            formControlName="minDate" [matDatepicker]="minDate">
+                        <mat-datepicker-toggle matSuffix [for]="minDate"></mat-datepicker-toggle>
+                        <mat-datepicker #minDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Max Date</mat-label>
+                        <input matInput name="maxDate" placeholder="Enter max date" matTooltip="Enter max date"
+                            formControlName="maxDate" [matDatepicker]="maxDate">
+                        <mat-datepicker-toggle matSuffix [for]="maxDate"></mat-datepicker-toggle>
+                        <mat-datepicker #maxDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Value</mat-label>

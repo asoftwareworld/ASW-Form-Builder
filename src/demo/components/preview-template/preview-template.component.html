@@ -1,1 +1,4 @@
-<asw-preview-template [formContainer]="jsonData"></asw-preview-template>
+<asw-preview-template [formContainer]="jsonData" 
+    (buttonClick)="buttonClick($event)"
+    (aswModelChange)="onSelectionChange($event)">
+</asw-preview-template>

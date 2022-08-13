@@ -8,7 +8,7 @@
                [(ngModel)]="control.value"                    
                 #input="ngModel"
                [matTooltip]="control.tooltip"
-               (ngModelChange)="filteredOptions = filter(control.value)"
+               (ngModelChange)="filteredOptions = filter(control)"
                [required]="control.isRequired">
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions" [value]="option.key">

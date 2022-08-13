@@ -3,5 +3,7 @@
                 [isShowJsonDataButton]="isShowJsonDataButton"
                 [isShowPublishButton]="isShowPublishButton"
                 (publishClick)="saveJsonData($event)" 
-                (previewClick)="previewTemplate($event)">
+                (previewClick)="previewTemplate($event)"
+                (buttonClick)="buttonClick($event)"
+                (aswModelChange)="onSelectionChange($event)">
 </asw-form-builder>

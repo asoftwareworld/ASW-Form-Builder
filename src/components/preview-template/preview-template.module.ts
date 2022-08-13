@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control/autocomplete';
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
 import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/checkbox';
@@ -31,30 +32,30 @@ import { AswPreviewTemplate } from './preview-template';
 
 @NgModule({
     declarations: [AswPreviewTemplate],
-    imports:
-        [
-            CommonModule,
-            FormsModule,
-            HttpClientModule,
-            ReactiveFormsModule,
-            AswAutocompleteModule,
-            AswButtonModule,
-            AswCheckboxModule,
-            AswDatepickerModule,
-            AswDividerModule,
-            AswDrawingModule,
-            AswGpsModule,
-            AswHeaderModule,
-            AswImageModule,
-            AswMultiSelectModule,
-            AswParagraphModule,
-            AswSelectModule,
-            AswSignatureModule,
-            AswSlideToggleModule,
-            AswTextareaModule,
-            AswTextboxModule,
-            AswRadioButtonModule
-        ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        AswAutocompleteModule,
+        AswButtonModule,
+        AswCheckboxModule,
+        AswDatepickerModule,
+        AswDividerModule,
+        AswDrawingModule,
+        AswGpsModule,
+        AswHeaderModule,
+        AswImageModule,
+        AswMultiSelectModule,
+        AswParagraphModule,
+        AswSelectModule,
+        AswSignatureModule,
+        AswSlideToggleModule,
+        AswTextareaModule,
+        AswTextboxModule,
+        AswRadioButtonModule,
+        MatSnackBarModule
+    ],
     exports: [AswPreviewTemplate]
 })
 export class AswPreviewTemplateModule { }

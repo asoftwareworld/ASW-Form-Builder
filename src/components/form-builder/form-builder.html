@@ -52,7 +52,8 @@
                                                             [controlIndex]="i"
                                                             [isPreviewTemplate]="true"
                                                             (autocompleteUpdateEvent)="updatedControl($event)"
-                                                            (autocompleteDeleteEvent)="deleteControl($event)">
+                                                            (autocompleteDeleteEvent)="deleteControl($event)"
+                                                            (selectionChange)="onSelectionChange($event)">
                                         </asw-autocomplete>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'header'">
@@ -92,7 +93,8 @@
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (selectUpdateEvent)="updatedControl($event)"
-                                                    (selectDeleteEvent)="deleteControl($event)">
+                                                    (selectDeleteEvent)="deleteControl($event)"
+                                                    (selectionChange)="onSelectionChange($event)">
                                         </asw-select>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'multi-select'">
@@ -100,7 +102,8 @@
                                                             [controlIndex]="i"
                                                             [isPreviewTemplate]="true"
                                                             (multiSelectUpdateEvent)="updatedControl($event)"
-                                                            (multiSelectDeleteEvent)="deleteControl($event)">
+                                                            (multiSelectDeleteEvent)="deleteControl($event)"
+                                                            (selectionChange)="onSelectionChange($event)">
                                         </asw-multi-select>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'radio'">
@@ -108,7 +111,8 @@
                                                             [controlIndex]="i"
                                                             [isPreviewTemplate]="true"
                                                             (radioButtonUpdateEvent)="updatedControl($event)"
-                                                            (radioButtonDeleteEvent)="deleteControl($event)">
+                                                            (radioButtonDeleteEvent)="deleteControl($event)"
+                                                            (selectionChange)="onSelectionChange($event)">
                                         </asw-radio-button>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'checkbox'">
@@ -116,7 +120,8 @@
                                                         [controlIndex]="i"
                                                         [isPreviewTemplate]="true"
                                                         (checkboxUpdateEvent)="updatedControl($event)"
-                                                        (checkboxDeleteEvent)="deleteControl($event)">
+                                                        (checkboxDeleteEvent)="deleteControl($event)"
+                                                        (selectionChange)="onSelectionChange($event)">
                                         </asw-checkbox>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'datepicker'">
@@ -124,7 +129,8 @@
                                                         [controlIndex]="i"
                                                         [isPreviewTemplate]="true"
                                                         (datepickerUpdateEvent)="updatedControl($event)"
-                                                        (datepickerDeleteEvent)="deleteControl($event)">
+                                                        (datepickerDeleteEvent)="deleteControl($event)"
+                                                        (dateChange)="onSelectionChange($event)">
                                         </asw-datepicker>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'button'">
@@ -132,7 +138,8 @@
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (buttonUpdateEvent)="updatedControl($event)"
-                                                    (buttonDeleteEvent)="deleteControl($event)">
+                                                    (buttonDeleteEvent)="deleteControl($event)"
+                                                    (buttonClickEvent)="buttonClicked()">
                                         </asw-button>                                       
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'paragraph'">
@@ -155,7 +162,8 @@
                                                             [controlIndex]="i"
                                                             [isPreviewTemplate]="true"
                                                             (slidetoggleUpdateEvent)="updatedControl($event)"
-                                                            (slidetoggleDeleteEvent)="deleteControl($event)">
+                                                            (slidetoggleDeleteEvent)="deleteControl($event)"
+                                                            (selectionChange)="onSelectionChange($event)">
                                         </asw-slide-toggle>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'gps'">
@@ -163,7 +171,8 @@
                                                     [controlIndex]="i"
                                                     [isPreviewTemplate]="true"
                                                     (gpsUpdateEvent)="updatedControl($event)"
-                                                    (gpsDeleteEvent)="deleteControl($event)">
+                                                    (gpsDeleteEvent)="deleteControl($event)"
+                                                    (gpsAddressChange)="onSelectionChange($event)">
                                         </asw-gps>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'signature'">

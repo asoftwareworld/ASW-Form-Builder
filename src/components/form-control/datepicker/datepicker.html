@@ -6,7 +6,10 @@
                         [id]="control.id"
                         [(ngModel)]="control.value"
                         [matTooltip]="control.tooltip"
-                        [placeholder]="control.label" 
+                        [placeholder]="control.label"
+                        (dateChange)="onDateChange(control)"
+                        [min]="control.minDate" 
+                        [max]="control.maxDate"
                         [required]="control.isRequired">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>

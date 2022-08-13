@@ -3,6 +3,7 @@
                     [id]="control.id"
                     [class]="control.customClass"
                     [required]="control.isRequired"
+                    (change)="onChange($event, control)"
                     [checked]="control.value">{{control.label}}</mat-slide-toggle>
     <ng-template [ngIf]="isPreviewTemplate">
         <div class="row">

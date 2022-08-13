@@ -1,13 +1,13 @@
 .mat-form-field {
     &.mat-focused {
         .mat-form-field-ripple {
-            background-color: #03a9f4;
+            background-color: #03a9f4 !important;
         }
         .mat-form-field-label {
-            color: #03a9f4;
+            color: #03a9f4 !important;
         }
         .mat-form-field-outline-thick {
-            color: #03a9f4;
+            color: #03a9f4 !important;
         }
     }
 }
@@ -15,35 +15,35 @@
 .has-success {
     .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
         .mat-form-field-empty.mat-form-field-label {
-            color: #4caf50;
+            color: #4caf50 !important;
         }
         &.mat-focused {
         .mat-input-underline {
             .mat-input-ripple {
-                background-color: #4caf50;
+                background-color: #4caf50 !important;
             }
         }
     }
 }
 .mat-input-element {
-    caret-color: #03a9f4;
+    caret-color: #03a9f4 !important;
 }  
 .has-danger {
     .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
     .mat-form-field-empty.mat-form-field-label {
-        color: #f44336;
+        color: #f44336 !important;
     }
     &.mat-focused {
         .mat-input-underline {
             .mat-input-ripple {
-                background-color: #f44336;
+                background-color: #f44336 !important;
             }
         }
     }
 }
 .ng-invalid {
     &.mat-focused .mat-form-field-label {
-        color: #f44336;
+        color: #f44336 !important;
     }
 }
 
@@ -54,14 +54,14 @@
 
 .mat-form-field.has-success {
     .mat-input-underline {
-        background-color: #4caf50;
+        background-color: #4caf50 !important;
         height: 2px;
         .mat-input-ripple {
-            background-color: #4caf50;
+            background-color: #4caf50 !important;
         }
     }
     .mat-form-field-label {
-        color: #4caf50;
+        color: #4caf50 !important;
     }
 }
   

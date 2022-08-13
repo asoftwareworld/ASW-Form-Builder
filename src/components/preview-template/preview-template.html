@@ -16,7 +16,8 @@
                             <div [ngClass]="control.column">
                                 <ng-container *ngSwitchCase="'autocomplete'">
                                     <asw-autocomplete [control]="control"
-                                                      [controlIndex]="i">
+                                                      [controlIndex]="i"
+                                                      (selectionChange)="onSelectionChange($event)">
                                     </asw-autocomplete>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'header'">
@@ -42,32 +43,38 @@
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'select'">
                                     <asw-select [control]="control"
-                                                [controlIndex]="i">
+                                                [controlIndex]="i"
+                                                (selectionChange)="onSelectionChange($event)">
                                     </asw-select>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'multi-select'">
                                     <asw-multi-select [control]="control"
-                                                        [controlIndex]="i">
+                                                        [controlIndex]="i"
+                                                        (selectionChange)="onSelectionChange($event)">
                                     </asw-multi-select>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'radio'">
                                     <asw-radio-button [control]="control"
-                                                        [controlIndex]="i">
+                                                        [controlIndex]="i"
+                                                        (selectionChange)="onSelectionChange($event)">
                                     </asw-radio-button>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'checkbox'">
                                     <asw-checkbox [control]="control"
-                                                    [controlIndex]="i">
+                                                    [controlIndex]="i"
+                                                    (selectionChange)="onSelectionChange($event)">
                                     </asw-checkbox>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'datepicker'">
                                     <asw-datepicker [control]="control"
-                                                    [controlIndex]="i">
+                                                    [controlIndex]="i"
+                                                    (dateChange)="onSelectionChange($event)">
                                     </asw-datepicker>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'button'">
                                     <asw-button [control]="control"
-                                                [controlIndex]="i">
+                                                [controlIndex]="i"
+                                                (buttonClickEvent)="buttonClicked()">
                                     </asw-button>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'paragraph'">
@@ -82,12 +89,14 @@
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'slide-toggle'">
                                     <asw-slide-toggle [control]="control"
-                                                        [controlIndex]="i">
+                                                        [controlIndex]="i"
+                                                        (selectionChange)="onSelectionChange($event)">
                                     </asw-slide-toggle>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'gps'">
                                     <asw-gps [control]="control"
-                                                [controlIndex]="i">
+                                                [controlIndex]="i"
+                                                (gpsAddressChange)="onSelectionChange($event)">
                                     </asw-gps>
                                 </ng-container>
                             </div>

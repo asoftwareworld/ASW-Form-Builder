@@ -34,9 +34,11 @@ export class AswDatepickerDialog implements OnInit {
         this.aswDatepickerForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             customClass: [],
-            tooltip: ['', []],
+            tooltip: [''],
+            minDate: [''],
+            maxDate: [''],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            value: ['', []],
+            value: [''],
             column: [],
             style: ['', [Validators.required]],
             isRequired: [false]
@@ -47,6 +49,8 @@ export class AswDatepickerDialog implements OnInit {
         this.aswDatepickerForm.setValue({
             id: control.id,
             customClass: control.customClass ?? '',
+            minDate: control.minDate ?? '',
+            maxDate: control.maxDate ?? '',
             tooltip: control.tooltip,
             label: control.label,
             value: control.value,
