@@ -33,6 +33,7 @@ export class AswTextarea {
 
     @Output() textAreaUpdateEvent = new EventEmitter<{control: TextareaControl, index: number}>();
     @Output() textAreaDeleteEvent = new EventEmitter<number>();
+    @Output() aswModelChange = new EventEmitter<TextareaControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -59,5 +60,9 @@ export class AswTextarea {
                 this.textAreaUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    onChange(control: TextareaControl): void {
+        this.aswModelChange.emit(control);
     }
 }

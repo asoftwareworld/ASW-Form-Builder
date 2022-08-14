@@ -25,6 +25,11 @@
                                                 [controlIndex]="i">
                                     </asw-header>
                                 </ng-container>
+                                <ng-container *ngSwitchCase="'qr-code'">
+                                    <asw-qrcode [control]="control"
+                                                [controlIndex]="i">
+                                    </asw-qrcode>
+                                </ng-container>
                                 <ng-container *ngSwitchCase="'image'">
                                     <asw-image [control]="control"
                                                [controlIndex]="i"
@@ -33,12 +38,14 @@
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'textbox'">
                                     <asw-textbox [control]="control"
-                                                [controlIndex]="i">
+                                                [controlIndex]="i"
+                                                (aswModelChange)="onSelectionChange($event)">
                                     </asw-textbox>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'textarea'">
                                     <asw-textarea [control]="control"
-                                                    [controlIndex]="i">
+                                                    [controlIndex]="i"
+                                                    (aswModelChange)="onSelectionChange($event)">
                                     </asw-textarea>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'select'">

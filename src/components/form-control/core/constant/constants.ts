@@ -6,6 +6,8 @@
  * found in the LICENSE file
  */
 
+import { AswQrcodeErrorCorrectionLevel } from '@asoftwareworld/qrcode';
+
 function getConstatnts(): any {
     const titleMessages = {
         homeTitle: 'ASW | Form Builder',
@@ -117,6 +119,13 @@ function getConstatnts(): any {
         }
     ];
 
+    const errorCorrectionLevels: AswQrcodeErrorCorrectionLevel[] = [
+        AswQrcodeErrorCorrectionLevel.LOW,
+        AswQrcodeErrorCorrectionLevel.MEDIUM,
+        AswQrcodeErrorCorrectionLevel.HIGH,
+        AswQrcodeErrorCorrectionLevel.QUARTILE
+    ];
+
     const dataTypes = {
         dataTypeString: 'string',
         dataTypeNumber: 'number',
@@ -155,7 +164,8 @@ function getConstatnts(): any {
         matchPattern,
         notificationMessage,
         messages,
-        columns
+        columns,
+        errorCorrectionLevels
     };
 
     return applicationConstants;

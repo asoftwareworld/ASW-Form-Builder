@@ -10,61 +10,56 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { TextboxControl } from './textbox-control';
-import { AswTextboxDialog } from './textbox-dialog';
+import { QrCodeControl } from './qrcode-control';
+import { AswQrCodeDialog } from './qrcode-dialog';
 
 @Component({
-    selector: 'asw-textbox',
-    templateUrl: './textbox.html'
+    selector: 'asw-qrcode',
+    templateUrl: './qrcode.html'
 })
-export class AswTextbox {
+export class AswQrCode {
 
     constants: any = Constants;
     /**
-     * Textbox control
+     * QR Code control
      */
-    @Input() control: TextboxControl | null = null;
+    @Input() control: QrCodeControl | null = null;
 
     /**
-     * Textbox control index to help update or delete button from drop area
+     * QR Code control index to help update or delete button from drop area
      */
     @Input() controlIndex!: number;
 
     @Input() isPreviewTemplate = false;
 
-    @Output() textboxUpdateEvent = new EventEmitter<{control: TextboxControl, index: number}>();
-    @Output() textboxDeleteEvent = new EventEmitter<number>();
-    @Output() aswModelChange = new EventEmitter<TextboxControl>();
+    @Output() qrCodeUpdateEvent = new EventEmitter<{control: QrCodeControl, index: number}>();
+    @Output() qrCodeDeleteEvent = new EventEmitter<number>();
 
     constructor(public dialog: MatDialog) {
     }
 
-    deleteTextboxDialog(control: TextboxControl, controlIndex: number): void {
+    deleteQrCodeDialog(control: QrCodeControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.controlType, message: this.constants.messages.waringMessage }
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.textboxDeleteEvent.emit(controlIndex);
+                this.qrCodeDeleteEvent.emit(controlIndex);
             }
         });
     }
 
-    editTextboxDialog(control: TextboxControl, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswTextboxDialog, {
+    editQrCodeDialog(control: QrCodeControl, controlIndex: number): void {
+        const dialogRef = this.dialog.open(AswQrCodeDialog, {
             disableClose: true,
             width: '744px',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.textboxUpdateEvent.emit({control: result, index: controlIndex});
+                this.qrCodeUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
-    }
-
-    onChange(control: TextboxControl): void {
-        this.aswModelChange.emit(control);
     }
 }
