@@ -61,7 +61,7 @@ export const CONTROLS = [
     },
     {
         id: '1',
-        icon: 'notes',
+        icon: 'short_text',
         displayName: 'Text Area',
         controlType: 'textarea',
         tooltip: 'Enter Text',
@@ -165,7 +165,7 @@ export const CONTROLS = [
     },
     {
         id: '1',
-        icon: 'format_textdirection_l_to_r',
+        icon: 'subject',
         displayName: 'Paragraph',
         controlType: 'paragraph',
         label: 'Paragraph',
@@ -203,6 +203,17 @@ export const CONTROLS = [
         column: 'col-md-12',
         value: '',
         isRequired: false
+    },
+    {
+        icon: 'qr_code',
+        displayName: 'QR Code',
+        controlType: 'qr-code',
+        centerImageSize: '30',
+        centerImage: 'assets/img/asw.png',
+        qrCodeSize: 240,
+        errorCorrectionLevel: 'M',
+        column: 'col-md-12',
+        value: 'https://asoftwareworld.github.io/form-builder'
     },
     {
         icon: 'edit',

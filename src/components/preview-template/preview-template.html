@@ -25,6 +25,11 @@
                                                 [controlIndex]="i">
                                     </asw-header>
                                 </ng-container>
+                                <ng-container *ngSwitchCase="'qr-code'">
+                                    <asw-qrcode [control]="control"
+                                                [controlIndex]="i">
+                                    </asw-qrcode>
+                                </ng-container>
                                 <ng-container *ngSwitchCase="'image'">
                                     <asw-image [control]="control"
                                                [controlIndex]="i"

@@ -49,11 +49,11 @@
                                 <ng-container [ngSwitch]="control.controlType" class="asw-full-width">
                                     <ng-container *ngSwitchCase="'autocomplete'">
                                         <asw-autocomplete [control]="control"
-                                                            [controlIndex]="i"
-                                                            [isPreviewTemplate]="true"
-                                                            (autocompleteUpdateEvent)="updatedControl($event)"
-                                                            (autocompleteDeleteEvent)="deleteControl($event)"
-                                                            (selectionChange)="onSelectionChange($event)">
+                                                          [controlIndex]="i"
+                                                          [isPreviewTemplate]="true"
+                                                          (autocompleteUpdateEvent)="updatedControl($event)"
+                                                          (autocompleteDeleteEvent)="deleteControl($event)"
+                                                          (selectionChange)="onSelectionChange($event)">
                                         </asw-autocomplete>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'header'">
@@ -63,6 +63,14 @@
                                                     (headerUpdateEvent)="updatedControl($event)"
                                                     (headerDeleteEvent)="deleteControl($event)">
                                         </asw-header>
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'qr-code'">
+                                        <asw-qrcode [control]="control"
+                                                    [controlIndex]="i"
+                                                    [isPreviewTemplate]="true"
+                                                    (qrCodeUpdateEvent)="updatedControl($event)"
+                                                    (qrCodeDeleteEvent)="deleteControl($event)">
+                                        </asw-qrcode>
                                     </ng-container>
                                     <ng-container *ngSwitchCase="'image'">
                                         <asw-image [control]="control"

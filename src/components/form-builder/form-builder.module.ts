@@ -26,6 +26,7 @@ import { AswImageModule } from '@asoftwareworld/form-builder/form-control/image'
 import { AswJsonPreviewDialogModule } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
 import { AswMultiSelectModule } from '@asoftwareworld/form-builder/form-control/multi-select';
 import { AswParagraphModule } from '@asoftwareworld/form-builder/form-control/paragraph';
+import { QrCodeModule } from '@asoftwareworld/form-builder/form-control/qrcode';
 import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { AswSelectModule } from '@asoftwareworld/form-builder/form-control/select';
 import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/signature';
@@ -64,7 +65,8 @@ import { AswFormBuilder } from './form-builder';
         AswTextareaModule,
         AswTextboxModule,
         AswRadioButtonModule,
-        AswJsonPreviewDialogModule
+        AswJsonPreviewDialogModule,
+        QrCodeModule
     ],
     exports: [AswFormBuilder]
 })

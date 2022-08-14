@@ -22,6 +22,7 @@ import { AswHeaderModule } from '@asoftwareworld/form-builder/form-control/heade
 import { AswImageModule } from '@asoftwareworld/form-builder/form-control/image';
 import { AswMultiSelectModule } from '@asoftwareworld/form-builder/form-control/multi-select';
 import { AswParagraphModule } from '@asoftwareworld/form-builder/form-control/paragraph';
+import { QrCodeModule } from '@asoftwareworld/form-builder/form-control/qrcode';
 import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
 import { AswSelectModule } from '@asoftwareworld/form-builder/form-control/select';
 import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/signature';
@@ -54,7 +55,8 @@ import { AswPreviewTemplate } from './preview-template';
         AswTextareaModule,
         AswTextboxModule,
         AswRadioButtonModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        QrCodeModule
     ],
     exports: [AswPreviewTemplate]
 })
