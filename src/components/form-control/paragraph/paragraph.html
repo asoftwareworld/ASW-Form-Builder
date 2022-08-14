@@ -31,19 +31,27 @@
             <div class="col-md-12">
                 <button mat-raised-button 
                         type="button" 
-                        matTooltip="Edit paragraph control" 
-                        [matTooltipPosition]="'above'" 
+                        matTooltip="Duplicate" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="duplicateParagraphControl(control)"
+                        class="asw-btn btn btn-sm btn-outline-secondary btn-just-icon mr-2 mb-1 me-2">
+                    <i class="material-icons asw-material-icon">content_copy</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit" 
+                        [matTooltipPosition]="'below'" 
                         (click)="editParagraphDialog(control, controlIndex)"
                         class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mb-1">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
                 <button mat-raised-button 
                         type="button" 
-                        matTooltip="Remove paragraph control" 
-                        [matTooltipPosition]="'above'" 
+                        matTooltip="Delete" 
+                        [matTooltipPosition]="'below'" 
                         (click)="deleteParagraphDialog(control, controlIndex)"
                         class="asw-btn btn btn-just-icon btn-sm btn-outline-danger mb-1">
-                    <i class="material-icons asw-material-icon">close</i>
+                    <i class="material-icons asw-material-icon">delete</i>
                 </button>
             </div>                                            
         </div>

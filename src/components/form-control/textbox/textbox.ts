@@ -35,6 +35,7 @@ export class AswTextbox {
     @Output() textboxUpdateEvent = new EventEmitter<{control: TextboxControl, index: number}>();
     @Output() textboxDeleteEvent = new EventEmitter<number>();
     @Output() aswModelChange = new EventEmitter<TextboxControl>();
+    @Output() duplicateControl = new EventEmitter<TextboxControl>();
 
     constructor(public dialog: MatDialog) {
     }
@@ -66,5 +67,9 @@ export class AswTextbox {
 
     onChange(control: TextboxControl): void {
         this.aswModelChange.emit(control);
+    }
+
+    duplicateTextboxControl(control: TextboxControl): void {
+        this.duplicateControl.emit(control);
     }
 }

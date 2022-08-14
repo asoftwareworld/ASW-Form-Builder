@@ -31,9 +31,10 @@ export class AswSelect {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() selectUpdateEvent = new EventEmitter<{control: SelectControl, index: number}>();
+    @Output() selectUpdateEvent = new EventEmitter<{ control: SelectControl, index: number }>();
     @Output() selectDeleteEvent = new EventEmitter<number>();
     @Output() selectionChange = new EventEmitter<SelectControl>();
+    @Output() duplicateControl = new EventEmitter<SelectControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -60,7 +61,7 @@ export class AswSelect {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.selectUpdateEvent.emit({control: result, index: controlIndex});
+                this.selectUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
     }
@@ -70,5 +71,9 @@ export class AswSelect {
             element.isChecked = control.value === element.key ? true : false;
         });
         this.selectionChange.emit(control);
+    }
+
+    duplicateSelectControl(control: SelectControl): void {
+        this.duplicateControl.emit(control);
     }
 }

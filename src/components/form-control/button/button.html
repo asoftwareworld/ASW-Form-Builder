@@ -48,18 +48,25 @@
                 <div class="row">
                     <div class="col-md-12">
                         <button type="button" 
-                                matTooltip="Edit button" 
-                                [matTooltipPosition]="'above'" 
+                                matTooltip="Duplicate" 
+                                [matTooltipPosition]="'below'" 
+                                (click)="duplicateButtonControl(control)"
+                                class="asw-btn btn btn-sm btn-outline-secondary btn-just-icon mr-2 mb-1 me-2">
+                            <i class="material-icons asw-material-icon">content_copy</i>
+                        </button>
+                        <button type="button" 
+                                matTooltip="Edit" 
+                                [matTooltipPosition]="'below'" 
                                 (click)="editButtonDialog(control, controlIndex)"
                                 class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
                             <i class="material-icons asw-material-icon">edit</i>
                         </button>
                         <button type="button" 
-                                matTooltip="Remove button" 
-                                [matTooltipPosition]="'above'" 
+                                matTooltip="Delete" 
+                                [matTooltipPosition]="'below'" 
                                 (click)="deleteButtonDialog(control, controlIndex)"
                                 class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-                            <i class="material-icons asw-material-icon">close</i>
+                            <i class="material-icons asw-material-icon">delete</i>
                         </button>
                     </div>
                 </div>

@@ -15,19 +15,27 @@
             <div class="col-md-12">
                 <button mat-raised-button 
                         type="button" 
-                        matTooltip="Edit checkbox control" 
-                        [matTooltipPosition]="'above'" 
+                        matTooltip="Duplicate" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="duplicateCheckboxControl(control)"
+                        class="asw-btn btn btn-sm btn-outline-secondary btn-just-icon mr-2 mb-1 me-2">
+                    <i class="material-icons asw-material-icon">content_copy</i>
+                </button>
+                <button mat-raised-button 
+                        type="button" 
+                        matTooltip="Edit" 
+                        [matTooltipPosition]="'below'" 
                         (click)="editCheckboxDialog(control, controlIndex)"
                         class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
                 <button mat-raised-button 
                         type="button" 
-                        matTooltip="Remove checkbox control" 
-                        [matTooltipPosition]="'above'" 
+                        matTooltip="Delete" 
+                        [matTooltipPosition]="'below'" 
                         (click)="deleteCheckboxDialog(control, controlIndex)"
                         class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-                    <i class="material-icons asw-material-icon">close</i>
+                    <i class="material-icons asw-material-icon">delete</i>
                 </button>
             </div>                                            
         </div>

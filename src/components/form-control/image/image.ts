@@ -28,6 +28,7 @@ export class AswImage {
 
     @Output() imageUpdateEvent = new EventEmitter<{ control: any, index: number }>();
     @Output() imageDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<any>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -68,5 +69,9 @@ export class AswImage {
                 this.imageUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    duplicateImageControl(control: any): void {
+        this.duplicateControl.emit(control);
     }
 }

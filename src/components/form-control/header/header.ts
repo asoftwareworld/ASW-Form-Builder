@@ -31,8 +31,9 @@ export class AswHeader {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() headerUpdateEvent = new EventEmitter<{control: HeaderControl, index: number}>();
+    @Output() headerUpdateEvent = new EventEmitter<{ control: HeaderControl, index: number }>();
     @Output() headerDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<HeaderControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -61,8 +62,12 @@ export class AswHeader {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.headerUpdateEvent.emit({control: result, index: controlIndex});
+                this.headerUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    duplicateHeaderControl(control: HeaderControl): void {
+        this.duplicateControl.emit(control);
     }
 }

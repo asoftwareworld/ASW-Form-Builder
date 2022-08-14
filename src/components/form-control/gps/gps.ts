@@ -41,6 +41,7 @@ export class AswGps implements OnInit {
     @Output() gpsUpdateEvent = new EventEmitter<{ control: GpsControl, index: number }>();
     @Output() gpsDeleteEvent = new EventEmitter<number>();
     @Output() gpsAddressChange = new EventEmitter<GpsControl>();
+    @Output() duplicateControl = new EventEmitter<GpsControl>();
 
     constructor(
         public dialog: MatDialog,
@@ -124,5 +125,9 @@ export class AswGps implements OnInit {
         } else {
             this.filteredAddress = this.searchedAddress;
         }
+    }
+
+    duplicateGpsControl(control: GpsControl): void {
+        this.duplicateControl.emit(control);
     }
 }

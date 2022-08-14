@@ -4,22 +4,30 @@
     </div>
 </div>
 <div class="row" *ngIf="isPreviewTemplate">
-  <div class="col-md-12">
-      <button mat-raised-button 
-              type="button" 
-              matTooltip="Edit drawing control" 
-              [matTooltipPosition]="'above'" 
-              (click)="editDrawingDialog(control, controlIndex)"
-              class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
-          <i class="material-icons asw-material-icon">edit</i>
-      </button>
-      <button mat-raised-button 
-              type="button" 
-              matTooltip="Remove drawing control" 
-              [matTooltipPosition]="'above'" 
-              (click)="deleteDrawingDialog(control, controlIndex)"
-              class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-          <i class="material-icons asw-material-icon">close</i>
-      </button>
-  </div>                                            
+    <div class="col-md-12">
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Duplicate" 
+                [matTooltipPosition]="'below'" 
+                (click)="duplicateDrawingControl(control)"
+                class="asw-btn btn btn-sm btn-outline-secondary btn-just-icon mr-2 mb-1 me-2">
+            <i class="material-icons asw-material-icon">content_copy</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Edit" 
+                [matTooltipPosition]="'below'" 
+                (click)="editDrawingDialog(control, controlIndex)"
+                class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
+            <i class="material-icons asw-material-icon">edit</i>
+        </button>
+        <button mat-raised-button 
+                type="button" 
+                matTooltip="Delete" 
+                [matTooltipPosition]="'below'" 
+                (click)="deleteDrawingDialog(control, controlIndex)"
+                class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
+            <i class="material-icons asw-material-icon">delete</i>
+        </button>
+    </div>                                            
 </div>

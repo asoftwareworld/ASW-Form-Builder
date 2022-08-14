@@ -30,6 +30,7 @@ export class AswDivider {
     @Input() isPreviewTemplate = false;
 
     @Output() dividerDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<any>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -38,7 +39,7 @@ export class AswDivider {
      * @param control divider control items
      * @param controlIndex divider control index
      */
-    deleteHeaderDialog(control: any, controlIndex: number): void {
+    deleteDividerDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.controlType, message: this.constants.messages.waringMessage }
@@ -48,5 +49,9 @@ export class AswDivider {
                 this.dividerDeleteEvent.emit(controlIndex);
             }
         });
+    }
+
+    duplicateDividerControl(control: any ): void {
+        this.duplicateControl.emit(control);
     }
 }

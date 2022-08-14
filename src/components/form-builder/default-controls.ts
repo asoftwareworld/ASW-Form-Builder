@@ -180,7 +180,6 @@ export const CONTROLS = [
         column: 'col-md-12'
     },
     {
-        id: '1',
         icon: 'toggle_on',
         displayName: 'Slide Toggle',
         controlType: 'slide-toggle',
@@ -209,7 +208,7 @@ export const CONTROLS = [
         displayName: 'QR Code',
         controlType: 'qr-code',
         centerImageSize: '30',
-        centerImage: 'assets/img/asw.png',
+        centerImage: 'https://raw.githubusercontent.com/asoftwareworld/ASW-Form-Builder/master/asw.png',
         qrCodeSize: 240,
         errorCorrectionLevel: 'M',
         column: 'col-md-12',

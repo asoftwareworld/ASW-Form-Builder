@@ -28,6 +28,7 @@ export class AswCheckbox {
     @Output() checkboxUpdateEvent = new EventEmitter<{ control: CheckboxControl, index: number }>();
     @Output() checkboxDeleteEvent = new EventEmitter<number>();
     @Output() selectionChange = new EventEmitter<CheckboxControl>();
+    @Output() duplicateControl = new EventEmitter<CheckboxControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -58,5 +59,9 @@ export class AswCheckbox {
 
     onSelectionChange(control: CheckboxControl): void {
         this.selectionChange.emit(control);
+    }
+
+    duplicateCheckboxControl(control: CheckboxControl): void {
+        this.duplicateControl.emit(control);
     }
 }
