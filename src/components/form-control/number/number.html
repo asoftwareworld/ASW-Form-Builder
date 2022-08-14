@@ -3,11 +3,11 @@
         <mat-label>{{control.label}}</mat-label>
         <input matInput type="text"
                         [id]="control.id"
-                        pattern="{{control.pattern}}"
                         [placeholder]="control.label"
                         [(ngModel)]="control.value"                    
                         #input="ngModel"
                         (change)="onChange(control)"
+                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
                         [matTooltip]="control.tooltip"
                         [maxlength]="control.maxlength"
                         [minlength]="control.minlength"
@@ -20,9 +20,6 @@
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.minlength">
                 Sorry, {{control.label}} must be at least {{control.minlength}} characters long.
             </mat-error>
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.pattern">
-                {{control.customErrorMsg}}
-            </mat-error>
         </mat-error>
     </mat-form-field>
     <ng-template [ngIf]="isPreviewTemplate">
@@ -32,7 +29,7 @@
                         type="button" 
                         matTooltip="Duplicate" 
                         [matTooltipPosition]="'below'" 
-                        (click)="duplicateTextboxControl(control)"
+                        (click)="duplicateNumberControl(control)"
                         class="asw-btn btn btn-sm btn-outline-secondary btn-just-icon mr-2 mb-1 me-2">
                     <i class="material-icons asw-material-icon">content_copy</i>
                 </button>
@@ -40,7 +37,7 @@
                         type="button" 
                         matTooltip="Edit" 
                         [matTooltipPosition]="'below'" 
-                        (click)="editTextboxDialog(control, controlIndex)"
+                        (click)="editNumberDialog(control, controlIndex)"
                         class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mb-1">
                     <i class="material-icons asw-material-icon">edit</i>
                 </button>
@@ -48,7 +45,7 @@
                         type="button" 
                         matTooltip="Delete" 
                         [matTooltipPosition]="'below'" 
-                        (click)="deleteTextboxDialog(control, controlIndex)"
+                        (click)="deleteNumberDialog(control, controlIndex)"
                         class="asw-btn btn btn-just-icon btn-sm btn-outline-danger mb-1">
                     <i class="material-icons asw-material-icon">delete</i>
                 </button>

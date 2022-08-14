@@ -7,12 +7,12 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { TextboxControl } from '@asoftwareworld/form-builder/form-control/textbox';
+import { TextFieldControl } from '@asoftwareworld/form-builder/form-control/textfield';
 
 @Component({
     templateUrl: './textbox-demo.component.html'
 })
-export class TextboxDemoComponent implements OnInit {
+export class TextFieldDemoComponent implements OnInit {
     title = 'ASW-Form-Builder-demo';
     username: any = {};
     firstname: any = {};
@@ -23,7 +23,7 @@ export class TextboxDemoComponent implements OnInit {
     }
 }
 
-const USERNAME: TextboxControl =
+const USERNAME: TextFieldControl =
 {
     id: '1',
     controlType: '',

@@ -18,8 +18,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
-import { AswTextbox } from './textbox';
-import { AswTextboxDialog } from './textbox-dialog';
+import { AswNumber } from './number';
+import { AswNumberDialog } from './number-dialog';
 
 @NgModule({
     imports: [
@@ -36,12 +36,12 @@ import { AswTextboxDialog } from './textbox-dialog';
         AswConfirmDialogModule
     ],
     declarations: [
-        AswTextbox,
-        AswTextboxDialog
+        AswNumber,
+        AswNumberDialog
     ],
     exports: [
-        AswTextbox,
-        AswTextboxDialog
+        AswNumber,
+        AswNumberDialog
     ]
 })
-export class AswTextboxModule { }
+export class AswNumberModule { }

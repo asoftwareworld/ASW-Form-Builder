@@ -21,6 +21,7 @@ import { AswGpsModule } from '@asoftwareworld/form-builder/form-control/gps';
 import { AswHeaderModule } from '@asoftwareworld/form-builder/form-control/header';
 import { AswImageModule } from '@asoftwareworld/form-builder/form-control/image';
 import { AswMultiSelectModule } from '@asoftwareworld/form-builder/form-control/multi-select';
+import { AswNumberModule } from '@asoftwareworld/form-builder/form-control/number';
 import { AswParagraphModule } from '@asoftwareworld/form-builder/form-control/paragraph';
 import { QrCodeModule } from '@asoftwareworld/form-builder/form-control/qrcode';
 import { AswRadioButtonModule } from '@asoftwareworld/form-builder/form-control/radio-button';
@@ -28,7 +29,7 @@ import { AswSelectModule } from '@asoftwareworld/form-builder/form-control/selec
 import { AswSignatureModule } from '@asoftwareworld/form-builder/form-control/signature';
 import { AswSlideToggleModule } from '@asoftwareworld/form-builder/form-control/slide-toggle';
 import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/textarea';
-import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/textbox';
+import { AswTextFieldModule } from '@asoftwareworld/form-builder/form-control/textfield';
 import { AswPreviewTemplate } from './preview-template';
 
 @NgModule({
@@ -53,10 +54,11 @@ import { AswPreviewTemplate } from './preview-template';
         AswSignatureModule,
         AswSlideToggleModule,
         AswTextareaModule,
-        AswTextboxModule,
+        AswTextFieldModule,
         AswRadioButtonModule,
         MatSnackBarModule,
-        QrCodeModule
+        QrCodeModule,
+        AswNumberModule
     ],
     exports: [AswPreviewTemplate]
 })

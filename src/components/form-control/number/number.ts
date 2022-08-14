@@ -9,67 +9,68 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { TextboxControl } from './textbox-control';
-import { AswTextboxDialog } from './textbox-dialog';
+import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
+import { NumberControl } from './number-control';
+import { AswNumberDialog } from './number-dialog';
 
 @Component({
-    selector: 'asw-textbox',
-    templateUrl: './textbox.html'
+    selector: 'asw-number',
+    templateUrl: './number.html'
 })
-export class AswTextbox {
+export class AswNumber {
 
     constants: any = Constants;
+    objectUtils = ObjectUtils;
     /**
-     * Textbox control
+     * Number control
      */
-    @Input() control: TextboxControl | null = null;
+    @Input() control: NumberControl | null = null;
 
     /**
-     * Textbox control index to help update or delete button from drop area
+     * Number control index to help update or delete button from drop area
      */
     @Input() controlIndex!: number;
 
     @Input() isPreviewTemplate = false;
 
-    @Output() textboxUpdateEvent = new EventEmitter<{control: TextboxControl, index: number}>();
-    @Output() textboxDeleteEvent = new EventEmitter<number>();
-    @Output() aswModelChange = new EventEmitter<TextboxControl>();
-    @Output() duplicateControl = new EventEmitter<TextboxControl>();
+    @Output() numberUpdateEvent = new EventEmitter<{ control: NumberControl, index: number }>();
+    @Output() numberDeleteEvent = new EventEmitter<number>();
+    @Output() aswModelChange = new EventEmitter<NumberControl>();
+    @Output() duplicateControl = new EventEmitter<NumberControl>();
 
     constructor(public dialog: MatDialog) {
     }
 
-    deleteTextboxDialog(control: TextboxControl, controlIndex: number): void {
+    deleteNumberDialog(control: NumberControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.controlType, message: this.constants.messages.waringMessage }
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.textboxDeleteEvent.emit(controlIndex);
+                this.numberDeleteEvent.emit(controlIndex);
             }
         });
     }
 
-    editTextboxDialog(control: TextboxControl, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswTextboxDialog, {
+    editNumberDialog(control: NumberControl, controlIndex: number): void {
+        const dialogRef = this.dialog.open(AswNumberDialog, {
             disableClose: true,
             width: '744px',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.textboxUpdateEvent.emit({control: result, index: controlIndex});
+                this.numberUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
     }
 
-    onChange(control: TextboxControl): void {
+    onChange(control: NumberControl): void {
         this.aswModelChange.emit(control);
     }
 
-    duplicateTextboxControl(control: TextboxControl): void {
+    duplicateNumberControl(control: NumberControl): void {
         this.duplicateControl.emit(control);
     }
 }

@@ -11,3 +11,4 @@ export * from './interface/control';
 export * from './interface/control-option';
 export * from './interface/control-length';
 export * from './service/notification.service';
+export * from './utils/objectutils';

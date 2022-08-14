@@ -1,6 +1,6 @@
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditTextboxForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditTextFieldForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width"><br>
             <div class="row">
@@ -13,7 +13,7 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('id')?.hasError(validation.type) && (aswEditTextboxForm.get('id')?.dirty || aswEditTextboxForm.get('id')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextFieldForm.get('id')?.hasError(validation.type) && (aswEditTextFieldForm.get('id')?.dirty || aswEditTextFieldForm.get('id')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -28,7 +28,7 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('label')?.hasError(validation.type) && (aswEditTextboxForm.get('label')?.dirty || aswEditTextboxForm.get('label')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextFieldForm.get('label')?.hasError(validation.type) && (aswEditTextFieldForm.get('label')?.dirty || aswEditTextFieldForm.get('label')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Textbox Style</mat-label>
+                        <mat-label>TextField Style</mat-label>
                         <mat-select formControlName="style" matTooltip="Select textbox style">
                             <mat-option value="legacy">Legacy</mat-option>
                             <mat-option value="standard">Standard</mat-option>
@@ -127,7 +127,7 @@
                                         pattern="^[0-9]*$"
                                         formControlName="minlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.minlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('minlength')?.hasError(validation.type)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextFieldForm.get('minlength')?.hasError(validation.type)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -145,7 +145,7 @@
                                         pattern="^[0-9]*$"
                                         formControlName="maxlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.maxlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('maxlength')?.hasError(validation.type)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextFieldForm.get('maxlength')?.hasError(validation.type)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
