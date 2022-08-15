@@ -9,6 +9,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -32,6 +33,7 @@ import { AswHeaderDialog } from './header-dialog';
         MatDividerModule,
         MatButtonToggleModule,
         MatIconModule,
+        MatButtonModule,
         MatTooltipModule,
         AswConfirmDialogModule
     ],

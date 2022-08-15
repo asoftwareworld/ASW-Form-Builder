@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,6 +39,7 @@ import { AswAutocompleteDialog } from './autocomplete-dialog';
         MatIconModule,
         MatAutocompleteModule,
         AswConfirmDialogModule,
+        MatButtonModule
     ],
     declarations: [
         AswAutocomplete,

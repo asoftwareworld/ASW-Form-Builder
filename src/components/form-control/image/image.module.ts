@@ -9,6 +9,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -38,7 +39,8 @@ import { AswImageUploadDialog } from './image-upload-dialog';
         MatSelectModule,
         MatButtonToggleModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatButtonModule
     ],
     declarations: [
         AswImage,

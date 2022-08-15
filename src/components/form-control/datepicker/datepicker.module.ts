@@ -19,6 +19,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 
+import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AswDatepicker } from './datepicker';
 import { AswDatepickerDialog } from './datepicker-dialog';
@@ -37,7 +38,8 @@ import { AswDatepickerDialog } from './datepicker-dialog';
         MatNativeDateModule,
         MatIconModule,
         MatTooltipModule,
-        AswConfirmDialogModule
+        AswConfirmDialogModule,
+        MatButtonModule
     ],
     declarations: [
         AswDatepicker,

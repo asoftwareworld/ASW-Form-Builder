@@ -58,13 +58,13 @@
                     Text style: 
                     <mat-button-toggle-group formControlName="class" name="fontStyle" aria-label="Font Style">
                         <mat-button-toggle value="float-left float-start" aria-label="Text align left">
-                            <mat-icon class="asw-mat-icon">format_align_left</mat-icon>
+                            <mat-icon>format_align_left</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="mx-auto" aria-label="Text align center">
-                            <mat-icon class="asw-mat-icon">format_align_center</mat-icon>
+                            <mat-icon>format_align_center</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="float-right float-end" aria-label="Text align right">
-                            <mat-icon class="asw-mat-icon">format_align_right</mat-icon>
+                            <mat-icon>format_align_right</mat-icon>
                         </mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>
@@ -72,13 +72,12 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button
-                type="button"
+        <button type="button"
                 class="btn btn-danger mr-2 mb-1 me-2"
                 (click)="onNoClick()">
             No
         </button>
-        <button mat-raised-button type="submit"
+        <button type="submit"
                 class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes

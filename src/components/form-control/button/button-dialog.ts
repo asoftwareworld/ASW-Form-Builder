@@ -12,7 +12,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { ButtonControl } from './button-control';
 
-
 @Component({
     selector: 'asw-button-dialog',
     templateUrl: './button-dialog.html'
