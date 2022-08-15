@@ -33,7 +33,7 @@ export class AswButton {
 
     @Output() buttonClickEvent = new EventEmitter<string>();
     @Output() buttonUpdateEvent = new EventEmitter<{control: ButtonControl, index: number}>();
-    @Output() buttonDeleteEvent = new EventEmitter();
+    @Output() buttonDeleteEvent = new EventEmitter<number>();
     @Output() duplicateControl = new EventEmitter<ButtonControl>();
 
     constructor(public dialog: MatDialog) { }
@@ -68,8 +68,8 @@ export class AswButton {
         });
     }
 
-    buttonClick(): void {
-        this.buttonClickEvent.emit();
+    buttonClick(type: string): void {
+        this.buttonClickEvent.emit(type);
     }
 
     duplicateButtonControl(control: ButtonControl): void {

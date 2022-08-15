@@ -9,7 +9,7 @@
                             [class]="control.customClass"
                             [type]="control.type"
                             [matTooltip]="control.tooltip"
-                            (click)="buttonClick()"
+                            (click)="buttonClick(control.type)"
                             >{{control.label}}</button>
                 </ng-container>
                 <ng-container *ngSwitchCase="'mat-raised-button'">
@@ -19,7 +19,7 @@
                             [class]="control.customClass"
                             [type]="control.type"
                             [matTooltip]="control.tooltip"
-                            (click)="buttonClick()"
+                            (click)="buttonClick(control.type)"
                             >{{control.label}}</button>
                 </ng-container>
                 <ng-container *ngSwitchCase="'mat-stroked-button'">
@@ -29,7 +29,7 @@
                             [class]="control.customClass"
                             [type]="control.type"
                             [matTooltip]="control.tooltip"
-                            (click)="buttonClick()"
+                            (click)="buttonClick(control.type)"
                             >{{control.label}}</button>
                 </ng-container>
                 <ng-container *ngSwitchCase="'mat-flat-button'">
@@ -39,7 +39,7 @@
                             [class]="control.customClass"
                             [type]="control.type"
                             [matTooltip]="control.tooltip"
-                            (click)="buttonClick()">
+                            (click)="buttonClick(control.type)">
                         {{control.label}}
                     </button>
                 </ng-container>

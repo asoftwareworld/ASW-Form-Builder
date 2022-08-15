@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control/autocomplete';
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
+import { AswCalculationModule } from '@asoftwareworld/form-builder/form-control/calculation';
 import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/checkbox';
 import { AswDatepickerModule } from '@asoftwareworld/form-builder/form-control/datepicker';
 import { AswDividerModule } from '@asoftwareworld/form-builder/form-control/divider';
@@ -58,7 +59,8 @@ import { AswPreviewTemplate } from './preview-template';
         AswRadioButtonModule,
         MatSnackBarModule,
         QrCodeModule,
-        AswNumberModule
+        AswNumberModule,
+        AswCalculationModule
     ],
     exports: [AswPreviewTemplate]
 })

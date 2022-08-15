@@ -54,6 +54,12 @@
                                                 (aswModelChange)="onSelectionChange($event)">
                                     </asw-number>
                                 </ng-container>
+                                <ng-container *ngSwitchCase="'calculation'">
+                                    <asw-calculation [control]="control"
+                                                [controlIndex]="i"
+                                                (aswModelChange)="onSelectionChange($event)">
+                                    </asw-calculation>
+                                </ng-container>
                                 <ng-container *ngSwitchCase="'select'">
                                     <asw-select [control]="control"
                                                 [controlIndex]="i"
@@ -87,7 +93,7 @@
                                 <ng-container *ngSwitchCase="'button'">
                                     <asw-button [control]="control"
                                                 [controlIndex]="i"
-                                                (buttonClickEvent)="buttonClicked()">
+                                                (buttonClickEvent)="buttonClicked($event)">
                                     </asw-button>
                                 </ng-container>
                                 <ng-container *ngSwitchCase="'paragraph'">

@@ -48,7 +48,7 @@ export const CONTROLS = [
     {
         id: '1',
         icon: 'text_fields',
-        displayName: 'TextField',
+        displayName: 'Text Field',
         controlType: 'textfield',
         tooltip: 'Enter Text',
         value: '',
@@ -86,6 +86,22 @@ export const CONTROLS = [
         isRequired: false,
         maxlength: 50,
         minlength: 0
+    },
+    {
+        icon: 'calculate',
+        displayName: 'Calculation',
+        controlType: 'calculation',
+        tooltip: 'Enter calculation',
+        value: '',
+        label: 'Calculation',
+        placeholder: 'Field 1 + Field 2 = ',
+        style: 'outline',
+        column: 'col-md-12',
+        operators: [
+            { label: '', value: '' },
+            { label: '', value: '' },
+            { label: '', value: '' },
+        ]
     },
     {
         id: '1',

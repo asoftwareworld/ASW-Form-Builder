@@ -114,6 +114,17 @@
                                                     (duplicateControl)="duplicateControl($event)">
                                         </asw-number>
                                     </ng-container>
+                                    <ng-container *ngSwitchCase="'calculation'">
+                                        <asw-calculation [control]="control"
+                                                    [controlIndex]="i"
+                                                    [formControls]="formContainer"
+                                                    [isPreviewTemplate]="true"
+                                                    (calculationUpdateEvent)="updatedControl($event)"
+                                                    (calculationDeleteEvent)="deleteControl($event)"
+                                                    (aswModelChange)="onSelectionChange($event)"
+                                                    (duplicateControl)="duplicateControl($event)">
+                                        </asw-calculation>
+                                    </ng-container>
                                     <ng-container *ngSwitchCase="'select'">
                                         <asw-select [control]="control"
                                                     [controlIndex]="i"
@@ -170,7 +181,7 @@
                                                     [isPreviewTemplate]="true"
                                                     (buttonUpdateEvent)="updatedControl($event)"
                                                     (buttonDeleteEvent)="deleteControl($event)"
-                                                    (buttonClickEvent)="buttonClicked()"
+                                                    (buttonClickEvent)="buttonClicked($event)"
                                                     (duplicateControl)="duplicateControl($event)">
                                         </asw-button>                                       
                                     </ng-container>

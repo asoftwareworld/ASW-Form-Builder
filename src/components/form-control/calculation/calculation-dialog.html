@@ -1,0 +1,144 @@
+<h4 mat-dialog-title>Edit Property</h4>
+<mat-divider></mat-divider>
+<form [formGroup]="aswEditCalculationForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <div class="asw-full-width"><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Label</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        placeholder="Enter label"
+                                        matTooltip="Enter label"
+                                        formControlName="label" required>
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditCalculationForm.get('label')?.hasError(validation.type) && (aswEditCalculationForm.get('label')?.dirty || aswEditCalculationForm.get('label')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Tooltip</mat-label>
+                        <input matInput type="text"
+                                        name="tooltip"
+                                        placeholder="Enter tooltip"
+                                        matTooltip="Enter tooltip"
+                                        formControlName="tooltip">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Custom CSS Class</mat-label>
+                        <input matInput type="text"
+                                        name="customClass"
+                                        placeholder="Custom CSS Class"
+                                        matTooltip="Custom CSS Class"
+                                        formControlName="customClass">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Calculation Style</mat-label>
+                        <mat-select formControlName="style" matTooltip="Select textbox style">
+                            <mat-option value="legacy">Legacy</mat-option>
+                            <mat-option value="standard">Standard</mat-option>
+                            <mat-option value="fill">Fill</mat-option>
+                            <mat-option value="outline">Outline</mat-option>                    
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Value</mat-label>
+                        <input matInput type="text"
+                                        name="value"
+                                        placeholder="Enter value"
+                                        matTooltip="Enter value"
+                                        formControlName="value">                        
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Column Size</mat-label>
+                        <mat-select formControlName="column" matTooltip="Select column size">
+                            <mat-option *ngFor="let column of constants.columns" [value]="column.value">
+                                {{column.label}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <ng-container formArrayName="operators">
+                <div class="row" 
+                    *ngFor="let operator of operators.controls; let index = index; let last=last;" 
+                    [formGroupName]="index">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="asw-mat-form-field">
+                            <mat-label>Operator {{index+1}}</mat-label>
+                            <mat-select formControlName="value" matTooltip="Select column size">
+                                <mat-option *ngFor="let control of data.numberControls" [value]="control.value">
+                                    {{control.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="col-md-5">
+                        <mat-form-field appearance="outline" class="asw-mat-form-field">
+                            <mat-label>Option value {{index+1}}</mat-label>
+                            <input matInput type="text"
+                                    placeholder="Option value"
+                                    formControlName="value"
+                                    matTooltip="Option value"
+                                    minlength="1"
+                                    maxlength="999"
+                                    required>
+                                <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.value">
+                                    <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
+                                        {{validation.message}}
+                                    </mat-error>
+                                </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                        <button mat-raised-button *ngIf="last"
+                                type="button" 
+                                matTooltip="Add option" 
+                                [matTooltipPosition]="'above'"
+                                (click)="addNewOption()" 
+                                class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mt-3 me-2">
+                            <i class="material-icons asw-material-icon">add_circle_outline</i>
+                        </button>
+                        <button mat-raised-button *ngIf="index != 0"
+                                type="button" 
+                                matTooltip="Remove option" 
+                                [matTooltipPosition]="'above'" 
+                                (click)="removeOption(index)"
+                                class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1 mt-3">
+                            <i class="material-icons asw-material-icon">remove_circle_outline</i>
+                        </button>
+                    </div> -->
+                </div> 
+            </ng-container> 
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button type="button"
+                class="btn btn-danger mr-2 me-2 mb-1"
+                (click)="onNoClick()">
+            No
+        </button>
+        <button type="submit"
+                class="btn btn-primary mb-1"
+                cdkFocusInitial>
+            Yes
+        </button>
+    </mat-dialog-actions>
+</form>
+
