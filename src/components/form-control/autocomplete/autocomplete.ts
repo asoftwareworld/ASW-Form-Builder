@@ -36,6 +36,7 @@ export class AswAutocomplete implements OnInit {
     @Output() autocompleteUpdateEvent = new EventEmitter<{ control: AutoCompleteControl, index: number }>();
     @Output() autocompleteDeleteEvent = new EventEmitter<number>();
     @Output() selectionChange = new EventEmitter<AutoCompleteControl>();
+    @Output() duplicateControl = new EventEmitter<AutoCompleteControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -86,5 +87,9 @@ export class AswAutocomplete implements OnInit {
                 this.autocompleteUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    duplicateAutocompleteControl(control: AutoCompleteControl): void {
+        this.duplicateControl.emit(control);
     }
 }

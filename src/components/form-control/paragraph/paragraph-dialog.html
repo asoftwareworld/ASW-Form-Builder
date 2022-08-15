@@ -54,20 +54,20 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     Text style: 
                     <mat-button-toggle-group formControlName="style" name="fontStyle" aria-label="Font Style">
                         <mat-button-toggle value="text-left text-start" aria-label="Text align left">
-                            <mat-icon class="asw-mat-icon">format_align_left</mat-icon>
+                            <mat-icon>format_align_left</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-center" aria-label="Text align center">
-                            <mat-icon class="asw-mat-icon">format_align_center</mat-icon>
+                            <mat-icon>format_align_center</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-right text-end" aria-label="Text align right">
-                            <mat-icon class="asw-mat-icon">format_align_right</mat-icon>
+                            <mat-icon>format_align_right</mat-icon>
                         </mat-button-toggle>
                         <mat-button-toggle value="text-justify" aria-label="Text align justify">
-                            <mat-icon class="asw-mat-icon">format_align_justify</mat-icon>
+                            <mat-icon>format_align_justify</mat-icon>
                         </mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>
@@ -75,13 +75,12 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button
-                type="button"
+        <button type="button"
                 class="btn btn-danger mr-2 me-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>
-        <button mat-raised-button type="submit"
+        <button type="submit"
                 class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes

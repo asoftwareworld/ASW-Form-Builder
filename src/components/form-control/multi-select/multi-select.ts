@@ -31,9 +31,10 @@ export class AswMultiSelect {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() multiSelectUpdateEvent = new EventEmitter<{control: MultiSelectControl, index: number}>();
+    @Output() multiSelectUpdateEvent = new EventEmitter<{ control: MultiSelectControl, index: number }>();
     @Output() multiSelectDeleteEvent = new EventEmitter<number>();
     @Output() selectionChange = new EventEmitter<MultiSelectControl>();
+    @Output() duplicateControl = new EventEmitter<MultiSelectControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -60,7 +61,7 @@ export class AswMultiSelect {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.multiSelectUpdateEvent.emit({control: result, index: controlIndex});
+                this.multiSelectUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
     }
@@ -70,5 +71,9 @@ export class AswMultiSelect {
             element.isChecked = control.value.includes(element.key) ? true : false;
         });
         this.selectionChange.emit(control);
+    }
+
+    duplicateMultiSelectControl(control: MultiSelectControl): void {
+        this.duplicateControl.emit(control);
     }
 }

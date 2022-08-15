@@ -10,61 +10,66 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { TextboxControl } from './textbox-control';
-import { AswTextboxDialog } from './textbox-dialog';
+import { TextFieldControl } from './textfield-control';
+import { AswTextFieldDialog } from './textfield-dialog';
 
 @Component({
-    selector: 'asw-textbox',
-    templateUrl: './textbox.html'
+    selector: 'asw-textfield',
+    templateUrl: './textfield.html'
 })
-export class AswTextbox {
+export class AswTextField {
 
     constants: any = Constants;
     /**
-     * Textbox control
+     * TextField control
      */
-    @Input() control: TextboxControl | null = null;
+    @Input() control: TextFieldControl | null = null;
 
     /**
-     * Textbox control index to help update or delete button from drop area
+     * TextField control index to help update or delete button from drop area
      */
     @Input() controlIndex!: number;
 
     @Input() isPreviewTemplate = false;
 
-    @Output() textboxUpdateEvent = new EventEmitter<{control: TextboxControl, index: number}>();
-    @Output() textboxDeleteEvent = new EventEmitter<number>();
-    @Output() aswModelChange = new EventEmitter<TextboxControl>();
+    @Output() textFieldUpdateEvent = new EventEmitter<{control: TextFieldControl, index: number}>();
+    @Output() textFieldDeleteEvent = new EventEmitter<number>();
+    @Output() aswModelChange = new EventEmitter<TextFieldControl>();
+    @Output() duplicateControl = new EventEmitter<TextFieldControl>();
 
     constructor(public dialog: MatDialog) {
     }
 
-    deleteTextboxDialog(control: TextboxControl, controlIndex: number): void {
+    deleteTextFieldDialog(control: TextFieldControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswConfirmDialog, {
             width: '350px',
             data: { name: control.controlType, message: this.constants.messages.waringMessage }
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.textboxDeleteEvent.emit(controlIndex);
+                this.textFieldDeleteEvent.emit(controlIndex);
             }
         });
     }
 
-    editTextboxDialog(control: TextboxControl, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswTextboxDialog, {
+    editTextFieldDialog(control: TextFieldControl, controlIndex: number): void {
+        const dialogRef = this.dialog.open(AswTextFieldDialog, {
             disableClose: true,
             width: '744px',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.textboxUpdateEvent.emit({control: result, index: controlIndex});
+                this.textFieldUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
     }
 
-    onChange(control: TextboxControl): void {
+    onChange(control: TextFieldControl): void {
         this.aswModelChange.emit(control);
+    }
+
+    duplicateTextFieldControl(control: TextFieldControl): void {
+        this.duplicateControl.emit(control);
     }
 }

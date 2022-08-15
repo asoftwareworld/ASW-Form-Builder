@@ -6,13 +6,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AswFormBuilderModule } from '@asoftwareworld/form-builder/form-builder';
-import { AswTextboxModule } from '@asoftwareworld/form-builder/form-control/textbox';
+import { AswTextFieldModule } from '@asoftwareworld/form-builder/form-control/textfield';
 import { AswPreviewTemplateModule } from '@asoftwareworld/form-builder/preview-template';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { TextboxDemoComponent } from './components/form-control/textbox-demo/textbox-demo.component';
+import { TextFieldDemoComponent } from './components/form-control/textbox-demo/textbox-demo.component';
 import { HomeComponent } from './components/home/home.component';
 import { PreviewTemplateComponent } from './components/preview-template/preview-template.component';
 import { ComponentsModule } from './shared/component/component.module';
@@ -22,7 +22,7 @@ import { ComponentsModule } from './shared/component/component.module';
         AppComponent,
         HomeComponent,
         PreviewTemplateComponent,
-        TextboxDemoComponent,
+        TextFieldDemoComponent,
         AboutUsComponent,
         ContactUsComponent
     ],
@@ -37,7 +37,7 @@ import { ComponentsModule } from './shared/component/component.module';
         ComponentsModule,
         AswFormBuilderModule,
         AswPreviewTemplateModule,
-        AswTextboxModule
+        AswTextFieldModule
     ],
     providers: [],
     bootstrap: [AppComponent],

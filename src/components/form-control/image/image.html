@@ -9,22 +9,27 @@
 </div>
 
 <div class="row" *ngIf="isPreviewTemplate">
-  <div class="col-md-12">
-      <button mat-raised-button 
-              type="button" 
-              matTooltip="Edit image control" 
-              [matTooltipPosition]="'above'" 
-              (click)="editImageDialog(control, controlIndex)"
-              class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
-          <i class="material-icons asw-material-icon">edit</i>
-      </button>
-      <button mat-raised-button 
-              type="button" 
-              matTooltip="Remove image control" 
-              [matTooltipPosition]="'above'" 
-              (click)="deleteImageDialog(control, controlIndex)"
-              class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-          <i class="material-icons asw-material-icon">close</i>
-      </button>
-  </div>                                            
+    <div class="col-md-12">
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Duplicate" 
+                [matTooltipPosition]="'below'" 
+                (click)="duplicateImageControl(control)">
+            <mat-icon>content_copy</mat-icon>
+        </button>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Edit" 
+                [matTooltipPosition]="'below'" 
+                (click)="editImageDialog(control, controlIndex)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Delete" 
+                [matTooltipPosition]="'below'" 
+                (click)="deleteImageDialog(control, controlIndex)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
 </div>

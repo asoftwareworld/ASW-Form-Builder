@@ -1,6 +1,6 @@
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditTextboxForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditNumberForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width"><br>
             <div class="row">
@@ -13,7 +13,7 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('id')?.hasError(validation.type) && (aswEditTextboxForm.get('id')?.dirty || aswEditTextboxForm.get('id')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditNumberForm.get('id')?.hasError(validation.type) && (aswEditNumberForm.get('id')?.dirty || aswEditNumberForm.get('id')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -28,7 +28,7 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('label')?.hasError(validation.type) && (aswEditTextboxForm.get('label')?.dirty || aswEditTextboxForm.get('label')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditNumberForm.get('label')?.hasError(validation.type) && (aswEditNumberForm.get('label')?.dirty || aswEditNumberForm.get('label')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -60,39 +60,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Input Mask</mat-label>
-                        <input matInput type="text"
-                                        name="pattern"
-                                        placeholder="Input Mask"
-                                        matTooltip="Input Mask"
-                                        formControlName="pattern">
-                    </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Input Mask Custom Error Msg</mat-label>
-                        <input matInput type="text"
-                                        name="customErrorMsg"
-                                        placeholder="Input Mask Custom Error Msg"
-                                        matTooltip="Input Mask Custom Error Msg"
-                                        formControlName="customErrorMsg">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Value</mat-label>
                         <input matInput type="text"
                                         name="value"
                                         placeholder="Enter value"
+                                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
                                         matTooltip="Enter value"
                                         formControlName="value">                        
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Textbox Style</mat-label>
+                        <mat-label>Number Style</mat-label>
                         <mat-select formControlName="style" matTooltip="Select textbox style">
                             <mat-option value="legacy">Legacy</mat-option>
                             <mat-option value="standard">Standard</mat-option>
@@ -127,7 +106,7 @@
                                         pattern="^[0-9]*$"
                                         formControlName="minlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.minlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('minlength')?.hasError(validation.type)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditNumberForm.get('minlength')?.hasError(validation.type)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -145,7 +124,7 @@
                                         pattern="^[0-9]*$"
                                         formControlName="maxlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.maxlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextboxForm.get('maxlength')?.hasError(validation.type)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditNumberForm.get('maxlength')?.hasError(validation.type)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -164,13 +143,12 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button
-                type="button"
+        <button type="button"
                 class="btn btn-danger mr-2 me-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>
-        <button mat-raised-button type="submit"
+        <button type="submit"
                 class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes

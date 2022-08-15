@@ -34,6 +34,7 @@ export class AswQrCode {
 
     @Output() qrCodeUpdateEvent = new EventEmitter<{control: QrCodeControl, index: number}>();
     @Output() qrCodeDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<QrCodeControl>();
 
     constructor(public dialog: MatDialog) {
     }
@@ -61,5 +62,9 @@ export class AswQrCode {
                 this.qrCodeUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    duplicateQrCodeControl(control: QrCodeControl): void {
+        this.duplicateControl.emit(control);
     }
 }

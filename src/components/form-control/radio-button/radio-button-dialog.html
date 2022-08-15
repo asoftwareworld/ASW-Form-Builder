@@ -116,21 +116,19 @@
                         </mat-form-field>
                     </div>
                     <div class="col-md-2">
-                        <button mat-raised-button *ngIf="last"
+                        <button mat-icon-button *ngIf="last"
                                 type="button" 
-                                matTooltip="Add option" 
-                                [matTooltipPosition]="'above'"
-                                (click)="addNewOption()" 
-                                class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mt-3">
-                            <i class="material-icons asw-material-icon">add_circle_outline</i>
+                                matTooltip="Add" 
+                                [matTooltipPosition]="'below'"
+                                (click)="addNewOption()">
+                            <mat-icon>add</mat-icon>
                         </button>
-                        <button mat-raised-button *ngIf="index != 0"
+                        <button mat-icon-button *ngIf="index != 0"
                                 type="button" 
-                                matTooltip="Remove option" 
-                                [matTooltipPosition]="'above'" 
-                                (click)="removeOption(index)"
-                                class="asw-btn btn btn-just-icon btn-sm btn-outline-danger mt-3">
-                            <i class="material-icons asw-material-icon">remove_circle_outline</i>
+                                matTooltip="Delete" 
+                                [matTooltipPosition]="'below'" 
+                                (click)="removeOption(index)">
+                            <mat-icon>delete</mat-icon>
                         </button>
                     </div>
                 </div> 
@@ -148,13 +146,12 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button
-                type="button"
+        <button type="button"
                 class="btn btn-danger mr-2 me-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>
-        <button mat-raised-button type="submit"
+        <button type="submit"
                 class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes

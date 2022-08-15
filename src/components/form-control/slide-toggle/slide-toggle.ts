@@ -32,9 +32,10 @@ export class AswSlideToggle {
     @Input() controlIndex!: number;
     @Input() isPreviewTemplate = false;
 
-    @Output() slidetoggleUpdateEvent = new EventEmitter<{control: SlideToggleControl, index: number}>();
+    @Output() slidetoggleUpdateEvent = new EventEmitter<{ control: SlideToggleControl, index: number }>();
     @Output() slidetoggleDeleteEvent = new EventEmitter<number>();
     @Output() selectionChange = new EventEmitter<SlideToggleControl>();
+    @Output() duplicateControl = new EventEmitter<SlideToggleControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -58,7 +59,7 @@ export class AswSlideToggle {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
-                this.slidetoggleUpdateEvent.emit({control: result, index: controlIndex});
+                this.slidetoggleUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
     }
@@ -66,5 +67,9 @@ export class AswSlideToggle {
     onChange(event: MatSlideToggleChange, control: SlideToggleControl): void {
         control.value = event.checked;
         this.selectionChange.emit(control);
+    }
+
+    duplicateSlideToggleControl(control: SlideToggleControl): void {
+        this.duplicateControl.emit(control);
     }
 }

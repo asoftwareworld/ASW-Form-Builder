@@ -1,0 +1,52 @@
+<ng-container *ngIf="control as control">
+    <mat-form-field hintLabel="Max {{control.maxlength}} characters" [appearance]="control.style" class="asw-mat-form-field {{control.customClass}}">
+        <mat-label>{{control.label}}</mat-label>
+        <input matInput type="text"
+                        [id]="control.id"
+                        [placeholder]="control.label"
+                        [(ngModel)]="control.value"                    
+                        #input="ngModel"
+                        (change)="onChange(control)"
+                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
+                        [matTooltip]="control.tooltip"
+                        [maxlength]="control.maxlength"
+                        [minlength]="control.minlength"
+                        [required]="control.isRequired">
+        <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+                {{control.label}} is required
+            </mat-error>
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.minlength">
+                Sorry, {{control.label}} must be at least {{control.minlength}} characters long.
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Duplicate" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="duplicateNumberControl(control)">
+                    <mat-icon>content_copy</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Edit" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="editNumberDialog(control, controlIndex)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Delete" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="deleteNumberDialog(control, controlIndex)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>
+</ng-container>

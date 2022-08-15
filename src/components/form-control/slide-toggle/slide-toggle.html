@@ -1,6 +1,5 @@
 <ng-container *ngIf="control as control">
-    <mat-slide-toggle [color]="control.color" 
-                    [id]="control.id"
+    <mat-slide-toggle [color]="control.color"
                     [class]="control.customClass"
                     [required]="control.isRequired"
                     (change)="onChange($event, control)"
@@ -8,21 +7,26 @@
     <ng-template [ngIf]="isPreviewTemplate">
         <div class="row">
             <div class="col-md-12">
-                <button mat-raised-button 
+                <button mat-icon-button 
                         type="button" 
-                        matTooltip="Edit slide toggle control"
-                        [matTooltipPosition]="'above'" 
-                        (click)="editSlideToggleDialog(control, controlIndex)"
-                        class="asw-btn btn btn-just-icon btn-sm btn-outline-success mr-2 me-2 mb-1">
-                    <i class="material-icons asw-material-icon">edit</i>
+                        matTooltip="Duplicate" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="duplicateSlideToggleControl(control)">
+                    <mat-icon>content_copy</mat-icon>
                 </button>
-                <button mat-raised-button 
+                <button mat-icon-button 
                         type="button" 
-                        matTooltip="Remove slide toggle control" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="deleteSlideToggleDialog(control, controlIndex)"
-                        class="asw-btn btn btn-just-icon btn-sm btn-outline-danger mb-1">
-                    <i class="material-icons asw-material-icon">close</i>
+                        matTooltip="Edit"
+                        [matTooltipPosition]="'below'" 
+                        (click)="editSlideToggleDialog(control, controlIndex)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Delete" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="deleteSlideToggleDialog(control, controlIndex)">
+                    <mat-icon>delete</mat-icon>
                 </button>
             </div>
         </div>

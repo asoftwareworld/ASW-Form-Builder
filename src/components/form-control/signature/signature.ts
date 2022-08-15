@@ -27,6 +27,8 @@ export class AswSignature {
 
     @Output() signatureUpdateEvent = new EventEmitter<{ control: any, index: number }>();
     @Output() signatureDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<number>();
+
     imageUrl: any = 'https://i.pinimg.com/236x/d6/27/d9/d627d9cda385317de4812a4f7bd922e9--man--iron-man.jpg';
     constructor(public dialog: MatDialog) { }
 
@@ -53,5 +55,9 @@ export class AswSignature {
                 this.signatureUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    duplicateSignatureControl(control: any): void {
+        this.duplicateControl.emit(control);
     }
 }

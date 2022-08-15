@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 
-export * from './textbox';
-export * from './textbox-dialog';
-export * from './textbox-control';
-export * from './textbox.module';
+export * from './textfield';
+export * from './textfield-dialog';
+export * from './textfield-control';
+export * from './textfield.module';

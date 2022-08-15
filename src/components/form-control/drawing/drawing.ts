@@ -27,6 +27,8 @@ export class AswDrawing {
 
     @Output() drawingUpdateEvent = new EventEmitter<{ control: any, index: number }>();
     @Output() drawingDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<any>();
+
     imageUrl: any = 'https://i.pinimg.com/236x/d6/27/d9/d627d9cda385317de4812a4f7bd922e9--man--iron-man.jpg';
     constructor(public dialog: MatDialog) { }
 
@@ -53,5 +55,9 @@ export class AswDrawing {
                 this.drawingUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    duplicateDrawingControl(control: any): void {
+        this.duplicateControl.emit(control);
     }
 }

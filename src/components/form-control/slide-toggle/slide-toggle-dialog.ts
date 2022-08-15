@@ -32,7 +32,6 @@ export class AswSlideToggleDialog implements OnInit {
 
     validateFormBuilder(): void {
         this.aswEditSlideToggleForm = this.formBuilder.group({
-            id: ['', [Validators.required]],
             customClass: [],
             label: ['', [Validators.required, Validators.minLength(1)]],
             color: [],
@@ -44,7 +43,6 @@ export class AswSlideToggleDialog implements OnInit {
 
     editProperty(control: SlideToggleControl): void {
         this.aswEditSlideToggleForm.setValue({
-            id: control.id,
             customClass: control.customClass ?? '',
             label: control.label,
             color: control.color,

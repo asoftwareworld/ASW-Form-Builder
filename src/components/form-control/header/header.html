@@ -22,21 +22,26 @@
     <ng-template [ngIf]="isPreviewTemplate">
         <div class="row">
             <div class="col-md-12">
-                <button mat-raised-button 
+                <button mat-icon-button 
                         type="button" 
-                        matTooltip="Edit header control" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="editHeaderDialog(control, controlIndex)"
-                        class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
-                    <i class="material-icons asw-material-icon">edit</i>
+                        matTooltip="Duplicate" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="duplicateHeaderControl(control)">
+                    <mat-icon>content_copy</mat-icon>
                 </button>
-                <button mat-raised-button 
+                <button mat-icon-button 
                         type="button" 
-                        matTooltip="Remove header control" 
-                        [matTooltipPosition]="'above'" 
-                        (click)="deleteHeaderDialog(control, controlIndex)"
-                        class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-                    <i class="material-icons asw-material-icon">close</i>
+                        matTooltip="Edit" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="editHeaderDialog(control, controlIndex)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Delete" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="deleteHeaderDialog(control, controlIndex)">
+                    <mat-icon>delete</mat-icon>
                 </button>
             </div>                                            
         </div>

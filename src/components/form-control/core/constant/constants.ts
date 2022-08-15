@@ -126,6 +126,25 @@ function getConstatnts(): any {
         AswQrcodeErrorCorrectionLevel.QUARTILE
     ];
 
+    const operations = [
+        {
+            value: '+',
+            label: 'Addition'
+        },
+        {
+            value: '−',
+            label: 'Subtraction'
+        },
+        {
+            value: '*',
+            label: 'Multiplication'
+        },
+        {
+            value: '/',
+            label: 'Division'
+        },
+    ];
+
     const dataTypes = {
         dataTypeString: 'string',
         dataTypeNumber: 'number',
@@ -165,7 +184,8 @@ function getConstatnts(): any {
         notificationMessage,
         messages,
         columns,
-        errorCorrectionLevels
+        errorCorrectionLevels,
+        operations
     };
 
     return applicationConstants;

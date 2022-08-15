@@ -21,21 +21,26 @@
     </mat-form-field>
     <div class="row" *ngIf="isPreviewTemplate">
         <div class="col-md-12">
-            <button mat-raised-button 
+            <button mat-icon-button 
                     type="button" 
-                    matTooltip="Edit datepicker control" 
-                    [matTooltipPosition]="'above'" 
-                    (click)="editDatepickerDialog(control, controlIndex)"
-                    class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 me-2 mb-1">
-                <i class="material-icons asw-material-icon">edit</i>
+                    matTooltip="Duplicate" 
+                    [matTooltipPosition]="'below'" 
+                    (click)="duplicateDatepickerControl(control)">
+                <mat-icon>content_copy</mat-icon>
             </button>
-            <button mat-raised-button 
+            <button mat-icon-button 
                     type="button" 
-                    matTooltip="Remove datepicker control" 
-                    [matTooltipPosition]="'above'" 
-                    (click)="deleteDatepickerDialog(control, controlIndex)"
-                    class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-                <i class="material-icons asw-material-icon">close</i>
+                    matTooltip="Edit" 
+                    [matTooltipPosition]="'below'" 
+                    (click)="editDatepickerDialog(control, controlIndex)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button 
+                    type="button" 
+                    matTooltip="Delete" 
+                    [matTooltipPosition]="'below'" 
+                    (click)="deleteDatepickerDialog(control, controlIndex)">
+                <mat-icon>delete</mat-icon>
             </button>
         </div>                                            
     </div>

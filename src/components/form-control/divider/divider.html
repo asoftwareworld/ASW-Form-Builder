@@ -1,13 +1,19 @@
 <mat-divider></mat-divider>
 <div class="row" *ngIf="isPreviewTemplate">
-    <div class="col-md-12">        
-        <button mat-raised-button 
+    <div class="col-md-12">
+        <button mat-icon-button 
                 type="button" 
-                matTooltip="Remove divider control" 
-                [matTooltipPosition]="'above'" 
-                (click)="deleteHeaderDialog(control, controlIndex)"
-                class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-            <i class="material-icons asw-material-icon">close</i>
+                matTooltip="Duplicate" 
+                [matTooltipPosition]="'below'" 
+                (click)="duplicateDividerControl(control)">
+            <mat-icon>content_copy</mat-icon>
+        </button>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Delete" 
+                [matTooltipPosition]="'below'" 
+                (click)="deleteDividerDialog(control, controlIndex)">
+            <mat-icon>delete</mat-icon>
         </button>
     </div>                                            
 </div>

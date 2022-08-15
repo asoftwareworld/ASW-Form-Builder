@@ -34,6 +34,7 @@ export class AswRadioButton {
     @Output() radioButtonUpdateEvent = new EventEmitter<{control: RadioButtonControl, index: number}>();
     @Output() radioButtonDeleteEvent = new EventEmitter<number>();
     @Output() selectionChange = new EventEmitter<RadioButtonControl>();
+    @Output() duplicateControl = new EventEmitter<RadioButtonControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -70,5 +71,9 @@ export class AswRadioButton {
             element.isChecked = control.value === element.key ? true : false;
         });
         this.selectionChange.emit(control);
+    }
+
+    duplicateRadioButtonControl(control: RadioButtonControl): void {
+        this.duplicateControl.emit(control);
     }
 }

@@ -5,13 +5,26 @@
 </div>
 <div class="row" *ngIf="isPreviewTemplate">
     <div class="col-md-12">
-        <button mat-raised-button type="button" matTooltip="Edit signature control" [matTooltipPosition]="'above'"
-            (click)="editSignatureDialog(control, controlIndex)" class="asw-btn btn btn-just-icon btn-sm btn-outline-success me-2 mr-2 mb-1">
-            <i class="material-icons asw-material-icon">edit</i>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Duplicate" 
+                [matTooltipPosition]="'below'" 
+                (click)="duplicateSignatureControl(control)">
+            <mat-icon>content_copy</mat-icon>
         </button>
-        <button mat-raised-button type="button" matTooltip="Remove signature control" [matTooltipPosition]="'above'"
-            (click)="deleteSignatureDialog(control, controlIndex)" class="asw-btn btn btn-just-icon btn-sm btn-outline-danger mb-1">
-            <i class="material-icons asw-material-icon">close</i>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Edit" 
+                [matTooltipPosition]="'below'"
+                (click)="editSignatureDialog(control, controlIndex)">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Delete" 
+                [matTooltipPosition]="'below'"
+                (click)="deleteSignatureDialog(control, controlIndex)">
+            <mat-icon>delete</mat-icon>
         </button>
     </div>
 </div>

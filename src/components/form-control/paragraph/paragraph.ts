@@ -33,6 +33,7 @@ export class AswParagraph {
 
     @Output() paragraphUpdateEvent = new EventEmitter<{control: ParagraphControl, index: number}>();
     @Output() paragraphDeleteEvent = new EventEmitter<number>();
+    @Output() duplicateControl = new EventEmitter<ParagraphControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -59,5 +60,9 @@ export class AswParagraph {
                 this.paragraphUpdateEvent.emit({control: result, index: controlIndex});
             }
         });
+    }
+
+    duplicateParagraphControl(control: ParagraphControl): void {
+        this.duplicateControl.emit(control);
     }
 }

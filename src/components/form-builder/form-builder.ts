@@ -89,4 +89,8 @@ export class AswFormBuilder implements OnInit, OnChanges {
     onSelectionChange(control: any): void {
         this.aswModelChange.emit(control);
     }
+
+    duplicateControl(control: any): void {
+        this.formContainer.push(JSON.parse(JSON.stringify(control)));
+    }
 }

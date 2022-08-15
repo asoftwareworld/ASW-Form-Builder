@@ -6,21 +6,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Unique Id</mat-label>
-                        <input matInput type="text"
-                                        name="id"
-                                        placeholder="Enter Unique Id"
-                                        matTooltip="Enter Unique Id"
-                                        formControlName="id" required>
-                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditSlideToggleForm.get('id')?.hasError(validation.type) && (aswEditSlideToggleForm.get('id')?.dirty || aswEditSlideToggleForm.get('id')?.touched)">
-                                {{validation.message}}
-                            </mat-error>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Label</mat-label>
                         <input matInput type="text"
                                         placeholder="Enter label"
@@ -33,9 +18,7 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Custom CSS Class</mat-label>
                         <input matInput type="text"
@@ -91,13 +74,12 @@
         </div>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-        <button mat-raised-button
-                type="button"
+        <button type="button"
                 class="btn btn-danger mr-2 me-2 mb-1"
                 (click)="onNoClick()">
             No
         </button>
-        <button mat-raised-button type="submit"
+        <button type="submit"
                 class="btn btn-primary mb-1"
                 cdkFocusInitial>
             Yes

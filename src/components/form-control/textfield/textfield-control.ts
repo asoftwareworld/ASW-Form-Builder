@@ -7,7 +7,7 @@
  */
 import { Control, ControlLength, StyleControl } from '@asoftwareworld/form-builder/form-control/core';
 
-export interface TextboxControl extends Control, ControlLength, StyleControl {
+export interface TextFieldControl extends Control, ControlLength, StyleControl {
     pattern?: string;
     customErrorMsg?: string;
     value: string;

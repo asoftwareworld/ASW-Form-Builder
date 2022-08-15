@@ -1,19 +1,19 @@
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
-// import { TextboxComponent } from './text-box.component';
+// import { NumberComponent } from './text-box.component';
 
-// describe('TextboxComponent', () => {
-//   let component: TextboxComponent;
-//   let fixture: ComponentFixture<TextboxComponent>;
+// describe('NumberComponent', () => {
+//   let component: NumberComponent;
+//   let fixture: ComponentFixture<NumberComponent>;
 
 //   beforeEach(async () => {
 //     await TestBed.configureTestingModule({
-//       declarations: [ TextboxComponent ]
+//       declarations: [ NumberComponent ]
 //     })
 //     .compileComponents();
 //   });
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(TextboxComponent);
+//     fixture = TestBed.createComponent(NumberComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

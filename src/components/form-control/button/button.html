@@ -47,19 +47,26 @@
             <ng-template [ngIf]="isPreviewTemplate">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" 
-                                matTooltip="Edit button" 
-                                [matTooltipPosition]="'above'" 
-                                (click)="editButtonDialog(control, controlIndex)"
-                                class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mb-1 me-2">
-                            <i class="material-icons asw-material-icon">edit</i>
+                        <button type="button"
+                                mat-icon-button 
+                                matTooltip="Duplicate" 
+                                [matTooltipPosition]="'below'" 
+                                (click)="duplicateButtonControl(control)">
+                            <mat-icon>content_copy</mat-icon>
                         </button>
-                        <button type="button" 
-                                matTooltip="Remove button" 
-                                [matTooltipPosition]="'above'" 
-                                (click)="deleteButtonDialog(control, controlIndex)"
-                                class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1">
-                            <i class="material-icons asw-material-icon">close</i>
+                        <button mat-icon-button 
+                                type="button" 
+                                matTooltip="Edit" 
+                                [matTooltipPosition]="'below'" 
+                                (click)="editButtonDialog(control, controlIndex)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button 
+                                type="button" 
+                                matTooltip="Delete" 
+                                [matTooltipPosition]="'below'" 
+                                (click)="deleteButtonDialog(control, controlIndex)">
+                            <mat-icon>delete</mat-icon>
                         </button>
                     </div>
                 </div>

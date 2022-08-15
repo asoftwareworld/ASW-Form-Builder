@@ -34,6 +34,7 @@ export class AswDatepicker {
     @Output() datepickerUpdateEvent = new EventEmitter<{ control: DateControl, index: number }>();
     @Output() datepickerDeleteEvent = new EventEmitter<number>();
     @Output() dateChange = new EventEmitter<DateControl>();
+    @Output() duplicateControl = new EventEmitter<DateControl>();
 
     constructor(public dialog: MatDialog) { }
 
@@ -69,5 +70,9 @@ export class AswDatepicker {
 
     onDateChange(control: DateControl): void {
         this.dateChange.emit(control);
+    }
+
+    duplicateDatepickerControl(control: DateControl): void {
+        this.duplicateControl.emit(control);
     }
 }
