@@ -5,7 +5,8 @@
         <asw-image-drawing [width]="width" [height]="height"
                        borderCss="1px solid black"
                        [showCancelButton]="false"
-                       outputMimeType="'image/jpeg'"            
+                       outputMimeType="'image/jpeg'"
+                       (save)="saveImage($event)"
                        [drawingSizes]="{ small: 3, medium: 10, large: 25, extra: 50 }">
         </asw-image-drawing>
     </mat-dialog-content>

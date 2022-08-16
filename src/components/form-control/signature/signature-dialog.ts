@@ -16,13 +16,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AswSignatureDialog {
 
-    public width  = 600;
+    public width = 600;
     public height = 250;
 
-    constructor(public dialogRef: MatDialogRef<AswSignatureDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: any) { }
-
-
+    constructor(
+        public dialogRef: MatDialogRef<AswSignatureDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     onNoClick(): void {
         this.dialogRef.close();
@@ -32,16 +31,15 @@ export class AswSignatureDialog {
         if (aswEditPropertyForm.invalid) {
             return;
         }
-        // this.model.displayName = this.control.displayName;
-        // this.model.controlType = this.control.controlType;
-        // this.model.name = this.name;
-        // this.model.label = this.label;
-        // this.model.tooltip = this.tooltip;
-        // if (this.control.controlType !== 'radio' || this.control.controlType !== 'checkbox') {
-        //     this.model.style = this.style;
-        // }
-        // this.model.isRequired = this.isRequired;
-        // this.model.options = this.options;
-        // this.dialogRef.close(this.model);
+        this.dialogRef.close(this.control);
+    }
+
+    public saveImage(blob: any): void {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+            const base64data = reader.result;
+            this.control.imageUrl = base64data;
+        };
     }
 }

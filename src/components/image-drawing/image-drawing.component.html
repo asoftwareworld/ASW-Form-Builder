@@ -15,46 +15,48 @@
     <div class="toolbar" *ngIf="!isLoading">
         <div class="tools">
             <div class="row">
-                <i class="material-icons btn-selector" 
-                    [class.selected]="currentTool == 'brush'" 
-                    (click)="selectTool('brush')"
-                    title="Brush">brush</i>
-                <span *ngFor="let drawingSizeName of drawingSizesName" 
-                        class="size btn-selector"
-                        [style.width.px]="drawingSizes[drawingSizeName] * 0.8 + 8"
-                        [style.height.px]="drawingSizes[drawingSizeName] * 0.8 + 8"
-                        [style.borderRadius.px]="drawingSizes[drawingSizeName] * 0.4 + 4"
-                        [class.selected]="currentSize == drawingSizeName"
-                        title="{{drawingSizeName}}"
-                        (click)="selectDrawingSize(drawingSizeName)">
-                </span>
-    
-                <input style="display: none" 
-                        type="file" 
-                        #fileInput 
-                        (change)="importPhotoFromFile($event)"
-                        accept="image/*"/>
-                <i class="material-icons btn-selector" 
-                    *ngIf="enableLoadAnotherImage && !hasImage" 
-                    (click)="fileInput.click();"
-                    title="Load image">attach_file
-                </i>
-                <i class="material-icons btn-selector" 
-                    *ngIf="enableRemoveImage && hasImage" 
-                    (click)="removeImage()"
-                    title="Remove image">clear</i>
-    
-                <i class="material-icons btn-selector" 
-                    [class.disabled]="!canUndo" 
-                    (click)="undo()"
-                    title="Undo">undo</i>
-                <i class="material-icons btn-selector" 
-                    [class.disabled]="!canRedo" 
-                    (click)="redo()"
-                    title="Redo">redo</i>
-                <i class="material-icons btn-selector" 
-                    (click)="clearCanvas()" 
-                    title="Clear">delete</i>
+                <div class="col-md-12">
+                    <i class="material-icons btn-selector" 
+                        [class.selected]="currentTool == 'brush'" 
+                        (click)="selectTool('brush')"
+                        title="Brush">brush</i>
+                    <span *ngFor="let drawingSizeName of drawingSizesName" 
+                            class="size btn-selector"
+                            [style.width.px]="drawingSizes[drawingSizeName] * 0.8 + 8"
+                            [style.height.px]="drawingSizes[drawingSizeName] * 0.8 + 8"
+                            [style.borderRadius.px]="drawingSizes[drawingSizeName] * 0.4 + 4"
+                            [class.selected]="currentSize == drawingSizeName"
+                            title="{{drawingSizeName}}"
+                            (click)="selectDrawingSize(drawingSizeName)">
+                    </span>
+        
+                    <input style="display: none" 
+                            type="file" 
+                            #fileInput 
+                            (change)="importPhotoFromFile($event)"
+                            accept="image/*"/>
+                    <i class="material-icons btn-selector" 
+                        *ngIf="enableLoadAnotherImage && !hasImage" 
+                        (click)="fileInput.click();"
+                        title="Load image">attach_file
+                    </i>
+                    <i class="material-icons btn-selector" 
+                        *ngIf="enableRemoveImage && hasImage" 
+                        (click)="removeImage()"
+                        title="Remove image">clear</i>
+        
+                    <i class="material-icons btn-selector" 
+                        [class.disabled]="!canUndo" 
+                        (click)="undo()"
+                        title="Undo">undo</i>
+                    <i class="material-icons btn-selector" 
+                        [class.disabled]="!canRedo" 
+                        (click)="redo()"
+                        title="Redo">redo</i>
+                    <i class="material-icons btn-selector" 
+                        (click)="clearCanvas()" 
+                        title="Clear">delete</i>
+                </div>
             </div>
             <div class="row">
                 <div *ngFor="let colorName of colorsName" 
@@ -69,10 +71,10 @@
         </div>
         <div class="buttons">
             <a href="#" 
-                class="button btn-primary"
+                class="btn btn-primary"
                 (click)="saveImage(); $event.preventDefault()">Save</a>
             <a href="#" 
-                class="button btn-light" 
+                class="btn btn-light" 
                 *ngIf="showCancelButton"
                 (click)="cancelAction(); $event.preventDefault()">Cancel</a>
         </div>
