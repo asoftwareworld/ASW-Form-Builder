@@ -7,5 +7,6 @@
  */
 
 export * from './drawing';
+export * from './image-drawing-dialog';
 export * from './drawing-dialog';
 export * from './drawing.module';

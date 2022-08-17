@@ -118,6 +118,16 @@
                                                 (gpsAddressChange)="onSelectionChange($event)">
                                     </asw-gps>
                                 </ng-container>
+                                <ng-container *ngSwitchCase="'signature'">
+                                    <asw-signature [control]="control"
+                                                    [controlIndex]="i">
+                                    </asw-signature>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'drawing'">
+                                    <asw-drawing [control]="control"
+                                                    [controlIndex]="i">
+                                    </asw-drawing>
+                                </ng-container>
                             </div>
                         </ng-container>
                     </ng-container>

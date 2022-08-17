@@ -17,7 +17,7 @@
                                     (change)="fileChangeEvent($event)"
                                     id="imageUpload" 
                                     accept=".png, .jpg, .jpeg">
-                            <i class="asw-material-icon material-icons btn-selector">attach_file</i>
+                            <mat-icon>attach_file</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary"
@@ -25,7 +25,7 @@
                                 matTooltipPosition="right"
                                 *ngIf="!isImageLoaded" 
                                 (click)="removeImage()">
-                            <i class="asw-material-icon material-icons btn-selector">clear</i>
+                            <mat-icon>clear</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary" 
@@ -33,7 +33,7 @@
                                 matTooltip="Left rotate"
                                 matTooltipPosition="right"
                                 (click)="rotateLeft()">
-                            <i class="asw-material-icon material-icons btn-selector">rotate_left</i>
+                            <mat-icon>rotate_left</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary" 
@@ -41,7 +41,7 @@
                                 matTooltipPosition="right"
                                 [disabled]="isImageLoaded" 
                                 (click)="rotateRight()">
-                            <i class="asw-material-icon material-icons btn-selector">rotate_right</i>
+                            <mat-icon>rotate_right</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary"
@@ -49,7 +49,7 @@
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="flipHorizontal()">
-                            <i class="asw-material-icon material-icons btn-selector">swap_horiz</i>
+                            <mat-icon>swap_horiz</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary"
@@ -57,7 +57,7 @@
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="flipVertical()">
-                            <i class="asw-material-icon material-icons btn-selector">swap_vert</i>
+                            <mat-icon>swap_vert</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary" 
@@ -65,9 +65,9 @@
                                 matTooltipPosition="right"
                                 [disabled]="isImageLoaded" 
                                 (click)="toggleContainWithinAspectRatio()">
-                            <i class="asw-material-icon material-icons btn-selector">
+                            <mat-icon>
                                 {{containWithinAspectRatio?'crop_free':'crop_din'}}
-                            </i>
+                            </mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary" 
@@ -75,7 +75,7 @@
                                 matTooltip="Reset image"
                                 matTooltipPosition="right" 
                                 (click)="resetImage()">
-                            <i class="asw-material-icon material-icons btn-selector">refresh</i>
+                            <mat-icon>refresh</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary"
@@ -83,7 +83,7 @@
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="zoomOut()">
-                            <i class="asw-material-icon material-icons btn-selector">zoom_out</i>
+                            <mat-icon>zoom_out</mat-icon>
                         </button>
                         <button type="button" 
                                 class="asw-btn btn btn-outline-primary"
@@ -91,7 +91,7 @@
                                 matTooltipPosition="right" 
                                 [disabled]="isImageLoaded" 
                                 (click)="zoomIn()">
-                            <i class="asw-material-icon material-icons btn-selector">zoom_in</i>
+                            <mat-icon>zoom_in</mat-icon>
                         </button>
                     </div>
                 </div>
