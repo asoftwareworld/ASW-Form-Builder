@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
@@ -17,7 +17,7 @@ import { AswNumberDialog } from './number-dialog';
     selector: 'asw-number',
     templateUrl: './number.html'
 })
-export class AswNumber {
+export class AswNumber implements OnInit {
 
     constants: any = Constants;
     objectUtils = ObjectUtils;
@@ -25,7 +25,7 @@ export class AswNumber {
      * Number control
      */
     @Input() control: NumberControl | null = null;
-
+    @Input() formControls: any[] = [];
     /**
      * Number control index to help update or delete button from drop area
      */
@@ -39,6 +39,14 @@ export class AswNumber {
     @Output() duplicateControl = new EventEmitter<NumberControl>();
 
     constructor(public dialog: MatDialog) {
+    }
+
+    ngOnInit(): void {
+        // tslint:disable-next-line:no-bitwise
+        const id = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        if (this.control) {
+            this.control.guid = this.control.guid ? this.control.guid : id;
+        }
     }
 
     deleteNumberDialog(control: NumberControl, controlIndex: number): void {
@@ -67,6 +75,16 @@ export class AswNumber {
     }
 
     onChange(control: NumberControl): void {
+        const calculationControls = this.formControls.filter(x => x.controlType === 'calculation');
+        calculationControls.forEach(calculation => {
+            const updateControls = calculation.operations.filter((x: any) => x.id === control.guid);
+            updateControls.forEach((y: any) => {
+                y.label = control.label;
+                y.value = control.value;
+            });
+            calculation.value = this.objectUtils.calculateValue(calculation.operations);
+        });
+
         this.aswModelChange.emit(control);
     }
 

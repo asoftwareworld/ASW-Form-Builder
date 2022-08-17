@@ -10,4 +10,5 @@ import { Control, ControlLength, StyleControl } from '@asoftwareworld/form-build
 export interface NumberControl extends Control, ControlLength, StyleControl {
     value: string;
     column?: string;
+    guid?: string;
 }

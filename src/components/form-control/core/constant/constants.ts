@@ -65,6 +65,12 @@ function getConstatnts(): any {
         ],
         id: [
             { type: 'required', message: 'Unique id is required.' }
+        ],
+        operationValue: [
+            { type: 'required', message: 'Operation is required.' }
+        ],
+        control: [
+            { type: 'required', message: 'Operator is required.' }
         ]
     };
 
@@ -132,7 +138,7 @@ function getConstatnts(): any {
             label: 'Addition'
         },
         {
-            value: '−',
+            value: '-',
             label: 'Subtraction'
         },
         {

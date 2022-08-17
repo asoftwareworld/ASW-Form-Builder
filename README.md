@@ -116,39 +116,52 @@ If you are not using the Angular CLI, you can include a theme via a `<link>` ele
 In your template, use the component selector:
 ```
 <asw-form-builder [uploadData]="jsonData1"
-                  [isShowPreviewButton]="isShowPreviewButton"
-                  [isShowJsonDataButton]="isShowJsonDataButton"
-                  [isShowPublishButton]="isShowPublishButton"
-                  (publishClick)="saveJsonData($event)"
-                  (previewClick)="previewTemplate($event)"></asw-form-builder>
+                [isShowPreviewButton]="isShowPreviewButton"
+                [isShowJsonDataButton]="isShowJsonDataButton"
+                [isShowPublishButton]="isShowPublishButton"
+                (publishClick)="saveJsonData($event)" 
+                (previewClick)="previewTemplate($event)"
+                (buttonClick)="buttonClick($event)"
+                (aswModelChange)="onSelectionChange($event)"></asw-form-builder>
 ```
 Preview Template, use the component selector in your HTML page:
 ```
-<asw-preview-template [formContainer]="jsonData"></asw-preview-template>
+<asw-preview-template [formContainer]="jsonData" 
+    (buttonClick)="buttonClick($event)"
+    (aswModelChange)="onSelectionChange($event)">
+</asw-preview-template>
 ```
 
 Define in your component to get published event :
 
 ```
 export class AppComponent {
-  title = 'ASW Form Builder Demo';
-  jsonData: any[] = [];
-  jsonData1: any[] = [];
-  isShowPreviewButton = false;
-  isShowJsonDataButton = true;
-  isShowPublishButton = false;
-  
-  // Publish Template
-  saveJsonData(data: any){
-    //.... 
-    console.log(data);
-    // do something
-  }
-  
-  //Preview Template
-  previewTemplate(data: any){
-    this.jsonData = data;
-  }
+    title = 'ASW Form Builder Demo';
+    jsonData: any[] = [];
+    jsonData1: any[] = [];
+    isShowPreviewButton = false;
+    isShowJsonDataButton = true;
+    isShowPublishButton = false;
+    
+    // Publish Template
+    saveJsonData(data: any){
+        //.... 
+        console.log(data);
+        // do something
+    }
+    
+    //Preview Template
+    previewTemplate(data: any){
+        this.jsonData = data;
+    }
+
+    buttonClick(data: any): void {
+        console.log(data);
+    }
+
+    onSelectionChange(control: any): void {
+        console.log(control);
+    }
 }
 ```
 ## Theme
@@ -161,7 +174,7 @@ and Bootstrap [more information](https://getbootstrap.com/docs/4.0/getting-start
 | Header          | Headings are defined with the `<h1> to <h6>` tags. Used as a title of the post, template and resume, etc.       |
 | Image Upload    | Upload image with crop, zoom in, zoom out, reset, rotate, swap etc. features.                                   |
 | Autocomplete    | The autocomplete is a normal text input enhanced by a panel of suggested relevant options as the user types.    |
-| Textbox         | Enable native inputs to be used within a form field. The styles such as the underline, floating label.          |
+| Text field      | Enable native inputs to be used within a form field. The styles such as the underline, floating label.          |
 | Text area       | Enable native inputs to be used within a form field. The styles such as the underline, floating label.          |
 | Datepicker      | The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar. |
 | Select          | Allows the user to select only one option using dropdown.                                                       |
@@ -174,6 +187,9 @@ and Bootstrap [more information](https://getbootstrap.com/docs/4.0/getting-start
 | Slide toggle    | Is an on/off control that can be toggled via clicking and draggable switch.                                     |
 | Grid            | Configure bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content.   |
 | GPS             | Add google map key in [index.html](https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/src/index.html) file to use GPS feature.|
+| QR Code         | ASW QR Code library for generating QR Code for Angular projects. [Readme](https://github.com/asoftwareworld/asw-qr-code/blob/main/README.md) file to use feature.|
+| Signature       | This control allow for digital signature and display the result. (Uses canvas & fabric.js).|
+| Image Drawing   | This control allow to draw on Image and display the result. (Uses canvas & fabric.js).|
 
 
 ## Browser Support

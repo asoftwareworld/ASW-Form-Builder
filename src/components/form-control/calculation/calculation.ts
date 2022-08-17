@@ -9,7 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
 import { CalculationControl } from './calculation-control';
 import { AswCalculationDialog } from './calculation-dialog';
 
@@ -55,6 +55,19 @@ export class AswCalculation {
 
     editCalculationDialog(control: CalculationControl, formControls: any[], controlIndex: number): void {
         const numberControls = formControls.filter(x => x.controlType === 'number');
+        if (!control.operations.length) {
+            numberControls.forEach((x, index) => {
+                const operation = {
+                    id: x.guid,
+                    label: x.label,
+                    value: x.value,
+                    operationValue: index === 0 ? '' : '+',
+                    control: x
+                };
+                control.operations.push(operation);
+            });
+        }
+
         const dialogRef = this.dialog.open(AswCalculationDialog, {
             disableClose: true,
             width: '744px',
@@ -62,6 +75,7 @@ export class AswCalculation {
         });
         dialogRef.afterClosed().subscribe(result => {
             if (result !== undefined) {
+                result.value = ObjectUtils.calculateValue(result.operations).toString();
                 this.calculationUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });

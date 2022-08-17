@@ -20,7 +20,6 @@ import { SelectControl } from './select-control';
 export class AswSelectDialog implements OnInit {
     constants: any = Constants;
     aswEditSelectForm: FormGroup;
-    optionKeyMessage!: string;
     status!: boolean;
     constructor(
         private formBuilder: FormBuilder,

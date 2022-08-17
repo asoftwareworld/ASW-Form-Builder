@@ -10,7 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { CalculationControl } from './calculation-control';
+import { CalculationControl, Operation } from './calculation-control';
 
 @Component({
     selector: 'asw-calculation-dialog',
@@ -19,7 +19,6 @@ import { CalculationControl } from './calculation-control';
 export class AswCalculationDialog implements OnInit {
     constants: any = Constants;
     aswEditCalculationForm!: FormGroup;
-    status!: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -35,11 +34,11 @@ export class AswCalculationDialog implements OnInit {
         this.aswEditCalculationForm = this.formBuilder.group({
             tooltip: [],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            value: [{ value: '', disabled: true}],
+            value: [{ value: '', disabled: true }],
             style: ['', [Validators.required]],
             column: [],
             customClass: [],
-            operators: this.formBuilder.array([this.createOperator()]),
+            operations: this.formBuilder.array([this.createOperations()]),
         });
     }
 
@@ -52,21 +51,35 @@ export class AswCalculationDialog implements OnInit {
             column: control.column,
             style: control.style,
         });
+        const operationFormGroup = control.operations.map((operation: any) => this.formBuilder.group(operation));
+        const operationFormArray = this.formBuilder.array(operationFormGroup);
+        this.aswEditCalculationForm.setControl('operations', operationFormArray);
     }
 
-    get operators(): FormArray {
-        return this.aswEditCalculationForm.get('operators') as FormArray;
+    get operations(): FormArray {
+        return this.aswEditCalculationForm.get('operations') as FormArray;
     }
 
-    createOperator(): FormGroup {
+    createOperations(): FormGroup {
         return this.formBuilder.group({
+            id: [],
             label: [],
-            value: []
+            value: [],
+            operationValue: ['', [Validators.required]],
+            control: ['', [Validators.required]]
         });
     }
 
     onNoClick(): void {
         this.dialogRef.close();
+    }
+
+    addNewOperation(): void {
+        this.operations.push(this.createOperations());
+    }
+
+    removeOperation(index: number): void {
+        this.operations.removeAt(index);
     }
 
     onSubmit(): void {
@@ -75,14 +88,11 @@ export class AswCalculationDialog implements OnInit {
         }
         this.aswEditCalculationForm.value.controlType = this.data.control.controlType;
         this.aswEditCalculationForm.value.placeholder = this.data.control.placeholder;
+        this.aswEditCalculationForm.value.operations.forEach((operation: Operation) => {
+            operation.id = operation.control.guid;
+            operation.label = operation.control.label;
+            operation.value = operation.control.value;
+        });
         this.dialogRef.close(this.aswEditCalculationForm.value);
-    }
-
-    onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
     }
 }
