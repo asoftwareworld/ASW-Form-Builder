@@ -97,11 +97,7 @@ export const CONTROLS = [
         placeholder: 'Field 1 + Field 2 = ',
         style: 'outline',
         column: 'col-md-12',
-        operators: [
-            { label: '', value: '' },
-            { label: '', value: '' },
-            { label: '', value: '' },
-        ]
+        operations: []
     },
     {
         id: '1',

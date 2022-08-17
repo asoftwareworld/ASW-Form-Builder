@@ -45,6 +45,29 @@ export class ObjectUtils {
                 labels.push(' ' + control.label);
             }
         });
-        return {isFormValid, labels};
+        return { isFormValid, labels };
+    }
+
+    public static calculateValue(operations: any[]): number {
+        let sum = operations[0].value;
+        operations.forEach((operation: any, index: number) => {
+            if (index !== 0) {
+                switch (operation.operationValue) {
+                    case '+':
+                        sum += operation.value;
+                        break;
+                    case '-':
+                        sum -= operation.value;
+                        break;
+                    case '*':
+                        sum *= operation.value;
+                        break;
+                    case '/':
+                        sum /= operation.value;
+                        break;
+                }
+            }
+        });
+        return sum;
     }
 }

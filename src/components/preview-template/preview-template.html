@@ -51,6 +51,7 @@
                                 <ng-container *ngSwitchCase="'number'">
                                     <asw-number [control]="control"
                                                 [controlIndex]="i"
+                                                [formControls]="formContainer"
                                                 (aswModelChange)="onSelectionChange($event)">
                                     </asw-number>
                                 </ng-container>

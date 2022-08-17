@@ -75,55 +75,46 @@
                     </mat-form-field>
                 </div>
             </div>
-            <ng-container formArrayName="operators">
+            <ng-container formArrayName="operations">
                 <div class="row" 
-                    *ngFor="let operator of operators.controls; let index = index; let last=last;" 
+                    *ngFor="let op of operations.controls; let index = index; let last=last;" 
                     [formGroupName]="index">
+                    <div class="col-md-4" *ngIf="index!=0">
+                        <mat-form-field appearance="outline" class="asw-mat-form-field">
+                            <mat-label>Operation {{index+1}}</mat-label>
+                            <mat-select formControlName="operationValue" matTooltip="Select column size">
+                                <mat-option *ngFor="let operation of constants.operations" [value]="operation.value">
+                                    {{operation.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
                     <div class="col-md-4">
                         <mat-form-field appearance="outline" class="asw-mat-form-field">
                             <mat-label>Operator {{index+1}}</mat-label>
-                            <mat-select formControlName="value" matTooltip="Select column size">
-                                <mat-option *ngFor="let control of data.numberControls" [value]="control.value">
+                            <mat-select formControlName="control" matTooltip="Select column size">
+                                <mat-option *ngFor="let control of data.numberControls" [value]="control">
                                     {{control.label}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
-                    <!-- <div class="col-md-5">
-                        <mat-form-field appearance="outline" class="asw-mat-form-field">
-                            <mat-label>Option value {{index+1}}</mat-label>
-                            <input matInput type="text"
-                                    placeholder="Option value"
-                                    formControlName="value"
-                                    matTooltip="Option value"
-                                    minlength="1"
-                                    maxlength="999"
-                                    required>
-                                <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.value">
-                                    <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
-                                        {{validation.message}}
-                                    </mat-error>
-                                </mat-error>
-                        </mat-form-field>
-                    </div>
                     <div class="col-md-2">
-                        <button mat-raised-button *ngIf="last"
+                        <button mat-icon-button *ngIf="last"
                                 type="button" 
-                                matTooltip="Add option" 
-                                [matTooltipPosition]="'above'"
-                                (click)="addNewOption()" 
-                                class="asw-btn btn btn-sm btn-just-icon btn-outline-success mr-2 mt-3 me-2">
-                            <i class="material-icons asw-material-icon">add_circle_outline</i>
+                                matTooltip="Add" 
+                                [matTooltipPosition]="'below'"
+                                (click)="addNewOperation()">
+                            <mat-icon>add</mat-icon>
                         </button>
-                        <button mat-raised-button *ngIf="index != 0"
+                        <button mat-icon-button *ngIf="index != 0"
                                 type="button" 
-                                matTooltip="Remove option" 
-                                [matTooltipPosition]="'above'" 
-                                (click)="removeOption(index)"
-                                class="asw-btn btn btn-sm btn-just-icon btn-outline-danger mb-1 mt-3">
-                            <i class="material-icons asw-material-icon">remove_circle_outline</i>
+                                matTooltip="Delete" 
+                                [matTooltipPosition]="'below'" 
+                                (click)="removeOperation(index)">
+                            <mat-icon>delete</mat-icon>
                         </button>
-                    </div> -->
+                    </div>
                 </div> 
             </ng-container> 
         </div>
