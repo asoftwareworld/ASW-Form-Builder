@@ -9,7 +9,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants, NotificationService, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
 import { AswJsonPreviewDialog } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
 import { CONTROLS } from './default-controls';
 
@@ -34,7 +34,9 @@ export class AswFormBuilder implements OnInit, OnChanges {
     @Output() buttonClick = new EventEmitter<any[]>();
     @Output() aswModelChange = new EventEmitter<any>();
 
-    constructor(public dialog: MatDialog) { }
+    constructor(
+        public dialog: MatDialog,
+        private notificationService: NotificationService) { }
 
     ngOnInit(): void {
         this.availableControls = CONTROLS;
@@ -82,8 +84,18 @@ export class AswFormBuilder implements OnInit, OnChanges {
         this.publishClick.emit(this.formContainer);
     }
 
-    buttonClicked(): void {
-        this.buttonClick.emit(this.formContainer);
+    buttonClicked(type: string): void {
+        if (type === 'reset') {
+            this.formContainer = ObjectUtils.resetForm(this.formContainer);
+        } else {
+            const data = ObjectUtils.validateForm(this.formContainer);
+            if (!data.isFormValid) {
+                this.notificationService.openNotification('Please fill in the following required fields.'
+                    + ' \n \n' + data.labels.toString(), 'Close');
+            } else {
+                this.buttonClick.emit(this.formContainer);
+            }
+        }
     }
 
     onSelectionChange(control: any): void {

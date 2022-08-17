@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 
-export * from './drawing';
-export * from './image-drawing-dialog';
-export * from './drawing-dialog';
-export * from './drawing.module';
+export * from './calculation';
+export * from './calculation-dialog';
+export * from './calculation-control';
+export * from './calculation.module';

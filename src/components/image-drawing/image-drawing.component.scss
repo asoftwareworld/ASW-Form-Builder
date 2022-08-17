@@ -15,55 +15,26 @@
         border-radius: 7px;
     }
 
-    // .asw-drawing-card {
-    //     display: flex;
-    //     flex-direction: row;
-    //     flex-flow: row wrap;
-      
-    //     .asw-drawing {
-    //       width: 100%;
-    //       position: relative;
-    //     }
-    // }
-
-    // .asw-drawing-card.raised {
-    //     border: 1px solid rgba(0, 0, 0, 0.08);
-    //     background-color: rgba(252, 252, 252, 1);
-    //     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) 0 0 40px rgba(0, 0, 0, 0.08) inset;
-    //     border-radius: 4px;
-    //     padding: 15px * 2;
-      
-    //     .asw-drawing {
-    //       min-height: 400px;
-    //       width: 100%;
-    //       margin-bottom: 15px;
-    //     }
-      
-    //     .asw-drawing-canvas {
-    //       border: 2px dashed rgba(0, 0, 0, 0.08);
-    //       background-color: rgba(255, 255, 255, 1);
-    //     }
-    // }
-
-    .row {
-        display: flex;
-        width: 300px;
-        justify-content: space-around;
-        align-items: center;
-
-        &:first-child {
-            margin-bottom: 10px;
-        }
-    }
-
     .size {
         background-color: #000;
-
+        display: inline-block;
+        margin: 0.2rem 0.2rem;
         &.selected {
             background-color: #bdbdbd;
         }
     }
+    .btn {
+        cursor: pointer;
 
+        &.selected {
+            color: #bdbdbd;
+        }
+
+        &.disabled {
+            cursor: initial;
+            color: #bdbdbd;
+        }
+    }
     .color {
         width: 28px;
         height: 28px;
@@ -72,7 +43,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        margin: 0.2rem 0.2rem;
         &.selected {
             &::after {
                 content: "";
@@ -96,50 +67,6 @@
 
         &.white {
             border: 1px solid #a7a7a7;
-        }
-    }
-
-    .buttons {
-        margin: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .button {
-        cursor: pointer;
-        outline: 0;
-        border: none;
-        white-space: nowrap;
-        text-decoration: none;
-        vertical-align: baseline;
-        text-align: center;
-        min-width: 64px;
-        line-height: 36px;
-        padding: 3px 16px;
-        border-radius: 4px;
-        overflow: visible;
-        transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
-        margin: 10px;
-
-        &:hover {
-            text-decoration: none !important;
-        }
-
-        &.btn-primary {
-            background-color: #ef5f27;
-            color: #fff;
-
-            &:hover {
-                background-color: rgba(239, 95, 39, 0.8);
-            }
-        }
-
-        &.btn-light {
-            color: #ef5f27;
-
-            &:hover {
-                background-color: rgba(239, 95, 39, 0.1);
-            }
         }
     }
 }

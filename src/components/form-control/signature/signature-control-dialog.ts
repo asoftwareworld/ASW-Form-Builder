@@ -12,18 +12,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
-    selector: 'asw-drawing-dialog',
-    templateUrl: './drawing-dialog.html'
+    selector: 'asw-signature-control-dialog',
+    templateUrl: './signature-control-dialog.html'
 })
-export class AswDrawingDialog implements OnInit {
+export class AswSignatureControlDialog implements OnInit {
 
     constants: any = Constants;
-    aswDrawingForm!: FormGroup;
+    aswSignatureForm!: FormGroup;
     objectUtils = ObjectUtils;
 
     constructor(
         private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<AswDrawingDialog>,
+        public dialogRef: MatDialogRef<AswSignatureControlDialog>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(): void {
@@ -32,7 +32,7 @@ export class AswDrawingDialog implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswDrawingForm = this.formBuilder.group({
+        this.aswSignatureForm = this.formBuilder.group({
             label: [],
             column: [],
             class: [],
@@ -43,7 +43,7 @@ export class AswDrawingDialog implements OnInit {
     }
 
     editProperty(control: any): void {
-        this.aswDrawingForm.setValue({
+        this.aswSignatureForm.setValue({
             label: control.label,
             class: control.class,
             column: control.column,
@@ -58,10 +58,10 @@ export class AswDrawingDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswDrawingForm.invalid) {
+        if (this.aswSignatureForm.invalid) {
             return;
         }
-        this.aswDrawingForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswDrawingForm.value);
+        this.aswSignatureForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswSignatureForm.value);
     }
 }

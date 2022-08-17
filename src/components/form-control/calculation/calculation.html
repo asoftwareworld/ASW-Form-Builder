@@ -1,0 +1,43 @@
+<ng-container *ngIf="control as control">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field {{control.customClass}}">
+        <mat-label>{{control.label}}</mat-label>
+        <input matInput type="text"
+                        [placeholder]="control.placeholder"
+                        [(ngModel)]="control.value"                    
+                        #input="ngModel"
+                        (change)="onChange(control)"
+                        [matTooltip]="control.tooltip" [disabled]="true">
+        <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
+            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+                {{control.label}} is required
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <ng-template [ngIf]="isPreviewTemplate">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Duplicate" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="duplicateCalculationControl(control)">
+                    <mat-icon>content_copy</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Edit" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="editCalculationDialog(control, formControls, controlIndex)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button 
+                        type="button" 
+                        matTooltip="Delete" 
+                        [matTooltipPosition]="'below'" 
+                        (click)="deleteCalculationDialog(control, controlIndex)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>                                            
+        </div>
+    </ng-template>
+</ng-container>

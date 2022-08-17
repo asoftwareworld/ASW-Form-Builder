@@ -11,16 +11,16 @@ import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-    selector: 'asw-signature-dialog',
-    templateUrl: './signature-dialog.html'
+    selector: 'asw-image-drawing-dialog',
+    templateUrl: './image-drawing-dialog.html'
 })
-export class AswSignatureDialog {
+export class AswImageDrawingDialog {
 
-    public width = 600;
+    public width = 680;
     public height = 250;
 
     constructor(
-        public dialogRef: MatDialogRef<AswSignatureDialog>,
+        public dialogRef: MatDialogRef<AswImageDrawingDialog>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     onNoClick(): void {

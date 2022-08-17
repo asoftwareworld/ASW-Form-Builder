@@ -6,13 +6,15 @@
                        borderCss="1px solid black"
                        [showCancelButton]="false"
                        outputMimeType="'image/jpeg'"
+                       [enableLoadAnotherImage]="true" 
                        (save)="saveImage($event)"
+                       [enableRemoveImage]="true"                
                        [drawingSizes]="{ small: 3, medium: 10, large: 25, extra: 50 }">
         </asw-image-drawing>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button type="button"
-                class="btn btn-danger mr-2 me-2 mb-1"
+                class="btn btn-danger mr-2 mb-1 me-2"
                 (click)="onNoClick()">
             No
         </button>

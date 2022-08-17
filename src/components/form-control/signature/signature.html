@@ -1,7 +1,5 @@
-<div class="avatar-upload">
-    <div class="avatar-preview">
-        <div id="imagePreview" [style.backgroundImage]="'url('+ control.imageUrl +')'"></div>
-    </div>
+<div class="{{control.class}}">
+    <img src="{{control.imageUrl}}" [height]="control.height" [width]="control.width"/>
 </div>
 <div class="row" *ngIf="isPreviewTemplate">
     <div class="col-md-12">
@@ -18,6 +16,13 @@
                 [matTooltipPosition]="'below'"
                 (click)="editSignatureDialog(control, controlIndex)">
             <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Signature" 
+                [matTooltipPosition]="'below'"
+                (click)="signatureDialog(control, controlIndex)">
+            <mat-icon>gesture</mat-icon>
         </button>
         <button mat-icon-button 
                 type="button" 

@@ -24,8 +24,8 @@
                     <div class="row">
                         <ng-container *ngFor="let item of availableControls">
                             <div class="col-md-12">
-                                <div class="alert alert-primary asw-alert-primary" cdkDrag>
-                                    <i class="asw-mat-icon material-icons" aria-hidden="false">{{item.icon}}</i>
+                                <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
+                                    <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
                                     {{item.displayName}}
                                 </div>
                             </div>
@@ -114,6 +114,17 @@
                                                     (duplicateControl)="duplicateControl($event)">
                                         </asw-number>
                                     </ng-container>
+                                    <ng-container *ngSwitchCase="'calculation'">
+                                        <asw-calculation [control]="control"
+                                                    [controlIndex]="i"
+                                                    [formControls]="formContainer"
+                                                    [isPreviewTemplate]="true"
+                                                    (calculationUpdateEvent)="updatedControl($event)"
+                                                    (calculationDeleteEvent)="deleteControl($event)"
+                                                    (aswModelChange)="onSelectionChange($event)"
+                                                    (duplicateControl)="duplicateControl($event)">
+                                        </asw-calculation>
+                                    </ng-container>
                                     <ng-container *ngSwitchCase="'select'">
                                         <asw-select [control]="control"
                                                     [controlIndex]="i"
@@ -170,7 +181,7 @@
                                                     [isPreviewTemplate]="true"
                                                     (buttonUpdateEvent)="updatedControl($event)"
                                                     (buttonDeleteEvent)="deleteControl($event)"
-                                                    (buttonClickEvent)="buttonClicked()"
+                                                    (buttonClickEvent)="buttonClicked($event)"
                                                     (duplicateControl)="duplicateControl($event)">
                                         </asw-button>                                       
                                     </ng-container>

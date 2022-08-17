@@ -5,14 +5,16 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file
  */
-import { Component,
+import {
+    Component,
     EventEmitter,
     Input,
     OnChanges,
     OnInit,
     Output,
     SimpleChanges,
-    TemplateRef } from '@angular/core';
+    TemplateRef
+} from '@angular/core';
 import { fabric } from 'fabric';
 
 @Component({
@@ -171,11 +173,8 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
 
     public saveImage(): void {
         this.canvas.getElement().toBlob(
-            // (data: Blob) => {
             (data: any) => {
                 this.save.emit(data);
-                const url = window.URL.createObjectURL(data);
-                window.open(url);
             },
             this.outputMimeType,
             this.outputQuality
@@ -246,13 +245,12 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
             this.imageUsed.cloneAsImage((image: any) => {
                 let width = imgEl.width;
                 let height = imgEl.height;
-
-                if (this.width) {
-                    width = this.width;
-                }
-                if (this.height) {
-                    height = this.height;
-                }
+                const ratio = (640  / width < 480 / height
+                    ? 640  / width
+                    : 480 / width
+                );
+                width = width * ratio;
+                height = height * ratio;
 
                 image.scaleToWidth(width, false);
                 image.scaleToHeight(height, false);

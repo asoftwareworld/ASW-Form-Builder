@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control/autocomplete';
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
+import { AswCalculationModule } from '@asoftwareworld/form-builder/form-control/calculation';
 import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/checkbox';
 import { AswDatepickerModule } from '@asoftwareworld/form-builder/form-control/datepicker';
 import { AswDividerModule } from '@asoftwareworld/form-builder/form-control/divider';
@@ -68,7 +69,8 @@ import { AswFormBuilder } from './form-builder';
         AswRadioButtonModule,
         AswJsonPreviewDialogModule,
         QrCodeModule,
-        AswNumberModule
+        AswNumberModule,
+        AswCalculationModule
     ],
     exports: [AswFormBuilder]
 })

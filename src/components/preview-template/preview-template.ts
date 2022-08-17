@@ -7,7 +7,7 @@
  */
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Constants, NotificationService } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants, NotificationService, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
     selector: 'asw-preview-template',
@@ -18,29 +18,25 @@ export class AswPreviewTemplate {
     @Input() formContainer: any[] = [];
     @Output() buttonClick = new EventEmitter<any[]>();
     @Output() aswModelChange = new EventEmitter<any>();
-    isFormValid = true;
 
     constructor(
-        public notificationService: NotificationService) {
+        private notificationService: NotificationService) {
     }
     updatedControl(data: any): void {
         this.formContainer.splice(data.index, 1, data.control);
     }
 
-    buttonClicked(): void {
-        this.isFormValid = true;
-        const data = this.formContainer.filter(x => x.isRequired);
-        const labels: string[] = [];
-        data.forEach(control => {
-            if (!control.value?.length) {
-                this.isFormValid = false;
-                labels.push(' ' + control.label);
-            }
-        });
-        if (!this.isFormValid) {
-            this.notificationService.openNotification('Please fill in the following required fields.' + ' \n \n' + labels.toString(), 'Close');
+    buttonClicked(type: string): void {
+        if (type === 'reset') {
+            this.formContainer = ObjectUtils.resetForm(this.formContainer);
         } else {
-            this.buttonClick.emit(this.formContainer);
+            const data = ObjectUtils.validateForm(this.formContainer);
+            if (!data.isFormValid) {
+                this.notificationService.openNotification('Please fill in the following required fields.'
+                    + ' \n \n' + data.labels.toString(), 'Close');
+            } else {
+                this.buttonClick.emit(this.formContainer);
+            }
         }
     }
 
