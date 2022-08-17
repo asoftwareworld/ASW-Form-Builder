@@ -87,6 +87,11 @@
                                     {{operation.label}}
                                 </mat-option>
                             </mat-select>
+                            <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.operationValue">
+                                <mat-error class="asw-mat-error" *ngIf="operations.controls[index].get('operationValue')?.hasError(validation.type) && (operations.controls[index].get('operationValue')?.dirty || operations.controls[index].get('operationValue')?.touched)">
+                                    {{validation.message}}
+                                </mat-error>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-4">
@@ -97,6 +102,11 @@
                                     {{control.label}}
                                 </mat-option>
                             </mat-select>
+                            <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.control">
+                                <mat-error class="asw-mat-error" *ngIf="operations.controls[index].get('control')?.hasError(validation.type) && (operations.controls[index].get('control')?.dirty || operations.controls[index].get('control')?.touched)">
+                                    {{validation.message}}
+                                </mat-error>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="col-md-2">

@@ -19,7 +19,6 @@ import { CalculationControl, Operation } from './calculation-control';
 export class AswCalculationDialog implements OnInit {
     constants: any = Constants;
     aswEditCalculationForm!: FormGroup;
-    status!: boolean;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -66,8 +65,8 @@ export class AswCalculationDialog implements OnInit {
             id: [],
             label: [],
             value: [],
-            operationValue: [],
-            control: []
+            operationValue: ['', [Validators.required]],
+            control: ['', [Validators.required]]
         });
     }
 
@@ -95,13 +94,5 @@ export class AswCalculationDialog implements OnInit {
             operation.value = operation.control.value;
         });
         this.dialogRef.close(this.aswEditCalculationForm.value);
-    }
-
-    onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
     }
 }

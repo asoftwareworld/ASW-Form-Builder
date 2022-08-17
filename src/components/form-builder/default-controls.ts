@@ -36,7 +36,7 @@ export const CONTROLS = [
         controlType: 'autocomplete',
         tooltip: 'Select one',
         label: 'Autocomplete',
-        column: 'col-md-12',
+        column: 'col-md-6',
         style: 'outline',
         isRequired: false,
         options: [
@@ -54,7 +54,7 @@ export const CONTROLS = [
         value: '',
         label: 'Text Field',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         isRequired: false,
         maxlength: 50,
         minlength: 0
@@ -68,7 +68,7 @@ export const CONTROLS = [
         value: '',
         label: 'Text Area',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         isRequired: false,
         maxlength: 50,
         minlength: 0
@@ -82,7 +82,7 @@ export const CONTROLS = [
         value: '',
         label: 'Number',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         isRequired: false,
         maxlength: 50,
         minlength: 0
@@ -96,7 +96,7 @@ export const CONTROLS = [
         label: 'Calculation',
         placeholder: 'Field 1 + Field 2 = ',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         operations: []
     },
     {
@@ -108,7 +108,7 @@ export const CONTROLS = [
         tooltip: 'Choose a date',
         label: 'Date Picker',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         isRequired: false,
         isWeekendsDisable: false
     },
@@ -120,7 +120,7 @@ export const CONTROLS = [
         tooltip: 'Select option',
         label: 'Select',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         value: '',
         isRequired: false,
         options: [
@@ -136,7 +136,7 @@ export const CONTROLS = [
         controlType: 'multi-select',
         tooltip: 'Select options',
         label: 'Multi Select',
-        column: 'col-md-12',
+        column: 'col-md-6',
         value: '',
         style: 'outline',
         isRequired: false,
@@ -154,7 +154,7 @@ export const CONTROLS = [
         tooltip: 'radio',
         label: 'Radio',
         value: 'option-1',
-        column: 'col-md-12',
+        column: 'col-md-6',
         isRequired: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
@@ -169,7 +169,7 @@ export const CONTROLS = [
         controlType: 'checkbox',
         tooltip: 'checkbox',
         label: 'Checkbox',
-        column: 'col-md-12',
+        column: 'col-md-6',
         isRequired: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
@@ -185,7 +185,7 @@ export const CONTROLS = [
         tooltip: 'Click button',
         label: 'Submit',
         type: 'button',
-        column: 'col-md-12',
+        column: 'col-md-3',
         color: 'primary',
         style: 'mat-raised-button'
     },
@@ -212,7 +212,7 @@ export const CONTROLS = [
         label: 'Slide me!',
         value: false,
         color: 'primary',
-        column: 'col-md-12',
+        column: 'col-md-3',
         isRequired: false
     },
     {
@@ -225,7 +225,7 @@ export const CONTROLS = [
         latitude: '',
         longitude: '',
         style: 'outline',
-        column: 'col-md-12',
+        column: 'col-md-6',
         value: '',
         isRequired: false
     },

@@ -20,7 +20,6 @@ import { AutoCompleteControl } from './autocomplete-control';
 export class AswAutocompleteDialog implements OnInit {
     constants: any = Constants;
     aswEditAutocompleteForm: FormGroup;
-    optionKeyMessage!: string;
     status!: boolean;
     constructor(
         private formBuilder: FormBuilder,
