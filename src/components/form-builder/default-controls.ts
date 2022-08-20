@@ -230,6 +230,16 @@ export const CONTROLS = [
         isRequired: false
     },
     {
+        id: '1',
+        icon: 'file_upload',
+        displayName: 'File Upload',
+        controlType: 'fileupload',
+        label: 'File Upload',
+        column: 'col-md-12',
+        value: [],
+        isRequired: false
+    },
+    {
         icon: 'qr_code_2',
         displayName: 'QR Code',
         controlType: 'qr-code',

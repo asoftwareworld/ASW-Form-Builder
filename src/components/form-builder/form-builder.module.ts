@@ -21,6 +21,7 @@ import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/che
 import { AswDatepickerModule } from '@asoftwareworld/form-builder/form-control/datepicker';
 import { AswDividerModule } from '@asoftwareworld/form-builder/form-control/divider';
 import { AswDrawingModule } from '@asoftwareworld/form-builder/form-control/drawing';
+import { AswFileUploadModule } from '@asoftwareworld/form-builder/form-control/fileupload';
 import { AswGpsModule } from '@asoftwareworld/form-builder/form-control/gps';
 import { AswHeaderModule } from '@asoftwareworld/form-builder/form-control/header';
 import { AswImageModule } from '@asoftwareworld/form-builder/form-control/image';
@@ -70,7 +71,8 @@ import { AswFormBuilder } from './form-builder';
         AswJsonPreviewDialogModule,
         QrCodeModule,
         AswNumberModule,
-        AswCalculationModule
+        AswCalculationModule,
+        AswFileUploadModule
     ],
     exports: [AswFormBuilder]
 })

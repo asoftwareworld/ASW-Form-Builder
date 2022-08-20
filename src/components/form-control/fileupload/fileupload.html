@@ -1,0 +1,73 @@
+<div class="container" aswDragAndDrop (fileDropped)="onFileDropped($event)">
+	<input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+    <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+        <path fill="#5f6368" d="M11 40q-1.2 0-2.1-.9Q8 38.2 8 37v-7.15h3V37h26v-7.15h3V37q0 1.2-.9 2.1-.9.9-2.1.9Zm11.5-7.65V13.8l-6 6-2.15-2.15L24 8l9.65 9.65-2.15 2.15-6-6v18.55Z"/>
+    </svg>
+	<h3>Drag and drop file here</h3>
+	<h3>or</h3>
+	<label for="fileDropRef">Browse for file</label>
+</div>
+<div class="files-list">
+	<div class="single-file" *ngFor="let file of control.value; let i = index">
+		<div class="file-icon" style="width: 50px">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+				x="0px" y="0px" viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">
+				<polygon style="fill:#EDEADA;" points="51.5,14 37.5,0 6.5,0 6.5,58 51.5,58 " />
+				<g>
+					<path style="fill:#CEC9AE;"
+						d="M16.5,23h25c0.552,0,1-0.447,1-1s-0.448-1-1-1h-25c-0.552,0-1,0.447-1,1S15.948,23,16.5,23z" />
+					<path style="fill:#CEC9AE;"
+						d="M16.5,15h10c0.552,0,1-0.447,1-1s-0.448-1-1-1h-10c-0.552,0-1,0.447-1,1S15.948,15,16.5,15z" />
+					<path style="fill:#CEC9AE;"
+						d="M41.5,29h-25c-0.552,0-1,0.447-1,1s0.448,1,1,1h25c0.552,0,1-0.447,1-1S42.052,29,41.5,29z" />
+					<path style="fill:#CEC9AE;"
+						d="M41.5,37h-25c-0.552,0-1,0.447-1,1s0.448,1,1,1h25c0.552,0,1-0.447,1-1S42.052,37,41.5,37z" />
+					<path style="fill:#CEC9AE;"
+						d="M41.5,45h-25c-0.552,0-1,0.447-1,1s0.448,1,1,1h25c0.552,0,1-0.447,1-1S42.052,45,41.5,45z" />
+				</g>
+				<polygon style="fill:#CEC9AE;" points="37.5,0 37.5,14 51.5,14 " />
+			</svg>
+		</div>
+		<div class="info">
+			<h4 class="name">
+				{{ file?.name }}
+			</h4>
+			<p class="size">
+				{{ formatBytes(file?.size, undefined) }}
+			</p>
+            <mat-progress-bar mode="determinate" [value]="file?.progress"></mat-progress-bar>
+			<!-- <app-progress [progress]="file?.progress"></app-progress> -->
+		</div>
+
+		<div class="delete" (click)="deleteFile(i)">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+                <path fill="#5f6368" d="M6.229 17.958q-1.125 0-1.896-.77-.771-.771-.771-1.896V5.688H2.083V3.021H7.5V1.479h4.979v1.542h5.438v2.667h-1.479v9.604q0 1.125-.771 1.896-.771.77-1.896.77Zm7.542-12.27H6.229v9.604h7.542Zm-6.313 8.333h2.188V6.958H7.458Zm2.917 0h2.187V6.958h-2.187ZM6.229 5.688v9.604Z"/>
+            </svg>
+		</div>
+	</div>
+</div>
+<div class="row" *ngIf="isPreviewTemplate">
+    <div class="col-md-12">
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Duplicate" 
+                [matTooltipPosition]="'below'" 
+                (click)="duplicateFileUploadControl(control)">
+            <mat-icon>content_copy</mat-icon>
+        </button>
+        <!-- <button mat-icon-button 
+                type="button" 
+                matTooltip="Edit" 
+                [matTooltipPosition]="'below'" 
+                (click)="editFileUploadDialog(control, controlIndex)">
+            <mat-icon>edit</mat-icon>
+        </button> -->
+        <button mat-icon-button 
+                type="button" 
+                matTooltip="Delete" 
+                [matTooltipPosition]="'below'" 
+                (click)="deleteFileUploadDialog(control, controlIndex)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>
