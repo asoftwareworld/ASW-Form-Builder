@@ -149,6 +149,10 @@ function getConstatnts(): any {
             value: '/',
             label: 'Division'
         },
+        {
+            value: 'x̄',
+            label: 'Average'
+        },
     ];
 
     const dataTypes = {

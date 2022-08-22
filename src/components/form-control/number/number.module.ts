@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswNumberDirective } from '../core/public_api';
 
 import { AswNumber } from './number';
 import { AswNumberDialog } from './number-dialog';
@@ -39,11 +40,13 @@ import { AswNumberDialog } from './number-dialog';
     ],
     declarations: [
         AswNumber,
-        AswNumberDialog
+        AswNumberDialog,
+        AswNumberDirective
     ],
     exports: [
         AswNumber,
-        AswNumberDialog
+        AswNumberDialog,
+        AswNumberDirective
     ]
 })
 export class AswNumberModule { }
