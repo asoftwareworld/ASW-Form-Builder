@@ -14,10 +14,10 @@ h2 {
     height: 48px;
     border-radius: initial;
 }
+
 :host ::ng-deep .mat-expansion-panel-body {
     padding: 16px 24px 16px !important;
 }
-
 
 .asw-box {
     padding: 7px 7px;
@@ -31,6 +31,7 @@ h2 {
     background: white;
     font-size: 14px;
 }
+
 .alert {
     padding: 0.4rem 0.4rem !important;
     margin-bottom: 0.4rem !important;
@@ -69,10 +70,6 @@ h2 {
 .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
-// .asw-box:last-child {
-//     border: none;
-// }
 
 .asw-list.cdk-drop-list-dragging .asw-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
