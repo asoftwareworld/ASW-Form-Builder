@@ -18,20 +18,108 @@
                 Controls
             </h2>
             <div class="card-body">
-                <div cdkDropList
-                    [cdkDropListData]="availableControls"
-                    class="asw-list">
-                    <div class="row">
-                        <ng-container *ngFor="let item of availableControls">
-                            <div class="col-md-12">
-                                <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
-                                    <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
-                                    {{item.displayName}}
-                                </div>
+                <mat-accordion>
+                    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                        <mat-expansion-panel-header class="asw-expansion-panel-header">
+                            <mat-panel-title>
+                                Simple Controls
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div cdkDropList
+                            [cdkDropListData]="simpleControls">
+                            <div class="row">
+                                <ng-container *ngFor="let item of simpleControls">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
+                                            <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
+                                            {{item.displayName}}
+                                        </div>
+                                    </div>
+                                </ng-container>
                             </div>
-                        </ng-container>
-                    </div>
-                </div>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                        <mat-expansion-panel-header class="asw-expansion-panel-header">
+                            <mat-panel-title>
+                                Choice Controls
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div cdkDropList
+                            [cdkDropListData]="choiceControls">
+                            <div class="row">
+                                <ng-container *ngFor="let item of choiceControls">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
+                                            <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
+                                            {{item.displayName}}
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                        <mat-expansion-panel-header class="asw-expansion-panel-header">
+                            <mat-panel-title>
+                                Date and GPS Controls
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div cdkDropList
+                            [cdkDropListData]="dateAndGpsControls">
+                            <div class="row">
+                                <ng-container *ngFor="let item of dateAndGpsControls">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
+                                            <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
+                                            {{item.displayName}}
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                        <mat-expansion-panel-header class="asw-expansion-panel-header">
+                            <mat-panel-title>
+                                Digital Controls
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div cdkDropList
+                            [cdkDropListData]="digitalControls">
+                            <div class="row">
+                                <ng-container *ngFor="let item of digitalControls">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
+                                            <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
+                                            {{item.displayName}}
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+                        <mat-expansion-panel-header class="asw-expansion-panel-header">
+                            <mat-panel-title>
+                                Other Controls
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div cdkDropList
+                            [cdkDropListData]="othersControls">
+                            <div class="row">
+                                <ng-container *ngFor="let item of othersControls">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-primary d-flex asw-alert-primary align-items-center" cdkDrag>
+                                            <mat-icon class="asw-icon mr-1 me-1">{{item.icon}}</mat-icon>
+                                            {{item.displayName}}
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
             </div>
         </div>
     </div>

@@ -49,12 +49,12 @@ export class ObjectUtils {
     }
 
     public static calculateValue(operations: any[]): number {
-        let sum = operations[0].value;
+        let sum = Number(operations[0].value);
         operations.forEach((operation: any, index: number) => {
             if (index !== 0) {
                 switch (operation.operationValue) {
                     case '+':
-                        sum += operation.value;
+                        sum += Number(operation.value);
                         break;
                     case '-':
                         sum -= operation.value;

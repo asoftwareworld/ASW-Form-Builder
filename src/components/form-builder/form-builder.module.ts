@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control/autocomplete';
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
@@ -72,7 +73,8 @@ import { AswFormBuilder } from './form-builder';
         QrCodeModule,
         AswNumberModule,
         AswCalculationModule,
-        AswFileUploadModule
+        AswFileUploadModule,
+        MatExpansionModule
     ],
     exports: [AswFormBuilder]
 })

@@ -7,6 +7,18 @@ h2 {
     display: block;
 }
 
+.asw-expansion-panel-header {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 450;
+    height: 48px;
+    border-radius: initial;
+}
+:host ::ng-deep .mat-expansion-panel-body {
+    padding: 16px 24px 16px !important;
+}
+
+
 .asw-box {
     padding: 7px 7px;
     border-bottom: solid 1px #ccc;
