@@ -13,3 +13,5 @@ export * from './interface/control-length';
 export * from './service/notification.service';
 export * from './utils/objectutils';
 export * from './directive/numbers-only.directive';
+export * from './shared-dialog/text/text-dialog';
+export * from './shared-dialog/shared-dialog.module';

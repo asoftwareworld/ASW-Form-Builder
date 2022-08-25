@@ -10,20 +10,19 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { TextareaControl } from './textarea-control';
-
 
 @Component({
-  selector: 'asw-textarea-dialog',
-  templateUrl: './textarea-dialog.html'
+    selector: 'asw-text-dialog',
+    templateUrl: './text-dialog.html'
 })
-export class AswTextareaDialog implements OnInit {
+export class AswTextDialog implements OnInit {
     constants: any = Constants;
-    aswEditTextAreaForm!: FormGroup;
+    aswEditTextForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswTextareaDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: TextareaControl) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswTextDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -31,7 +30,7 @@ export class AswTextareaDialog implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswEditTextAreaForm = this.formBuilder.group({
+        this.aswEditTextForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             tooltip: ['', []],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
@@ -42,19 +41,17 @@ export class AswTextareaDialog implements OnInit {
             customClass: [''],
             customErrorMsg: [''],
             maxlength: ['', [Validators.required,
-                Validators.minLength(1),
-                Validators.maxLength(3),
+                Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
             minlength: ['', [Validators.required,
-                Validators.minLength(1),
-                Validators.maxLength(3),
+                Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
             isRequired: [false]
         });
     }
 
-    editProperty(control: TextareaControl): void {
-        this.aswEditTextAreaForm.setValue({
+    editProperty(control: any): void {
+        this.aswEditTextForm.setValue({
             id: control.id,
             tooltip: control.tooltip,
             label: control.label,
@@ -75,11 +72,11 @@ export class AswTextareaDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditTextAreaForm.invalid){
+        if (this.aswEditTextForm.invalid) {
             return;
         }
-        this.aswEditTextAreaForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditTextAreaForm.value);
+        this.aswEditTextForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditTextForm.value);
     }
 
     onChange(event: any): void {

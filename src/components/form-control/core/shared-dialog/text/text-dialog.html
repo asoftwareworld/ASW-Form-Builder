@@ -1,6 +1,6 @@
 <h4 mat-dialog-title>Edit Property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditTextAreaForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditTextForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width"><br>
             <div class="row">
@@ -13,7 +13,7 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('id')?.hasError(validation.type) && (aswEditTextAreaForm.get('id')?.dirty || aswEditTextAreaForm.get('id')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('id')?.hasError(validation.type) && (aswEditTextForm.get('id')?.dirty || aswEditTextForm.get('id')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -28,24 +28,14 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('label')?.hasError(validation.type) && (aswEditTextAreaForm.get('label')?.dirty || aswEditTextAreaForm.get('label')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('label')?.hasError(validation.type) && (aswEditTextForm.get('label')?.dirty || aswEditTextForm.get('label')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
-            </div>      
+            </div>
             <div class="row">
-                <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Tooltip</mat-label>
-                        <input matInput type="text"
-                                        name="tooltip"
-                                        placeholder="Enter tooltip"
-                                        matTooltip="Enter tooltip"
-                                        formControlName="tooltip">
-                    </mat-form-field>
-                </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Custom CSS Class</mat-label>
@@ -54,6 +44,16 @@
                                         placeholder="Custom CSS Class"
                                         matTooltip="Custom CSS Class"
                                         formControlName="customClass">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Tooltip</mat-label>
+                        <input matInput type="text"
+                                        name="tooltip"
+                                        placeholder="Enter tooltip"
+                                        matTooltip="Enter tooltip"
+                                        formControlName="tooltip">
                     </mat-form-field>
                 </div>
             </div>
@@ -87,13 +87,13 @@
                                         name="value"
                                         placeholder="Enter value"
                                         matTooltip="Enter value"
-                                        formControlName="value">
+                                        formControlName="value">                        
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Textarea Style</mat-label>
-                        <mat-select formControlName="style" matTooltip="Select textarea style">
+                        <mat-label>TextField Style</mat-label>
+                        <mat-select formControlName="style" matTooltip="Select textbox style">
                             <mat-option value="legacy">Legacy</mat-option>
                             <mat-option value="standard">Standard</mat-option>
                             <mat-option value="fill">Fill</mat-option>
@@ -127,31 +127,31 @@
                                         pattern="^[0-9]*$"
                                         formControlName="minlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.minlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('minlength')?.hasError(validation.type)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('minlength')?.hasError(validation.type)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col-md-6">                    
+                <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Max Length</mat-label>
                         <input matInput type="text"
                                         name="maxlength"
                                         placeholder="Enter maxlength"
                                         matTooltip="Enter maxlength"
-                                        minlength="1"
                                         maxlength="3"
+                                        minlength="1"
                                         pattern="^[0-9]*$"
                                         formControlName="maxlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.maxlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextAreaForm.get('maxlength')?.hasError(validation.type)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('maxlength')?.hasError(validation.type)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
                     </mat-form-field>
                 </div>
-            </div>
+            </div>   
             <div class="row">
                 <div class="col-md-12">
                     <mat-slide-toggle color="primary"

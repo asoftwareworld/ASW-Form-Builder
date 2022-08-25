@@ -17,10 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
-
-import { AswTextarea } from './textarea';
+import { AswTextDialog } from '@asoftwareworld/form-builder/form-control/core';
 
 @NgModule({
     imports: [
@@ -34,15 +31,13 @@ import { AswTextarea } from './textarea';
         MatTooltipModule,
         MatDividerModule,
         MatIconModule,
-        AswConfirmDialogModule,
-        MatButtonModule,
-        AswSharedDialogModule
+        MatButtonModule
     ],
     declarations: [
-        AswTextarea
+        AswTextDialog
     ],
     exports: [
-        AswTextarea
+        AswTextDialog
     ]
 })
-export class AswTextareaModule { }
+export class AswSharedDialogModule { }
