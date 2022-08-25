@@ -8,6 +8,7 @@
 import {
     Component,
     EventEmitter,
+    HostListener,
     Input,
     OnChanges,
     OnInit,
@@ -171,6 +172,11 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
         }
     }
 
+    @HostListener('mousemove')
+    onMouseup(): void {
+        this.saveImage();
+    }
+
     public saveImage(): void {
         this.canvas.getElement().toBlob(
             (data: any) => {
@@ -179,10 +185,6 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
             this.outputMimeType,
             this.outputQuality
         );
-    }
-
-    public cancelAction(): void {
-        this.cancel.emit();
     }
 
     private setUndoRedo(): void {
