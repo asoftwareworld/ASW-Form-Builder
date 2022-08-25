@@ -9,8 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { AswSignatureControlDialog } from './signature-control-dialog';
+import { AswDigitalDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { AswSignatureDialog } from './signature-dialog';
 
 @Component({
@@ -59,7 +58,7 @@ export class AswSignature {
     }
 
     editSignatureDialog(control: any, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswSignatureControlDialog, {
+        const dialogRef = this.dialog.open(AswDigitalDialog, {
             disableClose: true,
             width: '744px',
             data: control

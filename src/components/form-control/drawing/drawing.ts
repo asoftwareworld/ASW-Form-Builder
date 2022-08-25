@@ -9,8 +9,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { AswDrawingDialog } from './drawing-dialog';
+import { AswDigitalDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { AswImageDrawingDialog } from './image-drawing-dialog';
 
 @Component({
@@ -59,7 +58,7 @@ export class AswDrawing {
     }
 
     editDrawingDialog(control: any, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswDrawingDialog, {
+        const dialogRef = this.dialog.open(AswDigitalDialog, {
             disableClose: true,
             width: '744px',
             data: control
