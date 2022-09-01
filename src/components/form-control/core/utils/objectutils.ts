@@ -65,6 +65,9 @@ export class ObjectUtils {
                     case '/':
                         sum /= operation.value;
                         break;
+                    case 'x̄':
+                        sum /= index;
+                        break;
                 }
             }
         });

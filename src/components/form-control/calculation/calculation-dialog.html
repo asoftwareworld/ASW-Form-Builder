@@ -82,7 +82,9 @@
                     <div class="col-md-4" *ngIf="index!=0">
                         <mat-form-field appearance="outline" class="asw-mat-form-field">
                             <mat-label>Operation {{index+1}}</mat-label>
-                            <mat-select formControlName="operationValue" matTooltip="Select column size">
+                            <mat-select formControlName="operationValue"  
+                                (selectionChange)="onOperationChange($event, op)"
+                                matTooltip="Select operation {{index+1}}" required>
                                 <mat-option *ngFor="let operation of constants.operations" [value]="operation.value">
                                     {{operation.label}}
                                 </mat-option>
@@ -94,10 +96,11 @@
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" *ngIf="operations.controls[index].value.operationValue != 'x̄'">
                         <mat-form-field appearance="outline" class="asw-mat-form-field">
                             <mat-label>Operator {{index+1}}</mat-label>
-                            <mat-select formControlName="control" matTooltip="Select column size">
+                            <mat-select formControlName="control"
+                                matTooltip="Select operator {{index+1}}" required>
                                 <mat-option *ngFor="let control of data.numberControls" [value]="control">
                                     {{control.label}}
                                 </mat-option>
