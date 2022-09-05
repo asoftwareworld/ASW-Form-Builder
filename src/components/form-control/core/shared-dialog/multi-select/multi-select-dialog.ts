@@ -10,27 +10,28 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { CheckboxControl } from './checkbox-control';
 
 @Component({
-    selector: 'asw-checkbox-dialog',
-    templateUrl: './checkbox-dialog.html'
+    selector: 'asw-multi-select-dialog',
+    templateUrl: './multi-select-dialog.html'
 })
-export class AswCheckboxDialog implements OnInit {
+export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
-    aswEditCheckboxForm: FormGroup;
+    aswEditMultiselectForm: FormGroup;
     status!: boolean;
     constructor(
         private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<AswCheckboxDialog>,
-        @Inject(MAT_DIALOG_DATA) public control: CheckboxControl) {
-        this.aswEditCheckboxForm = this.formBuilder.group({
+        public dialogRef: MatDialogRef<AswMultiSelectDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) {
+        this.aswEditMultiselectForm = this.formBuilder.group({
+            id: ['', [Validators.required]],
             customClass: [],
-            tooltip: [''],
-            label: ['', [Validators.required, Validators.minLength(4)]],
+            tooltip: ['', [Validators.required]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
+            style: [''],
             options: this.formBuilder.array([this.createOption()]),
-            isRequired: [false],
-            column: []
+            column: [],
+            isRequired: [false]
         });
     }
 
@@ -39,13 +40,13 @@ export class AswCheckboxDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditCheckboxForm.get('options') as FormArray;
+        return this.aswEditMultiselectForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
         return this.formBuilder.group({
             key: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
-            value: ['', [Validators.required, Validators.minLength(1)]],
+            value: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(999)]],
             isChecked: [false]
         });
     }
@@ -63,24 +64,34 @@ export class AswCheckboxDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditCheckboxForm.invalid) {
+        if (this.aswEditMultiselectForm.invalid) {
             return;
         }
-        this.aswEditCheckboxForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditCheckboxForm.value);
+        const value: string[] = [];
+        this.aswEditMultiselectForm.value.options.forEach((element: any) => {
+            if (element.isChecked) {
+                value.push(element.key);
+            }
+        });
+        this.aswEditMultiselectForm.value.value = value;
+        this.aswEditMultiselectForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditMultiselectForm.value);
     }
 
-    setValue(control: CheckboxControl): void {
-        this.aswEditCheckboxForm.patchValue({
+    setValue(control: any): void {
+        this.aswEditMultiselectForm.patchValue({
+            id: control.id,
             customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
+            style: control.style,
             isRequired: control.isRequired,
-            column: control.column
+            column: control.column,
+            value: control.value,
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditCheckboxForm.setControl('options', optionFormArray);
+        this.aswEditMultiselectForm.setControl('options', optionFormArray);
     }
 
     onChange(event: any): void {

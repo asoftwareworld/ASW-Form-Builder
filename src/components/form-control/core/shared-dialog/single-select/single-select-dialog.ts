@@ -27,7 +27,7 @@ export class AswSingleSelectDialog implements OnInit {
         this.aswEditSingleSelectForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
             style: [''],
             column: [],
             customClass: [],

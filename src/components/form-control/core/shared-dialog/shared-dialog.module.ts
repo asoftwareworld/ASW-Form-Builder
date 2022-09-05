@@ -20,7 +20,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AswDigitalDialog, AswSingleSelectDialog, AswTextDialog } from '@asoftwareworld/form-builder/form-control/core';
+import {
+    AswDigitalDialog,
+    AswMultiSelectDialog,
+    AswSingleSelectDialog,
+    AswTextDialog
+} from '@asoftwareworld/form-builder/form-control/core';
 
 @NgModule({
     imports: [
@@ -42,12 +47,14 @@ import { AswDigitalDialog, AswSingleSelectDialog, AswTextDialog } from '@asoftwa
     declarations: [
         AswTextDialog,
         AswDigitalDialog,
-        AswSingleSelectDialog
+        AswSingleSelectDialog,
+        AswMultiSelectDialog
     ],
     exports: [
         AswTextDialog,
         AswDigitalDialog,
-        AswSingleSelectDialog
+        AswSingleSelectDialog,
+        AswMultiSelectDialog
     ]
 })
 export class AswSharedDialogModule { }
