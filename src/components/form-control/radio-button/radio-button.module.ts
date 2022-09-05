@@ -19,9 +19,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 
 import { AswRadioButton } from './radio-button';
-import { AswRadioButtonDialog } from './radio-button-dialog';
 
 @NgModule({
     imports: [
@@ -37,15 +37,14 @@ import { AswRadioButtonDialog } from './radio-button-dialog';
         MatIconModule,
         MatTooltipModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        AswSharedDialogModule
     ],
     declarations: [
-        AswRadioButton,
-        AswRadioButtonDialog
+        AswRadioButton
     ],
     exports: [
-        AswRadioButton,
-        AswRadioButtonDialog
+        AswRadioButton
     ]
 })
 export class AswRadioButtonModule { }

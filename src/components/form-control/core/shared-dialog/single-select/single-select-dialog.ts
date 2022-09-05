@@ -11,29 +11,28 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatRadioChange } from '@angular/material/radio';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { SelectControl } from './select-control';
 
 @Component({
-    selector: 'asw-select-dialog',
-    templateUrl: './select-dialog.html'
+    selector: 'asw-single-select-dialog',
+    templateUrl: './single-select-dialog.html'
 })
-export class AswSelectDialog implements OnInit {
+export class AswSingleSelectDialog implements OnInit {
     constants: any = Constants;
-    aswEditSelectForm: FormGroup;
+    aswEditSingleSelectForm: FormGroup;
     status!: boolean;
     constructor(
         private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<AswSelectDialog>,
-        @Inject(MAT_DIALOG_DATA) public control: SelectControl) {
-        this.aswEditSelectForm = this.formBuilder.group({
+        public dialogRef: MatDialogRef<AswSingleSelectDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) {
+        this.aswEditSingleSelectForm = this.formBuilder.group({
             id: ['', [Validators.required]],
-            customClass: [],
             tooltip: ['', [Validators.required]],
             label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            style: ['', [Validators.required]],
+            style: [''],
+            column: [],
+            customClass: [],
             options: this.formBuilder.array([this.createOption()]),
-            isRequired: [false],
-            column: []
+            isRequired: [false]
         });
     }
 
@@ -42,7 +41,7 @@ export class AswSelectDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditSelectForm.get('options') as FormArray;
+        return this.aswEditSingleSelectForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
@@ -66,32 +65,32 @@ export class AswSelectDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditSelectForm.invalid) {
+        if (this.aswEditSingleSelectForm.invalid) {
             return;
         }
-        this.aswEditSelectForm.value.options.forEach((element: any) => {
+        this.aswEditSingleSelectForm.value.options.forEach((element: any) => {
             if (element.isChecked) {
-                this.aswEditSelectForm.value.value = element.key;
+                this.aswEditSingleSelectForm.value.value = element.key;
             }
         });
-        this.aswEditSelectForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditSelectForm.value);
+        this.aswEditSingleSelectForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswEditSingleSelectForm.value);
     }
 
-    setValue(control: SelectControl): void {
-        this.aswEditSelectForm.patchValue({
+    setValue(control: any): void {
+        this.aswEditSingleSelectForm.patchValue({
             id: control.id,
-            customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
             style: control.style,
             value: control.value,
-            isRequired: control.isRequired,
-            column: control.column
+            column: control.column,
+            customClass: control.customClass ?? '',
+            isRequired: control.isRequired
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditSelectForm.setControl('options', optionFormArray);
+        this.aswEditSingleSelectForm.setControl('options', optionFormArray);
     }
 
     onChange(event: any): void {
@@ -116,6 +115,6 @@ export class AswSelectDialog implements OnInit {
         });
         const optionFormGroup = this.options.controls.map((option: any) => this.formBuilder.group(option.value));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditSelectForm.setControl('options', optionFormArray);
+        this.aswEditSingleSelectForm.setControl('options', optionFormArray);
     }
 }

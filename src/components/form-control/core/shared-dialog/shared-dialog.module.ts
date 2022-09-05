@@ -11,14 +11,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { AswDigitalDialog, AswTextDialog } from '@asoftwareworld/form-builder/form-control/core';
+import { AswDigitalDialog, AswSingleSelectDialog, AswTextDialog } from '@asoftwareworld/form-builder/form-control/core';
 
 @NgModule({
     imports: [
@@ -33,15 +35,19 @@ import { AswDigitalDialog, AswTextDialog } from '@asoftwareworld/form-builder/fo
         MatDividerModule,
         MatIconModule,
         MatButtonModule,
-        MatButtonToggleModule
+        MatButtonToggleModule,
+        MatCheckboxModule,
+        MatRadioModule
     ],
     declarations: [
         AswTextDialog,
-        AswDigitalDialog
+        AswDigitalDialog,
+        AswSingleSelectDialog
     ],
     exports: [
         AswTextDialog,
-        AswDigitalDialog
+        AswDigitalDialog,
+        AswSingleSelectDialog
     ]
 })
 export class AswSharedDialogModule { }

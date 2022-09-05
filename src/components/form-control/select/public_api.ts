@@ -7,6 +7,5 @@
  */
 
 export * from './select';
-export * from './select-dialog';
 export * from './select-control';
 export * from './select.module';

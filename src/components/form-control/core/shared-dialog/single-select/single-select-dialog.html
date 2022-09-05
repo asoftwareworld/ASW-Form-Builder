@@ -1,6 +1,6 @@
-<h4 mat-dialog-title>Edit radio button property</h4>
+<h4 mat-dialog-title>Edit property</h4>
 <mat-divider></mat-divider>
-<form [formGroup]="aswEditRadioButtonForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="aswEditSingleSelectForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <div class="asw-full-width"><br>
             <div class="row">
@@ -13,7 +13,7 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('id')?.hasError(validation.type) && (aswEditRadioButtonForm.get('id')?.dirty || aswEditRadioButtonForm.get('id')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditSingleSelectForm.get('id')?.hasError(validation.type) && (aswEditSingleSelectForm.get('id')?.dirty || aswEditSingleSelectForm.get('id')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -27,7 +27,7 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditRadioButtonForm.get('label')?.hasError(validation.type) && (aswEditRadioButtonForm.get('label')?.dirty || aswEditRadioButtonForm.get('label')?.touched)">
+                            <mat-error class="asw-mat-error" *ngIf="aswEditSingleSelectForm.get('label')?.hasError(validation.type) && (aswEditSingleSelectForm.get('label')?.dirty || aswEditSingleSelectForm.get('label')?.touched)">
                                 {{validation.message}}
                             </mat-error>
                         </mat-error>
@@ -56,13 +56,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="{{control.controlType != 'radio' ? 'col-md-6' : 'col-md-12'}}">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Column Size</mat-label>
                         <mat-select formControlName="column" matTooltip="Select column size">
                             <mat-option *ngFor="let column of constants.columns" [value]="column.value">
                                 {{column.label}}
                             </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6" *ngIf="control.controlType != 'radio'">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Textbox Style</mat-label>
+                        <mat-select formControlName="style" matTooltip="Select textbox style">
+                            <mat-option value="legacy">Legacy</mat-option>
+                            <mat-option value="standard">Standard</mat-option>
+                            <mat-option value="fill">Fill</mat-option>
+                            <mat-option value="outline">Outline</mat-option>                    
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -147,7 +158,7 @@
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button type="button"
-                class="btn btn-danger mr-2 me-2 mb-1"
+                class="btn btn-danger mr-2 mb-1 me-2"
                 (click)="onNoClick()">
             No
         </button>
