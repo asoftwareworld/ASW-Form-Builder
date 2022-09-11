@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswDigitalDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { AswImageDrawingDialog } from './image-drawing-dialog';
+import { AswImageDrawing } from '@asoftwareworld/form-builder/image-drawing';
 
 @Component({
     selector: 'asw-drawing',
@@ -29,7 +29,6 @@ export class AswDrawing {
     @Output() drawingDeleteEvent = new EventEmitter<number>();
     @Output() duplicateControl = new EventEmitter<any>();
 
-    imageUrl: any = 'https://i.pinimg.com/236x/d6/27/d9/d627d9cda385317de4812a4f7bd922e9--man--iron-man.jpg';
     constructor(public dialog: MatDialog) { }
 
     deleteDrawingDialog(control: any, controlIndex: number): void {
@@ -45,7 +44,7 @@ export class AswDrawing {
     }
 
     drawingImageDialog(control: any, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswImageDrawingDialog, {
+        const dialogRef = this.dialog.open(AswImageDrawing, {
             disableClose: true,
             width: '744px',
             data: control

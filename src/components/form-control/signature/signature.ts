@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { AswDigitalDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { AswSignatureDialog } from './signature-dialog';
+import { AswImageDrawing } from '@asoftwareworld/form-builder/image-drawing';
 
 @Component({
     selector: 'asw-signature',
@@ -45,7 +45,7 @@ export class AswSignature {
     }
 
     signatureDialog(control: any, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswSignatureDialog, {
+        const dialogRef = this.dialog.open(AswImageDrawing, {
             disableClose: true,
             width: '744px',
             data: control

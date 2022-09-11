@@ -19,7 +19,6 @@ import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control
 
 import { AswImageDrawingModule } from '@asoftwareworld/form-builder/image-drawing';
 import { AswSignature } from './signature';
-import { AswSignatureDialog } from './signature-dialog';
 
 @NgModule({
     imports: [
@@ -36,12 +35,10 @@ import { AswSignatureDialog } from './signature-dialog';
         MatDividerModule
     ],
     declarations: [
-        AswSignature,
-        AswSignatureDialog
+        AswSignature
     ],
     exports: [
-        AswSignature,
-        AswSignatureDialog
+        AswSignature
     ]
 })
 export class AswSignatureModule { }

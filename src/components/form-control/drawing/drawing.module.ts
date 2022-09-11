@@ -19,7 +19,6 @@ import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control
 import { AswImageDrawingModule } from '@asoftwareworld/form-builder/image-drawing';
 
 import { AswDrawing } from './drawing';
-import { AswImageDrawingDialog } from './image-drawing-dialog';
 
 @NgModule({
     imports: [
@@ -36,12 +35,10 @@ import { AswImageDrawingDialog } from './image-drawing-dialog';
         MatDividerModule
     ],
     declarations: [
-        AswDrawing,
-        AswImageDrawingDialog
+        AswDrawing
     ],
     exports: [
-        AswDrawing,
-        AswImageDrawingDialog
+        AswDrawing
     ]
 })
 export class AswDrawingModule { }

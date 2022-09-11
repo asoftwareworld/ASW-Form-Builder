@@ -7,5 +7,4 @@
  */
 
 export * from './signature';
-export * from './signature-dialog';
 export * from './signature.module';
