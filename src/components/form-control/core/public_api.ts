@@ -12,7 +12,6 @@ export * from './interface/control-option';
 export * from './interface/control-length';
 export * from './service/notification.service';
 export * from './utils/objectutils';
-export * from './directive/numbers-only.directive';
 export * from './shared-dialog/text/text-dialog';
 export * from './shared-dialog/digital/digital-dialog';
 export * from './shared-dialog/single-select/single-select-dialog';

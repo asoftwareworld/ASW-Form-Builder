@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -74,7 +75,8 @@ import { AswFormBuilder } from './form-builder';
         AswNumberModule,
         AswCalculationModule,
         AswFileUploadModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatCardModule
     ],
     exports: [AswFormBuilder]
 })

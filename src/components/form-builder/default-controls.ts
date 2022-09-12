@@ -264,16 +264,16 @@ export const DIGITAL_CONTROLS = [
 ];
 
 export const OTHERS_CONTROLS = [
-    {
-        id: '1',
-        icon: 'cloud_upload',
-        displayName: 'File Upload',
-        controlType: 'fileupload',
-        label: 'File Upload',
-        column: 'col-md-12',
-        value: [],
-        isRequired: false
-    },
+    // {
+    //     id: '1',
+    //     icon: 'cloud_upload',
+    //     displayName: 'File Upload',
+    //     controlType: 'fileupload',
+    //     label: 'File Upload',
+    //     column: 'col-md-12',
+    //     value: [],
+    //     isRequired: false
+    // },
     {
         icon: 'qr_code_2',
         displayName: 'QR Code',

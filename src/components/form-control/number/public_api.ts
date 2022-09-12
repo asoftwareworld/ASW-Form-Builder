@@ -8,5 +8,6 @@
 
 export * from './number';
 export * from './number-dialog';
+export * from './numbers-only.directive';
 export * from './number-control';
 export * from './number.module';

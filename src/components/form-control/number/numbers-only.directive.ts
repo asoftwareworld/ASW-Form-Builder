@@ -13,7 +13,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class AswNumberDirective {
 
-    constructor(private element: ElementRef) { }
+    constructor(public element: ElementRef) { }
 
     @HostListener('input', ['$event']) onInputChange(event: any): void {
         const initalValue = this.element.nativeElement.value;

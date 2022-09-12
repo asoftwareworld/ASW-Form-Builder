@@ -7,4 +7,6 @@
  */
 
 export * from './fileupload';
+export * from './asw-drag-drop.directive';
+export * from './fileupload-control';
 export * from './fileupload.module';

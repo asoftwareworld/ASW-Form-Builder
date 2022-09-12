@@ -20,12 +20,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {
-    AswDigitalDialog,
-    AswMultiSelectDialog,
-    AswSingleSelectDialog,
-    AswTextDialog
-} from '@asoftwareworld/form-builder/form-control/core';
+import { AswDigitalDialog } from '../shared-dialog/digital/digital-dialog';
+import { AswMultiSelectDialog } from '../shared-dialog/multi-select/multi-select-dialog';
+import { AswSingleSelectDialog } from '../shared-dialog/single-select/single-select-dialog';
+import { AswTextDialog } from '../shared-dialog/text/text-dialog';
 
 @NgModule({
     imports: [

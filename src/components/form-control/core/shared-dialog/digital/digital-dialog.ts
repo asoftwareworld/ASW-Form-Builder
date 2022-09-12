@@ -9,7 +9,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants } from '../../constant/constants';
+import { ObjectUtils } from './../../utils/objectutils';
 
 @Component({
     selector: 'asw-digital-dialog',
