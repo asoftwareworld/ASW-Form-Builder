@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
 import { MatDialog } from '@angular/material/dialog';
 import { Constants, NotificationService, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
 import { AswJsonPreviewDialog } from '@asoftwareworld/form-builder/form-control/json-preview-dialog';
-import { CONTROLS } from './default-controls';
+import { CHOICE_CONTROLS, DATE_AND_GPS_CONTROLS, DIGITAL_CONTROLS, OTHERS_CONTROLS, SIMPLE_CONTROLS } from './default-controls';
 
 @Component({
     selector: 'asw-form-builder',
@@ -19,8 +19,13 @@ import { CONTROLS } from './default-controls';
     styleUrls: ['./form-builder.scss']
 })
 export class AswFormBuilder implements OnInit, OnChanges {
+    step = 0;
     constants: any = Constants;
-    availableControls: any[] = [];
+    simpleControls: any[] = [];
+    choiceControls: any[] = [];
+    dateAndGpsControls: any[] = [];
+    digitalControls: any[] = [];
+    othersControls: any[] = [];
     formContainer: any[] = [];
     viewInitialized = false;
     @Input() uploadData: any[] = [];
@@ -39,7 +44,15 @@ export class AswFormBuilder implements OnInit, OnChanges {
         private notificationService: NotificationService) { }
 
     ngOnInit(): void {
-        this.availableControls = CONTROLS;
+        this.simpleControls = SIMPLE_CONTROLS;
+        this.choiceControls = CHOICE_CONTROLS;
+        this.dateAndGpsControls = DATE_AND_GPS_CONTROLS;
+        this.digitalControls = DIGITAL_CONTROLS;
+        this.othersControls = OTHERS_CONTROLS;
+    }
+
+    setStep(index: number): void {
+        this.step = index;
     }
 
     ngOnChanges(): void {
@@ -103,6 +116,12 @@ export class AswFormBuilder implements OnInit, OnChanges {
     }
 
     duplicateControl(control: any): void {
-        this.formContainer.push(JSON.parse(JSON.stringify(control)));
+        const duplicatedControl = JSON.parse(JSON.stringify(control));
+        if (duplicatedControl.controlType === 'fileupload') {
+            duplicatedControl.value = [];
+        } else if (duplicatedControl.controlType !== 'qr-code') {
+            duplicatedControl.value = duplicatedControl.controlType === 'slide-toggle' ? false : '';
+        }
+        this.formContainer.push(duplicatedControl);
     }
 }

@@ -19,9 +19,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 
 import { AswMultiSelect } from './multi-select';
-import { AswMultiSelectDialog } from './multi-select-dialog';
 
 @NgModule({
     imports: [
@@ -37,15 +37,14 @@ import { AswMultiSelectDialog } from './multi-select-dialog';
         MatCheckboxModule,
         MatTooltipModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        AswSharedDialogModule
     ],
     declarations: [
-        AswMultiSelect,
-        AswMultiSelectDialog
+        AswMultiSelect
     ],
     exports: [
-        AswMultiSelect,
-        AswMultiSelectDialog
+        AswMultiSelect
     ]
 })
 export class AswMultiSelectModule { }

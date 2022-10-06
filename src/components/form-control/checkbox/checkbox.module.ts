@@ -19,8 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswCheckbox } from './checkbox';
-import { AswCheckboxDialog } from './checkbox-dialog';
 
 @NgModule({
     imports: [
@@ -36,15 +36,14 @@ import { AswCheckboxDialog } from './checkbox-dialog';
         MatIconModule,
         MatTooltipModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        AswSharedDialogModule
     ],
     declarations: [
-        AswCheckbox,
-        AswCheckboxDialog
+        AswCheckbox
     ],
     exports: [
-        AswCheckbox,
-        AswCheckboxDialog
+        AswCheckbox
     ]
 })
 export class AswCheckboxModule { }

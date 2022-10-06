@@ -9,21 +9,22 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants } from '../../constant/constants';
+import { ObjectUtils } from './../../utils/objectutils';
 
 @Component({
-    selector: 'asw-signature-control-dialog',
-    templateUrl: './signature-control-dialog.html'
+    selector: 'asw-digital-dialog',
+    templateUrl: './digital-dialog.html'
 })
-export class AswSignatureControlDialog implements OnInit {
+export class AswDigitalDialog implements OnInit {
 
     constants: any = Constants;
-    aswSignatureForm!: FormGroup;
+    aswDigitalForm!: FormGroup;
     objectUtils = ObjectUtils;
 
     constructor(
         private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<AswSignatureControlDialog>,
+        public dialogRef: MatDialogRef<AswDigitalDialog>,
         @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(): void {
@@ -32,7 +33,7 @@ export class AswSignatureControlDialog implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswSignatureForm = this.formBuilder.group({
+        this.aswDigitalForm = this.formBuilder.group({
             label: [],
             column: [],
             class: [],
@@ -43,7 +44,7 @@ export class AswSignatureControlDialog implements OnInit {
     }
 
     editProperty(control: any): void {
-        this.aswSignatureForm.setValue({
+        this.aswDigitalForm.setValue({
             label: control.label,
             class: control.class,
             column: control.column,
@@ -58,10 +59,10 @@ export class AswSignatureControlDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswSignatureForm.invalid) {
+        if (this.aswDigitalForm.invalid) {
             return;
         }
-        this.aswSignatureForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswSignatureForm.value);
+        this.aswDigitalForm.value.controlType = this.control.controlType;
+        this.dialogRef.close(this.aswDigitalForm.value);
     }
 }

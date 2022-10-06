@@ -9,31 +9,31 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatRadioChange } from '@angular/material/radio';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { SelectControl } from './select-control';
+import { Constants } from '../../constant/constants';
 
 @Component({
-    selector: 'asw-select-dialog',
-    templateUrl: './select-dialog.html'
+    selector: 'asw-multi-select-dialog',
+    templateUrl: './multi-select-dialog.html'
 })
-export class AswSelectDialog implements OnInit {
+export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
-    aswEditSelectForm: FormGroup;
+    aswEditMultiselectForm: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<AswSelectDialog>,
-        @Inject(MAT_DIALOG_DATA) public control: SelectControl) {
-        this.aswEditSelectForm = this.formBuilder.group({
+        public dialogRef: MatDialogRef<AswMultiSelectDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) {
+        this.aswEditMultiselectForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             customClass: [],
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            style: ['', [Validators.required]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
+            style: [''],
             options: this.formBuilder.array([this.createOption()]),
+            column: [],
             isRequired: [false],
-            column: []
+            isDisabled: [false]
         });
     }
 
@@ -42,7 +42,7 @@ export class AswSelectDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditSelectForm.get('options') as FormArray;
+        return this.aswEditMultiselectForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
@@ -66,36 +66,44 @@ export class AswSelectDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditSelectForm.invalid) {
+        if (this.aswEditMultiselectForm.invalid) {
             return;
         }
-        this.aswEditSelectForm.value.options.forEach((element: any) => {
+        const value: string[] = [];
+        this.aswEditMultiselectForm.value.options.forEach((element: any) => {
             if (element.isChecked) {
-                this.aswEditSelectForm.value.value = element.key;
+                value.push(element.key);
             }
         });
-        this.aswEditSelectForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditSelectForm.value);
+        this.aswEditMultiselectForm.value.value = value;
+        this.aswEditMultiselectForm.value.controlType = this.control.controlType;
+        this.aswEditMultiselectForm.value.guid = this.control.guid;
+        this.dialogRef.close(this.aswEditMultiselectForm.value);
     }
 
-    setValue(control: SelectControl): void {
-        this.aswEditSelectForm.patchValue({
+    setValue(control: any): void {
+        this.aswEditMultiselectForm.patchValue({
             id: control.id,
             customClass: control.customClass ?? '',
             tooltip: control.tooltip,
             label: control.label,
             style: control.style,
-            value: control.value,
             isRequired: control.isRequired,
-            column: control.column
+            column: control.column,
+            value: control.value ?? '',
+            isDisabled: control.isDisabled
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditSelectForm.setControl('options', optionFormArray);
+        this.aswEditMultiselectForm.setControl('options', optionFormArray);
+    }
+
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
     }
 
     onChange(event: any): void {
-        this.status = event.checked ? true : false;
+        this.disabled = event.checked ? true : false;
     }
 
     onKey(event: any, index: number): void {
@@ -108,14 +116,5 @@ export class AswSelectDialog implements OnInit {
         if (isError) {
             this.options.controls[index].get('key')?.setErrors({ unique: true });
         }
-    }
-
-    radioChange(event: MatRadioChange): void {
-        this.options.controls.filter((element) => {
-            element.value.isChecked = element.value.key === event.value ? true : false;
-        });
-        const optionFormGroup = this.options.controls.map((option: any) => this.formBuilder.group(option.value));
-        const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditSelectForm.setControl('options', optionFormArray);
     }
 }

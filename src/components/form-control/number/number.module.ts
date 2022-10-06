@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -21,6 +22,7 @@ import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-contro
 
 import { AswNumber } from './number';
 import { AswNumberDialog } from './number-dialog';
+import { AswNumberDirective } from './numbers-only.directive';
 
 @NgModule({
     imports: [
@@ -35,15 +37,18 @@ import { AswNumberDialog } from './number-dialog';
         MatDividerModule,
         MatIconModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        MatFormFieldModule
     ],
     declarations: [
         AswNumber,
-        AswNumberDialog
+        AswNumberDialog,
+        AswNumberDirective
     ],
     exports: [
         AswNumber,
-        AswNumberDialog
+        AswNumberDialog,
+        AswNumberDirective
     ]
 })
 export class AswNumberModule { }

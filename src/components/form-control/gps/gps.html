@@ -9,7 +9,8 @@
                #input="ngModel"
                (ngModelChange)="onChange($event, control)"
                [matTooltip]="control.tooltip"
-               [required]="control.isRequired">
+               [required]="control.isRequired"
+               [disabled]="control.isDisabled ? true : false">
         <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let address of filteredAddress" [value]="address.label">
                 <img class="example-option-img" aria-hidden [src]="address.icon" height="20">

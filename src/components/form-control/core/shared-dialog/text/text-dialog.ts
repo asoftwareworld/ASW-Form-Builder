@@ -9,21 +9,21 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { TextareaControl } from './textarea-control';
-
+import { Constants } from '../../constant/constants';
 
 @Component({
-  selector: 'asw-textarea-dialog',
-  templateUrl: './textarea-dialog.html'
+    selector: 'asw-text-dialog',
+    templateUrl: './text-dialog.html'
 })
-export class AswTextareaDialog implements OnInit {
+export class AswTextDialog implements OnInit {
     constants: any = Constants;
-    aswEditTextAreaForm!: FormGroup;
+    aswEditTextForm!: FormGroup;
     status!: boolean;
-    constructor(private formBuilder: FormBuilder,
-                public dialogRef: MatDialogRef<AswTextareaDialog>,
-                @Inject(MAT_DIALOG_DATA) public control: TextareaControl) { }
+    disabled!: boolean;
+    constructor(
+        private formBuilder: FormBuilder,
+        public dialogRef: MatDialogRef<AswTextDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) { }
 
     ngOnInit(): void {
         this.validateFormBuilder();
@@ -31,42 +31,40 @@ export class AswTextareaDialog implements OnInit {
     }
 
     validateFormBuilder(): void {
-        this.aswEditTextAreaForm = this.formBuilder.group({
+        this.aswEditTextForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             tooltip: ['', []],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
             value: ['', []],
             style: ['', [Validators.required]],
             column: [''],
             pattern: [''],
             customClass: [''],
             customErrorMsg: [''],
-            maxlength: ['', [Validators.required,
-                Validators.minLength(1),
-                Validators.maxLength(3),
-                Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            maxlength: [''],
             minlength: ['', [Validators.required,
-                Validators.minLength(1),
-                Validators.maxLength(3),
+                Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
-    editProperty(control: TextareaControl): void {
-        this.aswEditTextAreaForm.setValue({
+    editProperty(control: any): void {
+        this.aswEditTextForm.setValue({
             id: control.id,
             tooltip: control.tooltip,
             label: control.label,
             pattern: control.pattern ?? '',
             customClass: control.customClass ?? '',
             customErrorMsg: control.customErrorMsg ?? '',
-            value: control.value,
+            value: control.value ?? '',
             maxlength: control.maxlength,
             minlength: control.minlength,
             column: control.column,
             style: control.style,
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
     }
 
@@ -75,18 +73,19 @@ export class AswTextareaDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditTextAreaForm.invalid){
+        if (this.aswEditTextForm.invalid) {
             return;
         }
-        this.aswEditTextAreaForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditTextAreaForm.value);
+        this.aswEditTextForm.value.controlType = this.control.controlType;
+        this.aswEditTextForm.value.guid = this.control.guid;
+        this.dialogRef.close(this.aswEditTextForm.value);
+    }
+
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
     }
 
     onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
+        this.disabled = event.checked ? true : false;
     }
 }

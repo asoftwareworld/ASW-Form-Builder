@@ -10,30 +10,31 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatRadioChange } from '@angular/material/radio';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { AutoCompleteControl } from './autocomplete-control';
+import { Constants } from '../../constant/constants';
 
 @Component({
-    selector: 'asw-autocomplete-dialog',
-    templateUrl: './autocomplete-dialog.html'
+    selector: 'asw-single-select-dialog',
+    templateUrl: './single-select-dialog.html'
 })
-export class AswAutocompleteDialog implements OnInit {
+export class AswSingleSelectDialog implements OnInit {
     constants: any = Constants;
-    aswEditAutocompleteForm: FormGroup;
+    aswEditSingleSelectForm: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
-        public dialogRef: MatDialogRef<AswAutocompleteDialog>,
-        @Inject(MAT_DIALOG_DATA) public control: AutoCompleteControl) {
-        this.aswEditAutocompleteForm = this.formBuilder.group({
+        public dialogRef: MatDialogRef<AswSingleSelectDialog>,
+        @Inject(MAT_DIALOG_DATA) public control: any) {
+        this.aswEditSingleSelectForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             tooltip: ['', [Validators.required]],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
-            style: ['', [Validators.required]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
+            style: [''],
             column: [],
             customClass: [],
             options: this.formBuilder.array([this.createOption()]),
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -42,7 +43,7 @@ export class AswAutocompleteDialog implements OnInit {
     }
 
     get options(): FormArray {
-        return this.aswEditAutocompleteForm.get('options') as FormArray;
+        return this.aswEditSingleSelectForm.get('options') as FormArray;
     }
 
     createOption(): FormGroup {
@@ -66,36 +67,42 @@ export class AswAutocompleteDialog implements OnInit {
     }
 
     onSubmit(): void {
-        if (this.aswEditAutocompleteForm.invalid) {
+        if (this.aswEditSingleSelectForm.invalid) {
             return;
         }
-        this.aswEditAutocompleteForm.value.options.forEach((element: any) => {
+        this.aswEditSingleSelectForm.value.options.forEach((element: any) => {
             if (element.isChecked) {
-                this.aswEditAutocompleteForm.value.value = element.key;
+                this.aswEditSingleSelectForm.value.value = element.key;
             }
         });
-        this.aswEditAutocompleteForm.value.controlType = this.control.controlType;
-        this.dialogRef.close(this.aswEditAutocompleteForm.value);
+        this.aswEditSingleSelectForm.value.controlType = this.control.controlType;
+        this.aswEditSingleSelectForm.value.guid = this.control.guid;
+        this.dialogRef.close(this.aswEditSingleSelectForm.value);
     }
 
-    setValue(control: AutoCompleteControl): void {
-        this.aswEditAutocompleteForm.patchValue({
+    setValue(control: any): void {
+        this.aswEditSingleSelectForm.patchValue({
             id: control.id,
             tooltip: control.tooltip,
             label: control.label,
             style: control.style,
-            value: control.value,
+            value: control.value ?? '',
             column: control.column,
             customClass: control.customClass ?? '',
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditAutocompleteForm.setControl('options', optionFormArray);
+        this.aswEditSingleSelectForm.setControl('options', optionFormArray);
+    }
+
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
     }
 
     onChange(event: any): void {
-        this.status = event.checked ? true : false;
+        this.disabled = event.checked ? true : false;
     }
 
     onKey(event: any, index: number): void {
@@ -116,6 +123,6 @@ export class AswAutocompleteDialog implements OnInit {
         });
         const optionFormGroup = this.options.controls.map((option: any) => this.formBuilder.group(option.value));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
-        this.aswEditAutocompleteForm.setControl('options', optionFormArray);
+        this.aswEditSingleSelectForm.setControl('options', optionFormArray);
     }
 }

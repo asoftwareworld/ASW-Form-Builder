@@ -19,9 +19,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 
 import { AswSelect } from './select';
-import { AswSelectDialog } from './select-dialog';
 
 @NgModule({
     imports: [
@@ -37,15 +37,14 @@ import { AswSelectDialog } from './select-dialog';
         MatIconModule,
         MatRadioModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        AswSharedDialogModule
     ],
     declarations: [
-        AswSelect,
-        AswSelectDialog
+        AswSelect
     ],
     exports: [
-        AswSelect,
-        AswSelectDialog
+        AswSelect
     ]
 })
 export class AswSelectModule { }

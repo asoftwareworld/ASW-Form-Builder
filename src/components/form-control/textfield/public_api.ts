@@ -7,6 +7,5 @@
  */
 
 export * from './textfield';
-export * from './textfield-dialog';
 export * from './textfield-control';
 export * from './textfield.module';

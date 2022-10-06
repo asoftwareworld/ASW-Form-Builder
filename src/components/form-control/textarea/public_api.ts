@@ -8,5 +8,4 @@
 
 export * from './textarea';
 export * from './textarea-control';
-export * from './textarea-dialog';
 export * from './textarea.module';

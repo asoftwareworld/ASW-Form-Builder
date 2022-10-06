@@ -9,9 +9,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { AswTextDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { TextareaControl } from './textarea-control';
-import { AswTextareaDialog } from './textarea-dialog';
 
 @Component({
     selector: 'asw-textarea',
@@ -51,7 +50,7 @@ export class AswTextarea {
     }
 
     editTextAreaDialog(control: TextareaControl, controlIndex: number): void {
-        const dialogRef = this.dialog.open(AswTextareaDialog, {
+        const dialogRef = this.dialog.open(AswTextDialog, {
             disableClose: true,
             width: '744px',
             data: control

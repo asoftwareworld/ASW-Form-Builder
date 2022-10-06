@@ -4,7 +4,8 @@
                     [id]="control.id"
                     [matTooltip]="control.tooltip"
                     [(ngModel)]="control.value"
-                    (change)="onSelectionChange(control)">
+                    (change)="onSelectionChange(control)"
+                    [disabled]="control.isDisabled ? true : false">
         <mat-radio-button *ngFor="let option of control.options" 
                         [value]="option.key">
                     {{ option.value }}

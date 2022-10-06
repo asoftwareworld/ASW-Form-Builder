@@ -18,9 +18,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 
 import { AswTextField } from './textfield';
-import { AswTextFieldDialog } from './textfield-dialog';
 
 @NgModule({
     imports: [
@@ -35,15 +35,14 @@ import { AswTextFieldDialog } from './textfield-dialog';
         MatDividerModule,
         MatIconModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        AswSharedDialogModule
     ],
     declarations: [
-        AswTextField,
-        AswTextFieldDialog
+        AswTextField
     ],
     exports: [
-        AswTextField,
-        AswTextFieldDialog
+        AswTextField
     ]
 })
 export class AswTextFieldModule { }

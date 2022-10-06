@@ -7,6 +7,18 @@ h2 {
     display: block;
 }
 
+.asw-expansion-panel-header {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 450;
+    height: 48px;
+    border-radius: initial;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+    padding: 16px 24px 16px !important;
+}
+
 .asw-box {
     padding: 7px 7px;
     border-bottom: solid 1px #ccc;
@@ -19,6 +31,7 @@ h2 {
     background: white;
     font-size: 14px;
 }
+
 .alert {
     padding: 0.4rem 0.4rem !important;
     margin-bottom: 0.4rem !important;
@@ -57,10 +70,6 @@ h2 {
 .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
-// .asw-box:last-child {
-//     border: none;
-// }
 
 .asw-list.cdk-drop-list-dragging .asw-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);

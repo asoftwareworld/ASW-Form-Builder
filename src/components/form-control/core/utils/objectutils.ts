@@ -49,25 +49,31 @@ export class ObjectUtils {
     }
 
     public static calculateValue(operations: any[]): number {
-        let sum = operations[0].value;
-        operations.forEach((operation: any, index: number) => {
-            if (index !== 0) {
-                switch (operation.operationValue) {
-                    case '+':
-                        sum += operation.value;
-                        break;
-                    case '-':
-                        sum -= operation.value;
-                        break;
-                    case '*':
-                        sum *= operation.value;
-                        break;
-                    case '/':
-                        sum /= operation.value;
-                        break;
+        if (operations.length) {
+            let sum = Number(operations[0].value);
+            operations.forEach((operation: any, index: number) => {
+                if (index !== 0) {
+                    switch (operation.operationValue) {
+                        case '+':
+                            sum += Number(operation.value);
+                            break;
+                        case '-':
+                            sum -= operation.value;
+                            break;
+                        case '*':
+                            sum *= operation.value;
+                            break;
+                        case '/':
+                            sum /= operation.value;
+                            break;
+                        case 'x̄':
+                            sum /= index;
+                            break;
+                    }
                 }
-            }
-        });
-        return sum;
+            });
+            return sum;
+        }
+        return 0;
     }
 }

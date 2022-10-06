@@ -7,12 +7,10 @@
  */
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
+import { AswSingleSelectDialog, Constants, ControlOption } from '@asoftwareworld/form-builder/form-control/core';
 import { AutoCompleteControl } from './autocomplete-control';
-import { AswAutocompleteDialog } from './autocomplete-dialog';
 
 @Component({
     selector: 'asw-autocomplete',
@@ -77,7 +75,7 @@ export class AswAutocomplete implements OnInit {
         control.options.forEach(element => {
             element.isChecked = control.value === element.key ? true : false;
         });
-        const dialogRef = this.dialog.open(AswAutocompleteDialog, {
+        const dialogRef = this.dialog.open(AswSingleSelectDialog, {
             disableClose: true,
             width: '744px',
             data: control

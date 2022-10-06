@@ -9,6 +9,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { CalculationControl, Operation } from './calculation-control';
 
@@ -66,7 +67,7 @@ export class AswCalculationDialog implements OnInit {
             label: [],
             value: [],
             operationValue: ['', [Validators.required]],
-            control: ['', [Validators.required]]
+            control: ['']
         });
     }
 
@@ -94,5 +95,13 @@ export class AswCalculationDialog implements OnInit {
             operation.value = operation.control.value;
         });
         this.dialogRef.close(this.aswEditCalculationForm.value);
+    }
+
+    onOperationChange(event: MatSelectChange, operation: any): void {
+        if (event.value === 'x̄') {
+            operation.controls.control.setErrors(null);
+        } else {
+            operation.controls.control.setValidators(Validators.required);
+        }
     }
 }

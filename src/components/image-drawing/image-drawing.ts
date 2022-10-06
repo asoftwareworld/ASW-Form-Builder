@@ -8,30 +8,33 @@
 import {
     Component,
     EventEmitter,
+    Inject,
     Input,
     OnChanges,
     OnInit,
     Output,
     SimpleChanges,
-    TemplateRef
+    TemplateRef,
 } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { fabric } from 'fabric';
 
 @Component({
     selector: 'asw-image-drawing',
-    styleUrls: ['./image-drawing.component.scss'],
-    templateUrl: './image-drawing.component.html'
+    styleUrls: ['./image-drawing.scss'],
+    templateUrl: './image-drawing.html'
 })
-export class AswImageDrawingComponent implements OnInit, OnChanges {
+export class AswImageDrawing implements OnInit, OnChanges {
 
     @Input() public src?: string;
-    @Input() public width?: number;
-    @Input() public height?: number;
+    @Input() public width = 680;
+    @Input() public height = 250;
 
     @Input() public forceSizeCanvas = true;
-    @Input() public forceSizeExport = false;
-    @Input() public enableRemoveImage = false;
-    @Input() public enableLoadAnotherImage = false;
+    @Input() public forceSizeExport = true;
+    @Input() public enableRemoveImage = true;
+    @Input() public enableLoadAnotherImage = true;
     @Input() public enableTooltip = true;
     @Input() public showCancelButton = true;
 
@@ -51,9 +54,7 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
     // @Input() public borderCss = 'none';
 
     @Input() public drawingSizes: { [name: string]: number } = {
-        small: 5,
-        medium: 10,
-        large: 25,
+        small: 3, medium: 10, large: 25, extra: 50
     };
 
     @Input() public colors: { [name: string]: string } = {
@@ -89,14 +90,20 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
 
     private imageUsed?: fabric.Image;
 
-    constructor() {
+    constructor(
+        public dialogRef: MatDialogRef<AswImageDrawing>,
+        @Inject(MAT_DIALOG_DATA) public control: any
+    ) {
     }
 
     public ngOnInit(): void {
+        if (this.control.controlType === 'signature') {
+            this.enableLoadAnotherImage = false;
+        }
+        this.src = this.control.imageUrl;
         this.colorsName = Object.keys(this.colors);
         this.drawingSizesName = Object.keys(this.drawingSizes);
-
-        this.canvas = new fabric.Canvas('canvas', {
+        this.canvas = new fabric.Canvas('aswCanvas', {
             hoverCursor: 'pointer',
             isDrawingMode: true
         });
@@ -174,15 +181,16 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
     public saveImage(): void {
         this.canvas.getElement().toBlob(
             (data: any) => {
-                this.save.emit(data);
+                const reader = new FileReader();
+                reader.readAsDataURL(data);
+                reader.onloadend = () => {
+                    const base64data = reader.result;
+                    this.control.imageUrl = base64data;
+                };
             },
             this.outputMimeType,
             this.outputQuality
         );
-    }
-
-    public cancelAction(): void {
-        this.cancel.emit();
     }
 
     private setUndoRedo(): void {
@@ -245,8 +253,8 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
             this.imageUsed.cloneAsImage((image: any) => {
                 let width = imgEl.width;
                 let height = imgEl.height;
-                const ratio = (640  / width < 480 / height
-                    ? 640  / width
+                const ratio = (640 / width < 480 / height
+                    ? 640 / width
                     : 480 / width
                 );
                 width = width * ratio;
@@ -292,5 +300,17 @@ export class AswImageDrawingComponent implements OnInit, OnChanges {
                 this.importPhotoFromBlob(changes.src.currentValue);
             }
         }
+    }
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
+
+    onSubmit(aswEditPropertyForm: NgForm): void {
+        if (aswEditPropertyForm.invalid) {
+            return;
+        }
+        this.saveImage();
+        this.dialogRef.close(this.control);
     }
 }

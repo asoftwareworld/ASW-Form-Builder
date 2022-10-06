@@ -21,8 +21,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AswConfirmDialogModule } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
+import { AswSharedDialogModule } from '@asoftwareworld/form-builder/form-control/core';
 import { AswAutocomplete } from './autocomplete';
-import { AswAutocompleteDialog } from './autocomplete-dialog';
 
 @NgModule({
     imports: [
@@ -39,15 +39,14 @@ import { AswAutocompleteDialog } from './autocomplete-dialog';
         MatIconModule,
         MatAutocompleteModule,
         AswConfirmDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        AswSharedDialogModule
     ],
     declarations: [
-        AswAutocomplete,
-        AswAutocompleteDialog
+        AswAutocomplete
     ],
     exports: [
-        AswAutocomplete,
-        AswAutocompleteDialog
+        AswAutocomplete
     ]
 })
 export class AswAutocompleteModule { }

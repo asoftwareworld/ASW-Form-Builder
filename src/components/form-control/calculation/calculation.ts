@@ -55,6 +55,9 @@ export class AswCalculation {
 
     editCalculationDialog(control: CalculationControl, formControls: any[], controlIndex: number): void {
         const numberControls = formControls.filter(x => x.controlType === 'number');
+        if (!numberControls.length) {
+            control.operations = [];
+        }
         if (!control.operations.length) {
             numberControls.forEach((x, index) => {
                 const operation = {

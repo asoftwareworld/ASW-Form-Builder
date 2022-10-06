@@ -9,9 +9,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { AswMultiSelectDialog, Constants } from '@asoftwareworld/form-builder/form-control/core';
 import { MultiSelectControl } from './multi-select-control';
-import { AswMultiSelectDialog } from './multi-select-dialog';
 
 @Component({
     selector: 'asw-multi-select',
