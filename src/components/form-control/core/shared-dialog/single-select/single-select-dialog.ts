@@ -20,6 +20,7 @@ export class AswSingleSelectDialog implements OnInit {
     constants: any = Constants;
     aswEditSingleSelectForm: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<AswSingleSelectDialog>,
@@ -32,7 +33,8 @@ export class AswSingleSelectDialog implements OnInit {
             column: [],
             customClass: [],
             options: this.formBuilder.array([this.createOption()]),
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -74,6 +76,7 @@ export class AswSingleSelectDialog implements OnInit {
             }
         });
         this.aswEditSingleSelectForm.value.controlType = this.control.controlType;
+        this.aswEditSingleSelectForm.value.guid = this.control.guid;
         this.dialogRef.close(this.aswEditSingleSelectForm.value);
     }
 
@@ -83,18 +86,23 @@ export class AswSingleSelectDialog implements OnInit {
             tooltip: control.tooltip,
             label: control.label,
             style: control.style,
-            value: control.value,
+            value: control.value ?? '',
             column: control.column,
             customClass: control.customClass ?? '',
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
         this.aswEditSingleSelectForm.setControl('options', optionFormArray);
     }
 
-    onChange(event: any): void {
+    onStatusChange(event: any): void {
         this.status = event.checked ? true : false;
+    }
+
+    onChange(event: any): void {
+        this.disabled = event.checked ? true : false;
     }
 
     onKey(event: any, index: number): void {

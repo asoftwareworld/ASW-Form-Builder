@@ -27,6 +27,7 @@ export const SIMPLE_CONTROLS = [
         style: 'outline',
         column: 'col-md-6',
         isRequired: false,
+        isDisabled: false,
         maxlength: 50,
         minlength: 0
     },
@@ -41,6 +42,7 @@ export const SIMPLE_CONTROLS = [
         style: 'outline',
         column: 'col-md-6',
         isRequired: false,
+        isDisabled: false,
         maxlength: 50,
         minlength: 0
     },
@@ -55,6 +57,7 @@ export const SIMPLE_CONTROLS = [
         style: 'outline',
         column: 'col-md-6',
         isRequired: false,
+        isDisabled: false,
         maxlength: 50,
         minlength: 0
     },
@@ -94,7 +97,8 @@ export const SIMPLE_CONTROLS = [
         value: false,
         color: 'primary',
         column: 'col-md-2',
-        isRequired: false
+        isRequired: false,
+        isDisabled: false
     },
     {
         id: '1',
@@ -121,6 +125,7 @@ export const CHOICE_CONTROLS = [
         column: 'col-md-6',
         style: 'outline',
         isRequired: false,
+        isDisabled: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
             { key: 'option-2', value: 'Option 2', isChecked: false },
@@ -138,6 +143,7 @@ export const CHOICE_CONTROLS = [
         column: 'col-md-6',
         value: '',
         isRequired: false,
+        isDisabled: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
             { key: 'option-2', value: 'Option 2', isChecked: false },
@@ -155,6 +161,7 @@ export const CHOICE_CONTROLS = [
         value: '',
         style: 'outline',
         isRequired: false,
+        isDisabled: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
             { key: 'option-2', value: 'Option 2', isChecked: false },
@@ -171,6 +178,7 @@ export const CHOICE_CONTROLS = [
         value: 'option-1',
         column: 'col-md-6',
         isRequired: false,
+        isDisabled: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
             { key: 'option-2', value: 'Option 2', isChecked: false },
@@ -186,6 +194,7 @@ export const CHOICE_CONTROLS = [
         label: 'Checkbox',
         column: 'col-md-6',
         isRequired: false,
+        isDisabled: false,
         options: [
             { key: 'option-1', value: 'Option 1', isChecked: false },
             { key: 'option-2', value: 'Option 2', isChecked: false },
@@ -206,7 +215,8 @@ export const DATE_AND_GPS_CONTROLS = [
         style: 'outline',
         column: 'col-md-6',
         isRequired: false,
-        isWeekendsDisable: false
+        isWeekendsDisable: false,
+        isDisabled: false,
     },
     {
         id: '1',
@@ -220,7 +230,8 @@ export const DATE_AND_GPS_CONTROLS = [
         style: 'outline',
         column: 'col-md-6',
         value: '',
-        isRequired: false
+        isRequired: false,
+        isDisabled: false,
     }
 ];
 

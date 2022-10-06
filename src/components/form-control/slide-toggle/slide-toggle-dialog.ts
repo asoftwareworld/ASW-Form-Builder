@@ -20,6 +20,7 @@ export class AswSlideToggleDialog implements OnInit {
     constants: any = Constants;
     aswEditSlideToggleForm!: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<AswSlideToggleDialog>,
@@ -37,7 +38,8 @@ export class AswSlideToggleDialog implements OnInit {
             color: [],
             value: [false],
             column: [],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -47,8 +49,9 @@ export class AswSlideToggleDialog implements OnInit {
             label: control.label,
             color: control.color,
             column: control.column,
-            value: control.value,
-            isRequired: control.isRequired
+            value: control.value ? true : false,
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
     }
 
@@ -64,11 +67,11 @@ export class AswSlideToggleDialog implements OnInit {
         this.dialogRef.close(this.aswEditSlideToggleForm.value);
     }
 
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
+    }
+
     onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
+        this.disabled = event.checked ? true : false;
     }
 }

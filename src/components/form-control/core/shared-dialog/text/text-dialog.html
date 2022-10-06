@@ -140,24 +140,35 @@
                                         name="maxlength"
                                         placeholder="Enter maxlength"
                                         matTooltip="Enter maxlength"
-                                        maxlength="3"
-                                        minlength="1"
-                                        pattern="^[0-9]*$"
-                                        formControlName="maxlength" required>
-                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.maxlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('maxlength')?.hasError(validation.type)">
-                                {{validation.message}}
-                            </mat-error>
-                        </mat-error>
+                                        formControlName="maxlength">
                     </mat-form-field>
                 </div>
             </div>   
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <mat-slide-toggle color="primary"
-                          #isActive
-                          formControlName="isRequired"
-                          (change)="onChange($event)">{{status? 'Required':'Not Required'}}
+                            #isActive
+                            formControlName="isRequired"
+                            (change)="onStatusChange($event)">
+                            <ng-container *ngIf="status; else not">
+                                NotRequired
+                            </ng-container>
+                            <ng-template #not>
+                                Required
+                            </ng-template>
+                    </mat-slide-toggle>
+                </div>
+                <div class="col-md-4">
+                    <mat-slide-toggle color="primary"
+                            #isDisable
+                            formControlName="isDisabled"
+                            (change)="onChange($event)">
+                            <ng-container *ngIf="disabled; else enabled">
+                                Enabled
+                            </ng-container>
+                            <ng-template #enabled>
+                                Disabled
+                            </ng-template>
                     </mat-slide-toggle>
                 </div>
             </div>

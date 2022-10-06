@@ -7,11 +7,9 @@
  */
 
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants } from '@asoftwareworld/form-builder/form-control/core';
-import { map, startWith } from 'rxjs/operators';
 import { GoogleMapService } from './google-map.service';
 import { GpsControl } from './gps-control';
 import { AswGpsDialog } from './gps-dialog';

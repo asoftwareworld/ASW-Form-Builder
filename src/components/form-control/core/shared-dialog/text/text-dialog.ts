@@ -19,6 +19,7 @@ export class AswTextDialog implements OnInit {
     constants: any = Constants;
     aswEditTextForm!: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<AswTextDialog>,
@@ -33,20 +34,19 @@ export class AswTextDialog implements OnInit {
         this.aswEditTextForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             tooltip: ['', []],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
             value: ['', []],
             style: ['', [Validators.required]],
             column: [''],
             pattern: [''],
             customClass: [''],
             customErrorMsg: [''],
-            maxlength: ['', [Validators.required,
-                Validators.minLength(1), Validators.maxLength(3),
-                Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            maxlength: [''],
             minlength: ['', [Validators.required,
                 Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -58,12 +58,13 @@ export class AswTextDialog implements OnInit {
             pattern: control.pattern ?? '',
             customClass: control.customClass ?? '',
             customErrorMsg: control.customErrorMsg ?? '',
-            value: control.value,
+            value: control.value ?? '',
             maxlength: control.maxlength,
             minlength: control.minlength,
             column: control.column,
             style: control.style,
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
     }
 
@@ -76,14 +77,15 @@ export class AswTextDialog implements OnInit {
             return;
         }
         this.aswEditTextForm.value.controlType = this.control.controlType;
+        this.aswEditTextForm.value.guid = this.control.guid;
         this.dialogRef.close(this.aswEditTextForm.value);
     }
 
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
+    }
+
     onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
+        this.disabled = event.checked ? true : false;
     }
 }

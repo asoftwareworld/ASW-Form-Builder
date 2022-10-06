@@ -10,7 +10,8 @@
                         (dateChange)="onDateChange(control)"
                         [min]="control.minDate" 
                         [max]="control.maxDate"
-                        [required]="control.isRequired">
+                        [required]="control.isRequired"
+                        [disabled]="control.isDisabled ? true : false">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">

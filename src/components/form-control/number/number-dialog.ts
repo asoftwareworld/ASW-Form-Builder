@@ -21,6 +21,7 @@ export class AswNumberDialog implements OnInit {
     aswEditNumberForm!: FormGroup;
     status!: boolean;
     objectUtils = ObjectUtils;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<AswNumberDialog>,
@@ -35,18 +36,17 @@ export class AswNumberDialog implements OnInit {
         this.aswEditNumberForm = this.formBuilder.group({
             id: ['', [Validators.required]],
             tooltip: ['', []],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
             value: ['', []],
             style: ['', [Validators.required]],
             column: [''],
             customClass: [''],
-            maxlength: ['', [Validators.required,
-                Validators.minLength(1), Validators.maxLength(3),
-                Validators.pattern(this.constants.matchPattern.numberPattern)]],
+            maxlength: [''],
             minlength: ['', [Validators.required,
                 Validators.minLength(1), Validators.maxLength(3),
                 Validators.pattern(this.constants.matchPattern.numberPattern)]],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -56,12 +56,13 @@ export class AswNumberDialog implements OnInit {
             tooltip: control.tooltip,
             label: control.label,
             customClass: control.customClass ?? '',
-            value: control.value,
+            value: control.value ?? '',
             maxlength: control.maxlength,
             minlength: control.minlength,
             column: control.column,
             style: control.style,
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
     }
 
@@ -74,14 +75,15 @@ export class AswNumberDialog implements OnInit {
             return;
         }
         this.aswEditNumberForm.value.controlType = this.control.controlType;
+        this.aswEditNumberForm.value.guid = this.control.guid;
         this.dialogRef.close(this.aswEditNumberForm.value);
     }
 
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
+    }
+
     onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
+        this.disabled = event.checked ? true : false;
     }
 }

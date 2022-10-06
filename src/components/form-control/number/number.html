@@ -1,5 +1,5 @@
 <ng-container *ngIf="control as control">
-    <mat-form-field hintLabel="Max {{control.maxlength}} characters" [appearance]="control.style" class="asw-mat-form-field {{control.customClass}}">
+    <mat-form-field [appearance]="control.style" class="asw-mat-form-field {{control.customClass}}">
         <mat-label>{{control.label}}</mat-label>
         <input matInput type="text" aswNumbersOnly
                         [id]="control.id"
@@ -11,8 +11,8 @@
                         [matTooltip]="control.tooltip"
                         [maxlength]="control.maxlength"
                         [minlength]="control.minlength"
-                        [required]="control.isRequired">
-        <mat-hint align="end">{{input.value?.length || 0}}/{{control.maxlength}}</mat-hint>
+                        [required]="control.isRequired"
+                        [disabled]="control.isDisabled ? true : false">
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required

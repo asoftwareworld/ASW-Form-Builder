@@ -19,6 +19,7 @@ export class AswMultiSelectDialog implements OnInit {
     constants: any = Constants;
     aswEditMultiselectForm: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<AswMultiSelectDialog>,
@@ -31,7 +32,8 @@ export class AswMultiSelectDialog implements OnInit {
             style: [''],
             options: this.formBuilder.array([this.createOption()]),
             column: [],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -75,6 +77,7 @@ export class AswMultiSelectDialog implements OnInit {
         });
         this.aswEditMultiselectForm.value.value = value;
         this.aswEditMultiselectForm.value.controlType = this.control.controlType;
+        this.aswEditMultiselectForm.value.guid = this.control.guid;
         this.dialogRef.close(this.aswEditMultiselectForm.value);
     }
 
@@ -87,15 +90,20 @@ export class AswMultiSelectDialog implements OnInit {
             style: control.style,
             isRequired: control.isRequired,
             column: control.column,
-            value: control.value,
+            value: control.value ?? '',
+            isDisabled: control.isDisabled
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
         this.aswEditMultiselectForm.setControl('options', optionFormArray);
     }
 
-    onChange(event: any): void {
+    onStatusChange(event: any): void {
         this.status = event.checked ? true : false;
+    }
+
+    onChange(event: any): void {
+        this.disabled = event.checked ? true : false;
     }
 
     onKey(event: any, index: number): void {

@@ -23,6 +23,7 @@ export class AswGpsDialog implements OnInit {
     constants: any = Constants;
     aswEditGpsForm!: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     filteredAddress: any;
     searchedAddress: any[] = [];
     constructor(
@@ -49,13 +50,14 @@ export class AswGpsDialog implements OnInit {
             id: ['', [Validators.required]],
             customClass: [],
             tooltip: ['', []],
-            label: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
             latitude: ['', []],
             longitude: ['', []],
             value: ['', []],
             style: ['', [Validators.required]],
             column: [''],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false]
         });
     }
 
@@ -65,12 +67,13 @@ export class AswGpsDialog implements OnInit {
             customClass: control.customClass ?? '',
             latitude: control.latitude,
             longitude: control.longitude,
-            value: control.value,
+            value: control.value ?? '',
             tooltip: control.tooltip,
             label: control.label,
             column: control.column,
             style: control.style,
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
     }
 
@@ -86,12 +89,12 @@ export class AswGpsDialog implements OnInit {
         this.dialogRef.close(this.aswEditGpsForm.value);
     }
 
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
+    }
+
     onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
+        this.disabled = event.checked ? true : false;
     }
 
     private async searchAddressFromExitingData(address: string): Promise<void> {

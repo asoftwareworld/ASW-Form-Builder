@@ -7,7 +7,8 @@
             #input="ngModel" 
             multiple 
             (selectionChange)="onSelectionChange(control)"
-            [required]="control.isRequired">
+            [required]="control.isRequired"
+            [disabled]="control.isDisabled ? true : false">
             <mat-option *ngFor="let option of control.options" [value]="option.key">
                 {{ option.value }}
             </mat-option>

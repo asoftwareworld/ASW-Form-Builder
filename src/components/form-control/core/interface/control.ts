@@ -12,6 +12,7 @@ export interface Control {
     label: string;
     isRequired: boolean;
     customClass?: string;
+    isDisabled?: boolean;
 }
 
 export interface StyleControl {

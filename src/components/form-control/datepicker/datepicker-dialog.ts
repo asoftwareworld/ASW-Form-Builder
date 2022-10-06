@@ -20,6 +20,7 @@ export class AswDatepickerDialog implements OnInit {
     constants: any = Constants;
     aswDatepickerForm!: FormGroup;
     status!: boolean;
+    disabled!: boolean;
     constructor(
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<AswDatepickerDialog>,
@@ -37,11 +38,12 @@ export class AswDatepickerDialog implements OnInit {
             tooltip: [''],
             minDate: [''],
             maxDate: [''],
-            label: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(25)]],
+            label: ['', [Validators.required, Validators.minLength(2)]],
             value: [''],
             column: [],
             style: ['', [Validators.required]],
-            isRequired: [false]
+            isRequired: [false],
+            isDisabled: [false],
         });
     }
 
@@ -53,10 +55,11 @@ export class AswDatepickerDialog implements OnInit {
             maxDate: control.maxDate ?? '',
             tooltip: control.tooltip,
             label: control.label,
-            value: control.value,
+            value: control.value ?? '',
             style: control.style,
             column: control.column,
-            isRequired: control.isRequired
+            isRequired: control.isRequired,
+            isDisabled: control.isDisabled
         });
     }
 
@@ -69,11 +72,11 @@ export class AswDatepickerDialog implements OnInit {
         this.dialogRef.close(this.aswDatepickerForm.value);
     }
 
+    onStatusChange(event: any): void {
+        this.status = event.checked ? true : false;
+    }
+
     onChange(event: any): void {
-        if (event.checked) {
-            this.status = true;
-        } else {
-            this.status = false;
-        }
+        this.disabled = event.checked ? true : false;
     }
 }
