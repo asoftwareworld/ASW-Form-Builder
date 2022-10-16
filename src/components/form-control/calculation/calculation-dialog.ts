@@ -99,9 +99,9 @@ export class AswCalculationDialog implements OnInit {
 
     onOperationChange(event: MatSelectChange, operation: any): void {
         if (event.value === 'x̄') {
-            operation.controls.control.setErrors(null);
+            operation.controls.label.setErrors(null);
         } else {
-            operation.controls.control.setValidators(Validators.required);
+            operation.controls.label.setValidators(Validators.required);
         }
     }
 }

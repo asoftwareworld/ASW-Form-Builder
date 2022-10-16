@@ -51,7 +51,7 @@ export class AswSlideToggleDialog implements OnInit {
             column: control.column,
             value: control.value ? true : false,
             isRequired: control.isRequired,
-            isDisabled: control.isDisabled
+            isDisabled: control.isDisabled ?? false
         });
     }
 

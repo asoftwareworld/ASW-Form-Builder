@@ -91,7 +91,7 @@ export class AswMultiSelectDialog implements OnInit {
             isRequired: control.isRequired,
             column: control.column,
             value: control.value ?? '',
-            isDisabled: control.isDisabled
+            isDisabled: control.isDisabled ?? false
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);

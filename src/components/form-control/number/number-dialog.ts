@@ -62,7 +62,7 @@ export class AswNumberDialog implements OnInit {
             column: control.column,
             style: control.style,
             isRequired: control.isRequired,
-            isDisabled: control.isDisabled
+            isDisabled: control.isDisabled ?? false
         });
     }
 

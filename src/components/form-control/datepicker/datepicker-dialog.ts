@@ -59,7 +59,7 @@ export class AswDatepickerDialog implements OnInit {
             style: control.style,
             column: control.column,
             isRequired: control.isRequired,
-            isDisabled: control.isDisabled
+            isDisabled: control.isDisabled ?? false
         });
     }
 

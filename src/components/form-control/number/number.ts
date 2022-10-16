@@ -46,6 +46,7 @@ export class AswNumber implements OnInit {
         const id = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
         if (this.control) {
             this.control.guid = this.control.guid ? this.control.guid : id;
+            Promise.resolve().then(() => this.onChange(this.control ? this.control : null as any));
         }
     }
 

@@ -90,7 +90,7 @@ export class AswSingleSelectDialog implements OnInit {
             column: control.column,
             customClass: control.customClass ?? '',
             isRequired: control.isRequired,
-            isDisabled: control.isDisabled
+            isDisabled: control.isDisabled ?? false
         });
         const optionFormGroup = control.options.map((option: any) => this.formBuilder.group(option));
         const optionFormArray = this.formBuilder.array(optionFormGroup);
