@@ -3,9 +3,9 @@
         <mat-label>{{control.label}}</mat-label>
         <input matInput type="text"
                         [placeholder]="control.placeholder"
-                        [(ngModel)]="control.value"                    
+                        [(ngModel)]="control.value"
                         #input="ngModel"
-                        (change)="onChange(control)"
+                        (ngModelChange)="onChange(control)"
                         [matTooltip]="control.tooltip" [disabled]="true">
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
             <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">

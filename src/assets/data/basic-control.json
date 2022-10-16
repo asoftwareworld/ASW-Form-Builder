@@ -1,141 +1,112 @@
 [
     {
-        "id": "1",
-        "label": "User Profile ",
-        "subtype": "h2",
+        "customClass": "",
+        "label": "BBM WHEELS Details",
+        "subtype": "h1",
         "column": "col-md-12",
         "style": "text-left",
         "controlType": "header"
     },
     {
         "id": "1",
-        "tooltip": "Enter firstname",
-        "label": "Firstname",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-4",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter middle name",
-        "label": "Middle name",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-4",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": false,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter lastname",
-        "label": "Lastname",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-4",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter username",
-        "label": "Username",
+        "tooltip": "Enter Text",
+        "label": "Machine Details",
         "value": "",
         "style": "outline",
         "column": "col-md-6",
+        "pattern": "",
+        "customClass": "",
+        "customErrorMsg": "",
         "maxlength": 50,
         "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
+        "isRequired": false,
+        "controlType": "textfield"
     },
     {
-        "id": "1",
-        "tooltip": "Enter email address",
-        "label": "Email Address",
-        "value": "",
+        "tooltip": "Enter calculation",
+        "label": "Calculation",
         "style": "outline",
         "column": "col-md-6",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
+        "customClass": "",
+        "operations": [
+            {
+                "id": "da27",
+                "label": "BBM Wheels Posizione",
+                "value": "",
+                "operationValue": "",
+                "control": {
+                    "id": "EXPORT_MACHINE(IITASALS000250)_PARAMETER(Ruota 1 lato # A Posizione (mm))",
+                    "tooltip": "Ruota 1 lato # A Posizione (mm) from BBM WHEELS",
+                    "label": "BBM Wheels Posizione",
+                    "value": "",
+                    "style": "outline",
+                    "column": "col-md-6",
+                    "customClass": "",
+                    "maxlength": 50,
+                    "minlength": 0,
+                    "isRequired": false,
+                    "controlType": "number",
+                    "guid": "da27"
+                }
+            },
+            {
+                "id": "4a6e",
+                "label": "BBM Wheels Forza",
+                "value": "",
+                "operationValue": "+",
+                "control": {
+                    "id": "EXPORT_MACHINE(IITASALS000250)_PARAMETER(Disco lato #3 (B) Forza (kN))",
+                    "tooltip": "Disco lato #3 (B) Forza (kN)) from BBM WHEELS",
+                    "label": "BBM Wheels Forza",
+                    "value": "",
+                    "style": "outline",
+                    "column": "col-md-6",
+                    "customClass": "",
+                    "maxlength": 50,
+                    "minlength": 0,
+                    "isRequired": false,
+                    "controlType": "number",
+                    "guid": "4a6e"
+                }
+            },
+            {
+                "id": "",
+                "label": "",
+                "value": "",
+                "operationValue": "x̄",
+                "control": ""
+            }
+        ],
+        "controlType": "calculation",
+        "placeholder": "Field 1 + Field 2 = ",
+        "value": "0"
     },
     {
-        "id": "1",
-        "tooltip": "Enter phone number",
-        "label": "Phone number",
-        "value": "",
+        "id": "EXPORT_MACHINE(IITASALS000250)_PARAMETER(Ruota 1 lato # A Posizione (mm))",
+        "tooltip": "Ruota 1 lato # A Posizione (mm) from BBM WHEELS",
+        "label": "BBM Wheels Posizione",
+        "value": "12",
         "style": "outline",
-        "column": "col-md-12",
+        "column": "col-md-6",
+        "customClass": "",
         "maxlength": 50,
         "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter country",
-        "label": "Country",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-4",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter state",
-        "label": "State",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-4",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter city",
-        "label": "City",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-4",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textbox"
-    },
-    {
-        "id": "1",
-        "tooltip": "Enter address",
-        "label": "Address",
-        "value": "",
-        "style": "outline",
-        "column": "col-md-12",
-        "maxlength": 50,
-        "minlength": 0,
-        "isRequired": true,
-        "controlType": "textarea"
-    },
-    {
-        "id": "1",
-        "tooltip": "Click Save",
-        "label": "Save",
-        "type": "button",
-        "color": "primary",
-        "style": "mat-raised-button",
-        "column": "col-md-12",
         "isRequired": false,
-        "controlType": "button"
+        "controlType": "number",
+        "guid": "da27"
+    },
+    {
+        "id": "EXPORT_MACHINE(IITASALS000250)_PARAMETER(Disco lato #3 (B) Forza (kN))",
+        "tooltip": "Disco lato #3 (B) Forza (kN)) from BBM WHEELS",
+        "label": "BBM Wheels Forza",
+        "value": "12",
+        "style": "outline",
+        "column": "col-md-6",
+        "customClass": "",
+        "maxlength": 50,
+        "minlength": 0,
+        "isRequired": false,
+        "controlType": "number",
+        "guid": "4a6e"
     }
 ]

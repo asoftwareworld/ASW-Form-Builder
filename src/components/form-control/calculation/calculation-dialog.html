@@ -99,9 +99,9 @@
                     <div class="col-md-4" *ngIf="operations.controls[index].value.operationValue != 'x̄'">
                         <mat-form-field appearance="outline" class="asw-mat-form-field">
                             <mat-label>Operator {{index+1}}</mat-label>
-                            <mat-select formControlName="control"
+                            <mat-select formControlName="label"
                                 matTooltip="Select operator {{index+1}}" required>
-                                <mat-option *ngFor="let control of data.numberControls" [value]="control">
+                                <mat-option *ngFor="let control of data.numberControls" [value]="control.label">
                                     {{control.label}}
                                 </mat-option>
                             </mat-select>

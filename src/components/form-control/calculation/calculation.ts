@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
+import { NumberControl } from '@asoftwareworld/form-builder/form-control/number';
 import { CalculationControl } from './calculation-control';
 import { AswCalculationDialog } from './calculation-dialog';
 
@@ -60,14 +61,21 @@ export class AswCalculation {
         }
         if (!control.operations.length) {
             numberControls.forEach((x, index) => {
-                const operation = {
-                    id: x.guid,
-                    label: x.label,
-                    value: x.value,
-                    operationValue: index === 0 ? '' : '+',
-                    control: x
-                };
-                control.operations.push(operation);
+                control.operations.push(this.setControloperations(x, index));
+            });
+        } else {
+            control.operations.map((operation, index) => {
+                const numberControl = numberControls.find(element => element.guid === operation.id);
+                if (numberControl) {
+                    const updatedOperation = {
+                        id: numberControl.guid,
+                        label: numberControl.label,
+                        value: numberControl.value,
+                        operationValue: operation.operationValue,
+                        control: numberControl
+                    };
+                    control.operations.splice(index, 1, updatedOperation);
+                }
             });
         }
 
@@ -82,6 +90,17 @@ export class AswCalculation {
                 this.calculationUpdateEvent.emit({ control: result, index: controlIndex });
             }
         });
+    }
+
+    private setControloperations(control: NumberControl, index: number): any {
+        const operation = {
+            id: control.guid,
+            label: control.label,
+            value: control.value,
+            operationValue: index === 0 ? '' : '+',
+            control
+        };
+        return operation;
     }
 
     onChange(control: CalculationControl): void {
