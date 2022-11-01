@@ -9,7 +9,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants } from '@asoftwareworld/form-builder/form-control/core';
+import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
 
 @Component({
     selector: 'asw-image-dialog',
@@ -19,6 +19,7 @@ export class AswImageDialog implements OnInit {
 
     constants: any = Constants;
     aswImageForm!: FormGroup;
+    objectUtils = ObjectUtils;
 
     constructor(private formBuilder: FormBuilder,
                 public dialogRef: MatDialogRef<AswImageDialog>,
@@ -35,7 +36,9 @@ export class AswImageDialog implements OnInit {
             column: [],
             class: [],
             imageUrl: [],
-            imageShape: []
+            imageShape: [],
+            height: [],
+            width: []
         });
     }
 
@@ -45,7 +48,9 @@ export class AswImageDialog implements OnInit {
             class: control.class,
             column: control.column,
             imageUrl: control.imageUrl,
-            imageShape: control.imageShape
+            imageShape: control.imageShape,
+            width: control.width,
+            height: control.height
         });
     }
 

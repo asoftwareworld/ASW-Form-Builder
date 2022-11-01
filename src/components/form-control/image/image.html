@@ -1,10 +1,11 @@
-<div class="asw-avatar-wrap {{control.class}}">
-    <div class="{{control.imageShape}}">
-        <img class="asw-profile-pic" src="{{control.imageUrl}}" />	
-        <span class="file-upload" ></span>
-    </div>
-    <div class="asw-upload-button">
-        <i class="fa fa-camera" aria-hidden="true" (click)="uploadImageDialog(control, controlIndex)"></i>
+<div class="{{control.class}}">
+    <img class="{{control.imageShape}}" [src]="control.imageUrl ? control.imageUrl : constants.defaultImage" height="{{control.height}}" width="{{control.width}}" />
+    <div class="asw-pt-10">
+        <button mat-flat-button color="warn" type="button"
+            (click)="uploadImageDialog(control, controlIndex)"
+            matTooltip="Upload">            
+            Upload
+        </button>
     </div>
 </div>
 

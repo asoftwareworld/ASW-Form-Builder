@@ -43,12 +43,36 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Height</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        placeholder="Height"
+                                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
+                                        matTooltip="Height"
+                                        formControlName="height">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class="asw-mat-form-field">
+                        <mat-label>Width</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        placeholder="Width"
+                                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
+                                        matTooltip="Width"
+                                        formControlName="width">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
                         <mat-label>Select image shape</mat-label>
                         <mat-select formControlName="imageShape" matTooltip="Select image shape">
-                            <mat-option value="asw-avatar-wrapper-circle">Circle</mat-option>
-                            <mat-option value="asw-avatar-wrapper">Square</mat-option>
+                            <mat-option value="asw-circular-square">Circle</mat-option>
+                            <mat-option value="asw-original">Square</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

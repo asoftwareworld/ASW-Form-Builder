@@ -1,5 +1,14 @@
 <div class="{{control.class}}">
-    <img src="{{control.imageUrl}}" [height]="control.height" [width]="control.width"/>
+    <img src="{{control.imageUrl}}" [height]="control.height" [width]="control.width"/><div class="asw-pt-10">
+        <button mat-stroked-button 
+                type="button" 
+                matTooltip="Draw Image" 
+                [matTooltipPosition]="'below'"
+                (click)="drawingImageDialog(control, controlIndex)">
+            <mat-icon>draw</mat-icon>
+            Draw image
+        </button>
+    </div> 
 </div>
 <div class="row" *ngIf="isPreviewTemplate">
     <div class="col-md-12">
@@ -16,13 +25,6 @@
                 [matTooltipPosition]="'below'" 
                 (click)="editDrawingDialog(control, controlIndex)">
             <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button 
-                type="button" 
-                matTooltip="Draw Image" 
-                [matTooltipPosition]="'below'"
-                (click)="drawingImageDialog(control, controlIndex)">
-            <mat-icon>draw</mat-icon>
         </button>
         <button mat-icon-button 
                 type="button" 

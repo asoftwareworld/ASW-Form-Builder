@@ -6,7 +6,7 @@
  * found in the LICENSE file
  */
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AswConfirmDialog } from '@asoftwareworld/form-builder/form-control/confirm-dialog';
 import { Constants, ObjectUtils } from '@asoftwareworld/form-builder/form-control/core';
@@ -17,7 +17,7 @@ import { AswNumberDialog } from './number-dialog';
     selector: 'asw-number',
     templateUrl: './number.html'
 })
-export class AswNumber implements OnInit {
+export class AswNumber implements OnInit, AfterViewInit {
 
     constants: any = Constants;
     objectUtils = ObjectUtils;
@@ -38,6 +38,8 @@ export class AswNumber implements OnInit {
     @Output() aswModelChange = new EventEmitter<NumberControl>();
     @Output() duplicateControl = new EventEmitter<NumberControl>();
 
+    @ViewChild('input') input: any;
+
     constructor(public dialog: MatDialog) {
     }
 
@@ -46,8 +48,13 @@ export class AswNumber implements OnInit {
         const id = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
         if (this.control) {
             this.control.guid = this.control.guid ? this.control.guid : id;
-            Promise.resolve().then(() => this.onChange(this.control ? this.control : null as any));
         }
+    }
+
+    ngAfterViewInit(): void {
+        this.input.valueChanges.subscribe(() => {
+            this.onChange(this.control ? this.control : null as any);
+        });
     }
 
     deleteNumberDialog(control: NumberControl, controlIndex: number): void {

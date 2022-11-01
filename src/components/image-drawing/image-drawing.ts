@@ -71,10 +71,9 @@ export class AswImageDrawing implements OnInit, OnChanges {
     @Output() public cancel: EventEmitter<void> = new EventEmitter<void>();
 
     public currentTool = 'brush';
-    public currentSize = 'small';
+    public currentSize = 3;
     public currentColor = 'black';
     // public i18n: I18nInterface = I18nEn;
-
     public canUndo = false;
     public canRedo = false;
 
@@ -135,10 +134,10 @@ export class AswImageDrawing implements OnInit, OnChanges {
         this.currentTool = tool;
     }
 
-    public selectDrawingSize(size: string): void {
+    public selectDrawingSize(size: number): void {
         this.currentSize = size;
         if (this.canvas) {
-            this.canvas.freeDrawingBrush.width = this.drawingSizes[size];
+            this.canvas.freeDrawingBrush.width = size;
         }
     }
 

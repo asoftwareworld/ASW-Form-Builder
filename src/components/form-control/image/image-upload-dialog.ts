@@ -39,7 +39,7 @@ export class AswImageUploadDialog implements OnInit {
         this.validateFormBuilder();
         this.editProperty(this.control);
         this.croppedImage = this.control.imageUrl;
-        this.imageChangedEvent = this.control.event;
+        this.isImageLoaded = this.control.imageUrl ? false : true;
     }
 
     fileChangeEvent(event: any): void {
@@ -171,6 +171,8 @@ export class AswImageUploadDialog implements OnInit {
         this.aswImageCropForm.value.column = this.control.column;
         this.aswImageCropForm.value.imageUrl = this.croppedImage;
         this.aswImageCropForm.value.imageShape = this.control.imageShape;
+        this.aswImageCropForm.value.height = this.control.height;
+        this.aswImageCropForm.value.width = this.control.width;
         this.aswImageCropForm.value.event = this.imageChangedEvent;
         this.dialogRef.close(this.aswImageCropForm.value);
     }

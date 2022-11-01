@@ -99,12 +99,13 @@
             <div class="col-md-10">
                 <asw-image-crop
                     [imageChangedEvent]="imageChangedEvent"
+                    [imageBase64]="control.imageUrl"
                     [maintainAspectRatio]="true"
                     [containWithinAspectRatio]="containWithinAspectRatio"
                     [aspectRatio]="1"
                     [resizeToWidth]="256"
                     [onlyScaleDown]="true" 
-                    [roundCropper]="true"
+                    [roundCropper]="false"
                     [canvasRotation]="canvasRotation"
                     [transform]="transform"
                     [alignImage]="'center'"

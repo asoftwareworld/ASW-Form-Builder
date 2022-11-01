@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         this.username = USERNAME;
         this.firstname = FIRSTNAME;
         this.jsonData = this.aswSettingsService.previewData;
-        // this.getJson();
+       // this.getJson();
     }
 
     saveJsonData(data: any): void {
@@ -45,6 +45,24 @@ export class HomeComponent implements OnInit {
         this.aswSettingsService.getJSON().subscribe(result => {
             if (result) {
                 this.jsonData1 = result;
+            }
+        });
+    }
+
+    importData(): void {
+        const data = [{
+            id: 'EXPORT_MACHINE(IITASALS000250)_PARAMETER(Disco lato #3 (B) Forza (kN))',
+            value: 71.5
+        }, {
+            id: 'EXPORT_MACHINE(IITASALS000250)_PARAMETER(Ruota 1 lato # A Posizione (mm))',
+            value: 454
+        }];
+        this.jsonData1.forEach((control) => {
+            if (control.id === data[0].id) {
+                console.log(control);
+                control.value = data[0].value;
+            } else if (control.id === data[1].id) {
+                control.value = data[1].value;
             }
         });
     }

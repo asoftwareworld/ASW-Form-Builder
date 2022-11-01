@@ -4,7 +4,7 @@
         <input matInput type="text" aswNumbersOnly
                         [id]="control.id"
                         [placeholder]="control.label"
-                        [(ngModel)]="control.value"                    
+                        [(ngModel)]="control.value"
                         #input="ngModel"
                         (ngModelChange)="onChange(control)"
                         (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
