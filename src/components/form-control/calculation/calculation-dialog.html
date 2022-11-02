@@ -100,6 +100,7 @@
                         <mat-form-field appearance="outline" class="asw-mat-form-field">
                             <mat-label>Operator {{index+1}}</mat-label>
                             <mat-select formControlName="label"
+                                (selectionChange)="onOperatorChange($event, op)"
                                 matTooltip="Select operator {{index+1}}" required>
                                 <mat-option *ngFor="let control of data.numberControls" [value]="control.label">
                                     {{control.label}}

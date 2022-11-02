@@ -104,4 +104,13 @@ export class AswCalculationDialog implements OnInit {
             operation.controls.label.setValidators(Validators.required);
         }
     }
+
+    onOperatorChange(event: MatSelectChange, operator: any): void {
+        this.data.numberControls.forEach((operation: any) => {
+            if (event.value === operation.label) {
+                operator.value.id = operation.guid;
+                operator.value.control = operation;
+            }
+        });
+    }
 }

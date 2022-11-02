@@ -17,6 +17,7 @@ import { NumberControl } from './number-control';
     templateUrl: './number-dialog.html'
 })
 export class AswNumberDialog implements OnInit {
+    decimals = 100;
     constants: any = Constants;
     aswEditNumberForm!: FormGroup;
     status!: boolean;

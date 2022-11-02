@@ -64,7 +64,7 @@
                         <input matInput type="text" aswNumbersOnly
                                         name="value"
                                         placeholder="Enter value"
-                                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
+                                        [decimals]="decimals"
                                         matTooltip="Enter value"
                                         formControlName="value">                        
                     </mat-form-field>

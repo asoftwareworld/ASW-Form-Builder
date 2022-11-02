@@ -7,7 +7,7 @@
                         [(ngModel)]="control.value"
                         #input="ngModel"
                         (ngModelChange)="onChange(control)"
-                        (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
+                        [decimals]="decimals"
                         [matTooltip]="control.tooltip"
                         [maxlength]="control.maxlength"
                         [minlength]="control.minlength"

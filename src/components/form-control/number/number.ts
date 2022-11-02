@@ -21,6 +21,7 @@ export class AswNumber implements OnInit, AfterViewInit {
 
     constants: any = Constants;
     objectUtils = ObjectUtils;
+    decimals = 100;
     /**
      * Number control
      */
