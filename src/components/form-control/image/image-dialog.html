@@ -48,10 +48,17 @@
                         <mat-label>Height</mat-label>
                         <input matInput type="text"
                                         name="label"
+                                        min="0" 
+                                        max="600"
                                         placeholder="Height"
                                         (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
                                         matTooltip="Height"
                                         formControlName="height">
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.height">
+                            <mat-error class="asw-mat-error" *ngIf="aswImageForm.get('height')?.hasError(validation.type) && (aswImageForm.get('height')?.dirty || aswImageForm.get('height')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
@@ -59,10 +66,17 @@
                         <mat-label>Width</mat-label>
                         <input matInput type="text"
                                         name="label"
+                                        min="0" 
+                                        max="600"
                                         placeholder="Width"
                                         (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
                                         matTooltip="Width"
                                         formControlName="width">
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.width">
+                            <mat-error class="asw-mat-error" *ngIf="aswImageForm.get('width')?.hasError(validation.type) && (aswImageForm.get('width')?.dirty || aswImageForm.get('width')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -81,13 +95,13 @@
                 <div class="col-md-12">
                     Text style: 
                     <mat-button-toggle-group formControlName="class" name="fontStyle" aria-label="Font Style">
-                        <mat-button-toggle value="float-left float-start" aria-label="Text align left">
+                        <mat-button-toggle value="text-left text-start" aria-label="Text align left">
                             <mat-icon>format_align_left</mat-icon>
                         </mat-button-toggle>
-                        <mat-button-toggle value="mx-auto" aria-label="Text align center">
+                        <mat-button-toggle value="text-center" aria-label="Text align center">
                             <mat-icon>format_align_center</mat-icon>
                         </mat-button-toggle>
-                        <mat-button-toggle value="float-right float-end" aria-label="Text align right">
+                        <mat-button-toggle value="text-right text-end" aria-label="Text align right">
                             <mat-icon>format_align_right</mat-icon>
                         </mat-button-toggle>
                     </mat-button-toggle-group>

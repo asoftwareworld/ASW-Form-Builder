@@ -7,7 +7,7 @@
  */
 
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../../constant/constants';
 import { ObjectUtils } from './../../utils/objectutils';
@@ -38,8 +38,8 @@ export class AswDigitalDialog implements OnInit {
             column: [],
             class: [],
             imageUrl: [],
-            width: [],
-            height: []
+            height: ['', [Validators.max(600), Validators.min(0)]],
+            width: ['', [Validators.max(600), Validators.min(0)]]
         });
     }
 

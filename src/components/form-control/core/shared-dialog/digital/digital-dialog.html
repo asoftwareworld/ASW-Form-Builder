@@ -40,24 +40,38 @@
             <div class="row">
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Width</mat-label>
-                        <input matInput type="number"
-                                        name="width"
-                                        placeholder="Enter width"
+                        <mat-label>Height</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        min="0" 
+                                        max="600"
+                                        placeholder="Height"
                                         (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
-                                        matTooltip="Enter width"
-                                        formControlName="width">
+                                        matTooltip="Height"
+                                        formControlName="height">
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.height">
+                            <mat-error class="asw-mat-error" *ngIf="aswDigitalForm.get('height')?.hasError(validation.type) && (aswDigitalForm.get('height')?.dirty || aswDigitalForm.get('height')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class="asw-mat-form-field">
-                        <mat-label>Height</mat-label>
-                        <input matInput type="number"
-                                        name="height"
-                                        placeholder="Enter height"
+                        <mat-label>Width</mat-label>
+                        <input matInput type="text"
+                                        name="label"
+                                        min="0" 
+                                        max="600"
+                                        placeholder="Width"
                                         (keypress)="objectUtils.keyPressNumbersWithDecimal($event)"
-                                        matTooltip="Enter height"
-                                        formControlName="height">
+                                        matTooltip="Width"
+                                        formControlName="width">
+                        <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.width">
+                            <mat-error class="asw-mat-error" *ngIf="aswDigitalForm.get('width')?.hasError(validation.type) && (aswDigitalForm.get('width')?.dirty || aswDigitalForm.get('width')?.touched)">
+                                {{validation.message}}
+                            </mat-error>
+                        </mat-error>
                     </mat-form-field>
                 </div>
             </div>

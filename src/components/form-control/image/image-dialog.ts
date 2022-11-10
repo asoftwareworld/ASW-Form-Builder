@@ -37,8 +37,8 @@ export class AswImageDialog implements OnInit {
             class: [],
             imageUrl: [],
             imageShape: [],
-            height: [],
-            width: []
+            height: ['', [Validators.max(600), Validators.min(0)]],
+            width: ['', [Validators.max(600), Validators.min(0)]]
         });
     }
 
