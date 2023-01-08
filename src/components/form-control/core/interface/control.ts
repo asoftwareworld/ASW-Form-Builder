@@ -16,5 +16,5 @@ export interface Control {
 }
 
 export interface StyleControl {
-    style: 'legacy' | 'standard' | 'fill' | 'outline';
+    style: 'fill' | 'outline';
 }

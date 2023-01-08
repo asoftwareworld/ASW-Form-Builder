@@ -15,6 +15,7 @@ import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
 import { AswCalculationModule } from '@asoftwareworld/form-builder/form-control/calculation';
 import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/checkbox';
+import { NotificationService } from '@asoftwareworld/form-builder/form-control/core';
 import { AswDatepickerModule } from '@asoftwareworld/form-builder/form-control/datepicker';
 import { AswDividerModule } from '@asoftwareworld/form-builder/form-control/divider';
 import { AswDrawingModule } from '@asoftwareworld/form-builder/form-control/drawing';
@@ -62,6 +63,9 @@ import { AswPreviewTemplate } from './preview-template';
         AswNumberModule,
         AswCalculationModule
     ],
-    exports: [AswPreviewTemplate]
+    exports: [AswPreviewTemplate],
+    providers: [
+        NotificationService
+    ]
 })
 export class AswPreviewTemplateModule { }

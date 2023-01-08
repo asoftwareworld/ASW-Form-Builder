@@ -20,6 +20,7 @@ import { AswAutocompleteModule } from '@asoftwareworld/form-builder/form-control
 import { AswButtonModule } from '@asoftwareworld/form-builder/form-control/button';
 import { AswCalculationModule } from '@asoftwareworld/form-builder/form-control/calculation';
 import { AswCheckboxModule } from '@asoftwareworld/form-builder/form-control/checkbox';
+import { NotificationService } from '@asoftwareworld/form-builder/form-control/core';
 import { AswDatepickerModule } from '@asoftwareworld/form-builder/form-control/datepicker';
 import { AswDividerModule } from '@asoftwareworld/form-builder/form-control/divider';
 import { AswDrawingModule } from '@asoftwareworld/form-builder/form-control/drawing';
@@ -78,6 +79,9 @@ import { AswFormBuilder } from './form-builder';
         MatExpansionModule,
         MatCardModule
     ],
-    exports: [AswFormBuilder]
+    exports: [AswFormBuilder],
+    providers: [
+        NotificationService
+    ]
 })
 export class AswFormBuilderModule { }
