@@ -24,7 +24,6 @@ import { NotificationService } from '@asoftwareworld/form-builder/form-control/c
 import { AswDatepickerModule } from '@asoftwareworld/form-builder/form-control/datepicker';
 import { AswDividerModule } from '@asoftwareworld/form-builder/form-control/divider';
 import { AswDrawingModule } from '@asoftwareworld/form-builder/form-control/drawing';
-import { AswFileUploadModule } from '@asoftwareworld/form-builder/form-control/fileupload';
 import { AswGpsModule } from '@asoftwareworld/form-builder/form-control/gps';
 import { AswHeaderModule } from '@asoftwareworld/form-builder/form-control/header';
 import { AswImageModule } from '@asoftwareworld/form-builder/form-control/image';
@@ -75,7 +74,6 @@ import { AswFormBuilder } from './form-builder';
         QrCodeModule,
         AswNumberModule,
         AswCalculationModule,
-        AswFileUploadModule,
         MatExpansionModule,
         MatCardModule
     ],

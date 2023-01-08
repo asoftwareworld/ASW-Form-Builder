@@ -13,9 +13,9 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswDatepickerForm.get('id')?.hasError(validation.type) && (aswDatepickerForm.get('id')?.dirty || aswDatepickerForm.get('id')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswDatepickerForm.get('id')?.hasError(validation.type) && (aswDatepickerForm.get('id')?.dirty || aswDatepickerForm.get('id')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -27,9 +27,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswDatepickerForm.get('label')?.hasError(validation.type) && (aswDatepickerForm.get('label')?.dirty || aswDatepickerForm.get('label')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswDatepickerForm.get('label')?.hasError(validation.type) && (aswDatepickerForm.get('label')?.dirty || aswDatepickerForm.get('label')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>

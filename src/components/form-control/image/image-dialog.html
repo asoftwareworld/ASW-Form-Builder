@@ -13,9 +13,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswImageForm.get('label')?.hasError(validation.type) && (aswImageForm.get('label')?.dirty || aswImageForm.get('label')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswImageForm.get('label')?.hasError(validation.type) && (aswImageForm.get('label')?.dirty || aswImageForm.get('label')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -55,9 +55,9 @@
                                         matTooltip="Height"
                                         formControlName="height">
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.height">
-                            <mat-error class="asw-mat-error" *ngIf="aswImageForm.get('height')?.hasError(validation.type) && (aswImageForm.get('height')?.dirty || aswImageForm.get('height')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswImageForm.get('height')?.hasError(validation.type) && (aswImageForm.get('height')?.dirty || aswImageForm.get('height')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -73,9 +73,9 @@
                                         matTooltip="Width"
                                         formControlName="width">
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.width">
-                            <mat-error class="asw-mat-error" *ngIf="aswImageForm.get('width')?.hasError(validation.type) && (aswImageForm.get('width')?.dirty || aswImageForm.get('width')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswImageForm.get('width')?.hasError(validation.type) && (aswImageForm.get('width')?.dirty || aswImageForm.get('width')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>

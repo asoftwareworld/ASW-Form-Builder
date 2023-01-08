@@ -13,9 +13,9 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('id')?.hasError(validation.type) && (aswEditTextForm.get('id')?.dirty || aswEditTextForm.get('id')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditTextForm.get('id')?.hasError(validation.type) && (aswEditTextForm.get('id')?.dirty || aswEditTextForm.get('id')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -28,9 +28,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('label')?.hasError(validation.type) && (aswEditTextForm.get('label')?.dirty || aswEditTextForm.get('label')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditTextForm.get('label')?.hasError(validation.type) && (aswEditTextForm.get('label')?.dirty || aswEditTextForm.get('label')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -125,9 +125,9 @@
                                         pattern="^[0-9]*$"
                                         formControlName="minlength" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.minlength">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditTextForm.get('minlength')?.hasError(validation.type)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditTextForm.get('minlength')?.hasError(validation.type)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>

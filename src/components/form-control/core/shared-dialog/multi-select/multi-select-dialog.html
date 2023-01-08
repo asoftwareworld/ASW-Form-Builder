@@ -13,9 +13,9 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditMultiselectForm.get('id')?.hasError(validation.type) && (aswEditMultiselectForm.get('id')?.dirty || aswEditMultiselectForm.get('id')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditMultiselectForm.get('id')?.hasError(validation.type) && (aswEditMultiselectForm.get('id')?.dirty || aswEditMultiselectForm.get('id')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -27,9 +27,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditMultiselectForm.get('label')?.hasError(validation.type) && (aswEditMultiselectForm.get('label')?.dirty || aswEditMultiselectForm.get('label')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditMultiselectForm.get('label')?.hasError(validation.type) && (aswEditMultiselectForm.get('label')?.dirty || aswEditMultiselectForm.get('label')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -97,9 +97,9 @@
                                     pattern="^[a-z0-9_-]{1,50}$"
                                     required>
                                 <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.key">
-                                    <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
+                                    <ng-container class="asw-mat-error" *ngIf="options.controls[index].get('key')?.hasError(validation.type) && options.controls[index].get('key')?.errors?.unique && (options.controls[index].get('key')?.dirty || options.controls[index].get('key')?.touched)">
                                         {{validation.message}}
-                                    </mat-error>
+                                    </ng-container>
                                 </mat-error>
                         </mat-form-field>
                     </div>
@@ -114,9 +114,9 @@
                                     maxlength="999"
                                     required>
                                 <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.value">
-                                    <mat-error class="asw-mat-error" *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
+                                    <ng-container class="asw-mat-error" *ngIf="options.controls[index].get('value')?.hasError(validation.type) && (options.controls[index].get('value')?.dirty || options.controls[index].get('value')?.touched)">
                                         {{validation.message}}
-                                    </mat-error>
+                                    </ng-container>
                                 </mat-error>
                         </mat-form-field>
                     </div>

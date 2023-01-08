@@ -14,15 +14,15 @@
                         [required]="control.isRequired"
                         [disabled]="control.isDisabled ? true : false">
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+            <ng-container class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required
-            </mat-error>
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.minlength">
+            </ng-container>
+            <ng-container class="asw-mat-error" *ngIf="input?.errors?.minlength">
                 Sorry, {{control.label}} must be at least {{control.minlength}} characters long.
-            </mat-error>
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.pattern">
+            </ng-container>
+            <ng-container class="asw-mat-error" *ngIf="input?.errors?.pattern">
                 {{control.customErrorMsg}}
-            </mat-error>
+            </ng-container>
         </mat-error>
     </mat-form-field>
     <ng-template [ngIf]="isPreviewTemplate">

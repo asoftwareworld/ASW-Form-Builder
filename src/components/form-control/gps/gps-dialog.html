@@ -13,9 +13,9 @@
                                         matTooltip="Enter Unique Id"
                                         formControlName="id" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.id">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('id')?.hasError(validation.type) && (aswEditGpsForm.get('id')?.dirty || aswEditGpsForm.get('id')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditGpsForm.get('id')?.hasError(validation.type) && (aswEditGpsForm.get('id')?.dirty || aswEditGpsForm.get('id')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -27,9 +27,9 @@
                                         matTooltip="Enter label"
                                         formControlName="label" required>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.label">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('label')?.hasError(validation.type) && (aswEditGpsForm.get('label')?.dirty || aswEditGpsForm.get('label')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditGpsForm.get('label')?.hasError(validation.type) && (aswEditGpsForm.get('label')?.dirty || aswEditGpsForm.get('label')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -116,9 +116,9 @@
                             </mat-option>
                         </mat-autocomplete>
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.searchAddress">
-                            <mat-error class="asw-mat-error" *ngIf="aswEditGpsForm.get('value')?.errors?.searchAddress">
+                            <ng-container class="asw-mat-error" *ngIf="aswEditGpsForm.get('value')?.errors?.searchAddress">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>

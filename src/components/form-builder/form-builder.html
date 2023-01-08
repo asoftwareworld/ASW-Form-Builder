@@ -322,15 +322,6 @@
                                                         (duplicateControl)="duplicateControl($event)">
                                         </asw-drawing>
                                     </ng-container>
-                                    <ng-container *ngSwitchCase="'fileupload'">
-                                        <asw-fileupload [control]="control"
-                                                        [controlIndex]="i"
-                                                        [isPreviewTemplate]="true"
-                                                        (fileUploadUpdateEvent)="updatedControl($event)"
-                                                        (fileUploadDeleteEvent)="deleteControl($event)"
-                                                        (duplicateControl)="duplicateControl($event)">
-                                        </asw-fileupload>
-                                    </ng-container>
                                 </ng-container>
                             </div>
                         </ng-container>

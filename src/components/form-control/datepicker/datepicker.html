@@ -15,9 +15,9 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+            <ng-container class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required
-            </mat-error>
+            </ng-container>
         </mat-error>
     </mat-form-field>
     <div class="row" *ngIf="isPreviewTemplate">

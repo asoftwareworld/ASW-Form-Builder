@@ -50,9 +50,9 @@
                                         matTooltip="Height"
                                         formControlName="height">
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.height">
-                            <mat-error class="asw-mat-error" *ngIf="aswDigitalForm.get('height')?.hasError(validation.type) && (aswDigitalForm.get('height')?.dirty || aswDigitalForm.get('height')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswDigitalForm.get('height')?.hasError(validation.type) && (aswDigitalForm.get('height')?.dirty || aswDigitalForm.get('height')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -68,9 +68,9 @@
                                         matTooltip="Width"
                                         formControlName="width">
                         <mat-error class="asw-mat-error" *ngFor="let validation of constants.accountValidationMessages.width">
-                            <mat-error class="asw-mat-error" *ngIf="aswDigitalForm.get('width')?.hasError(validation.type) && (aswDigitalForm.get('width')?.dirty || aswDigitalForm.get('width')?.touched)">
+                            <ng-container class="asw-mat-error" *ngIf="aswDigitalForm.get('width')?.hasError(validation.type) && (aswDigitalForm.get('width')?.dirty || aswDigitalForm.get('width')?.touched)">
                                 {{validation.message}}
-                            </mat-error>
+                            </ng-container>
                         </mat-error>
                     </mat-form-field>
                 </div>

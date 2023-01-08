@@ -19,12 +19,12 @@
             </mat-option>
         </mat-autocomplete>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+            <ng-container class="asw-mat-error" *ngIf="input?.errors?.required">
                 {{control.label}} is required
-            </mat-error>
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.searchAddress">
+            </ng-container>
+            <ng-container class="asw-mat-error" *ngIf="input?.errors?.searchAddress">
                 Sorry, {{control.value}} did not found.
-            </mat-error>
+            </ng-container>
         </mat-error>
     </mat-form-field>
     <div class="row" *ngIf="isPreviewTemplate">

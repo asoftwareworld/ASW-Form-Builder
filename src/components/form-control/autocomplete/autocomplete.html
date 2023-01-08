@@ -17,9 +17,9 @@
             </mat-option>
         </mat-autocomplete>
         <mat-error class="asw-mat-error" *ngIf="input.invalid && (input.dirty || input.touched)">
-            <mat-error class="asw-mat-error" *ngIf="input?.errors?.required">
+            <ng-container *ngIf="input?.errors?.required">
                 {{control.label}} is required
-            </mat-error>
+            </ng-container>
         </mat-error>
     </mat-form-field>
     <ng-template [ngIf]="isPreviewTemplate">
