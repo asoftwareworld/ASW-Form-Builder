@@ -26,7 +26,8 @@
         "enableIvy": false,
         "annotateForClosureCompiler": false,
         "strictMetadataEmit": true,
-        "skipTemplateCodegen": true
+        "skipTemplateCodegen": true,
+        "compilationMode": "partial"
     },
     "files": [
         "./public_api.ts"
