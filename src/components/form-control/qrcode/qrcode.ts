@@ -54,7 +54,7 @@ export class AswQrCode {
     editQrCodeDialog(control: QrCodeControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswQrCodeDialog, {
             disableClose: true,
-            width: '744px',
+            width: '80%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

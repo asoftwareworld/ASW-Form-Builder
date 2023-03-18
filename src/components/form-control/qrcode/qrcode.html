@@ -1,9 +1,11 @@
 <ng-container *ngIf="control as control">
-    <asw-qr-code [value]="control.value" 
-        [size]="control.qrCodeSize"
-        [errorCorrectionLevel]="control.errorCorrectionLevel"
-        [centerImageSrc]="control.centerImage"
-        [centerImageSize]="control.centerImageSize">
+    <asw-qr-code #parent [width]="control.width" 
+        [height]="control.height"
+        [qrData]="control.value" 
+        [outerMargin]="control.outerMargin"
+        [logo]="control.logo" [allowEmptyString]="true"
+        [density]="control.density" 
+        [logoStyle]="control.logoStyle">
     </asw-qr-code>
     <ng-template [ngIf]="isPreviewTemplate">
         <div class="row mb-2">

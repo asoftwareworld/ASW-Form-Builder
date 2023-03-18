@@ -1,6 +1,6 @@
 {
     "name": "@asoftwareworld/form-builder",
-    "version": "5.0.8",
+    "version": "5.1.0",
     "author": "Anish Sharma",
     "license": "MIT",
     "peerDependencies": {

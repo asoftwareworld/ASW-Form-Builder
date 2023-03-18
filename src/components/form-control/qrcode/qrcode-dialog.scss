@@ -1,0 +1,31 @@
+.asw-label-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.asw-result-card .asw-value-label {
+    font-weight: 600;
+}
+
+.asw-default-image {
+    display: flex;
+    justify-content: center;
+}
+.asw-default-image img {
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.asw-mini-fab {
+    height: 24px !important;
+    width: 24px !important;
+    border-radius: 4px !important;
+    padding-top: 10px;
+}
+.asw-sticky-top {
+    top: 25% !important;
+}
+.asw-width-99 {
+    width: 99% !important;
+}

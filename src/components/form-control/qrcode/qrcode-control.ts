@@ -6,14 +6,19 @@
  * found in the LICENSE file
  */
 
-import { AswQrcodeErrorCorrectionLevel } from '@asoftwareworld/qrcode';
+import { Density, LogoStyle } from '@asoftwareworld/qrcode';
 
 export interface QrCodeControl {
-    centerImageSize?: string | number;
-    centerImage?: string;
-    qrCodeSize?: number;
-    errorCorrectionLevel: AswQrcodeErrorCorrectionLevel;
+    id?: string;
+    guid?: string;
     column: string;
     value: string;
     controlType?: string;
+    displayName: string;
+    height?: number;
+    width?: number;
+    logo?: string;
+    outerMargin?: number;
+    density?: Density;
+    logoStyle?: LogoStyle;
 }

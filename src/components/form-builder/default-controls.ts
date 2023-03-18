@@ -274,25 +274,27 @@ export const DIGITAL_CONTROLS = [
 ];
 
 export const OTHERS_CONTROLS = [
-    // {
-    //     id: '1',
-    //     icon: 'cloud_upload',
-    //     displayName: 'File Upload',
-    //     controlType: 'fileupload',
-    //     label: 'File Upload',
-    //     column: 'col-md-12',
-    //     value: [],
-    //     isRequired: false
-    // },
     {
-        icon: 'qr_code_2',
+        id: '',
+        guid: '',
+        icon: 'qrCode',
         displayName: 'QR Code',
         controlType: 'qr-code',
-        centerImageSize: '30',
-        centerImage: 'https://raw.githubusercontent.com/asoftwareworld/ASW-Form-Builder/master/asw.png',
-        qrCodeSize: 240,
-        errorCorrectionLevel: 'M',
+        density: {
+            errorCorrectionLevel: 'Q',
+            mode: 'Byte',
+            typeNumber: 0
+        },
+        logoStyle: {
+            hideBackgroundCircle: true,
+            logoSize: 0.3,
+            logoMargin: 0
+        },
+        logo: '',
+        width: 200,
+        height: 200,
+        outerMargin: 0,
+        value: '',
         column: 'col-md-12',
-        value: 'https://asoftwareworld.github.io/form-builder'
-    },
+    }
 ];
