@@ -4,15 +4,15 @@
     "author": "Anish Sharma",
     "license": "MIT",
     "peerDependencies": {
-        "@angular/common": "15.0.0",
-        "@angular/core": "15.0.0"        
+        "@angular/common": "15.2.3",
+        "@angular/core": "15.2.3"        
     },
     "dependencies": {
-        "@angular/cdk": "15.0.0",
-        "@angular/material": "15.0.0",
-        "bootstrap": "^4.6.0",
+        "@angular/cdk": "15.2.3",
+        "@angular/material": "15.2.3",
+        "bootstrap": "^5.2.3",
         "fabric": "^4.4.0",
-        "tslib": "^2.0.0"
+        "tslib": "^2.3.0"
     },
     "description": "ASW Form Builder helps you with rapid development and designed web forms which includes several controls. The key feature of Form Builder is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.",
     "scripts": {
