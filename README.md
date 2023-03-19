@@ -3,13 +3,13 @@
 <p align="center">
   <img src="asw.svg" alt="asw-logo" width="310px" height="100px"/>
   <br>
-  <i>ASW Form Builder helps you with rapid development and designed web forms which includes several controls
-    <br> using Angular/Angular-Material and Bootstrap.</i>
+  <em>ASW Form Builder helps you with rapid development and designed web forms which includes several controls
+    <br> using Angular/Angular-Material and Bootstrap.</em>
   <br>
 </p>
 
 <p align="center">
-  <a href="https://asoftwareworld.github.io/form-builder"><strong>https://asoftwareworld.github.io/form-builder</strong></a>
+  <a href="https://asoftwareworld.com/#/product/free-form-builder/demo"><strong>Angular form builder demo</strong></a>
   <br>
 </p>
 
