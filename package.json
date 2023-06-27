@@ -27,7 +27,7 @@
     "@angular/platform-browser-dynamic": "^15.2.3",
     "@angular/router": "^15.2.3",
     "@asoftwareworld/qrcode": "^2.0.0",
-    "@types/fabric": "^4.2.5",
+    "@types/fabric": "^4.5.15",
     "bootstrap": "^5.2.3",
     "fabric": "^4.4.0",
     "gulp": "^4.0.2",
