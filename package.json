@@ -36,7 +36,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-uglifycss": "^1.1.0",
     "ng-packagr": "^15.0.0",
-    "rxjs": "~7.5.0",
+    "rxjs": "~7.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
