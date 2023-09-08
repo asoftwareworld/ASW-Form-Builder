@@ -14,25 +14,25 @@
 </p>
 
 <p align="center">
-  <a href="CONTRIBUTING.md">Contributing Guidelines</a>
-  ·
-  <a href="https://github.com/asoftwareworld/ASW-Form-Builder/issues">Submit an Issue</a>
-  ·
-  <a href="https://asoftwareworld.github.io/form-builder">Blog</a>
-  <br>
-  <br>
+    <a href="CONTRIBUTING.md">Contributing Guidelines</a>
+    ·
+    <a href="https://github.com/asoftwareworld/ASW-Form-Builder/issues">Submit an Issue</a>
+    ·
+    <a href="https://asoftwareworld.github.io/form-builder">Blog</a>
+    <br>
+    <br>
 </p>
 
 <p align="center">
-  <a href="https://circleci.com/gh/asoftwareworld/ASW-Form-Builder">
-    <img src="https://badge.fury.io/js/%40asoftwareworld%2Fform-builder.svg" alt="CI status" />
-  </a>&nbsp;
-  <a href="https://www.npmjs.com/package/@asoftwareworld/form-builder">
-    <img src="https://circleci.com/gh/asoftwareworld/ASW-Form-Builder.svg?style=svg" alt="Asw form builder on npm" />
-  </a>&nbsp;
-  <a href="https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Discord conversation" />
-  </a>
+    <a href="https://circleci.com/gh/asoftwareworld/ASW-Form-Builder">
+        <img src="https://badge.fury.io/js/%40asoftwareworld%2Fform-builder.svg" alt="CI status" />
+    </a>&nbsp;
+    <a href="https://www.npmjs.com/package/@asoftwareworld/form-builder">
+        <img src="https://circleci.com/gh/asoftwareworld/ASW-Form-Builder.svg?style=svg" alt="Asw form builder on npm" />
+    </a>&nbsp;
+    <a href="https://github.com/asoftwareworld/ASW-Form-Builder/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Discord conversation" />
+    </a>
 </p>
 
 <hr>
@@ -74,13 +74,13 @@ import { AswPreviewTemplateModule } from '@asoftwareworld/form-builder/preview-t
 // ...
 
 @NgModule({
-  imports: [
-    // shown passing global defaults (optional)
-    AswFormBuilderModule,
-    AswPreviewTemplateModule
-    ...
-  ]
-  // ...
+    imports: [
+        // shown passing global defaults (optional)
+        AswFormBuilderModule,
+        AswPreviewTemplateModule
+        ...
+    ]
+    // ...
 })
 export class AppModule {}
 ```
@@ -116,13 +116,14 @@ If you are not using the Angular CLI, you can include a theme via a `<link>` ele
 In your template, use the component selector:
 ```
 <asw-form-builder [uploadData]="jsonData1"
-                [isShowPreviewButton]="isShowPreviewButton"
-                [isShowJsonDataButton]="isShowJsonDataButton"
-                [isShowPublishButton]="isShowPublishButton"
-                (publishClick)="saveJsonData($event)" 
-                (previewClick)="previewTemplate($event)"
-                (buttonClick)="buttonClick($event)"
-                (aswModelChange)="onSelectionChange($event)"></asw-form-builder>
+    [isShowPreviewButton]="isShowPreviewButton"
+    [isShowJsonDataButton]="isShowJsonDataButton"
+    [isShowPublishButton]="isShowPublishButton"
+    (publishClick)="saveJsonData($event)" 
+    (previewClick)="previewTemplate($event)"
+    (buttonClick)="buttonClick($event)"
+    (aswModelChange)="onSelectionChange($event)">
+</asw-form-builder>
 ```
 Preview Template, use the component selector in your HTML page:
 ```
