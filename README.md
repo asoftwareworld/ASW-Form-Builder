@@ -1,16 +1,16 @@
 <h1 align="center">ASW Form Builder - Design dynamic web forms.</h1>
 
 <p align="center">
-    <img src="asw.svg" alt="asw-logo" width="310px" height="100px"/>
-    <br>
-    <em>ASW Form Builder helps you with rapid development and designed web forms which includes several controls
-        <br> using Angular/Angular-Material and Bootstrap.</em>
-    <br>
+  <img src="asw.svg" alt="asw-logo" width="310px" height="100px"/>
+  <br>
+  <em>ASW Form Builder helps you with rapid development and designed web forms which includes several controls
+    <br> using Angular/Angular-Material and Bootstrap.</em>
+  <br>
 </p>
 
 <p align="center">
-    <a href="https://asoftwareworld.github.io/form-builder"><strong>https://asoftwareworld.github.io/form-builder</strong></a>
-    <br>
+  <a href="https://asoftwareworld.com/#/product/free-form-builder/demo"><strong>Angular form builder demo</strong></a>
+  <br>
 </p>
 
 <p align="center">
