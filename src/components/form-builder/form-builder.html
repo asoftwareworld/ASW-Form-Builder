@@ -14,7 +14,7 @@
 <div class="row" cdkDropListGroup>
     <div class="col-md-3">
         <mat-accordion>
-            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel *ngIf="simpleControls.length > 0" [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
                 <mat-expansion-panel-header class="asw-expansion-panel-header">
                     <mat-panel-title>
                         Basic Controls
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+            <mat-expansion-panel *ngIf="choiceControls.length > 0" [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
                 <mat-expansion-panel-header class="asw-expansion-panel-header">
                     <mat-panel-title>
                         Choice Controls
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+            <mat-expansion-panel *ngIf="dateAndGpsControls.length > 0" [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
                 <mat-expansion-panel-header class="asw-expansion-panel-header">
                     <mat-panel-title>
                         Date and GPS Controls
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+            <mat-expansion-panel *ngIf="digitalControls.length > 0" [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
                 <mat-expansion-panel-header class="asw-expansion-panel-header">
                     <mat-panel-title>
                         Digital Controls
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </mat-expansion-panel>
-            <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+            <mat-expansion-panel *ngIf="othersControls.length > 0" [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
                 <mat-expansion-panel-header class="asw-expansion-panel-header">
                     <mat-panel-title>
                         Other Controls

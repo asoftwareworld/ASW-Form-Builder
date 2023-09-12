@@ -32,6 +32,7 @@ export class AswFormBuilder implements OnInit, OnChanges {
     @Input() isShowPreviewButton = true;
     @Input() isShowJsonDataButton = true;
     @Input() isShowPublishButton = true;
+    @Input() allowedTypes: 'number' | 'text' | 'all' = 'all'
 
     @Output() previewClick = new EventEmitter<any[]>();
     @Output() publishClick = new EventEmitter<any[]>();
@@ -44,11 +45,17 @@ export class AswFormBuilder implements OnInit, OnChanges {
         private notificationService: NotificationService) { }
 
     ngOnInit(): void {
-        this.simpleControls = SIMPLE_CONTROLS;
-        this.choiceControls = CHOICE_CONTROLS;
-        this.dateAndGpsControls = DATE_AND_GPS_CONTROLS;
-        this.digitalControls = DIGITAL_CONTROLS;
-        this.othersControls = OTHERS_CONTROLS;
+        this.simpleControls = this.showAllowedTypes(SIMPLE_CONTROLS);
+        this.choiceControls = this.showAllowedTypes(CHOICE_CONTROLS);
+        this.dateAndGpsControls = this.showAllowedTypes(DATE_AND_GPS_CONTROLS);
+        this.digitalControls = this.showAllowedTypes(DIGITAL_CONTROLS);
+        this.othersControls = this.showAllowedTypes(OTHERS_CONTROLS);
+    }
+
+    private showAllowedTypes(controls: any[]) {
+        if (this.allowedTypes === 'all') return controls
+        
+        return controls.filter((control) => control.controlType.includes(this.allowedTypes))
     }
 
     setStep(index: number): void {
