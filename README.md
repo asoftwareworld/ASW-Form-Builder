@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://asoftwareworld.com/#/product/free-form-builder/demo"><strong>Angular form builder demo</strong></a>
+  <a href="https://asoftwareworld.com/product/free-form-builder/demo"><strong>Angular form builder demo</strong></a>
   <br>
 </p>
 
