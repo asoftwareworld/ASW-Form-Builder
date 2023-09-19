@@ -28,7 +28,7 @@
     "@angular/router": "^16.2.2",
     "@asoftwareworld/qrcode": "^2.0.1",
     "@types/fabric": "^5.3.3",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.1",
     "fabric": "^5.3.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
