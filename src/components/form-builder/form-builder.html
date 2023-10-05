@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row g-0">
     <div class="col-md-12 text-right float-right text-end">
         <button type="button" *ngIf="isShowPreviewButton"
                 class="btn btn-primary btn-sm mr-1 mb-2 me-1"
@@ -11,7 +11,7 @@
                 (click)="publishTemplate()">Publish</button>
     </div>
 </div>
-<div class="row" cdkDropListGroup>
+<div class="row g-0" cdkDropListGroup>
     <div class="col-md-3">
         <mat-accordion>
             <mat-expansion-panel *ngIf="simpleControls.length > 0" [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
