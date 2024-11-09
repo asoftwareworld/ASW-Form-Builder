@@ -73,7 +73,8 @@ export class AswNumber implements OnInit, AfterViewInit {
     editNumberDialog(control: NumberControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswNumberDialog, {
             disableClose: true,
-            width: '744px',
+            width: '80%',
+            minWidth: '70vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

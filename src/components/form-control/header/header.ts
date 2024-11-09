@@ -57,7 +57,7 @@ export class AswHeader {
     editHeaderDialog(control: HeaderControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswHeaderDialog, {
             disableClose: true,
-            width: '744px',
+            width: '50%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

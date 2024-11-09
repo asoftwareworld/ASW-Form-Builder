@@ -46,7 +46,8 @@ export class AswDrawing {
     drawingImageDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswImageDrawing, {
             disableClose: true,
-            width: '744px',
+            width: '60%',
+            minWidth: '60vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -59,7 +60,7 @@ export class AswDrawing {
     editDrawingDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswDigitalDialog, {
             disableClose: true,
-            width: '744px',
+            width: '50%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

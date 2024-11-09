@@ -58,7 +58,8 @@ export class AswDatepicker {
     editDatepickerDialog(control: DateControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswDatepickerDialog, {
             disableClose: true,
-            width: '744px',
+            width: '60%',
+            minWidth: '60vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

@@ -7,7 +7,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -34,12 +34,9 @@ import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/tex
 import { AswTextFieldModule } from '@asoftwareworld/form-builder/form-control/textfield';
 import { AswPreviewTemplate } from './preview-template';
 
-@NgModule({
-    declarations: [AswPreviewTemplate],
-    imports: [
-        CommonModule,
+@NgModule({ declarations: [AswPreviewTemplate],
+    exports: [AswPreviewTemplate], imports: [CommonModule,
         FormsModule,
-        HttpClientModule,
         ReactiveFormsModule,
         AswAutocompleteModule,
         AswButtonModule,
@@ -61,11 +58,8 @@ import { AswPreviewTemplate } from './preview-template';
         MatSnackBarModule,
         QrCodeModule,
         AswNumberModule,
-        AswCalculationModule
-    ],
-    exports: [AswPreviewTemplate],
-    providers: [
-        NotificationService
-    ]
-})
+        AswCalculationModule], providers: [
+        NotificationService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AswPreviewTemplateModule { }

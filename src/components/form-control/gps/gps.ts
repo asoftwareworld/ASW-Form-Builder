@@ -74,7 +74,7 @@ export class AswGps implements OnInit {
     editGpsDialog(control: GpsControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswGpsDialog, {
             disableClose: true,
-            width: '744px',
+            width: '60%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

@@ -55,7 +55,8 @@ export class AswSelect {
         });
         const dialogRef = this.dialog.open(AswSingleSelectDialog, {
             disableClose: true,
-            width: '744px',
+            width: '80%',
+            minWidth: '70vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

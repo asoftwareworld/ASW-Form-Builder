@@ -1,6 +1,6 @@
 {
   "name": "@asoftwareworld/form-builder",
-  "version": "5.1.1",
+  "version": "5.2.1",
   "author": "Anish Sharma",
   "license": "MIT",
   "scripts": {
@@ -11,39 +11,39 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gulp": "gulp build-assets",
-    "build-lib": "ng build form-builder && gulp build-assets"
+    "build-lib": "ng build form-builder && gulp build-assets && cd dist && npm pack"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.2.2",
-    "@angular/cdk": "~16.2.1",
-    "@angular/common": "^16.2.2",
-    "@angular/compiler": "^16.2.2",
-    "@angular/core": "^16.2.2",
-    "@angular/forms": "^16.2.2",
-    "@angular/google-maps": "^16.2.1",
-    "@angular/material": "~16.2.1",
-    "@angular/platform-browser": "^16.2.2",
-    "@angular/platform-browser-dynamic": "^16.2.2",
-    "@angular/router": "^16.2.2",
-    "@asoftwareworld/qrcode": "^2.0.1",
-    "@types/fabric": "^5.3.3",
-    "bootstrap": "^5.2.3",
+    "@angular/animations": "^18.2.11",
+    "@angular/cdk": "~18.2.12",
+    "@angular/common": "^18.2.11",
+    "@angular/compiler": "^18.2.11",
+    "@angular/core": "^18.2.11",
+    "@angular/forms": "^18.2.11",
+    "@angular/google-maps": "^18.2.12",
+    "@angular/material": "~18.2.12",
+    "@angular/platform-browser": "^18.2.11",
+    "@angular/platform-browser-dynamic": "^18.2.11",
+    "@angular/router": "^18.2.11",
+    "@asoftwareworld/qrcode": "^2.0.5",
+    "@types/fabric": "^5.3.9",
+    "bootstrap": "^5.3.3",
     "fabric": "^5.3.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-dart-sass": "^1.0.2",
     "gulp-rename": "^2.0.0",
     "gulp-uglifycss": "^1.1.0",
-    "ng-packagr": "^16.1.0",
-    "rxjs": "~7.5.0",
+    "ng-packagr": "^18.2.1",
+    "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.1"
+    "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.2.1",
-    "@angular/cli": "~16.2.1",
-    "@angular/compiler-cli": "^16.2.2",
+    "@angular-devkit/build-angular": "^18.2.11",
+    "@angular/cli": "~18.2.11",
+    "@angular/compiler-cli": "^18.2.11",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
@@ -51,6 +51,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~5.1.6"
+    "typescript": "~5.4.5"
   }
 }

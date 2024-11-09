@@ -58,7 +58,7 @@ export class AswButton {
     editButtonDialog(control: ButtonControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswButtonDialog, {
             disableClose: true,
-            width: '744px',
+            width: '50%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

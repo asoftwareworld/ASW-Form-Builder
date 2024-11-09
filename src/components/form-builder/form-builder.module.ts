@@ -9,7 +9,7 @@
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -40,14 +40,11 @@ import { AswTextareaModule } from '@asoftwareworld/form-builder/form-control/tex
 import { AswTextFieldModule } from '@asoftwareworld/form-builder/form-control/textfield';
 import { AswFormBuilder } from './form-builder';
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AswFormBuilder
     ],
-    imports: [
-        CommonModule,
+    exports: [AswFormBuilder], imports: [CommonModule,
         FormsModule,
-        HttpClientModule,
         ReactiveFormsModule,
         MatDialogModule,
         DragDropModule,
@@ -75,11 +72,8 @@ import { AswFormBuilder } from './form-builder';
         AswNumberModule,
         AswCalculationModule,
         MatExpansionModule,
-        MatCardModule
-    ],
-    exports: [AswFormBuilder],
-    providers: [
-        NotificationService
-    ]
-})
+        MatCardModule], providers: [
+        NotificationService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AswFormBuilderModule { }

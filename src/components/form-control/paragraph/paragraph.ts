@@ -52,7 +52,8 @@ export class AswParagraph {
     editParagraphDialog(control: ParagraphControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswParagraphDialog, {
             disableClose: true,
-            width: '744px',
+            width: '80%',
+            minWidth: '70vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

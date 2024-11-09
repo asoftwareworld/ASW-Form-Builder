@@ -47,7 +47,7 @@ export class AswImage {
     editImageDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswImageDialog, {
             disableClose: true,
-            width: '744px',
+            width: '50%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -60,7 +60,8 @@ export class AswImage {
     uploadImageDialog(control: any, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswImageUploadDialog, {
             disableClose: true,
-            width: '744px',
+            width: '80%',
+            minWidth: '70vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

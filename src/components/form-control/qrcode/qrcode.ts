@@ -55,6 +55,7 @@ export class AswQrCode {
         const dialogRef = this.dialog.open(AswQrCodeDialog, {
             disableClose: true,
             width: '80%',
+            minWidth: '80vw',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {
