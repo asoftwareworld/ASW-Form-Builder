@@ -32,7 +32,7 @@ export class AswFormBuilder implements OnInit, OnChanges {
     @Input() isShowPreviewButton = true;
     @Input() isShowJsonDataButton = true;
     @Input() isShowPublishButton = true;
-    @Input() allowedTypes: 'number' | 'text' | 'all' = 'text';
+    @Input() allowedTypes: 'number' | 'text' | 'all' = 'all';
 
     @Output() previewClick = new EventEmitter<any[]>();
     @Output() publishClick = new EventEmitter<any[]>();

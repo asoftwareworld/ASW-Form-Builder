@@ -54,7 +54,7 @@ export class AswSlideToggle {
     editSlideToggleDialog(control: SlideToggleControl, controlIndex: number): void {
         const dialogRef = this.dialog.open(AswSlideToggleDialog, {
             disableClose: true,
-            width: '744px',
+            width: '50%',
             data: control
         });
         dialogRef.afterClosed().subscribe(result => {

@@ -81,7 +81,8 @@ export class AswCalculation {
 
         const dialogRef = this.dialog.open(AswCalculationDialog, {
             disableClose: true,
-            width: '744px',
+            width: '80%',
+            minWidth: '70vw',
             data: { control, numberControls }
         });
         dialogRef.afterClosed().subscribe(result => {
