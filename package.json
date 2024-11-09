@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gulp": "gulp build-assets",
-    "build-lib": "ng build form-builder && gulp build-assets"
+    "build-lib": "ng build form-builder && gulp build-assets && cd dist && npm pack"
   },
   "private": true,
   "dependencies": {
