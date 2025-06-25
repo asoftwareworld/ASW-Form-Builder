@@ -224,5 +224,5 @@ Facebook: <https://www.facebook.com/asoftwaresworld>
 **Love ASW Form Builder? Give our repo a star :star: :arrow_up:.**
 
 ## Donate
-<a href="https://ko-fi.com/anishsharma"><img src="blue.svg" height="40"></a>  
+<a href="https://asoftwareworld.com/#/product/form-builder/cup-of-coffee"><img src="blue.svg" height="40"></a>  
 If this project help you reduce time to develop, you can give me a cup of coffee :)
