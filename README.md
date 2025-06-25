@@ -37,6 +37,10 @@
 
 <hr>
 
+## Donate
+<a href="https://asoftwareworld.com/#/product/form-builder/cup-of-coffee"><img src="coffee.png" height="40"></a>  
+If this project help you reduce time to develop, you can give me a cup of coffee :)
+
 # Documentation
 
 `ASW Form Builder` helps you with rapid development and designed web forms which includes several controls. The key feature of `Form Builder` is to make your content attractive and effective. We can customize our control at run time and preview the same before final submission.
@@ -224,5 +228,5 @@ Facebook: <https://www.facebook.com/asoftwaresworld>
 **Love ASW Form Builder? Give our repo a star :star: :arrow_up:.**
 
 ## Donate
-<a href="https://asoftwareworld.com/#/product/form-builder/cup-of-coffee"><img src="blue.svg" height="40"></a>  
+<a href="https://asoftwareworld.com/#/product/form-builder/cup-of-coffee"><img src="coffee.png" height="40"></a>  
 If this project help you reduce time to develop, you can give me a cup of coffee :)
