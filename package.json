@@ -29,7 +29,7 @@
     "@asoftwareworld/qrcode": "^2.0.5",
     "@types/fabric": "^5.3.9",
     "bootstrap": "^5.3.3",
-    "fabric": "^5.3.0",
+    "fabric": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-dart-sass": "^1.0.2",
